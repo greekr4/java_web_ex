@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+    @font-face {
+        font-family: 'GimpoGothicBold00';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/GimpoGothicBold00.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    * { font-family: GimpoGothicBold00;}
+    [class*='xi']{font-size: 30px;color: black;}
+    [class*='xi']:hover {color: red;}
+
+    * {margin:0; padding: 0;}
+    a {text-decoration: none; color: black;}
+    ul { list-style: none;}
+    .wrap{clear: both; width: 100%;}
+    #hd{clear: both; width: 100%; height: 100px;}
+    .hd_wrap{width: 1720px; margin: 0 auto;}
+    #content{clear: both; width: 100%;}
+    #ft{clear: both; width: 100%;}
+    .logo{display:block; width: 174px; float: left; margin-top: 27px; }
+    .logo img{display: block; width: 100%;}
+    #gnb{float: left;}
+    #tnb{float: right;}
+    #gnb > ul > li {float: left; padding-left: 50px; padding-right: 20px;
+    position: relative;  /* 부모의 기준으로 맞춰줌 */
+    left: 400px;
+    font-size: 21px;
+    }
+    #gnb > ul > li > span { display: block; line-height: 100px; cursor: pointer;}
+    #gnb ul li .sub { display: none; position: absolute; left: 40px; top: 100px;
+        height: 300px; width: 150px; z-index: 999;
+        background-color: white;    
+    }
+    #gnb ul li .sub li {line-height: 25px;}
+    #gnb ul li:hover .sub {display: block;}
+   
