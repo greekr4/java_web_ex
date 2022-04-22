@@ -26,9 +26,19 @@ String file = request.getParameter("file");
 <head>
 <meta charset="UTF-8">
 <title>받는 곳</title>
+
+<style>
+td{
+    display: block;
+    margin-left: 30px;
+    text-align: center;
+}
+
+</style>
 </head>
 <body>
 <h1>받는 곳</h1>
+<fieldset style="width: 300px">
 <table>
 <tbody>
 	<tr>
@@ -107,8 +117,8 @@ String file = request.getParameter("file");
 		<th><label>파일</label></th>
 		<td><label><%=file %></label></td>
 	</tr>
-
 </tbody>
 </table>
+</fieldset>
 </body>
 </html>
