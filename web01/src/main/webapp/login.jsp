@@ -29,7 +29,6 @@
 <li class="btn_frame">
 <input type="submit" value="login" id="submit" calss="btn">
 <input type="reset" value="reset" id="reset" calss="btn">
-
 </li>
 </ul>
 
