@@ -63,9 +63,6 @@ td{padding-right: 50px;}
 		pstmt.setString(2, upw);
 		result = pstmt.executeQuery();
 		
-				
-
-		
 		
 while(result.next()){
 	String id = result.getString("id");
