@@ -50,7 +50,7 @@ for(int j=0;j<Smenu[i].length;j++){
 </nav>
                 <p id="tnb">
                 <% 
-                String test = (String) session.getAttribute("uid");
+                String test = (String) session.getAttribute("uname");
                 if (test == null){
                 	%>
                 	<a href="login.jsp">로그인</a>
@@ -65,6 +65,8 @@ for(int j=0;j<Smenu[i].length;j++){
 
                      <a href="">사이트맵</a>
                      <a href="">오시는길</a>
+                     <a href="memberList.jsp">멤버리스트</a>
+                     <a href="memberList_mariaDB_PSTMT.jsp">마리아PSTMT</a>
                  </p>
 </div>	
 		
