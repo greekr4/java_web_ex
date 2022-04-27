@@ -326,6 +326,8 @@ TOP
 -대검찰청 사이버범죄수사단 www.spo.go.kr 02-3480-2000
 -경찰청 사이버테러대응센터 www.ctrc.go.kr 1566-0112</textarea><br>
 <input type="checkbox" name="ck2" id="ck2"> 개인정보처리방침에 동의합니다.
+<br>
+<input type="checkbox" onclick="checkall()" name="ck3" id="ck3"> 모두 동의하기
 <br><br><br>
 <button id="btn1" onclick="fnc1()">회원가입</button>&nbsp; &nbsp; &nbsp; &nbsp;
 <button id="btn1" onclick="location.href='index.jsp'">취소</button>
@@ -339,6 +341,20 @@ TOP
 		} else {
 			alert("약관에 동의하지 않으셨습니다.");
 			return false;
+		}
+	}
+	
+	function checkall(){
+		var ck1 = document.getElementById("ck1");
+		var ck2 = document.getElementById("ck2");
+		var ck3 = document.getElementById("ck3");
+		if (ck3.checked)
+		{
+		ck1.checked = true;
+		ck2.checked = true;
+		}else{
+		ck1.checked = false;
+		ck2.checked = false;
 		}
 	}
 </script>

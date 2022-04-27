@@ -95,7 +95,7 @@ a { text-decoration: none; color: #333;}
 				alert("아이디 중복확인을 해주세요.")
 				return;
 				}
-				alert("회원 가입을 진행하겠습니다.");
+				alert("회원가입을 진행하겠습니다.");
 				
 				document.join.submit();
 				
