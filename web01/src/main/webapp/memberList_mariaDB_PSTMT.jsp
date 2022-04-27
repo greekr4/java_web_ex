@@ -55,7 +55,6 @@ td{padding-right: 50px;}
 		result = stmt.executeQuery(sql); 
 		*/
 		
-		
 		// PreparedStatement 활용
 		String sql2 = "select * from member where id=? and pw=?";
 		pstmt = conn.prepareStatement(sql2);

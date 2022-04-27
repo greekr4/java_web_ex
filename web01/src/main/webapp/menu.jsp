@@ -1,20 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-String Mmenu[] = {"Company","Products","Careers","Support","테스트"};
+String Mmenu[] = {"Company","Products","Careers","Support"};
 String Smenu[][] = {
 		{"회사개요","CEO 인사말","연혁","비전","수상현황","계열사 소개","CI/BI","Contact us"},
 		{"일반조명","LED조명","산업용조명"},
 		{"인재상","인사제도","복리후생","채용안내"},
 		{"대리점 개설","고객센터","FAQ","전국 지사안내"},
-		{"테스트추가","테스트2"}
 };
 String lnk[][] = {
 		{"sub11.html","sub11.html","sub11.html","sub11.html","sub11.html","sub11.html","sub11.html","sub11.html"},
 		{"sub11.html","sub11.html","sub11.html"},
 		{"sub11.html","sub11.html","sub11.html","sub11.html"},
 		{"sub11.html","sub11.html","sub11.html","sub11.html"},	
-		{"테스트","테스트2"}
 };
 
 
@@ -54,10 +52,11 @@ for(int j=0;j<Smenu[i].length;j++){
                 if (test == null){
                 	%>
                 	<a href="login.jsp">로그인</a>
+                	<a href="agree.jsp">회원가입</a>
                 	<%
                 } else {
                 	%>
-                	 <a href=""><%=test %>님</a>
+                	 <a href="mypage.jsp"><%=test %>님</a>
                 	 <a href="logout.jsp">로그아웃</a>
                 	<%
                 }
