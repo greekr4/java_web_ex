@@ -33,7 +33,11 @@ try{
 	if(rs.next()){
 		//아이디 있음
 		
-		%><p><%=cid %>아이디가 중복됩니다.</p><%
+		%><p><%=cid %>아이디가 중복됩니다.</p>
+		<script>
+			opener.document.join.id.value = "";
+		</script>
+		<%
 	}else{
 		//아이디 없는 경우
 		%><p><%=cid %>아이디를 사용하실 수 있습니다.</p>	
