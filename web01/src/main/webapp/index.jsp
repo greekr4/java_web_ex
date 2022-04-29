@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인 페이지</title>
 <link rel="stylesheet" href="test.css">
+<title>메인 페이지</title>
 </head>
 <body>
 <div id="wrap">

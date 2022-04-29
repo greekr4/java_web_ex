@@ -13,6 +13,7 @@
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	try{
+		String idid = (String) session.getAttribute("uid");
 		Class.forName("org.mariadb.jdbc.Driver");
 		conn = DriverManager.getConnection("jdbc:mariadb://localhost:3308/company","root","1234");
 		String sql = "select * from member where id=?";
@@ -53,13 +54,18 @@
 						 <tr>
 						 	<td colspan="2">
 						 		<input type="submit" value="정보변경"/> &nbsp; &nbsp; &nbsp;&nbsp;
+						 		<input type="button" onclick="memdelte()" value="탈퇴"/> &nbsp; &nbsp; &nbsp;&nbsp;
 						 		<input type="reset" value="취소"/>
 						 	</td>
 						 </tr>
-										
 					</tbody>
 				</table>
 			</form>
+			<script>
+			function memdelte(){
+			window.open("secession.jsp","","");
+			}
+			</script>
 			<%
 			
 		}

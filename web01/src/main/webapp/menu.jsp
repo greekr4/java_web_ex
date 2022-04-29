@@ -48,24 +48,24 @@ for(int j=0;j<Smenu[i].length;j++){
 </nav>
                 <p id="tnb">
                 <% 
-                String test = (String) session.getAttribute("uname");
-                if (test == null){
+                String sname = (String) session.getAttribute("uname");
+                String sid = (String) session.getAttribute("uid");
+                if (sid == null){
                 	%>
                 	<a href="login.jsp">로그인</a>
-                	<a href="agree.jsp">회원가입</a>
+                	<a href="agree.jsp" style="color:red">회원가입</a>
                 	<%
                 } else {
                 	%>
-                	 <a href="mypage.jsp"><%=test %>님</a>
-                	 <a href="logout.jsp">로그아웃</a>
-                	<%
-                }
-                	%>
-
-                     <a href="">사이트맵</a>
-                     <a href="">오시는길</a>
+                	 <a href="mypage.jsp"><%=sname %>님</a>
+                	 <a href="logout.jsp"style="color:red">로그아웃</a>
+                	 <a href="board1.jsp"style="color:green">게시판</a>	
+					<%if (sid.equals("admin")) {%>
                      <a href="memberList.jsp">멤버리스트</a>
-                     <a href="memberList_mariaDB_PSTMT.jsp">마리아PSTMT</a>
+                     
+             		<%
+					}}
+                	%>
                  </p>
 </div>	
 		
