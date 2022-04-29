@@ -20,10 +20,10 @@ request.setCharacterEncoding("UTF-8");
 int bno = Integer.parseInt(request.getParameter("bno"));
 %>
 <div id="content">
-<h2>글 작성</h2>
+<h2>글 수정</h2>
 <form id="frm2" name="join" action="boardUpdatePro.jsp" method="post" onsubmit="return lengck(this);">
 <table>
-	<tr><td>글번호</td><th><input type="text" name="bno" id="bno" value="<%=bno %>" readonly></th></tr>
+	<tr><td>글번호</td><th><input type="text" name="bno" id="bno" value="<%=bno %>" style="display:none"><%=bno %></th></tr>
 	<tr><td>제목</td><th><input type="text" name="titletxt" id="titletxt" ></th></tr>
 	<tr><td>내용</td><th><textarea name="posttxt" name="posttxt" id="posttxt" cols="30" rows="10"></textarea></th></tr>
 	<tr><td><button type="submit" class="btn btn-primary" id="submit_btn" name="submit_btn">수정하기</button></td></tr>
@@ -35,8 +35,6 @@ var leng1 = f.posttxt.value.length;
 		alert("200자 이하");
 		return false	
 	}
-	
-	
 }
 </script>
 </div>

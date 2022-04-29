@@ -31,13 +31,9 @@ var leng1 = f.posttxt.value.length;
 	if (leng1 >= 200){
 		alert("200자 이하");
 		return false	
-	}
-	
-	
+	}	
 }
 </script>
-
-
 <%} else{ %>
 <h1>관리자 계정이 아닙니다!!!!!!!!!</h1>
 <%} %>
