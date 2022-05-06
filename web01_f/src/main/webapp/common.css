@@ -9,6 +9,20 @@
     i[class*='xi']:hover { color:rgb(226, 55, 25); }
     .wrap { clear:both; width: 100%; }
  
+ 
+ 	/* 수정 여기부터 */
+ 	
+ 	.con_wrap{width: 1200px; margin: 0 auto; text-align: center; padding: 50px;}
+ 
+ 
+ 
+ 
+ 
+	/* 여기까지 */
+	
+	
+	
+	
     /* 헤더 */
     #hd { clear:both; width: 100%;}
     .hd_wrap { clear:both; width: 1500px; margin: 0 auto; }

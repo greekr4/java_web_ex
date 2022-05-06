@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -60,14 +62,16 @@
     text-indent: initial;
     border-spacing: 2px;
     border-color: grey;
-}   body, textarea, input, select {
+}   
+
+	/* body, textarea, input, select {
     color: #000;
     font-size: 14px;
     line-height: 160%;
     font-family: "Segoe UI", Tahoma, Arial, "Malgun Gothic", "Apple Gothic",sans-serif;
     font-weight: normal;
     -webkit-text-size-adjust: none;
-}   colgroup {
+}*/   colgroup {
     display: table-column-group;
 }   tbody {
     display: table-row-group;
@@ -119,63 +123,7 @@
 <body>
     <div class="wrap">
         <header id="hd">
-            <div class="hd_wrap">
-                <a href="index.html" class="logo">
-                    <img src="./img/elogo.jpg" alt="로고">
-                </a>
-                <nav id="gnb">
-                    <ul>
-                        <li>
-                            <span>제품소개</span>
-                            <ul class="sub">
-                                <li><a href="product.html#page1">Green-cap</a></li>
-                                <li><a href="product.html#page2">Aluminum E-cap</a></li>
-                                <li><a href="product.html#page3">New Products</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <span>기술정보</span>
-                            <ul class="sub">
-                                <li><a href="technique.html#page1">Green-Cap(EDLC)</a></li>
-                                <li><a href="technique.html#page2">Hybrid Cap</a></li>
-                                <li><a href="technique.html#page3">Aluminum Cap</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <span>회사소개</span>
-                            <ul class="sub">
-                                <li><a href="company.html#page1">CEO 인사말</a></li>
-                                <li><a href="company.html#page2">회사소개</a></li>
-                                <li><a href="company.html#page3">관련사소개</a></li>
-                                <li><a href="company.html#page4">찾아오시는 길</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <span>새소식</span>
-                            <ul class="sub">
-                                <li><a href="news.html#page1">뉴스</a></li>
-                                <li><a href="news.html#page2">신제품 소개</a></li>
-                                <li><a href="news.html#page3">인증 및 특허</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <span>기술지원</span>
-                            <ul class="sub">
-                                <li><a href="support.html#page1">친환경 활동</a></li>
-                                <li><a href="support.html#page2">샘플요청</a></li>
-                                <li><a href="support.html#page3">국내대리점</a></li>
-                                <li><a href="support.html#page4">S-PRM 시스템</a></li>
-                                <li><a href="support.html#page5">문의</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-                <p id="tnb">
-                    <a href="index.html">홈</a>
-                    <a href="">사이트맵</a>
-                    <a href="">제품검색</a>
-                </p>
-            </div>
+		<%@ include file="nav.jsp" %>
         </header>
         <div id="content1">
             <div class="content_wrap">
@@ -252,9 +200,9 @@
                                 <li class="item2">기술정보</li>
                                 <li class="item3">
                                     <select name="sel" id="sel"  class="sel">
-                                        <option value="product.html#page1">Green-Cap(EDLC)</option>
-                                        <option value="product.html#page2">Hybrid Cap</option>
-                                        <option value="product.html#page3">Aluminum Cap</option>
+                                        <option value="technique.jsp#page1">Green-Cap(EDLC)</option>
+                                        <option value="technique.jsp#page2">Hybrid Cap</option>
+                                        <option value="technique.jsp#page3">Aluminum Cap</option>
                                     </select>
                                 </li>
                             </ul>
@@ -316,9 +264,9 @@
                                 <li class="item2">기술정보</li>
                                 <li class="item3">
                                     <select name="sel" id="sel"  class="sel">
-                                        <option value="product.html#page2">Hybrid Cap</option>
-                                        <option value="product.html#page1">Green-Cap(EDLC)</option>
-                                        <option value="product.html#page3">Aluminum Cap</option>
+                                        <option value="technique.jsp#page2">Hybrid Cap</option>
+                                        <option value="technique.jsp#page1">Green-Cap(EDLC)</option>
+                                        <option value="technique.jsp#page3">Aluminum Cap</option>
                                     </select>
                                 </li>
                             </ul>
@@ -378,9 +326,9 @@
                                 <li class="item2">기술정보</li>
                                 <li class="item3">
                                     <select name="sel" id="sel"  class="sel">
-                                        <option value="product.html#page3">Aluminum Cap</option>
-                                        <option value="product.html#page1">Green-Cap(EDLC)</option>
-                                        <option value="product.html#page2">Aluminum Cap</option>
+                                        <option value="technique.jsp#page3">Aluminum Cap</option>
+                                        <option value="technique.jsp#page1">Green-Cap(EDLC)</option>
+                                        <option value="technique.jsp#page2">Aluminum Cap</option>
                                     </select>
                                 </li>
                             </ul>
@@ -397,31 +345,8 @@
                 </script>
         </div>
         <footer id="ft">
-            <div class="ft_wrap">
-                 <nav class="fnb">
-                      <a href="">사이트맵</a>
-                      <a href="">Contact US</a>
-                      <a href="">회원약관</a>
-                      <a href="">개인정보처리방침</a>
-                      <a href="">보안신고센터</a>
-                      <a href="">협력사</a>
-                  </nav>
-             <nav class="snb">
-               <ul>
-                    <li class="sns1">
-                        <a href="" title="페이스북"><i class="xi-facebook"></i></a>
-                   </li>
-                 <li class="sns2">
-                      <a href="" title="유튜브"><i class="xi-youtube-play"></i></a>
-                          </li>
-                              <li class="sns3">
-                                <a href="" title="네이버 포스트"><i class="xi-naver"></i></a>
-                            </li>
-               </ul>
-                  </nav>
-                <p class="copyright">삼화전기주식회사<br>주소 : 28589 충청북도 청주시 흥덕구 봉명로 3 (복대동) Tel 043-261-0200 / Fax 043-263-8334<br><br>Copyright © samwha Capacitor Group. All Rights Reserved </p>
-                   </div>
-         </footer>
+            <%@ include file="ft.jsp" %>
+        </footer>
      </div>
  </body>
 </html>
