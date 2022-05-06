@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/elogo.jpg">
+    <link rel="apple-touch-icon" href="./img/elogo.jpg">
+    <!-- 검색(메타) 정보 -->
+    <meta name="url" content="https://www.samwha.co.kr/electric/">
+    <meta name="title" content="삼화전기">
+    <meta name="description" content="삼화전기의 제품소개,기술정보,새소식,기술지원">
+    <meta name="keywords" content="삼화전기,Green-Cap(EDLC),Hybrid Cap">
+    <!-- 오픈 그래프 -->
+    <meta property="og:url" content="https://www.samwha.co.kr/electric/">
+    <meta property="og:title" content="삼화전기">
+    <meta property="og:description" content="삼화전기의 제품소개,기술정보,새소식,기술지원">
+    <meta property="og:image" content="./img/logo-square-letter.png">
+    <title>삼화전기</title>
+    <!-- 기본 플러그인 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- 웹 폰트/폰트 모듈 연결 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <style>
+    @font-face {
+        font-family: 'scB';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/SuncheonB.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    } 
+    @font-face {
+        font-family: 'ROKAF';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSlabSerifBold.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }   
+    </style>
+    <!-- 웹 아이콘 연결 -->
+    <!-- XEIcon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!-- 스타일 초기화 모듈 연결 -->
+    <!-- <link rel="stylesheet" href="./css/reset.css"> -->
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="sub_sup_common.css">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+}
+    .comtb { text-indent: initial; border-spacing: 2px; border-collapse: collapse; float: left;}
+    .comtb tbody { display: table-row-group; vertical-align: middle; border-color: inherit;}
+    .comtb th { border-right: 1px solid #ccc;
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+    height: 50px;
+    text-align: center;
+    background: #fafafa;
+    font-weight: bold;
+    color: #000; text-align: center; width: 750px; height: 50px; }
+    .comtb td {     border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 15px 0 15px 0px;
+    line-height: 20px;
+    text-align: center; font-size: 15px;}
+    .tit_box1 { margin-top: 100px; text-align: center; }
+    .last { padding: 10px 0}
+
+    #contentsArea1 {
+    position: relative;
+    width: 1200px;
+    margin: 30px 350px 50px 350px;
+    padding-bottom: 100px;
+    min-height: 700px;
+}
+#contentsArea > .content {
+    padding-top: 50px;
+    overflow: hidden;
+}
+.samglotb {
+    width: 100%;
+    border-top: 2px solid #000;
+    margin-top: 20px;
+    font-size: 13px;
+}
+colgroup {
+    display: table-column-group;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+    
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.samglotb th {
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0 15px 0;
+    text-align: center;
+    background: #fafafa;
+    font-weight: bold;
+    color: #000;
+}
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+}
+.samglotb td {
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0 15px 15px;
+    line-height: 20px;
+    text-align: left;
+}
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+.m_t_20 {
+    margin-top: 20px;
+}
+.center_t {
+    text-align: center !important;
+}
+.orange {
+    color: #f60;
+}
+.pcNone {
+    display: none;
+}
+.samglotb2 {
+    width: 100%;
+    border-top: 2px solid #000;
+    margin-top: 20px;
+    font-size: 13px;
+}
+.samglotb2 th {
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0 15px 0;
+    text-align: center;
+    background: #fafafa;
+    font-weight: bold;
+    color: #000;
+}
+.samglotb2 td {
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #ccc;
+    padding: 15px;
+    line-height: 20px;
+    text-align: center;
+}
+.sam_tit_02 {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 20px;
+    background: url(../../images/samwha/tit_icon.jpg) no-repeat left 8px;
+    padding-left: 20px;
+    letter-spacing: -1px;
+    text-align: center; font-size: 30px; line-height: 2.4;
+ padding-top: 1em; padding-bottom: 0.25em;
+}
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.p_t_20 {
+    padding-top: 20px !important;
+    text-align: center; font-size: 15px; line-height: 2.4;
+ padding-top: 1em; padding-bottom: 0.25em;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+.comtb {
+    width: 100%;
+    border-top: 2px solid #000;
+    margin-top: 20px;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.sam_tit_01 {
+    font-size: 26px;
+    font-weight: normal;
+    line-height: 30px;
+    background: url(../../images/samwha/tit_icon.jpg) no-repeat left 13px;
+    padding-left: 25px;
+    letter-spacing: -1px;
+}
+.m_t_50 {
+    margin-top: 50px !important;
+}
+.sub_tit{    text-align: center; font-size: 30px; line-height: 2.4;
+ padding-top: 1em; padding-bottom: 0.25em; }
+
+ .strong { text-align: center; font-size: 15px; line-height: 2.4; padding-top: 1em; padding-bottom: 0.25em;}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header id="hd">
+            <div class="hd_wrap">
+                <a href="index.html" class="logo">
+                    <img src="./img/elogo.jpg" alt="로고">
+                </a>
+                <nav id="gnb">
+                    <ul>
+                        <li>
+                            <span>제품소개</span>
+                            <ul class="sub">
+                                <li><a href="product.html#page1">Green-cap</a></li>
+                                <li><a href="product.html#page2">Aluminum E-cap</a></li>
+                                <li><a href="product.html#page3">New Products</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>기술정보</span>
+                            <ul class="sub">
+                                <li><a href="technique.html#page1">Green-Cap(EDLC)</a></li>
+                                <li><a href="technique.html#page2">Hybrid Cap</a></li>
+                                <li><a href="technique.html#page3">Aluminum Cap</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>회사소개</span>
+                            <ul class="sub">
+                                <li><a href="company.html#page1">CEO 인사말</a></li>
+                                <li><a href="company.html#page2">회사소개</a></li>
+                                <li><a href="company.html#page3">관련사소개</a></li>
+                                <li><a href="company.html#page4">찾아오시는 길</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>새소식</span>
+                            <ul class="sub">
+                                <li><a href="news.html#page1">뉴스</a></li>
+                                <li><a href="news.html#page2">신제품 소개</a></li>
+                                <li><a href="news.html#page3">채용FAQ</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>기술지원</span>
+                            <ul class="sub">
+                                <li><a href="support.html#page1">친환경 활동</a></li>
+                                <li><a href="support.html#page2">샘플요청</a></li>
+                                <li><a href="support.html#page3">국내대리점</a></li>
+                                <li><a href="support.html#page4">S-PRM 시스템</a></li>
+                                <li><a href="support.html#page5">문의</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <p id="tnb">
+                    <a href="index.html">홈</a>
+                    <a href="">사이트맵</a>
+                    <a href="">제품검색</a>
+                </p>
+            </div>
+        </header>
+        <div id="content">
+            <div class="content_wrap">
+                <section class="page" id="page1">
+                    <figure class="sub_ban">
+                        <img src="./img/subBg_05.jpg" alt="친환경 활동">
+                        <div class="tit_box3">
+                            <h2 class="sub_tit">친환경 활동</h2>
+                            <div class="content">
+                                <h1 class="sam_tit_02">Background of Environment friendly Products</h1>
+                                <p class="p_t_20">
+                                Eu declared RoHS law to restrict the using of six hazardous substances. (February, 2003) <br>
+                                July 1, 2011 Announces recast RoHS Directive (2011/65 / EU) that restructured the existing RoHS Directive (2002/95 / EC). 
+                                </p>
+                                <table class="comtb">
+                                    <colgroup><col width="20%">
+                                    <col width="40%">
+                                    <col width="*">
+                                    </colgroup><tbody><tr>
+                                        <th>Low</th>
+                                        <th>Contents</th>
+                                        <th class="last">Enforcement Data</th>
+                                    </tr>
+                                    <tr>
+                                        <td>RoHs</td>
+                                        <td>Pb, Cd, Hg, Cr+6, PBBs, PBDEs<br>
+                                        </td><td class="last">July 1, 2006(2002/95/EC)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>RoHS Ⅱ</td>
+                                        <td>Pb, Cd, Hg, Cr+6, PBBs, PBDEs, DEHP, BBP, DBP, DIBP</td>
+                                        <td class="last">January 3, 2013(2011/65/EU)</td>
+                                    </tr>
+                                </tbody></table>				
+                        </div>
+                    </figure>
+                    <div class="bread_box">
+                        <div class="bread_wrap">
+                            <ul class="bread">
+                                <li class="item1">
+                                    <a href="index" class="home">HOME</a>
+                                </li>
+                                <li class="item2">기술지원</li>
+                                <li class="item3">
+                                    <select name="sel" id="sel" class="sel">
+                                        <option value="support.html#page1">친환경 활동</option>
+                                        <option value="support.html#page2">샘플요청</option>
+                                        <option value="support.html#page3">국내대리점</option>
+                                        <option value="support.html#page4">S-PRM 시스템</option>
+                                        <option value="support.html#page5">문의</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page_con">
+                    </div>
+                </section>
+                <section class="page" id="page2">
+                    <figure class="sub_ban">
+                        <img src="./img/subBg_05.jpg" alt="샘플요청">
+                        <div class="tit_box3">
+                            <h2 class="sub_tit">샘플요청</h2>
+                            <table class="samglotb mo_100">
+                                <tbody>
+                                    <tr>
+                                        <th>제품명</th>
+                                        <td colspan="3" class="last">
+                                            <input type="text" id="prod_name" name="prod_name" class="input_2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>수량</th>
+                                        <td colspan="3" class="last">
+                                            <input type="text" id="qty" name="qty" class="input_1">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>적용용도</th>
+                                        <td>
+                                            <input type="text" class="input_1" id="info1" name="info1">
+                                        </td>
+                                        <th>적용set</th>
+                                        <td class="last">
+                                            <input type="text" class="input_1" id="info2" name="info2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>이름</th>
+                                        <td colspan="3" class="last">
+                                            <input type="text" class="input_2" id="name" name="name">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>회사명</th>
+                                        <td>
+                                            <input type="text" class="input_1" id="company" name="company">
+                                        </td>
+                                        <th>부서</th>
+                                        <td class="last">
+                                            <input type="text" class="input_1" id="part" name="part">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>E-mail</th>
+                                        <td>
+                                            <input type="text" class="input_1" id="email" name="email">
+                                        </td>
+                                        <th>전화번호</th>
+                                        <td class="last">
+                                            <input type="text" class="input_1" id="phone" name="phone">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>우편번호</th>
+                                        <td colspan="3" class="last">
+                                            <input type="text" class="input_2" id="zipcd" name="zipcd">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>주소</th>
+                                        <td colspan="3" class="last">
+                                            <input type="text" name="input_3" id="adress" name="adress">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>내용</th>
+                                        <td colspan="3" class="last">
+                                            <textarea name="textarea_1" id="content" name="content"></textarea>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="btnArea">
+                                <a href="#" class="btn_01 round_2" id="btn_save">등록</a>
+                            </div>
+                        </div>
+                        <script>
+                            
+		$(document).ready(function(){
+			  $("#btn_save").bind("click", function(e) {
+				js_save();
+			  });
+		  });
+	
+		  function js_save() {
+			if ($("#prod_name").val().trim() == "")
+			{
+				alert("제품명을 입력해주세요.");
+				$("#prod_name").focus();
+				return;
+			}	
+			if ($("#qty").val().trim() == "")
+			{
+				alert("수량을 입력해주세요.");
+				$("#qty").focus();
+				return;
+			}				  
+			if ($("#name").val().trim() == "")
+			{
+				alert("이름을 입력해주세요.");
+				$("#name").focus();
+				return;
+			}
+			if ($("#email").val().trim() == "")
+			{
+				alert("이메일을 입력해주세요.");
+				$("#email").focus();
+				return;
+			}		
+			if ($("#content").val().trim() == "")
+			{
+				alert("내용을 입력해주세요.");
+				$("#contents").focus();
+				return;
+			}
+			if(confirm("작성하신 내용으로 등록 하시겠습니까?")) {
+	
+
+				var form = $('#frm')[0];
+				var data = new FormData(form);
+	
+				$("#btn_save").prop("disabled", true);
+	
+				$.ajax({
+					url: "../samwha/_sample.asp",
+					type: "POST",
+					data: data,
+					processData: false,
+					contentType: false,
+					cache: false,
+					timeout: 600000,
+					success: function (data) {
+						if (data.result == true || data.result == "true") {    
+							alert("등록되었습니다.");
+							location.reload();
+						} else {
+							alert(data.message);
+						}                        
+					},
+					error: function(request,status,error){
+						console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+						$("#btn_save").prop("disabled", false);
+						alert("오류가 발생했습니다.");
+					}
+				});
+
+			}
+		}	  
+		
+                        </script>
+                    </figure>
+                    <div class="bread_box">
+                        <div class="bread_wrap">
+                            <ul class="bread">
+                                <li class="item1">
+                                    <a href="index" class="home">HOME</a>
+                                </li>
+                                <li class="item2">기술지원</li>
+                                <li class="item3">
+                                    <select name="sel" id="sel" class="sel">
+                                        <option value="support.html#page2">샘플요청</option>
+                                        <option value="support.html#page1">친환경 활동</option>
+                                        <option value="support.html#page3">국내대리점</option>
+                                        <option value="support.html#page4">S-PRM 시스템</option>
+                                        <option value="support.html#page5">문의</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="page" id="page3">
+                    <figure class="sub_ban">
+                        <img src="./img/subBg_05.jpg" alt="국내대리점">
+                        <div id="contentsArea1">
+                            <h2 class="sub_tit">국내대리점</h2>
+                            <div class="content">
+                            <table class="samglotb mo_100">
+                                <colgroup><col width="17%">
+                                    <col width="12%">
+                                    <col width="*">
+                                        </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th rowspan="4">삼화전자부품판매㈜</th>
+                                        <td>대표자</td>
+                                        <td class="last">이용상</td>
+                                    </tr>
+                                    <tr>
+                                        <td>주소</td>
+                                        <td class="last">서울특별시 구로구 디지털로 31길 38/21 (구로동) 이엔씨벤처드림타워 3차 805호</td>
+                                    </tr>
+                                    <tr>
+                                        <td>전화/팩스</td>
+                                        <td class="last">T.02-6330-8800~3 / F.02-6330-8808</td>
+                                    </tr>
+                                    <tr>
+                                        <td>E-mail</td>
+                                        <td class="last"><a href="mailto:ksi0503@hanmail.net">ksi0503@hanmail.net</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="4">(주)원자무선</th>
+                                        <td>대표자</td>
+                                        <td class="last">유영석</td>
+                                    </tr>
+                                    <tr>
+                                        <td>주소</td>
+                                        <td class="last">서울특별시 종로구 종로22길 19 (장사동)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>전화/팩스</td>
+                                        <td class="last">T.02-2271-2181 / F.02-2271-1126</td>
+                                    </tr>
+                                    <tr>
+                                        <td>E-mail</td>
+                                        <td class="last"><a href="mailto:terious@ewonja.com">terious@ewonja.com</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="4">이호전자</th>
+                                        <td>대표자</td>
+                                        <td class="last">배창호</td>
+                                    </tr>
+                                    <tr>
+                                        <td>주소</td>
+                                        <td class="last">대구광역시 서구 달구벌대로 1883-8 (내당동)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>전화/팩스</td>
+                                        <td class="last">T.053-521-7117 / F.053-642-5312</td>
+                                    </tr>
+                                    <tr>
+                                        <td>E-mail</td>
+                                        <td class="last"><a href="mailto:bae414@naver.com">bae414@naver.com</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="4">엔아이전자</th>
+                                        <td>대표자</td>
+                                        <td class="last">이대홍</td>
+                                    </tr>
+                                    <tr>
+                                        <td>주소</td>
+                                        <td class="last">경시도 수원시 권선구 산업로156번길 142-1, A동 825호<br>
+                                            (고색동, 수원벤처밸리2)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>전화/팩스</td>
+                                        <td class="last"> T. 031-202-7151 /  F. 031-548-2474</td>
+                                    </tr>
+                                    <tr>
+                                        <td>E-mail</td>
+                                        <td class="last"><a href="mailto:dhong311@naver.com">dhong311@naver.comr</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="4">삼화부품총판매(주)</th>
+                                        <td>대표자</td>
+                                        <td class="last">이용진</td>
+                                    </tr>
+                                    <tr>
+                                        <td>주소</td>
+                                        <td class="last">서울특별시 구로구 경인로 53길 15 (구로동) 중앙유통단지 마 3227호</td>
+                                    </tr>
+                                    <tr>
+                                        <td>전화/팩스</td>
+                                        <td class="last">T.02-6679-5885 / F.02-6679-5775</td>
+                                    </tr>
+                                    <tr>
+                                        <td>E-mail</td>
+                                        <td class="last"><a href="mailto:samwha3@samwha.cc">samwha3@samwha.cc</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="4">삼화무선</th>
+                                        <td>대표자</td>
+                                        <td class="last">이용진</td>
+                                    </tr>
+                                    <tr>
+                                        <td>주소</td>
+                                        <td class="last">서울특별시 광진구 능동로 22길 16 (군자동)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>전화/팩스</td>
+                                        <td class="last">T.02-465-9922 / H.010-3725-4466</td>
+                                    </tr>
+                                    <tr>
+                                        <td>E-mail</td>
+                                        <td class="last"><a href="mailto:samwha3@samwha.cc">samwha3@samwha.cc</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="4">성현테크</th>
+                                        <td>대표자</td>
+                                        <td class="last">정현권</td>
+                                    </tr>
+                                    <tr>
+                                        <td>주소</td>
+                                        <td class="last">충청북도 청주시 흥덕구 풍년로 206번길 24-2 (가경동)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>전화/팩스</td>
+                                        <td class="last">T.043-236-3611 / F.043-236-3613</td>
+                                    </tr>
+                                    <tr>
+                                        <td>E-mail</td>
+                                        <td class="last"><a href="mailto:hkj22@daum.net">hkj22@daum.net</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="4">영덕전자(주)</th>
+                                        <td>대표자</td>
+                                        <td class="last">김동호</td>
+                                    </tr>
+                                    <tr>
+                                        <td>주소</td>
+                                        <td class="last">서울특별시 금천구 서부샛길 632 (가산동) 대륭테크노타운 5차 705호</td>
+                                    </tr>
+                                    <tr>
+                                        <td>전화/팩스</td>
+                                        <td class="last">T.02-2107-7860 / F.02-2107-7869</td>
+                                    </tr>
+                                    <tr>
+                                        <td>E-mail</td>
+                                        <td class="last"><a href="mailto:gul6141@naver.com">gul6141@naver.com</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="4">삼화콘덴서그룹총판㈜</th>
+                                        <td>대표자</td>
+                                        <td class="last">임형배</td>
+                                    </tr>
+                                    <tr>
+                                        <td>주소</td>
+                                        <td class="last">경기도 용인시 기흥구 농서로 22번길 6 (고매동)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>전화/팩스</td>
+                                        <td class="last">T.031-285-2470 / F.031-285-2485</td>
+                                    </tr>
+                                    <tr>
+                                        <td>E-mail</td>
+                                        <td class="last"><a href="mailto:samwhagroup@hanmail.net">samwhagroup@hanmail.net</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="4">디지캡</th>
+                                        <td>대표자</td>
+                                        <td class="last">김인기</td>
+                                    </tr>
+                                    <tr>
+                                        <td>주소</td>
+                                        <td class="last">경기도 안양시 동안구 LS로 92 국제유통단지 26동 303호</td>
+                                    </tr>
+                                    <tr>
+                                        <td>전화/팩스</td>
+                                        <td class="last">T.031-479-7038 / F.031-479-7039</td>
+                                    </tr>
+                                    <tr>
+                                        <td>E-mail</td>
+                                        <td class="last"><a href="mailto:ikkim1030@hanmail.net">ikkim1030@hanmail.net</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="4">삼화인텍</th>
+                                        <td>대표자</td>
+                                        <td class="last">최광묵</td>
+                                    </tr>
+                                    <tr>
+                                        <td>주소</td>
+                                        <td class="last">경기도 안양시 동안구 LS로 92 국제유통단지 23동 307호</td>
+                                    </tr>
+                                    <tr>
+                                        <td>전화/팩스</td>
+                                        <td class="last">T.031-479-0592 / F.031-479-0593</td>
+                                    </tr>
+                                    <tr>
+                                        <td>E-mail</td>
+                                        <td class="last"><a href="mailto:kmbj4@hanmail.net">kmbj4@hanmail.net</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="4">유경테크</th>
+                                        <td>대표자</td>
+                                        <td class="last">김신택</td>
+                                    </tr>
+                                    <tr>
+                                        <td>주소</td>
+                                        <td class="last">경상북도 구미시 산호대로 50 (공단동)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>전화/팩스</td>
+                                        <td class="last">T.054-444-0833 / F.054-444-0835</td>
+                                    </tr>
+                                    <tr>
+                                        <td>E-mail</td>
+                                        <td><a href="mailto:leesak2707@yahoo.co.kr">leesak2707@yahoo.co.kr</a></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </figure>
+                    <div class="bread_box">
+                        <div class="bread_wrap">
+                            <ul class="bread">
+                                <li class="item1">
+                                    <a href="index" class="home">HOME</a>
+                                </li>
+                                <li class="item2">기술지원</li>
+                                <li class="item3">
+                                    <select name="sel" id="sel" class="sel">
+                                        <option value="support.html#page3">국내대리점</option>
+                                        <option value="support.html#page1">친환경 활동</option>
+                                        <option value="support.html#page2">샘플요청</option>
+                                        <option value="support.html#page4">S-PRM 시스템</option>
+                                        <option value="support.html#page5">문의</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="page" id="page4">
+                    <figure class="sub_ban">
+                        <img src="./img/subBg_05.jpg" alt="S-PRM 시스템">
+                        <div class="tit_box3">
+                            <h1 class="conTitle" style="text-align: center;">S-PRM 시스템</h1>
+                            <div class="content">
+                                <div style="border-bottom:1px solid #ddd; padding-bottom:55px; text-align:center;">
+                                <strong style="font-size:16px;">고객사, 당사, 협력사와의 상생을 위해 협업체제를 구축하여<br> 안정적인 수주확보 및 예측 가능한 구매조달을 실현하고, 이를 통하여 글로벌 경쟁력을 확보 하기 위한 시스템</strong>
+                                </div>
+                                <p class="pcNone m_t_20 center_t orange">←좌우→로 드래그하세요!</p><div class="m_scroll">
+                                <table class="samglotb2">
+                                    <colgroup><col width="46%">
+                                    <col width="27%">
+                                    <col width="27%">
+                                    </colgroup><tbody><tr>
+                                        <th>주요기능</th>
+                                        <th>S-PRM 시스템 처음설치</th>
+                                        <th class="last">S-PRM 시스템 실행</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:left">
+                                ㆍ 견적 관리: 삼화전기로 견적요청하고 견적결과를 확인함<br>
+                                ㆍ 견본 관리: 견본요청 가능 수량만큼 견본을 요청하고 견본 응답결과를 확인함<br>
+                                ㆍ 발주 관리: 발주를 전송하고 발주 납기일 및 발주 잔량, 재고를 확인함<br>
+                                ㆍ 선적/납품 관리: 국내거래 및 해외선적 정보를 확인하고 거래명세서 및 인보이스를 출력함<br>
+                                ㆍ 가용재고: 공용재고 및 발주에 따른 생산공정 재고를 조회함<br>
+                                ㆍ 계획: 고객별 자재의 월 수주계획을 등록하여 안정적인 수급계획 확보함					
+                                        </td>
+                                        <td><img src="./img/srpm_01.jpg" alt="srpm" class="m_b_10"><br>
+                                        <a href="http://210.104.39.11:8090/agClient/setup.exe" target="blank" class="btn_08 round_1">
+                                        S-PRM 시스템 처음설치 시, 클릭</a>
+                                        </td>
+                                        <td class="last"><img src="./img/srpm_02.jpg" alt="srpm" class="m_b_10"><br>
+                                        <a href="http://210.104.39.11:8090/agClient/AgClient.application" target="blank" class="btn_08 round_1">S-PRM 시스템 설치 후, 클릭</a>
+                                        </td>
+                                    </tr>
+                                 </table>
+                                </tbody>
+                                </div>
+                            </div>
+                            </p>
+                        </div>
+                    </figure>
+                    <div class="bread_box">
+                        <div class="bread_wrap">
+                            <ul class="bread">
+                                <li class="item1">
+                                    <a href="index" class="home">HOME</a>
+                                </li>
+                                <li class="item2">기술지원</li>
+                                <li class="item3">
+                                    <select name="sel" id="sel" class="sel">
+                                        <option value="support.html#page4">S-PRM 시스템</option>
+                                        <option value="support.html#page1">친환경 활동</option>
+                                        <option value="support.html#page2">샘플요청</option>
+                                        <option value="support.html#page3">국내대리점</option>
+                                        <option value="support.html#page5">문의</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="page" id="page5">
+                    <figure class="sub_ban">
+                        <img src="./img/subBg_05.jpg" alt="문의">
+                        <div class="tit_box4">
+                            <div class="content">
+                                <div class="strong" style="border-bottom:1px solid #ddd; padding-bottom:55px; text-align:center;">
+                                <strong style="font-size:16px;" >저희 삼화전기에 대해서 보다 자세한 정보를 원하십니까?</strong><br>
+                                아래에 분야별 주소가 있습니다. 더욱 친절히 답변을 드릴 것입니다. 감사합니다.
+                                </div>
+                                <h1 class="sam_tit_01 m_t_50">연락처</h1>
+                                <table class="samglotb mo_100">
+                                    <colgroup><col width="17%">
+                                    <col width="*">
+                                    </colgroup><tbody><tr>
+                                        <th>주소</th>
+                                        <td class="last">청주 본사 및 공장: 충청북도 청주시 흥덕구 봉명로 3 (복대동 92)<br>
+                                            충주 공장: 충청북도 충주시 국원대로 524 (목행동 240-4)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>전화/팩스</th>
+                                        <td class="last">청주 본사 및 공장: T.043-261-0200 / F.043-263-8334, 043-261-0223<br>
+                                            충주 공장: T.043-853-2404 / F.043-853-2408</td>
+                                    </tr>
+                                </tbody></table>
+                    
+                                <h1 class="sam_tit_01 m_t_50">E-mail</h1>
+                                <table class="samglotb mo_100">
+                                    <colgroup><col width="17%">
+                                    <col width="20%">
+                                    <col width="*">
+                                    </colgroup><tbody><tr>
+                                        <th>제품에 대한 문의</th>
+                                        <td><a href="mailto:setech@samwha.com">setech@samwha.com</a></td>
+                                        <td class="last">T.043-261-0361~3</td>
+                                    </tr>
+                                    <tr>
+                                        <th>영업에 대한 문의</th>
+                                        <td><a href="mailto:sesale1@samwha.com">sesale1@samwha.com</a></td>
+                                        <td class="last">T.043-261-0219, 043-261-0301</td>
+                                    </tr>
+                                    <tr>
+                                        <th>품질보증 (Q.A)에 대한 문의</th>
+                                        <td><a href="mailto:seqa@samwha.com">seqa@samwha.com</a></td>
+                                        <td class="last">T.043-261-0224, 043-261-0395</td>
+                                    </tr>
+                                    <tr>
+                                        <th>샘플요청에 대한 문의</th>
+                                        <td><a href="mailto:sesale@samwha.com">sesale@samwha.com</a></td>
+                                        <td class="last">T.043-261-0266</td>
+                                    </tr>
+                                    <tr>
+                                        <th>투자 (IR)에 대한 문의</th>
+                                        <td><a href="mailto:seir@samwha.com">seir@samwha.com</a></td>
+                                        <td class="last">T.043-261-0311</td>
+                                    </tr>
+                                    <tr>
+                                        <th>채용 (인사)에 대한 문의</th>
+                                        <td><a href="mailto:serecruit@samwha.com">serecruit@samwha.com</a></td>
+                                        <td class="last">T.043-261-0234</td>
+                                    </tr>
+                                </tbody></table>
+                    
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="bread_box">
+                        <div class="bread_wrap">
+                            <ul class="bread">
+                                <li class="item1">
+                                    <a href="index" class="home">HOME</a>
+                                </li>
+                                <li class="item2">기술지원</li>
+                                <li class="item3">
+                                    <select name="sel" id="sel" class="sel">
+                                        <option value="support.html#page5">문의</option>
+                                        <option value="support.html#page1">친환경 활동</option>
+                                        <option value="support.html#page2">샘플요청</option>
+                                        <option value="support.html#page3">국내대리점</option>
+                                        <option value="support.html#page4">S-PRM 시스템</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <script>
+                $(document).ready(function(){
+                    $(".sel").change(function(){
+                        location.href = this.value;
+                    });
+                });    
+                </script>
+        </div>
+        <footer id="ft">
+            <div class="ft_wrap">
+                 <nav class="fnb">
+                      <a href="">사이트맵</a>
+                      <a href="">Contact US</a>
+                      <a href="">회원약관</a>
+                      <a href="">개인정보처리방침</a>
+                      <a href="">보안신고센터</a>
+                      <a href="">협력사</a>
+                  </nav>
+             <nav class="snb">
+               <ul>
+                    <li class="sns1">
+                        <a href="" title="페이스북"><i class="xi-facebook"></i></a>
+                   </li>
+                 <li class="sns2">
+                      <a href="" title="유튜브"><i class="xi-youtube-play"></i></a>
+                          </li>
+                              <li class="sns3">
+                                <a href="" title="네이버 포스트"><i class="xi-naver"></i></a>
+                            </li>
+               </ul>
+                  </nav>
+                <p class="copyright">삼화전기주식회사<br>주소 : 28589 충청북도 청주시 흥덕구 봉명로 3 (복대동) Tel 043-261-0200 / Fax 043-263-8334<br><br>Copyright © samwha Capacitor Group. All Rights Reserved </p>
+                   </div>
+         </footer>
+     </div>
+ </body>
+</html>
