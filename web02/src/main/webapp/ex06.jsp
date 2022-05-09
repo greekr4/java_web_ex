@@ -17,6 +17,5 @@ Student st1 = (Student) request.getAttribute("student");
 국어 : <%=st1.getKor() %> <br>
 영어 : <%=st1.getEng() %> <br>
 수학 : <%=st1.getMat() %> <br>
-
 </body>
 </html>
