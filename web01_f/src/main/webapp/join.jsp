@@ -38,6 +38,13 @@
         src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSlabSerifBold.woff') format('woff');
         font-weight: normal;
         font-style: normal;
+        }
+    .join_wrap{
+	clear: both;
+	width: 1600px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 50px;
     }   
     .indata{
 	margin-top:10px;
@@ -106,9 +113,7 @@
     .col_com { font-size:13px; padding-top: 20px; font-weight: 200;  }
     .grid_wrap li:hover a .arrow:before { width: 18px;  }
 
-	.indata{
-	
-	}
+
 
     </style>
 </head>
@@ -118,30 +123,91 @@
 		<%@ include file="nav.jsp" %>
         </header>
         <div id="content">
-        <div class="con_wrap">
-      <h2>로그인</h2>
-	<form id="frm1" name="login" action = "loginPro.jsp" method="post">
-	<ul>
-	<li><input type="text" class="indata" id="uid" name="uid" placeholder="id" required 
-            oninvalid="this.setCustomValidity('아이디를 입력해주세요.')"
-            oninput = "setCustomValidity('')"
-            autofocus="autofocus">
-            </li>
-	<li><input type="password" class="indata" id="upw" name="upw" placeholder="pw" required 
-           oninvalid="this.setCustomValidity('비밀번호를 입력해주세요.')"
-           oninput = "setCustomValidity('')">
-           </li>
-<li class="btn_frame">
-<input type="submit" value="login" id="submit" class="btn">
-<input type="reset" value="reset" id="reset" class="btn">
-</li>
-</ul>
+        <div class="join_wrap">
+        			<h2>회원가입</h2>
+			<form id="frm2" name="join" action="joinPro.jsp" method="post">
+				<ul>
+					<li><input type="text" class="indata" id="id" name="id" placeholder="아이디입력"  value="" required></li>
+					<li><button type="button" onclick="chackId()" class="btn" id="checkId" name="checkId">중복확인</button>
+						<button type="button" onclick="chackId2()" class="btn" id="chackId_reset" name="chackId_reset">다시 입력</button>
+					</li>
+					<input type="hidden" name="hidden" values="idUncheck">
+					<li><input type="password" class="indata" id="pw" name="pw" placeholder="비밀번호입력" required></li>
+					<li><input type="password" class="indata" id="pw_c" name="pw_c" placeholder="비밀번호확인" required></li>
+					<li><input type="text" class="indata" id="name2" name="name2" placeholder="이름입력" required></li>
+					<li><input type="tel" class="indata" id="phone" name="phone" placeholder="전화번호입력"></li>
+					<li><input type="text" class="indata" id="address" name="address" placeholder="주소입력"></li>
+					<li class="btn_frame">
+						<button type="button" onclick="join_btn()" class="btn" id="submit_btn" name="submit_btn">회원가입</button>
+						<input type="reset" value="취소" id="reset" class="btn">
+					</li>
+				</ul>
+			</form>
+			<script>
+			
+			function chackId2(){
+ 			document.join.id.value = "";
+			document.join.id.readOnly = false; 
+			}
+			
+			function chackId() {
+				//var id = document.getElementById("id");
+				if (id.value == "")
+				{
+				alert("아이디를 입력해주세요");
+				}else{
+				window.open("id_ck.jsp?cid="+id.value,"","width=500,height=300,top=300,left=100");
+				}
 
-</form>
-</div>
-</div>
-
-
+			}
+			
+			function join_btn(){
+				
+				if(id.value == ""){
+				alert("아이디를 입력해주세요");
+				return;
+				}
+				if(pw.value == ""){
+				alert("비밀번호를 입력해주세요");
+				return;
+				}
+				if(pw_c.value == ""){
+				alert("비밀번호확인을 입력해주세요");
+				return;
+				}
+				if(name2.value == ""){
+				alert("이름을 입력해주세요");
+				return;
+				}	
+				if(phone.value == ""){
+				alert("전화번호를 입력해주세요");
+				return;
+				}	
+				if(address.value == ""){
+				alert("주소를 입력해주세요");
+				return;
+				}					
+				if(pw.value != pw_c.value)
+				{
+				alert("비밀번호를 다시 확인해주세요");
+				return;
+				}
+				if(id.readOnly == false)
+				{
+				alert("아이디 중복확인을 해주세요.")
+				return;
+				}
+				alert("회원가입을 진행하겠습니다.");
+				
+				document.join.submit();
+				
+				
+				//window.open("id_ck.jsp?cid="+id.value,"","width=500,height=300,top=300,left=100");
+			}
+			</script>
+        </div>
+        
+		</div>
         <footer id="ft">
             <%@ include file="ft.jsp" %>
         </footer>

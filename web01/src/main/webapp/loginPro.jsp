@@ -67,7 +67,7 @@
 <body>
 <div id="wrap">
 <header id="hd">
-	<%@ include file="menu.jsp" %>
+	<%@ include file="nav.jsp" %>
 </header>
 <div id="content">
 

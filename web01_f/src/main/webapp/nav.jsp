@@ -52,12 +52,6 @@
                         </li>
                     </ul>
                 </nav>
-                <p id="tnb">
-                    <a href="index.jsp">홈</a>
-                    <a href="">사이트맵</a>
-                    <a href="">제품검색</a>
-                </p>
-            </div>
              <p id="tnb">
                 <% 
                 String sname = (String) session.getAttribute("uname");
@@ -79,3 +73,4 @@
 					}}
                 	%>
                  </p>
+            </div>

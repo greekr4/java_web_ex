@@ -39,13 +39,6 @@
         font-weight: normal;
         font-style: normal;
     }   
-    .indata{
-	margin-top:10px;
-    }   
-    .btn{
-    margin-top:10px;
-    width: 107.5px;
-    }
     </style>
     <!-- 웹 아이콘 연결 -->
     <!-- XEIcon -->
@@ -106,9 +99,7 @@
     .col_com { font-size:13px; padding-top: 20px; font-weight: 200;  }
     .grid_wrap li:hover a .arrow:before { width: 18px;  }
 
-	.indata{
-	
-	}
+
 
     </style>
 </head>
@@ -118,30 +109,9 @@
 		<%@ include file="nav.jsp" %>
         </header>
         <div id="content">
-        <div class="con_wrap">
-      <h2>로그인</h2>
-	<form id="frm1" name="login" action = "loginPro.jsp" method="post">
-	<ul>
-	<li><input type="text" class="indata" id="uid" name="uid" placeholder="id" required 
-            oninvalid="this.setCustomValidity('아이디를 입력해주세요.')"
-            oninput = "setCustomValidity('')"
-            autofocus="autofocus">
-            </li>
-	<li><input type="password" class="indata" id="upw" name="upw" placeholder="pw" required 
-           oninvalid="this.setCustomValidity('비밀번호를 입력해주세요.')"
-           oninput = "setCustomValidity('')">
-           </li>
-<li class="btn_frame">
-<input type="submit" value="login" id="submit" class="btn">
-<input type="reset" value="reset" id="reset" class="btn">
-</li>
-</ul>
-
-</form>
-</div>
-</div>
-
-
+        
+        
+		</div>
         <footer id="ft">
             <%@ include file="ft.jsp" %>
         </footer>
