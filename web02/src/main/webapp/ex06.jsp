@@ -11,7 +11,7 @@ Student st1 = (Student) request.getAttribute("student");
 <title>Insert title here</title>
 </head>
 <body>
-<h2>여기는 ex06.jsp 입니다</h2>
+<h2>여기는 ex06.jsp 입니다(주소에는 보이지 않음)</h2>
 번호 : <%=st1.getNo() %> <br>
 이름 : <%=st1.getName() %> <br>
 국어 : <%=st1.getKor() %> <br>
