@@ -34,6 +34,7 @@ public class GetTour_commentListCtrl extends HttpServlet {
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
+    /////
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;

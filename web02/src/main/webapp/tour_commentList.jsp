@@ -49,7 +49,6 @@ border-top: 1px solid #000;
 	<tr><td><%=mem2.getTour_comment_uninum() %></td><td><%=mem2.getTour_comment_bnum() %></td><td><%=mem2.getTour_comment_detail() %></td><td><%=mem2.getTour_comment_name() %></td><td><%=mem2.getTour_comment_tdate() %></td><td><%=mem2.getTour_comment_thumb() %></td></tr>
 
 	<%} %>
-	
 </table>
 </body>
 </html>

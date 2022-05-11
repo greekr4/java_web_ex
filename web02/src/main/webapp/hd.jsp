@@ -23,7 +23,7 @@
                     <li>순천여행</li>
                     <li>광양문화관광</li>
                 </ul>
-                <ul class="dd2">
+                <ul class="dd2" id="">
                     <li>물때표</li>
                     <li>홍보물신청 및 지도 다운로드</li>
                     <li>교통정보</li>
