@@ -29,5 +29,8 @@
                     <li>교통정보</li>
                     <li>로그인</li>
                     <li><a href="/web02/GetCustomerListCtrl">회원목록</a></li>
+                    <li><a href="/web02/GetTour_viewListCtrl">투어뷰목록</a></li>
+                    <li><a href="/web02/GetTour_boardListCtrl">투어보드목록</a></li>
+                    <li><a href="/web02/GetTour_commentListCtrl">투어코맨트목록</a></li>
                 </ul>
 </div>

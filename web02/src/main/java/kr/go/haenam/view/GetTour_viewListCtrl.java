@@ -14,15 +14,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.go.haenam.model.memberVO;
+import kr.go.haenam.model.tour_viewVO;
 
 
-@WebServlet("/GetCustomerListCtrl")
-public class GetCustomerListCtrl extends HttpServlet {
+@WebServlet("/GetTour_viewListCtrl")
+public class GetTour_viewListCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public GetCustomerListCtrl() {
+    public GetTour_viewListCtrl() {
         super();
 
     }
@@ -36,26 +36,26 @@ public class GetCustomerListCtrl extends HttpServlet {
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SCOTT","TIGER");
-			sql = "select * from member";
+			sql = "select * from tour_view";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			ArrayList<memberVO> memberList = new ArrayList<memberVO>();
+			ArrayList<tour_viewVO> tour_viewList = new ArrayList<tour_viewVO>();
 			while(rs.next()) {
-				memberVO mem = new memberVO();
-				mem.setMember_id(rs.getString("member_id"));
-				mem.setMember_pw(rs.getString("member_pw"));
-				mem.setMember_name(rs.getString("member_name"));
-				mem.setMember_pnum(rs.getString("member_pnum"));
-				mem.setMember_adress(rs.getString("member_adress"));
-				mem.setMember_cash(rs.getInt("member_cash"));
-				mem.setMember_point(rs.getInt("member_point"));
-				mem.setMember_grade(rs.getInt("member_grade"));
-				mem.setMember_num(rs.getInt("member_num"));
-				mem.setMember_latest(rs.getString("member_latest"));
-				memberList.add(mem);
+				tour_viewVO tour_view = new tour_viewVO();
+				tour_view.setTour_id(rs.getString("tour_id"));
+				tour_view.setTour_num(rs.getInt("tour_num"));
+				tour_view.setTour_name(rs.getString("tour_name"));
+				tour_view.setTour_detail(rs.getString("tour_detail"));
+				tour_view.setTour_address(rs.getString("tour_address"));
+				tour_view.setTour_tel(rs.getString("tour_tel"));
+				tour_view.setTour_img1(rs.getString("tour_img1"));
+				tour_view.setTour_img2(rs.getString("tour_img2"));
+				tour_view.setTour_img3(rs.getString("tour_img3"));
+				tour_view.setTour_img4(rs.getString("tour_img4"));
+				tour_viewList.add(tour_view);
 			}
-			request.setAttribute("memberList", memberList);
-			RequestDispatcher view = request.getRequestDispatcher("memberList.jsp");
+			request.setAttribute("tour_viewList", tour_viewList);
+			RequestDispatcher view = request.getRequestDispatcher("tour_viewList.jsp");
 			view.forward(request, response);
 			
 		}catch (Exception e){

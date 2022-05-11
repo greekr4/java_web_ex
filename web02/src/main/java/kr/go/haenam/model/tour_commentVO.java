@@ -2,48 +2,48 @@ package kr.go.haenam.model;
 
 public class tour_commentVO {
 	
-			private int tour_commnet_uninum;//			--댓글고유번호
-			private int tour_commnet_bnum;//			--글번호
-			private String tour_commnet_detail;//		--댓글내용
-			private String tour_commnet_name;//			--작성자
-			private String tour_commnet_tdate;//		--작성일
-			private int tour_commnet_thumb;//			--따봉
-			public int getTour_commnet_uninum() {
-				return tour_commnet_uninum;
-			}
-			public void setTour_commnet_uninum(int tour_commnet_uninum) {
-				this.tour_commnet_uninum = tour_commnet_uninum;
-			}
-			public int getTour_commnet_bnum() {
-				return tour_commnet_bnum;
-			}
-			public void setTour_commnet_bnum(int tour_commnet_bnum) {
-				this.tour_commnet_bnum = tour_commnet_bnum;
-			}
-			public String getTour_commnet_detail() {
-				return tour_commnet_detail;
-			}
-			public void setTour_commnet_detail(String tour_commnet_detail) {
-				this.tour_commnet_detail = tour_commnet_detail;
-			}
-			public String getTour_commnet_name() {
-				return tour_commnet_name;
-			}
-			public void setTour_commnet_name(String tour_commnet_name) {
-				this.tour_commnet_name = tour_commnet_name;
-			}
-			public String getTour_commnet_tdate() {
-				return tour_commnet_tdate;
-			}
-			public void setTour_commnet_tdate(String tour_commnet_tdate) {
-				this.tour_commnet_tdate = tour_commnet_tdate;
-			}
-			public int getTour_commnet_thumb() {
-				return tour_commnet_thumb;
-			}
-			public void setTour_commnet_thumb(int tour_commnet_thumb) {
-				this.tour_commnet_thumb = tour_commnet_thumb;
-			}
+	private int tour_comment_uninum;//			--댓글고유번호
+	private int tour_comment_bnum;//			--글번호
+	private String tour_comment_detail;//		--댓글내용
+	private String tour_comment_name;//			--작성자
+	private String tour_comment_tdate;//		--작성일
+	private int tour_comment_thumb;//			--따봉
+	public int getTour_comment_uninum() {
+		return tour_comment_uninum;
+	}
+	public void setTour_comment_uninum(int tour_comment_uninum) {
+		this.tour_comment_uninum = tour_comment_uninum;
+	}
+	public int getTour_comment_bnum() {
+		return tour_comment_bnum;
+	}
+	public void setTour_comment_bnum(int tour_comment_bnum) {
+		this.tour_comment_bnum = tour_comment_bnum;
+	}
+	public String getTour_comment_detail() {
+		return tour_comment_detail;
+	}
+	public void setTour_comment_detail(String tour_comment_detail) {
+		this.tour_comment_detail = tour_comment_detail;
+	}
+	public String getTour_comment_name() {
+		return tour_comment_name;
+	}
+	public void setTour_comment_name(String tour_comment_name) {
+		this.tour_comment_name = tour_comment_name;
+	}
+	public String getTour_comment_tdate() {
+		return tour_comment_tdate;
+	}
+	public void setTour_comment_tdate(String tour_comment_tdate) {
+		this.tour_comment_tdate = tour_comment_tdate;
+	}
+	public int getTour_comment_thumb() {
+		return tour_comment_thumb;
+	}
+	public void setTour_comment_thumb(int tour_comment_thumb) {
+		this.tour_comment_thumb = tour_comment_thumb;
+	}
 			
 
 }

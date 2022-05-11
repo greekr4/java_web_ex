@@ -16,16 +16,20 @@ ArrayList<memberVO> mem = (ArrayList<memberVO>) request.getAttribute("memberList
 <title>Insert title here</title>
 <style>
 #tb{
-width:1000px;
+border-collapse: collapse;
+width:1800px;
 margin: 0 auto;
 display: table;
 line-height: 35px;
 
 }
 #tb td{
-
+width : 200px;
 border-bottom: 1px solid #000;
-text-aline:center;
+}
+#tb th{
+border-bottom: 1px solid #000;
+border-top: 1px solid #000;
 }
 
 </style>
@@ -43,7 +47,7 @@ text-aline:center;
 	memberVO mem2 = new memberVO();
 	mem2 = mem.get(i);
 	%>
-	<tr><td><%=mem2.getMember_id() %></td><td><%=mem2.getMember_pw() %></td><td><%=mem2.getMember_num() %></td><td><%=mem2.getMember_pnum() %></td><td><%=mem2.getMember_adress() %></td><td><%=mem2.getMember_cash() %></td><td><%=mem2.getMember_point() %></td><td><%=mem2.getMember_grade() %></td><td><%=mem2.getMember_num() %></td><td><%=mem2.getMember_latest() %></td></tr>
+	<tr><td><%=mem2.getMember_id() %></td><td><%=mem2.getMember_pw() %></td><td><%=mem2.getMember_name() %></td><td><%=mem2.getMember_pnum() %></td><td><%=mem2.getMember_adress() %></td><td><%=mem2.getMember_cash() %></td><td><%=mem2.getMember_point() %></td><td><%=mem2.getMember_grade() %></td><td><%=mem2.getMember_num() %></td><td><%=mem2.getMember_latest() %></td></tr>
 
 	<%} %>
 </table>

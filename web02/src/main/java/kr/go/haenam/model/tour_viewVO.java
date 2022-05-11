@@ -5,7 +5,7 @@ public class tour_viewVO {
 	private int tour_num;//               --투어 번호
 	private String tour_name;//        --투어 이름
 	private String tour_detail;//      --투어 설명
-	private String tour_adress;//               --투어 주소
+	private String tour_address;//               --투어 주소
 	private String tour_tel;//                   --투어 전화번호
 	private String tour_img1;//                    --이미지1 경로
 	private String tour_img2;//                     --이미지2 경로
@@ -38,11 +38,11 @@ public class tour_viewVO {
 	public void setTour_detail(String tour_detail) {
 		this.tour_detail = tour_detail;
 	}
-	public String getTour_adress() {
-		return tour_adress;
+	public String getTour_address() {
+		return tour_address;
 	}
-	public void setTour_adress(String tour_adress) {
-		this.tour_adress = tour_adress;
+	public void setTour_address(String tour_address) {
+		this.tour_address = tour_address;
 	}
 	public String getTour_tel() {
 		return tour_tel;
