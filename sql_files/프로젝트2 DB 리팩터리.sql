@@ -95,13 +95,42 @@ tour_img4 varchar(50)                      --이미지4 경로
 
 desc tour_view;
 insert into tour_view (tour_id,tour_num,tour_name,tour_detail,tour_address,tour_tel,tour_img1,tour_img2) values
-('A110001',tour_view_seq.nextval,'금강산','해남의 금강산은 마산면의 맹진리와 화내리를 경계 짓는 만대산(萬垈山)과 옥천면과 해남읍을 경계 짓는 만대산(萬垈山)을 좌우로 거느린 산이다.'
-,'전라남도 해남군 해남읍 해리2길 50 (해촌서원)',
+('A110001',tour_view_seq.nextval,
+'금강산',
+'해남의 금강산은 마산면의 맹진리와 화내리를 경계 짓는 만대산(萬垈山)과 옥천면과 해남읍을 경계 짓는 만대산(萬垈山)을 좌우로 거느린 산이다.',
+'전라남도 해남군 해남읍 해리2길 50 (해촌서원)',
 '산림녹지과 산림보호팀: 061-530- 5427/ 관광안내: 061-532-1330',
-'./img/.png',
+'./img/A/A110001/0.png',
 '경로2'
 );
 
+insert into tour_view (tour_id,tour_num,tour_name,tour_detail,tour_address,tour_tel,tour_img1) values
+('A110002',tour_view_seq.nextval,
+'주작산',
+'주작산은 이름에서도 풍기듯이 봉황이 날개를 활짝 펴고 나는 듯 한 형상을 지닌 산이라 해서 주작산이라 이름이 붙혀졌다.',
+'전라남도 해남군 북일면 오소재로 391 (오소재 쉼터옆)',
+'산림녹지과 산림보호팀: 061-530-5427 / 관광안내: 061-532-1330/ 061-530-5915',
+'./img/A/A110002/0.png'
+);
+
+insert into tour_view (tour_id,tour_num,tour_name,tour_detail,tour_address,tour_tel,tour_img1) values
+('A110003',tour_view_seq.nextval,
+'갈두산',
+'갈두산은 해남군 최남단에 위치한 산으로 예부터 산자락에 칡이 많았다는데에서 산이름이 유래됐다.',
+'전라남도 해남군 송지면 땅끝마을길 60-28',
+'산림녹지과 산림보호팀: 061-530-5427/ 관광안내: 061-532-1330',
+'./img/A/A110003/0.png'
+);
+
+----------------------목록검색----------------
+select a.tour_id, b.ccode_res, c.dcode_res,a.tour_num,a.tour_name,a.tour_tel,a.tour_address,a.tour_img1 from tour_view a
+inner join tour_ccode b on substr(a.tour_id,1,1) = b.ccode
+inner join tour_dcode c on substr(a.tour_id,1,3) = c.dcode order by a.tour_id;
+
+
+
+
+commit;
 select * from tour_view;
 ---------------------------------------------------------------------------------------
 --공통코드
@@ -204,8 +233,10 @@ select * from tour_comment;
 
 ---------------------------투어게시판-----------------------------
 -- 게시판
+drop table tour_board;
 create table tour_board (
 tour_board_num number(38) primary key,      --게시글번호
+tour_board_pidno varchar(50) not null,           --투어_view id
 tour_board_tit varchar(100) not null,        --게시글제목
 tour_board_detail varchar(2000) not null,    --게시글내용
 tour_board_writer varchar(50) not null,     --작성자
@@ -219,10 +250,53 @@ tour_board_img4 varchar(50)                --이미지4 경로
 );
 
 desc tour_board;
-insert into tour_board (tour_board_num, tour_board_tit, tour_board_detail, tour_board_writer, tour_board_img1, tour_board_img2, tour_board_img3, tour_board_img4,tour_board_views,tour_board_thumb) values
-(TOUR_BOARD_SEQ.nextval,'황칠오리백숙','닭 요리는 전국적으로 인기지만, 해남의 닭 코스요리는 특별한 감동을 주는 해남에서만 먹을 수 있는 맛이기 때문이다.','관리자','이미지경로1','이미지경로2','이미지경로3','이미지경로4',0,0);
-insert into tour_board (tour_board_num, tour_board_tit, tour_board_detail, tour_board_writer, tour_board_img1, tour_board_img2, tour_board_img3, tour_board_img4,tour_board_views,tour_board_thumb) values
-(TOUR_BOARD_SEQ.nextval,'우수영호텔','전라남도 해남군 문내면 우수영로 16-2 편안한 숙박','관리자','이미지경로1','이미지경로2','이미지경로3','이미지경로4',0,0);
+insert into tour_board (tour_board_num,tour_board_pidno ,tour_board_tit, tour_board_detail, tour_board_writer, tour_board_img1, tour_board_img2, tour_board_img3, tour_board_img4) values
+(TOUR_BOARD_SEQ.nextval,
+'A110001',
+'금강산',
+'해남의 금강산은 마산면의 맹진리와 화내리를 경계 짓는 만대산(萬垈山)과 옥천면과 해남읍을 경계 짓는 만대산(萬垈山)을 좌우로 거느린 산이다.
+여기서 만대(萬垈)는 만개의 큰바위란 뜻이다. 큰바위를 한자로 대(垈-터대,대지)라 하고, 대를 일반적으로 작은 봉우리로 해석할 수도 있다.  결국 만대(萬垈)를 만봉(萬峰)으로 해석한다면 해남의 금강산은 만대(만봉)를 두개나 거느리는 산이니 봉우리가 이만봉 이어서 북한에 있는 금강산의 일만이천봉보다 팔천봉이나 더 많은 해남의 아름다운 명산이다.  <출처 : 한국의 산천>',
+'관리자',
+'./img/',
+'./img/',
+'./img/',
+'./img/'
+);
+
+insert into tour_board (tour_board_num,tour_board_pidno ,tour_board_tit, tour_board_detail, tour_board_writer, tour_board_img1, tour_board_img2, tour_board_img3, tour_board_img4) values
+(TOUR_BOARD_SEQ.nextval,
+'A110002',
+'주작산',
+'주작산은 이름에서도 풍기듯이 봉황이 날개를 활짝 펴고 나는 듯 한 형상을 지닌 산이라 해서 주작산이라 이름이 붙혀졌다. 주작산은 해남군 삼산면 오소재에서 북동향으로 강진 도암면 석문산 못 미쳐 봉황천까지 직선거리로 약 10km에 걸쳐 있는 산이다. 봉황의 머리 부분에 해당하는 지점이 최고봉으로 우측날개 부분은 해남 오소재로 이어지는 암릉이며 좌측날개는 작천 소령 북쪽에서 덕룡산 쪽으로 이어지는 능선이다.
+주작산에 이르는 암릉은 곳곳에 바위능선이 많고 정상에 서면 다도해가 한눈에 들어오며. 북동에서 남서방향으로 해안선과 나란히 이어져 확 트인 바다 내음을 마음껏 느낄 수 있는 산행이 된다.',
+'관리자',
+'./img/A110002/0.png',
+'./img/A110002/1.png',
+'./img/A110002/2.png',
+'./img/A110002/3.png'
+);
+
+insert into tour_board (tour_board_num,tour_board_pidno ,tour_board_tit, tour_board_detail, tour_board_writer, tour_board_img1, tour_board_img2, tour_board_img3, tour_board_img4) values
+(TOUR_BOARD_SEQ.nextval,
+'A110003',
+'갈두산',
+'갈두산은 해남군 최남단에 위치한 산으로 예부터 산자락에 칡이 많았다는데에서 산이름이 유래됐다.
+일명 사자봉으로도 불리는 갈두산의 모산은 해남군 최고봉인 두륜산(頭輪山·703m)이다.'
+
+'관리자',
+'./img/A110003/0.png',
+'./img/A110003/1.png',
+'./img/A110003/2.png',
+'./img/A110003/3.png'
+);
+commit;
+
+--업데이트
+update tour_board set tour_board_img1 = './img/A/A110001/0.png' where tour_board_num=3;
+update tour_board set tour_board_img2 = './img/A/A110001/1.png' where tour_board_num=3;
+update tour_board set tour_board_img3 = './img/A/A110001/2.png' where tour_board_num=3;
+update tour_board set tour_board_img4 = './img/A/A110001/3.png' where tour_board_num=3;
+
 select * from tour_board;
 
 select * from tour_view;

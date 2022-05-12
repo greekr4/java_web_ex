@@ -2,6 +2,8 @@ package kr.go.haenam.model;
 
 public class tour_viewVO {
 	private String tour_id;//	       --투어 코드
+	private String ccode_res;//			--
+	private String dcode_res;//			--
 	private int tour_num;//               --투어 번호
 	private String tour_name;//        --투어 이름
 	private String tour_detail;//      --투어 설명
@@ -73,6 +75,18 @@ public class tour_viewVO {
 	}
 	public void setTour_img4(String tour_img4) {
 		this.tour_img4 = tour_img4;
+	}
+	public String getCcode_res() {
+		return ccode_res;
+	}
+	public void setCcode_res(String ccode_res) {
+		this.ccode_res = ccode_res;
+	}
+	public String getDcode_res() {
+		return dcode_res;
+	}
+	public void setDcode_res(String dcode_res) {
+		this.dcode_res = dcode_res;
 	}
 	
 	

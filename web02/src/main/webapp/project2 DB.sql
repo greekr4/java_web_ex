@@ -11,7 +11,7 @@ create SEQUENCE tour_view_seq START WITH 1 INCREMENT by 1 MAXVALUE 100000 MINVAL
 drop SEQUENCE tour_board_seq;
 create SEQUENCE tour_board_seq START WITH 1 INCREMENT by 1 MAXVALUE 100000 MINVALUE 1 NOCACHE NOCYCLE;
 create SEQUENCE tour_comment_seq START WITH 1 INCREMENT by 1 MAXVALUE 100000 MINVALUE 1 NOCACHE NOCYCLE;
-
+select * from tour_board;
 -- 회원
 create table member (
 member_id varchar(20) primary key,  --아이디
@@ -274,3 +274,9 @@ select * from shop_admin;
 
 
 
+
+select a.tour_id, b.ccode_res, c.dcode_res,a.tour_num,a.tour_name,a.tour_tel,a.tour_address,a.tour_img1 from tour_view a
+inner join tour_ccode b on substr(a.tour_id,1,1) = b.ccode
+inner join tour_dcode c on substr(a.tour_id,1,3) = c.dcode order by a.tour_id;
+
+select a.tour_id, b.ccode_res, c.dcode_res,a.tour_num,a.tour_name,a.tour_tel,a.tour_address,a.tour_img1 from tour_view a inner join tour_ccode b on substr(a.tour_id,1,1) = b.ccode inner join tour_dcode c on substr(a.tour_id,1,3) = c.dcode order by a.tour_id;

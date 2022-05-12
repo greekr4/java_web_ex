@@ -12,7 +12,7 @@
         .wrap{clear: both; width: 100%;}
         .hd_top{width: 100%; height: 35px; background-color: #046fd9;}
         .hd_wrap_top{
-            width: 1300px;
+            width: 1600px;
             height: 35px;
             margin: 0 auto;
             display: block;
@@ -25,10 +25,23 @@
         .hd_wrap_top .dd li{float: left; margin: 0 20px;}
         .hd_wrap_top .dd2{
             float: right;
+            
         }
+
         .hd_wrap_top .dd2 li{
             float: left; margin: 0 20px;
         }
+        
+        
+        .dd2{
+            float: right;
+            
+        }
+        .dd2 li{
+            float: left; margin: 0 20px;
+        }
+        
+        
         .hd_wrap_top .LANGUAGES li{display: none;}
         .hd_wrap_top .LANGUAGES {margin: 0 20px;}
 

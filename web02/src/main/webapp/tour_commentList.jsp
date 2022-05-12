@@ -36,6 +36,7 @@ border-top: 1px solid #000;
 </head>
 <body>
 <h2>여기는 tour_commentList.jsp입니다.</h2>
+<button>추가</button>
 
 
 <table id="tb">
