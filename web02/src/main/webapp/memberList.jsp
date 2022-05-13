@@ -39,6 +39,7 @@ border-top: 1px solid #000;
 
 
 <table id="tb">
+	<button onclick="window.open('Send_Addmember_view','추가','width=430,height=500,location=no,status=no,scrollbars=yes');">추가</button>
 	<tr><th>아이디</th><th>비밀번호</th><th>이름</th><th>연락처</th><th>주소</th><th>보유머니</th><th>보유포인트</th><th>등급번호</th><th>회원번호</th><th>최종접속일</th></tr>
 
 
@@ -47,7 +48,7 @@ border-top: 1px solid #000;
 	memberVO mem2 = new memberVO();
 	mem2 = mem.get(i);
 	%>
-	<tr><td><a href=""	onclick="window.open('Send_EditTour_view?member_edit_num=<%=mem2.getMember_num() %>','추가','width=430,height=500,location=no,status=no,scrollbars=yes');"
+	<tr><td><a href=""	onclick="window.open('Send_EditTour_view?member_edit_num=<%=mem2.getMember_num() %>','Edit','width=430,height=500,location=no,status=no,scrollbars=yes');"
 	><%=mem2.getMember_id() %></a></td><td><%=mem2.getMember_pw() %></td><td><%=mem2.getMember_name() %></td><td><%=mem2.getMember_pnum() %></td><td><%=mem2.getMember_address() %></td><td><%=mem2.getMember_cash() %></td><td><%=mem2.getMember_point() %></td><td><%=mem2.getMember_grade() %></td><td><%=mem2.getMember_num() %></td><td><%=mem2.getMember_latest() %></td></tr>
 
 	<%} %>

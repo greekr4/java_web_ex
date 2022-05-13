@@ -12,6 +12,9 @@ drop SEQUENCE tour_board_seq;
 create SEQUENCE tour_board_seq START WITH 1 INCREMENT by 1 MAXVALUE 100000 MINVALUE 1 NOCACHE NOCYCLE;
 create SEQUENCE tour_comment_seq START WITH 1 INCREMENT by 1 MAXVALUE 100000 MINVALUE 1 NOCACHE NOCYCLE;
 
+select * from tour_view;
+select * from member where member_num = 9;
+desc member;
 
 -----------------회원테이블------------------
 
@@ -27,7 +30,7 @@ member_grade number(10) default 1 not null,   --회원계급
 member_num number(38) not null,         --회원번호
 member_latest varchar(30) default 'new'              --최근접속일
 );
-
+select * from member;
 --회원가입 인서트--
 insert into member (member_id,member_pw,member_name,member_pnum,member_adress,member_num) values
 ('admin','1234','관리자','010-0000-0000','관리자 주소',MEMBERNUM_SEQ.nextval);
