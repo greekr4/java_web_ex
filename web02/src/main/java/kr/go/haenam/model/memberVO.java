@@ -5,7 +5,7 @@ public class memberVO {
 	private String member_pw;//   			  --비번
 	private String member_name;//   		 --이름
 	private String member_pnum;//   		   --전화번호
-	private String member_adress;// 		    --주소
+	private String member_address;// 		    --주소
 	private int member_cash;//       		  --회원캐쉬
 	private int member_point;//      	      --회원포인트
 	private int member_grade;//   			--회원계급
@@ -35,11 +35,11 @@ public class memberVO {
 	public void setMember_pnum(String member_pnum) {
 		this.member_pnum = member_pnum;
 	}
-	public String getMember_adress() {
-		return member_adress;
+	public String getMember_address() {
+		return member_address;
 	}
-	public void setMember_adress(String member_adress) {
-		this.member_adress = member_adress;
+	public void setMember_address(String member_address) {
+		this.member_address = member_address;
 	}
 	public int getMember_cash() {
 		return member_cash;

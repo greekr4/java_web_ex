@@ -33,6 +33,7 @@ public class GetCustomerListCtrl extends HttpServlet {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "";
+		System.out.println("선언");
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SCOTT","TIGER");
@@ -40,13 +41,14 @@ public class GetCustomerListCtrl extends HttpServlet {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			ArrayList<memberVO> memberList = new ArrayList<memberVO>();
+			System.out.println("for문 전");
 			while(rs.next()) {
 				memberVO mem = new memberVO();
 				mem.setMember_id(rs.getString("member_id"));
 				mem.setMember_pw(rs.getString("member_pw"));
 				mem.setMember_name(rs.getString("member_name"));
 				mem.setMember_pnum(rs.getString("member_pnum"));
-				mem.setMember_adress(rs.getString("member_adress"));
+				mem.setMember_address(rs.getString("member_address"));
 				mem.setMember_cash(rs.getInt("member_cash"));
 				mem.setMember_point(rs.getInt("member_point"));
 				mem.setMember_grade(rs.getInt("member_grade"));
@@ -54,6 +56,7 @@ public class GetCustomerListCtrl extends HttpServlet {
 				mem.setMember_latest(rs.getString("member_latest"));
 				memberList.add(mem);
 			}
+			System.out.println("for문 후");
 			request.setAttribute("memberList", memberList);
 			RequestDispatcher view = request.getRequestDispatcher("memberList.jsp");
 			view.forward(request, response);

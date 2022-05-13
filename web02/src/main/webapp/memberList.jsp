@@ -47,7 +47,8 @@ border-top: 1px solid #000;
 	memberVO mem2 = new memberVO();
 	mem2 = mem.get(i);
 	%>
-	<tr><td><%=mem2.getMember_id() %></td><td><%=mem2.getMember_pw() %></td><td><%=mem2.getMember_name() %></td><td><%=mem2.getMember_pnum() %></td><td><%=mem2.getMember_adress() %></td><td><%=mem2.getMember_cash() %></td><td><%=mem2.getMember_point() %></td><td><%=mem2.getMember_grade() %></td><td><%=mem2.getMember_num() %></td><td><%=mem2.getMember_latest() %></td></tr>
+	<tr><td><a href=""	onclick="window.open('Send_EditTour_view?member_edit_num=<%=mem2.getMember_num() %>','추가','width=430,height=500,location=no,status=no,scrollbars=yes');"
+	><%=mem2.getMember_id() %></a></td><td><%=mem2.getMember_pw() %></td><td><%=mem2.getMember_name() %></td><td><%=mem2.getMember_pnum() %></td><td><%=mem2.getMember_address() %></td><td><%=mem2.getMember_cash() %></td><td><%=mem2.getMember_point() %></td><td><%=mem2.getMember_grade() %></td><td><%=mem2.getMember_num() %></td><td><%=mem2.getMember_latest() %></td></tr>
 
 	<%} %>
 </table>
