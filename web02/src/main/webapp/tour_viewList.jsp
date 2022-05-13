@@ -42,7 +42,7 @@ width:300px;
 </head>
 <body>
 <h2>여기는 tour_viewList.jsp입니다.</h2>
-<button onclick="window.open('address','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">button</button>
+<button onclick="window.open('Add_tour_view.jsp','추가','width=430,height=500,location=no,status=no,scrollbars=yes');">추가</button>
 
 <table id="tb">
 	<tr>
@@ -55,6 +55,7 @@ width:300px;
 		<th>연락처</th>
 		<th>썸네일</th>
 		<th>썸네일경로</th>
+		<th>버튼</th>
 	</tr>
 
 
@@ -73,6 +74,10 @@ width:300px;
 		<th><%=Vo.getTour_tel() %></th>	
 		<th><img src="<%=Vo.getTour_img1() %>" alt="<%=Vo.getTour_name() %>"></th>	
 		<th><%=Vo.getTour_img1() %></th>
+		<th>
+		<button onclick="window.open('Edit_tour_view.jsp','수정','width=430,height=500,location=no,status=no,scrollbars=yes');">수정</button>
+		<button onclick="window.open('DelTour_viewCtrl?tour_del_no=<%=Vo.getTour_num() %>','삭제','width=430,height=500,location=no,status=no,scrollbars=yes');">삭제</button>
+		</th>
 	</tr>
 
 	<%} %>

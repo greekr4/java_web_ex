@@ -59,11 +59,12 @@ tour_name varchar (50) not null,        --투어 이름
 tour_detail varchar (2000) not null,      --투어 설명
 tour_address varchar (200),        --투어 주소
 tour_tel varchar(200),                    --투어 전화번호
-tour_img1 varchar(50),                     --이미지1 경로
-tour_img2 varchar(50),                      --이미지2 경로
-tour_img3 varchar(50),                     --이미지3 경로
-tour_img4 varchar(50)                      --이미지4 경로
+tour_img1 varchar(200) default 'none',                     --이미지1 경로
+tour_img2 varchar(200) default 'none',                      --이미지2 경로
+tour_img3 varchar(200) default 'none',                     --이미지3 경로
+tour_img4 varchar(200) default 'none'                      --이미지4 경로
 );
+
 
 
 -- tour_id
@@ -127,11 +128,21 @@ select a.tour_id, b.ccode_res, c.dcode_res,a.tour_num,a.tour_name,a.tour_tel,a.t
 inner join tour_ccode b on substr(a.tour_id,1,1) = b.ccode
 inner join tour_dcode c on substr(a.tour_id,1,3) = c.dcode order by a.tour_id;
 
+desc tour_ccode;
+desc tour_dcode;
+desc member;
 
-
+alter table member add constraint (member_pw);
 
 commit;
+desc tour_view;
+desc tour_board;
+desc tour_comment;
+desc member;
+select * from tour_board;
 select * from tour_view;
+
+delete from tour_view where tour_num=6;
 ---------------------------------------------------------------------------------------
 --공통코드
 create table tour_ccode(
@@ -270,10 +281,10 @@ insert into tour_board (tour_board_num,tour_board_pidno ,tour_board_tit, tour_bo
 '주작산은 이름에서도 풍기듯이 봉황이 날개를 활짝 펴고 나는 듯 한 형상을 지닌 산이라 해서 주작산이라 이름이 붙혀졌다. 주작산은 해남군 삼산면 오소재에서 북동향으로 강진 도암면 석문산 못 미쳐 봉황천까지 직선거리로 약 10km에 걸쳐 있는 산이다. 봉황의 머리 부분에 해당하는 지점이 최고봉으로 우측날개 부분은 해남 오소재로 이어지는 암릉이며 좌측날개는 작천 소령 북쪽에서 덕룡산 쪽으로 이어지는 능선이다.
 주작산에 이르는 암릉은 곳곳에 바위능선이 많고 정상에 서면 다도해가 한눈에 들어오며. 북동에서 남서방향으로 해안선과 나란히 이어져 확 트인 바다 내음을 마음껏 느낄 수 있는 산행이 된다.',
 '관리자',
-'./img/A110002/0.png',
-'./img/A110002/1.png',
-'./img/A110002/2.png',
-'./img/A110002/3.png'
+'./img/A/A110002/0.png',
+'./img/A/A110002/1.png',
+'./img/A/A110002/2.png',
+'./img/A/A110002/3.png'
 );
 
 insert into tour_board (tour_board_num,tour_board_pidno ,tour_board_tit, tour_board_detail, tour_board_writer, tour_board_img1, tour_board_img2, tour_board_img3, tour_board_img4) values
@@ -281,24 +292,23 @@ insert into tour_board (tour_board_num,tour_board_pidno ,tour_board_tit, tour_bo
 'A110003',
 '갈두산',
 '갈두산은 해남군 최남단에 위치한 산으로 예부터 산자락에 칡이 많았다는데에서 산이름이 유래됐다.
-일명 사자봉으로도 불리는 갈두산의 모산은 해남군 최고봉인 두륜산(頭輪山·703m)이다.'
-
+일명 사자봉으로도 불리는 갈두산의 모산은 해남군 최고봉인 두륜산(頭輪山·703m)이다.',
 '관리자',
-'./img/A110003/0.png',
-'./img/A110003/1.png',
-'./img/A110003/2.png',
-'./img/A110003/3.png'
+'./img/A/A110003/0.png',
+'./img/A/A110003/1.png',
+'./img/A/A110003/2.png',
+'./img/A/A110003/3.png'
 );
 commit;
 
 --업데이트
-update tour_board set tour_board_img1 = './img/A/A110001/0.png' where tour_board_num=3;
-update tour_board set tour_board_img2 = './img/A/A110001/1.png' where tour_board_num=3;
-update tour_board set tour_board_img3 = './img/A/A110001/2.png' where tour_board_num=3;
-update tour_board set tour_board_img4 = './img/A/A110001/3.png' where tour_board_num=3;
+update tour_board set tour_board_img1 = './img/A/A110003/0.png' where tour_board_num=5;
+update tour_board set tour_board_img2 = './img/A/A110003/1.png' where tour_board_num=5;
+update tour_board set tour_board_img3 = './img/A/A110003/2.png' where tour_board_num=5;
+update tour_board set tour_board_img4 = './img/A/A110003/3.png' where tour_board_num=5;
 
 select * from tour_board;
-
+alter table tour_view drop column tour_detail;
 select * from tour_view;
 desc tour_view;
 desc tour_board;
