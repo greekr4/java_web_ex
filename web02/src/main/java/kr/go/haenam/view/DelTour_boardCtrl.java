@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,16 +13,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class DelTour_viewCtrl
+ * Servlet implementation class DelTour_board
  */
-@WebServlet("/DelTour_viewCtrl")
-public class DelTour_viewCtrl extends HttpServlet {
+@WebServlet("/DelTour_boardCtrl")
+public class DelTour_boardCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DelTour_viewCtrl() {
+    public DelTour_boardCtrl() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,7 +31,7 @@ public class DelTour_viewCtrl extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String tour_del_no = request.getParameter("tour_del_no");
+		String board_del_no = request.getParameter("board_del_no");
 		PrintWriter out = response.getWriter();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -41,9 +40,9 @@ public class DelTour_viewCtrl extends HttpServlet {
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SCOTT","TIGER");
-			sql = "delete from tour_view where tour_num=?";
+			sql = "delete from tour_board where tour_board_num=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, tour_del_no);
+			pstmt.setString(1, board_del_no);
 			cnt = pstmt.executeUpdate();
 			if(cnt>=1){ //성공
 				out.println("<script language='javascript'>alert('OK');</script>");

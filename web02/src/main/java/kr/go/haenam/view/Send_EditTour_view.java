@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class SendTest
  */
-@WebServlet("/Send_Editmember_view")
+@WebServlet("/Send_EditTour_view")
 public class Send_EditTour_view extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,6 +28,7 @@ public class Send_EditTour_view extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//int tour_edit_no = Integer.parseInt(request.getParameter("tour_edit_no"));
 		RequestDispatcher view = request.getRequestDispatcher("Edit_tour_view.jsp");
 		view.forward(request, response);
 	}

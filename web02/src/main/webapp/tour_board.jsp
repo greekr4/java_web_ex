@@ -6,7 +6,11 @@
 
     
 <%
+
 ArrayList<tour_boardVO> Volist = (ArrayList<tour_boardVO>) request.getAttribute("tour_board_detail");
+if (Volist.size() == 0){
+	response.sendRedirect("GetTour_boardListCtrl");
+}
 tour_boardVO Vo = Volist.get(0);
 %>   
 

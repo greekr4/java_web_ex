@@ -10,23 +10,19 @@
 <body>
 
 <%
-System.out.println("jsp 겟파라미터"+request.getParameter("member_edit_num"));
 Connection conn = null;
 PreparedStatement pstmt = null;
 ResultSet rs = null;
 String sql = "";
 int member_edit_num =  Integer.parseInt(request.getParameter("member_edit_num"));
-System.out.println("선언"+member_edit_num);
 try{
 	Class.forName("oracle.jdbc.OracleDriver");
 	conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SCOTT","TIGER");
 	sql = "select * from member where member_num = ?";
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setInt(1, member_edit_num);
-	System.out.println("확인21"+member_edit_num);
 	rs = pstmt.executeQuery();
 	while(rs.next()){
-		System.out.println("확인1231231"+member_edit_num);
 		%>
 		
 		<h2>Edit_member_view입니다.</h2>

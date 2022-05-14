@@ -2,6 +2,7 @@ package kr.go.haenam.model;
 
 public class tour_boardVO {
 	private int tour_board_num;//      --게시글번호
+	private String Tour_board_pidno;//	--pid번호
 	private String tour_board_tit;//        --게시글제목
 	private String tour_board_detail;//    --게시글내용
 	private String tour_board_writer;//     --작성자
@@ -77,6 +78,12 @@ public class tour_boardVO {
 	}
 	public void setTour_board_img4(String tour_board_img4) {
 		this.tour_board_img4 = tour_board_img4;
+	}
+	public String getTour_board_pidno() {
+		return Tour_board_pidno;
+	}
+	public void setTour_board_pidno(String Tour_board_pidno) {
+		this.Tour_board_pidno = Tour_board_pidno;
 	}
 	
 }

@@ -46,6 +46,7 @@ public class GetTour_boardListCtrl extends HttpServlet {
 			while(rs.next()) {
 				tour_boardVO tour_board = new tour_boardVO();
 				tour_board.setTour_board_num(rs.getInt("tour_board_num"));
+				tour_board.setTour_board_pidno(rs.getString("tour_board_pidno"));
 				tour_board.setTour_board_tit(rs.getString("tour_board_num"));
 				tour_board.setTour_board_detail(rs.getString("tour_board_detail"));
 				tour_board.setTour_board_writer(rs.getString("tour_board_writer"));

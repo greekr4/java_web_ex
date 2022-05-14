@@ -250,7 +250,7 @@ select * from tour_comment;
 drop table tour_board;
 create table tour_board (
 tour_board_num number(38) primary key,      --게시글번호
-tour_board_pidno varchar(50) not null,           --투어_view id
+tour_board_pidno varchar(50) not null,           --투어_view id  PK걸어야함
 tour_board_tit varchar(100) not null,        --게시글제목
 tour_board_detail varchar(2000) not null,    --게시글내용
 tour_board_writer varchar(50) not null,     --작성자
@@ -301,6 +301,19 @@ insert into tour_board (tour_board_num,tour_board_pidno ,tour_board_tit, tour_bo
 './img/A/A110003/1.png',
 './img/A/A110003/2.png',
 './img/A/A110003/3.png'
+);
+
+insert into tour_board (tour_board_num,tour_board_pidno ,tour_board_tit, tour_board_detail, tour_board_writer, tour_board_img1, tour_board_img2, tour_board_img3, tour_board_img4) values
+(TOUR_BOARD_SEQ.nextval,
+'A110004',
+'제목',
+'해남의 금강산은 마산면의 맹진리와 화내리를 경계 짓는 만대산(萬垈山)과 옥천면과 해남읍을 경계 짓는 만대산(萬垈山)을 좌우로 거느린 산이다.
+여기서 만대(萬垈)는 만개의 큰바위란 뜻이다. 큰바위를 한자로 대(垈-터대,대지)라 하고, 대를 일반적으로 작은 봉우리로 해석할 수도 있다.  결국 만대(萬垈)를 만봉(萬峰)으로 해석한다면 해남의 금강산은 만대(만봉)를 두개나 거느리는 산이니 봉우리가 이만봉 이어서 북한에 있는 금강산의 일만이천봉보다 팔천봉이나 더 많은 해남의 아름다운 명산이다.  <출처 : 한국의 산천>',
+'관리자',
+'./img/',
+'./img/',
+'./img/',
+'./img/'
 );
 commit;
 

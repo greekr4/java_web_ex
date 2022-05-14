@@ -10,26 +10,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class SendTest
+ * Servlet implementation class Send_EditTour_board
  */
-@WebServlet("/Send_Editmember_view")
-public class Send_Editmember_view extends HttpServlet {
+@WebServlet("/Send_EditTour_board")
+public class Send_EditTour_board extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Send_Editmember_view() {
+    public Send_EditTour_board() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		RequestDispatcher view = request.getRequestDispatcher("Edit_member.jsp");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//int tour_edit_no = Integer.parseInt(request.getParameter("tour_edit_no"));
+		RequestDispatcher view = request.getRequestDispatcher("Edit_tour_board.jsp");
 		view.forward(request, response);
 	}
 

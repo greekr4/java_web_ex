@@ -51,7 +51,7 @@ public class GetboardMoreCtrl extends HttpServlet {
 			while(rs.next()) {
 				tour_boardVO tour_board = new tour_boardVO();
 				tour_board.setTour_board_num(rs.getInt("tour_board_num"));
-				tour_board.setTour_board_tit(rs.getString("tour_board_num"));
+				tour_board.setTour_board_tit(rs.getString("tour_board_tit"));
 				tour_board.setTour_board_detail(rs.getString("tour_board_detail"));
 				tour_board.setTour_board_writer(rs.getString("tour_board_writer"));
 				tour_board.setTour_board_cdate(rs.getString("tour_board_cdate"));
@@ -63,9 +63,11 @@ public class GetboardMoreCtrl extends HttpServlet {
 				tour_board.setTour_board_img4(rs.getString("tour_board_img4"));
 				tour_board_detail.add(tour_board);
 			}
+			
 			request.setAttribute("tour_board_detail", tour_board_detail);
 			RequestDispatcher view = request.getRequestDispatcher("tour_board.jsp");
 			view.forward(request, response);
+			
 			
 		}catch (Exception e){
 			e.printStackTrace();

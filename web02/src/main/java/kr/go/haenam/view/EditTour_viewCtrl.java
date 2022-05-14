@@ -5,17 +5,15 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
+
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.go.haenam.model.tour_viewVO;
 
 /**
  * Servlet implementation class Edit_Tour_viewCtrl
@@ -45,14 +43,7 @@ public class EditTour_viewCtrl extends HttpServlet {
 		String tour_edit_img2 = request.getParameter("tour_edit_img2");
 		String tour_edit_img3 = request.getParameter("tour_edit_img3");
 		String tour_edit_img4 = request.getParameter("tour_edit_img4");
-		System.out.println(tour_edit_num);
-		System.out.println(tour_edit_id);
-		System.out.println(tour_edit_name);
-		System.out.println(tour_edit_address);
-		System.out.println(tour_edit_img1);
-		System.out.println(tour_edit_img2);
-		System.out.println(tour_edit_img3);
-		System.out.println(tour_edit_img4);
+
 		PrintWriter out = response.getWriter();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
