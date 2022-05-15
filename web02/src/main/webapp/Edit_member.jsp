@@ -22,8 +22,10 @@ try{
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setInt(1, member_edit_num);
 	rs = pstmt.executeQuery();
+	//rs
 	while(rs.next()){
 		%>
+		
 		
 		<h2>Edit_member_view입니다.</h2>
 	    <form action="" method="post">
