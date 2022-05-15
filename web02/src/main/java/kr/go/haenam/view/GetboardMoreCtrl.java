@@ -62,8 +62,12 @@ public class GetboardMoreCtrl extends HttpServlet {
 				tour_board.setTour_board_img3(rs.getString("tour_board_img3"));
 				tour_board.setTour_board_img4(rs.getString("tour_board_img4"));
 				tour_board_detail.add(tour_board);
+				
+				
+
 			}
 			
+
 			request.setAttribute("tour_board_detail", tour_board_detail);
 			RequestDispatcher view = request.getRequestDispatcher("tour_board.jsp");
 			view.forward(request, response);

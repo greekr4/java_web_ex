@@ -35,6 +35,13 @@ border-top: 1px solid #000;
 </style>
 </head>
 <body>
+div class="container">
+<header id="hd">
+<%@ include file="hd.jsp" %>
+</header>
+
+
+
 <h2>여기는 memberList.jsp입니다.</h2>
 
 
@@ -53,5 +60,8 @@ border-top: 1px solid #000;
 
 	<%} %>
 </table>
+<footer id="ft">
+<%@ include file="ft.jsp" %>
+</footer>
 </body>
 </html>
