@@ -12,6 +12,7 @@ ArrayList<tour_viewVO> Volist = (ArrayList<tour_viewVO>) request.getAttribute("t
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="common.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
@@ -41,6 +42,10 @@ width:300px;
 </style>
 </head>
 <body>
+<div class="container">
+<header id="hd">
+<%@ include file="hd.jsp" %>
+</header>
 <h2>여기는 tour_viewList.jsp입니다.</h2>
 <button onclick="window.open('Add_tour_view.jsp','추가','width=430,height=500,location=no,status=no,scrollbars=yes');">추가(jsp)</button>
 <button onclick="window.open('Send_AddTour_view','추가','width=430,height=500,location=no,status=no,scrollbars=yes');">추가2(서블릿)</button>
@@ -82,6 +87,9 @@ width:300px;
 
 	<%} %>
 </table>
-
+<footer id="ft">
+<%@ include file="ft.jsp" %>
+</footer>
+</div>
 </body>
 </html>

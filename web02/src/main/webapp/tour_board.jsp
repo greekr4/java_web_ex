@@ -17,6 +17,7 @@ tour_boardVO Vo = Volist.get(0);
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="common.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
@@ -44,6 +45,10 @@ width:100px;
 </style>
 </head>
 <body>
+<div class="container">
+<header id="hd">
+<%@ include file="hd.jsp" %>
+</header>
 <h2>여기는 tour_board.jsp입니다. 자세히보기</h2>
 
 
@@ -70,6 +75,10 @@ width:100px;
 	</tr>
 </table>
 <br>
+	<table id="board">
+	<tr class="line_1">
+		<th colspan="10">이용후기</th>
+	</tr>
 <%
 Connection conn = null;
 PreparedStatement pstmt = null;
@@ -84,10 +93,7 @@ try{
 	rs = pstmt.executeQuery();
 	while(rs.next()){
 		%>
-	<table id="board">
-	<tr class="line_1">
-		<th colspan="10">이용후기</th>
-	</tr>
+
 	<tr>
 	<th>작성자</th><th><%=rs.getString("TOUR_COMMENT_NAME") %></th>
 	<th>내용</th><th><%=rs.getString("TOUR_COMMENT_DETAIL") %></th>
@@ -117,6 +123,9 @@ try{
 }
 %>
 
-
+<footer id="ft">
+<%@ include file="ft.jsp" %>
+</footer>
+</div>
 </body>
 </html>

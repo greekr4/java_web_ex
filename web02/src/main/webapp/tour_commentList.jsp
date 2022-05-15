@@ -12,6 +12,7 @@ ArrayList<tour_commentVO> mem = (ArrayList<tour_commentVO>) request.getAttribute
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="common.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
@@ -35,6 +36,10 @@ border-top: 1px solid #000;
 </style>
 </head>
 <body>
+<div class="container">
+<header id="hd">
+<%@ include file="hd.jsp" %>
+</header>
 <h2>여기는 tour_commentList.jsp입니다.</h2>
 
 
@@ -51,5 +56,9 @@ border-top: 1px solid #000;
 
 	<%} %>
 </table>
+<footer id="ft">
+<%@ include file="ft.jsp" %>
+</footer>
+</div>
 </body>
 </html>

@@ -12,6 +12,7 @@ ArrayList<memberVO> mem = (ArrayList<memberVO>) request.getAttribute("memberList
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="common.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
@@ -35,7 +36,7 @@ border-top: 1px solid #000;
 </style>
 </head>
 <body>
-div class="container">
+<div class="container">
 <header id="hd">
 <%@ include file="hd.jsp" %>
 </header>
@@ -63,5 +64,6 @@ div class="container">
 <footer id="ft">
 <%@ include file="ft.jsp" %>
 </footer>
+</div>
 </body>
 </html>
