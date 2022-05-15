@@ -78,6 +78,7 @@ width:100px;
 	<table id="board">
 	<tr class="line_1">
 		<th colspan="10">이용후기</th>
+		<th><button onclick="window.open('Send_AddTour_comment?cbno=<%=Vo.getTour_board_num() %>','추가','width=430,height=500,location=no,status=no,scrollbars=yes');">추가(서블릿)</button></th>
 	</tr>
 <%
 Connection conn = null;
@@ -87,7 +88,7 @@ String sql = "";
 try{
 	Class.forName("oracle.jdbc.OracleDriver");
 	conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SCOTT","TIGER");
-	sql = "select * from tour_comment where tour_comment_bnum = ?";
+	sql = "select * from tour_comment where tour_comment_bnum = ? order by tour_comment_uninum";
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setInt(1, Vo.getTour_board_num());
 	rs = pstmt.executeQuery();
@@ -100,13 +101,12 @@ try{
 	<th>작성일</th><th><%=rs.getString("TOUR_COMMENT_TDATE") %></th>
 	<th>추천수</th><th><%=rs.getString("TOUR_COMMENT_THUMB") %></th>
 	
-	
 	<th style= "width:110px;">
 	<a href=""	onclick="window.open('Add_comment_thumb?tour_comment_uninum=<%=rs.getString("tour_comment_uninum") %>','따봉','width=1,height=1,location=no,status=no,scrollbars=yes');"	><img src="./img/rec.png" alt="" id="rec"></a>
 	
 	</th>
 	</tr>
-	</table>
+
 	    <%
 	}
 }catch(Exception e){
@@ -122,7 +122,7 @@ try{
 	
 }
 %>
-
+</table>
 <footer id="ft">
 <%@ include file="ft.jsp" %>
 </footer>

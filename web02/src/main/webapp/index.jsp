@@ -19,7 +19,6 @@
 <footer id="ft">
 <%@ include file="ft.jsp" %>
 </footer>
-
 </div>
 </body>
 </html>

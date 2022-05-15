@@ -12,5 +12,5 @@ inner join tour_comment b on a.tour_board_num = b.tour_comment_bnum
 where tour_board_pidno='A110001';
 
 
-
+select * from tour_comment where TOUR_comment_uninum=3;
 select * from tour_board,tour_comment;
