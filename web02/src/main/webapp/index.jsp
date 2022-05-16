@@ -15,7 +15,9 @@
 <header id="hd">
 <%@ include file="hd.jsp" %>
 </header>
+<div class="ct">
 
+</div>
 <footer id="ft">
 <%@ include file="ft.jsp" %>
 </footer>
