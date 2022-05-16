@@ -88,11 +88,11 @@ try{
 	
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
-	//tour_viewVO mem2 = new tour_viewVO();
+	
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("A")){ %>
-		<li><%=CDVo.getDcode_res() %></li>
+		<a href="<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -107,7 +107,7 @@ try{
 		<ul class="submenu"><span>관광명소</span>
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
-	//tour_viewVO mem2 = new tour_viewVO();
+	
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("B")){ %>
@@ -124,7 +124,7 @@ try{
 	<ul class="submenu"><span>문화재</span>
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
-	//tour_viewVO mem2 = new tour_viewVO();
+	
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("C")){ %>
@@ -144,7 +144,7 @@ try{
 	
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
-	//tour_viewVO mem2 = new tour_viewVO();
+	
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("D")){ %>
@@ -163,7 +163,7 @@ try{
 	<ul class="submenu"><span>수련시설</span>
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
-	//tour_viewVO mem2 = new tour_viewVO();
+	
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("E")){ %>
@@ -193,7 +193,7 @@ try{
 	<ul class="submenu"><span>축제</span>
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
-	//tour_viewVO mem2 = new tour_viewVO();
+	
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("F")){ %>
@@ -223,7 +223,7 @@ try{
 	<ul class="submenu"><span>음식</span>
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
-	//tour_viewVO mem2 = new tour_viewVO();
+	
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("G")){ %>
@@ -242,7 +242,7 @@ try{
 	<ul class="submenu"><span>숙박</span>
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
-	//tour_viewVO mem2 = new tour_viewVO();
+	
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("H")){ %>
@@ -261,7 +261,7 @@ try{
 	<ul class="submenu"><span>쇼핑</span>
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
-	//tour_viewVO mem2 = new tour_viewVO();
+	
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("I")){ %>
@@ -292,7 +292,7 @@ try{
 	<ul class="submenu"><span>교통</span>
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
-	//tour_viewVO mem2 = new tour_viewVO();
+	
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("J")){ %>

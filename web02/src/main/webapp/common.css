@@ -87,12 +87,14 @@
 		width: 100%;
 		background-color: #FFF;
 		left: 0px;
+		z-index: 999;
 		}
 		.submenu_wrap{
 		display: none;
 		width: 800px;
 		height: 300px;
 		margin:0 auto;
+		z-index: 999;
 		}
 		
 		ul:hover .submenu_wrap{

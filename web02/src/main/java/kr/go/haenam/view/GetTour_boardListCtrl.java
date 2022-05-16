@@ -57,6 +57,8 @@ public class GetTour_boardListCtrl extends HttpServlet {
 				tour_board.setTour_board_img2(rs.getString("tour_board_img2"));
 				tour_board.setTour_board_img3(rs.getString("tour_board_img3"));
 				tour_board.setTour_board_img4(rs.getString("tour_board_img4"));
+				tour_board.setTour_board_address(rs.getString("tour_board_address"));
+				tour_board.setTour_board_tel(rs.getString("tour_board_tel"));
 				tour_boardList.add(tour_board);
 			}
 

@@ -73,6 +73,16 @@ try{
 	            <td><input type="text" name="tour_board_img4" id="tour_board_img4"
 	            value="<%=rs.getString("tour_board_img4") %>"></td>
 	        </tr>
+	        <tr>
+	            <th>주소</th>
+	            <td><input type="text" name="tour_board_address" id="tour_board_address"
+	            value="<%=rs.getString("tour_board_address") %>"></td>
+	        </tr>
+	        <tr>
+	            <th>문의</th>
+	            <td><input type="text" name="tour_board_tel" id="tour_board_tel"
+	            value="<%=rs.getString("tour_board_tel") %>"></td>
+	        </tr>	        
 
 	     </table>
 	            <input type="submit" value="전송">

@@ -13,6 +13,8 @@ public class tour_boardVO {
 	private String tour_board_img2;//                --이미지2 경로
 	private String tour_board_img3;//                --이미지3 경로
 	private String tour_board_img4;//                --이미지4 경로
+	private String tour_board_address;//                --주소
+	private String tour_board_tel;//                --문의
 	public int getTour_board_num() {
 		return tour_board_num;
 	}
@@ -84,6 +86,18 @@ public class tour_boardVO {
 	}
 	public void setTour_board_pidno(String Tour_board_pidno) {
 		this.Tour_board_pidno = Tour_board_pidno;
+	}
+	public String getTour_board_address() {
+		return tour_board_address;
+	}
+	public void setTour_board_address(String tour_board_address) {
+		this.tour_board_address = tour_board_address;
+	}
+	public String getTour_board_tel() {
+		return tour_board_tel;
+	}
+	public void setTour_board_tel(String tour_board_tel) {
+		this.tour_board_tel = tour_board_tel;
 	}
 	
 }

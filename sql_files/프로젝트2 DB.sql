@@ -1,4 +1,12 @@
 --시퀀스 생성
+select * from tour_ccode a 
+inner join tour_dcode b on substr(b.dcode,1,1) = a.ccode
+order by dcode;
+
+
+select * from tour_board;
+select * from tour_view;
+desc tour_board;
 
 
 create SEQUENCE membernum_seq START WITH 1 INCREMENT by 1 MAXVALUE 100000 MINVALUE 1 NOCACHE NOCYCLE;
@@ -52,7 +60,10 @@ tour_board_img1 varchar(50),                --이미지1 경로
 tour_board_img2 varchar(50),                --이미지2 경로
 tour_board_img3 varchar(50),                --이미지3 경로
 tour_board_img4 varchar(50)                --이미지4 경로
+TOUR_BOARD_ADRESS varchar(200);             --주소
+TOUR_BOARD_TEL varchar(200);                --전화번호
 );
+
 desc tour_board;
 
 

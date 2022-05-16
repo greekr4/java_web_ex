@@ -40,17 +40,19 @@ public class AddTour_boardCtrl extends HttpServlet {
 		String tour_board_img2 = request.getParameter("tour_board_img2");
 		String tour_board_img3 = request.getParameter("tour_board_img3");
 		String tour_board_img4 = request.getParameter("tour_board_img4");
+		String tour_board_address = request.getParameter("tour_board_address");
+		String tour_board_tel = request.getParameter("tour_board_tel");
 		PrintWriter out = response.getWriter();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		//ResultSet rs = null;
 		int cnt = 0;
 		String sql = "";
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SCOTT","TIGER");
-			sql = "insert into tour_board (tour_board_num,tour_board_pidno ,tour_board_tit, tour_board_detail, tour_board_writer, tour_board_img1, tour_board_img2, tour_board_img3, tour_board_img4) values("
-					+ "TOUR_BOARD_SEQ.nextval,?,?,?,?,?,?,?,?"
+			sql = "insert into tour_board (tour_board_num,tour_board_pidno ,tour_board_tit, tour_board_detail, tour_board_writer, tour_board_img1, tour_board_img2, tour_board_img3, tour_board_img4,tour_board_address,tour_board_tel) values("
+					+ "TOUR_BOARD_SEQ.nextval,?,?,?,?,?,?,?,?,?,?"
 					+ ")";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, tour_board_pidno);
@@ -61,6 +63,8 @@ public class AddTour_boardCtrl extends HttpServlet {
 			pstmt.setString(6, tour_board_img2);
 			pstmt.setString(7, tour_board_img3);
 			pstmt.setString(8, tour_board_img4);
+			pstmt.setString(9, tour_board_address);
+			pstmt.setString(10, tour_board_tel);
 			cnt = pstmt.executeUpdate();
 			if(cnt>=1){ //성공
 				out.println("<script language='javascript'>alert('OK');</script>");

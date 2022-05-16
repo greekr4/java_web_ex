@@ -42,6 +42,17 @@
             <th>이미지경로4</th>
             <td><input type="text" name="tour_board_img4" id="tour_add_img4"></td>
         </tr>
+	     <th>주소</th>
+	     <td><input type="text" name="tour_board_address" id="tour_board_address"
+	            value=""></td>
+	        </tr>
+	        <tr>
+	     <th>문의</th>
+	     <td><input type="text" name="tour_board_tel" id="tour_board_tel"
+	     value=""></td>
+	     </tr>	
+
+
 
      </table>
             <input type="submit" value="전송">

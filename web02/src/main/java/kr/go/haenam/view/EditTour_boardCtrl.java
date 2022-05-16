@@ -41,6 +41,8 @@ public class EditTour_boardCtrl extends HttpServlet {
 		String tour_board_img2 = request.getParameter("tour_board_img2");
 		String tour_board_img3 = request.getParameter("tour_board_img3");
 		String tour_board_img4 = request.getParameter("tour_board_img4");
+		String tour_board_address = request.getParameter("tour_board_address");
+		String tour_board_tel = request.getParameter("tour_board_tel");
 
 		PrintWriter out = response.getWriter();
 		Connection conn = null;
@@ -53,7 +55,8 @@ public class EditTour_boardCtrl extends HttpServlet {
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SCOTT","TIGER");
 			sql = "update tour_board set "
 					+ "tour_board_tit=?,tour_board_detail=?,"
-					+ "tour_board_img1=?,tour_board_img2=?,tour_board_img3=?,tour_board_img4=? "
+					+ "tour_board_img1=?,tour_board_img2=?,tour_board_img3=?,tour_board_img4=?,"
+					+ "tour_board_address=?,tour_board_tel=?"
 					+ "where tour_board_num=?";
 			
 			pstmt = conn.prepareStatement(sql);
@@ -63,7 +66,9 @@ public class EditTour_boardCtrl extends HttpServlet {
 			pstmt.setString(4, tour_board_img2);
 			pstmt.setString(5, tour_board_img3);
 			pstmt.setString(6, tour_board_img4);
-			pstmt.setString(7, tour_board_num);
+			pstmt.setString(7, tour_board_address);
+			pstmt.setString(8, tour_board_tel);
+			pstmt.setString(9, tour_board_num);
 			cnt = pstmt.executeUpdate();
 			if(cnt>=1){ //성공
 				out.println("<script language='javascript'>alert('OK');</script>");
