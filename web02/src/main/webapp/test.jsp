@@ -85,6 +85,7 @@ ArrayList<tour_viewVO> Volist = (ArrayList<tour_viewVO>) request.getAttribute("t
 
 	
 	<div class="view_item">
+		<a href="/web02/GetboardMoreCtrl?pidno=<%=Vo.getTour_id() %>">
 		<div class="item_img">
 		<img alt="" src="<%=Vo.getTour_img1() %>">
 		</div>
@@ -93,6 +94,7 @@ ArrayList<tour_viewVO> Volist = (ArrayList<tour_viewVO>) request.getAttribute("t
 		<p><img src="./img/index/ico_loca.png" style="display:block; width:15px; float: left;"></img><%=Vo.getTour_address() %></p>
 		<p><img src="./img/index/ico_call.png" style="display:block; width:15px; float: left;"></img><%=Vo.getTour_tel() %></p>
 		</div>
+		</a>
 	</div>
 	
 	

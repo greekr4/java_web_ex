@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.go.haenam.model.tour_boardVO;
+import kr.go.haenam.model.tour_commentVO;
 
 /**
  * Servlet implementation class GetboardMoreCtrl
@@ -39,6 +40,7 @@ public class GetboardMoreCtrl extends HttpServlet {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "";
+		int bno = 0;
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SCOTT","TIGER");
@@ -50,6 +52,7 @@ public class GetboardMoreCtrl extends HttpServlet {
 			ArrayList<tour_boardVO> tour_board_detail = new ArrayList<tour_boardVO>();
 			while(rs.next()) {
 				tour_boardVO tour_board = new tour_boardVO();
+				bno = rs.getInt("tour_board_num");
 				tour_board.setTour_board_num(rs.getInt("tour_board_num"));
 				tour_board.setTour_board_tit(rs.getString("tour_board_tit"));
 				tour_board.setTour_board_detail(rs.getString("tour_board_detail"));
@@ -62,13 +65,31 @@ public class GetboardMoreCtrl extends HttpServlet {
 				tour_board.setTour_board_img3(rs.getString("tour_board_img3"));
 				tour_board.setTour_board_img4(rs.getString("tour_board_img4"));
 				tour_board_detail.add(tour_board);
-				
-				
-
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+			Class.forName("oracle.jdbc.OracleDriver");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SCOTT","TIGER");
+			sql = "select * from tour_comment where tour_comment_bnum=? order by tour_comment_uninum";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			ArrayList<tour_commentVO> tour_comment_list = new ArrayList<tour_commentVO>();
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				tour_commentVO tour_comment = new tour_commentVO();
+				tour_comment.setTour_comment_uninum(rs.getInt("tour_comment_uninum"));
+				tour_comment.setTour_comment_bnum(rs.getInt("tour_comment_bnum"));
+				tour_comment.setTour_comment_detail(rs.getString("tour_comment_detail"));
+				tour_comment.setTour_comment_name(rs.getString("tour_comment_name"));
+				tour_comment.setTour_comment_tdate(rs.getString("tour_comment_tdate"));
+				tour_comment.setTour_comment_thumb(rs.getInt("tour_comment_thumb"));
+				tour_comment_list.add(tour_comment);
 			}
 			
 
 			request.setAttribute("tour_board_detail", tour_board_detail);
+			request.setAttribute("tour_comment_list", tour_comment_list);
 			RequestDispatcher view = request.getRequestDispatcher("tour_board.jsp");
 			view.forward(request, response);
 			

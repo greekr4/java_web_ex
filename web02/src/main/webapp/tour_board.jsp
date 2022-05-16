@@ -2,17 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="kr.go.haenam.model.tour_boardVO"%>
+<%@ page import="kr.go.haenam.model.tour_commentVO"%>
 <%@ page import="java.util.ArrayList"%>
 
     
-<%
-
-ArrayList<tour_boardVO> Volist = (ArrayList<tour_boardVO>) request.getAttribute("tour_board_detail");
-if (Volist.size() == 0){
-	response.sendRedirect("GetTour_boardListCtrl");
-}
-tour_boardVO Vo = Volist.get(0);
-%>   
 
 <!DOCTYPE html>
 <html>
@@ -69,6 +62,18 @@ width:100px;
 </header>
 <h2>여기는 tour_board.jsp입니다. 자세히보기</h2>
 
+<%
+
+ArrayList<tour_boardVO> Volist = (ArrayList<tour_boardVO>) request.getAttribute("tour_board_detail");
+ArrayList<tour_commentVO> Vo2list = (ArrayList<tour_commentVO>) request.getAttribute("tour_comment_list");
+if (Volist.size() == 0 && sid.equals("admin")){
+response.sendRedirect("GetTour_boardListCtrl");
+} else if (Volist.size() == 0 && !sid.equals("admin")){
+response.sendRedirect("index.jsp");	
+}
+
+tour_boardVO Vo = Volist.get(0);
+%>   
 
 
 
@@ -98,48 +103,23 @@ width:100px;
 		<th colspan="10">이용후기</th>
 		<th><button onclick="window.open('Send_AddTour_comment?cbno=<%=Vo.getTour_board_num() %>','추가','width=430,height=500,location=no,status=no,scrollbars=yes');">추가(서블릿)</button></th>
 	</tr>
-<%
-Connection conn = null;
-PreparedStatement pstmt = null;
-ResultSet rs = null;
-String sql = "";
-try{
-	Class.forName("oracle.jdbc.OracleDriver");
-	conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SCOTT","TIGER");
-	sql = "select * from tour_comment where tour_comment_bnum = ? order by tour_comment_uninum";
-	pstmt = conn.prepareStatement(sql);
-	pstmt.setInt(1, Vo.getTour_board_num());
-	rs = pstmt.executeQuery();
-	while(rs.next()){
-		%>
-
+	<%for(int i=0;i<Vo2list.size();i++)
+	{
+	//tour_viewVO mem2 = new tour_viewVO();
+	tour_commentVO Vo2 = Vo2list.get(i);
+	%>
 	<tr>
-	<th>작성자</th><th><%=rs.getString("TOUR_COMMENT_NAME") %></th>
-	<th>내용</th><th><%=rs.getString("TOUR_COMMENT_DETAIL") %></th>
-	<th>작성일</th><th><%=rs.getString("TOUR_COMMENT_TDATE") %></th>
-	<th>추천수</th><th><%=rs.getString("TOUR_COMMENT_THUMB") %></th>
-	
+	<th><%=Vo2.getTour_comment_name() %></th>
+	<th><%=Vo2.getTour_comment_detail() %></th>
+	<th><%=Vo2.getTour_comment_tdate() %></th>
+	<th><%=Vo2.getTour_comment_thumb() %></th>
 	<th style= "width:110px;">
-	<a href=""	onclick="window.open('Add_comment_thumb?tour_comment_uninum=<%=rs.getString("tour_comment_uninum") %>','따봉','width=1,height=1,location=no,status=no,scrollbars=yes');"	><img src="./img/rec.png" alt="" id="rec" style="display:block; width:"></a>
-	
+	<a href=""	onclick="window.open('Add_comment_thumb?tour_comment_uninum=<%=Vo2.getTour_comment_uninum() %>','따봉','width=1,height=1,location=no,status=no,scrollbars=yes');"	><img src="./img/rec.png" alt="" id="rec" style="display:block; width:50px;"></a>
 	</th>
 	</tr>
-
-	    <%
-	}
-}catch(Exception e){
-	e.printStackTrace();
-} finally{
-	try{
-		rs.close();
-		pstmt.close();
-		conn.close();
-	}catch(Exception e){
-	e.printStackTrace();
-	}
+	<%} %>
 	
-}
-%>
+
 </table>
 <footer id="ft">
 <%@ include file="ft.jsp" %>

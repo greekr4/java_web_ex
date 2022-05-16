@@ -89,10 +89,10 @@ try{
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
 	//tour_viewVO mem2 = new tour_viewVO();
-	tour_CDcodeVO Vo = CDcodeList.get(i);
+	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
-	if(Vo.getCcode().equals("A")){ %>
-		<li><%=Vo.getDcode_res() %></li>
+	if(CDVo.getCcode().equals("A")){ %>
+		<li><%=CDVo.getDcode_res() %></li>
 		
 		<%
 	}
@@ -108,10 +108,10 @@ try{
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
 	//tour_viewVO mem2 = new tour_viewVO();
-	tour_CDcodeVO Vo = CDcodeList.get(i);
+	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
-	if(Vo.getCcode().equals("B")){ %>
-		<li><%=Vo.getDcode_res() %></li>
+	if(CDVo.getCcode().equals("B")){ %>
+		<li><%=CDVo.getDcode_res() %></li>
 		
 		<%
 	}
@@ -125,10 +125,10 @@ try{
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
 	//tour_viewVO mem2 = new tour_viewVO();
-	tour_CDcodeVO Vo = CDcodeList.get(i);
+	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
-	if(Vo.getCcode().equals("C")){ %>
-		<li><%=Vo.getDcode_res() %></li>
+	if(CDVo.getCcode().equals("C")){ %>
+		<li><%=CDVo.getDcode_res() %></li>
 		
 		<%
 	}
@@ -145,10 +145,10 @@ try{
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
 	//tour_viewVO mem2 = new tour_viewVO();
-	tour_CDcodeVO Vo = CDcodeList.get(i);
+	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
-	if(Vo.getCcode().equals("D")){ %>
-		<li><%=Vo.getDcode_res() %></li>
+	if(CDVo.getCcode().equals("D")){ %>
+		<li><%=CDVo.getDcode_res() %></li>
 		
 		<%
 	}
@@ -164,10 +164,10 @@ try{
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
 	//tour_viewVO mem2 = new tour_viewVO();
-	tour_CDcodeVO Vo = CDcodeList.get(i);
+	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
-	if(Vo.getCcode().equals("E")){ %>
-		<li><%=Vo.getDcode_res() %></li>
+	if(CDVo.getCcode().equals("E")){ %>
+		<li><%=CDVo.getDcode_res() %></li>
 		
 		<%
 	}
@@ -194,10 +194,10 @@ try{
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
 	//tour_viewVO mem2 = new tour_viewVO();
-	tour_CDcodeVO Vo = CDcodeList.get(i);
+	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
-	if(Vo.getCcode().equals("F")){ %>
-		<li><%=Vo.getDcode_res() %></li>
+	if(CDVo.getCcode().equals("F")){ %>
+		<li><%=CDVo.getDcode_res() %></li>
 		
 		<%
 	}
@@ -224,10 +224,10 @@ try{
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
 	//tour_viewVO mem2 = new tour_viewVO();
-	tour_CDcodeVO Vo = CDcodeList.get(i);
+	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
-	if(Vo.getCcode().equals("G")){ %>
-		<li><%=Vo.getDcode_res() %></li>
+	if(CDVo.getCcode().equals("G")){ %>
+		<li><%=CDVo.getDcode_res() %></li>
 		
 		<%
 	}
@@ -243,10 +243,10 @@ try{
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
 	//tour_viewVO mem2 = new tour_viewVO();
-	tour_CDcodeVO Vo = CDcodeList.get(i);
+	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
-	if(Vo.getCcode().equals("H")){ %>
-		<li><%=Vo.getDcode_res() %></li>
+	if(CDVo.getCcode().equals("H")){ %>
+		<li><%=CDVo.getDcode_res() %></li>
 		
 		<%
 	}
@@ -262,10 +262,10 @@ try{
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
 	//tour_viewVO mem2 = new tour_viewVO();
-	tour_CDcodeVO Vo = CDcodeList.get(i);
+	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
-	if(Vo.getCcode().equals("I")){ %>
-		<li><%=Vo.getDcode_res() %></li>
+	if(CDVo.getCcode().equals("I")){ %>
+		<li><%=CDVo.getDcode_res() %></li>
 		
 		<%
 	}
@@ -293,10 +293,10 @@ try{
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
 	//tour_viewVO mem2 = new tour_viewVO();
-	tour_CDcodeVO Vo = CDcodeList.get(i);
+	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
-	if(Vo.getCcode().equals("J")){ %>
-		<li><%=Vo.getDcode_res() %></li>
+	if(CDVo.getCcode().equals("J")){ %>
+		<li><%=CDVo.getDcode_res() %></li>
 		
 		<%
 	}
