@@ -8,7 +8,7 @@
 <title>Insert title here</title>
  <style>
 
-    </style>
+ </style>
 </head>
 <body>
 <div class="container">
@@ -16,6 +16,11 @@
 <%@ include file="hd.jsp" %>
 </header>
 <div class="ct">
+<h2>메인페이지입니다.</h2>
+
+
+
+
 
 </div>
 <footer id="ft">

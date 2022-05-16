@@ -33,11 +33,29 @@ line-height: 35px;
 border: 1px solid #000;
 border-top: 1px solid #000;
 }
-img{
+#board img{
+display:block;
+width:300px;
+}
+
+#comment{
+border-collapse: collapse;
+width:1000px;
+margin: 0 auto;
+display: table;
+line-height: 35px;
+
+}
+#comment th{
+border: 1px solid #000;
+border-top: 1px solid #000;
+}
+#comment img{
 display:block;
 width:300px;
 }
 #rec{
+display:block;
 width:100px;
 }
 
@@ -75,7 +93,7 @@ width:100px;
 	</tr>
 </table>
 <br>
-	<table id="board">
+	<table id="comment">
 	<tr class="line_1">
 		<th colspan="10">이용후기</th>
 		<th><button onclick="window.open('Send_AddTour_comment?cbno=<%=Vo.getTour_board_num() %>','추가','width=430,height=500,location=no,status=no,scrollbars=yes');">추가(서블릿)</button></th>
@@ -102,7 +120,7 @@ try{
 	<th>추천수</th><th><%=rs.getString("TOUR_COMMENT_THUMB") %></th>
 	
 	<th style= "width:110px;">
-	<a href=""	onclick="window.open('Add_comment_thumb?tour_comment_uninum=<%=rs.getString("tour_comment_uninum") %>','따봉','width=1,height=1,location=no,status=no,scrollbars=yes');"	><img src="./img/rec.png" alt="" id="rec"></a>
+	<a href=""	onclick="window.open('Add_comment_thumb?tour_comment_uninum=<%=rs.getString("tour_comment_uninum") %>','따봉','width=1,height=1,location=no,status=no,scrollbars=yes');"	><img src="./img/rec.png" alt="" id="rec" style="display:block; width:"></a>
 	
 	</th>
 	</tr>

@@ -14,8 +14,7 @@ create SEQUENCE tour_comment_seq START WITH 1 INCREMENT by 1 MAXVALUE 100000 MIN
 
 select * from tour_view;
 select * from member where member_num = 9;
-desc member;
-
+commit;
 -----------------회원테이블------------------
 
 create table member (
@@ -82,7 +81,10 @@ tour_img4 varchar(200) default 'none'                      --이미지4 경로
 -- H : 숙박
 -- I : 쇼핑
 -- J : 교통
-
+select * from tour_ccode a
+inner join tour_dcode b on substr(a.ccode,1,1) = b.dcode
+;
+select * from tour_dcode;
 -- A : 자연관광 - 11:산 12:등산/산책로 13:해수욕장
 -- B : 관광명소 - 11:사찰 12:주거건물 13:박물관/전시관 14:해남 8경
 -- C : 문화재 - 11:국가지정문화재 12:도지정문화재 13:유적건조물

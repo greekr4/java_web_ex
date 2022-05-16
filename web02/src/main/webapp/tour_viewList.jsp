@@ -34,7 +34,7 @@ padding-right:1.2em;
 border-bottom: 1px solid #000;
 border-top: 1px solid #000;
 }
-img{
+#tb img{
 display:block;
 width:300px;
 }

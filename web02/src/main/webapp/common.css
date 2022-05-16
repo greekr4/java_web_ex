@@ -12,6 +12,7 @@
             line-height: 35px;
             color: #EEE;
         }
+   
         .hd_wrap_top ul{
             float: left;
         }
@@ -28,11 +29,83 @@
         
         .dd2{
             float: right;
+            color: #eee;
             
         }
         .dd2 li{
             float: left; margin: 0 20px;
         }
-        .hd_wrap_top .LANGUAGES li{display: none;}
-        .hd_wrap_top .LANGUAGES {margin: 0 20px;}
-        .ct{clear:both; width:100%;}
+        .ct {clear:both; width:100%; margin-top:50px;}
+        
+        .hd_bt{ 
+        clear:both;
+        width:100%;
+    
+        background-color: skyblue;}
+        
+        .hb_wrap{
+        width: 1600px;
+        height:100px;
+        margin: 0 auto;
+        display: block;
+        line-height: 35px;
+        }
+        .hb_wrap ul{
+        float: left;
+        margin: 0 20px;
+       	line-height: 100px;
+       	font-size:1.25rem;
+        font-weight: bold;
+        }
+        .hb_wrap .logo{
+        float: left;
+        margin-top: 25px;
+        margin-right: 200px;
+        }
+        .hb_wrap .menu{
+        float: right;
+        margin-top: 30px;
+        }
+        
+        #ft{
+        clear:both;
+        width: 100%;
+        }
+        .ft_wrap{
+        width: 100%;
+        height: 100px;
+        margin-top:50px;
+        background-color: skyblue;
+        }
+        
+        hb_wrap ul{
+        position:relative; 
+        }
+		.submenu_box{
+		
+		position:absolute;
+		width: 100%;
+		background-color: #FFF;
+		left: 0px;
+		}
+		.submenu_wrap{
+		display: none;
+		width: 800px;
+		height: 300px;
+		margin:0 auto;
+		}
+		
+		ul:hover .submenu_wrap{
+		display: block;
+		}
+		
+		.submenu span{
+		color:red;
+		font-weight: bold;
+		}
+		.submenu li{
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 35px;
+		}
+        
