@@ -27,7 +27,7 @@ VO = mypage.get(0);
 <div class="ct">
 <h2>마이페이지 입니다</h2>
 
-    <form action="">
+    <form action="EditMypage" method="post">
         <table>
             <tbody>
                 <tr>

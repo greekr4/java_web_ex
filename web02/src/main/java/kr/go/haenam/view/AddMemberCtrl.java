@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class AddMemberCtrl
@@ -29,6 +30,7 @@ public class AddMemberCtrl extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		String member_id = request.getParameter("member_id");
 		String member_pw = request.getParameter("member_pw");
 		String member_name = request.getParameter("member_name");
@@ -60,7 +62,17 @@ public class AddMemberCtrl extends HttpServlet {
 			cnt = pstmt.executeUpdate();
 			if(cnt>=1){ //성공
 				out.println("<script language='javascript'>alert('OK');</script>");
-				out.println("<script language='javascript'>self.close(); </script>");
+				String sid = (String)session.getAttribute("sid");
+				if (sid == null) sid="non-member";
+				if (sid.equals("admin")){
+				//out.println("<script language='javascript'>alert('Admin');</script>");
+					out.println("<script language='javascript'>self.close(); </script>");
+				} else {
+				//out.println("<script language='javascript'>alert('NotAdmin');</script>");
+				out.println("<script language='javascript'>location.href='index.jsp'</script>");
+				//response.sendRedirect("index.jsp");
+				}
+				
 			} else {	//실패
 				out.println("no");
 			}
