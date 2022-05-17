@@ -27,7 +27,7 @@ try{
 		%>
 		
 		
-		<h2>Edit_member_view입니다.</h2>
+		<h2>Edit_member입니다.</h2>
 	    <form action="" method="post">
 	     <table>
 	     	<tr>
@@ -41,7 +41,7 @@ try{
 	        <tr>
 	            <th>비밀번호</th>
 	            <td><input type="text" name="member_pw" id="member_pw" 
-	            value="<%=rs.getString("member_pw") %>" required></td>
+	            value="" required></td>
 	        </tr>
 	        <tr>
 	            <th>이름</th>

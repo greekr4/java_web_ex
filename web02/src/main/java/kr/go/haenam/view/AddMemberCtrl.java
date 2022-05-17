@@ -2,6 +2,7 @@ package kr.go.haenam.view;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import filter.SHA256;
 
 /**
  * Servlet implementation class AddMemberCtrl
@@ -33,6 +36,13 @@ public class AddMemberCtrl extends HttpServlet {
 		HttpSession session = request.getSession();
 		String member_id = request.getParameter("member_id");
 		String member_pw = request.getParameter("member_pw");
+		String member_pw2 = "";
+		try {
+			member_pw2 = SHA256.encrypt(member_pw);
+		} catch (NoSuchAlgorithmException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		String member_name = request.getParameter("member_name");
 		String member_pnum = request.getParameter("member_pnum");
 		String member_address = request.getParameter("member_address");
@@ -43,7 +53,7 @@ public class AddMemberCtrl extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		
 		int cnt = 0;
 		String sql = "";
 		try {
@@ -52,7 +62,7 @@ public class AddMemberCtrl extends HttpServlet {
 			sql = "insert into member values(?,?,?,?,?,?,?,?,MEMBERNUM_SEQ.nextval,'new')";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, member_id);
-			pstmt.setString(2, member_pw);
+			pstmt.setString(2, member_pw2);
 			pstmt.setString(3, member_name);
 			pstmt.setString(4, member_pnum);
 			pstmt.setString(5, member_address);

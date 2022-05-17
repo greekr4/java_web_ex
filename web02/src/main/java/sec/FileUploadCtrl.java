@@ -48,10 +48,10 @@ public class FileUploadCtrl extends HttpServlet {
 			String file2 = (String)files.nextElement();
 			filename2= multi.getFilesystemName(file2);
 			
-			out.println("<p> 올린 사람 : " + name + "</p>");
-			out.println("<p> 제목 : " + subject + "</p>");
-			out.println("<p> 파일1 : " + filename1 + "</p>");
-			out.println("<p> 파일2 : " + filename2 + "</p>");
+			out.println("<h3> 올린 사람 : " + name + "</h3>");
+			out.println("<h3> 제목 : " + subject + "</h3>");
+			out.println("<h3> 파일1 : " + filename1 + "</h3>");
+			out.println("<h3> 파일2 : " + filename2 + "</h3>");
 			
 			
 		}catch(Exception e) {

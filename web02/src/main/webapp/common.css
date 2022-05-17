@@ -89,7 +89,7 @@
 		left: 0px;
 		z-index: 999;
 		}
-		.submenu_wrap{
+		.hb_wrap .submenu_wrap{
 		display: none;
 		width: 800px;
 		height: 300px;
@@ -97,9 +97,14 @@
 		z-index: 999;
 		}
 		
-		ul:hover .submenu_wrap{
+		.hb_wrap ul:hover .submenu_wrap{
 		display: block;
 		}
+		
+		.submenu ul li:hover{
+		background-color: #777;
+		}
+		
 		
 		.submenu span{
 		color:red;

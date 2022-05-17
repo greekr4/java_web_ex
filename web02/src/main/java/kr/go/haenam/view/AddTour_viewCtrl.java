@@ -35,6 +35,7 @@ public class AddTour_viewCtrl extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//String tour_add_id = request.getParameter("tour_add_id");
+		String img_default = request.getParameter("img_default");
 		String tour_add_name = request.getParameter("tour_add_name");
 		String tour_add_address = request.getParameter("tour_add_address");
 		String tour_add_tel = request.getParameter("tour_add_tel");
@@ -63,11 +64,11 @@ public class AddTour_viewCtrl extends HttpServlet {
 			while(rs.next()) {
 				codenum = rs.getInt("res");
 			}
-			if (codenum < 10) {
+			if (codenum < 9) {
 				codenum_res = sel1 + sel2 + "000" + (codenum+1);
-			} else if(codenum < 100) {
+			} else if(codenum < 99) {
 				codenum_res = sel1 + sel2 + "00" + (codenum+1);
-			} else if(codenum < 1000) {
+			} else if(codenum < 999) {
 				codenum_res = sel1 + sel2 + "0" + (codenum+1);
 			} else {
 				codenum_res = sel1 + sel2 + (codenum+1);
@@ -75,8 +76,7 @@ public class AddTour_viewCtrl extends HttpServlet {
 			rs.close();
 			pstmt.close();
 			conn.close();
-			
-			
+
 			Class.forName("oracle.jdbc.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SCOTT","TIGER");
 			sql = "insert into tour_view values(?,tour_view_seq.nextval,?,?,?,?,?,?,?)";
@@ -85,6 +85,14 @@ public class AddTour_viewCtrl extends HttpServlet {
 			pstmt.setString(2, tour_add_name);
 			pstmt.setString(3, tour_add_address);
 			pstmt.setString(4, tour_add_tel);
+			if (img_default != null) {
+				//   ./img/A/A120001/0.png
+			tour_add_img1 = "./img/" + codenum_res.substring(0,1) + "/" + codenum_res + "/0.png";
+			tour_add_img2 = "./img/" + codenum_res.substring(0,1) + "/" + codenum_res + "/1.png";
+			tour_add_img3 = "./img/" + codenum_res.substring(0,1) + "/" + codenum_res + "/2.png";
+			tour_add_img4 = "./img/" + codenum_res.substring(0,1) + "/" + codenum_res + "/3.png";
+			}
+
 			pstmt.setString(5, tour_add_img1);
 			pstmt.setString(6, tour_add_img2);
 			pstmt.setString(7, tour_add_img3);

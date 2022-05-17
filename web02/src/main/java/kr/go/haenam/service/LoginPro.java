@@ -1,6 +1,7 @@
 package kr.go.haenam.service;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import filter.SHA256;
 
 
 
@@ -38,6 +41,13 @@ public class LoginPro extends HttpServlet {
 		HttpSession session = request.getSession();
 		String l_id = request.getParameter("l_id");
 		String l_pw = request.getParameter("l_pw");
+		String l_pw2 = "";
+		try {
+			l_pw2 = SHA256.encrypt(l_pw);
+		} catch (NoSuchAlgorithmException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		System.out.println(l_id);
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -49,7 +59,7 @@ public class LoginPro extends HttpServlet {
 			sql = "select * from member where member_id = ? and member_pw =?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, l_id);
-			pstmt.setString(2, l_pw);
+			pstmt.setString(2, l_pw2);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				session.setAttribute("sid", rs.getString("member_id"));

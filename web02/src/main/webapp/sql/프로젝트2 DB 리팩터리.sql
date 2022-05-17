@@ -19,8 +19,8 @@ commit;
 -----------------회원테이블------------------
 
 create table member (
-member_id varchar(20) primary key,  --아이디
-member_pw varchar(20) not null,     --비번
+member_id varchar(50) primary key,  --아이디
+member_pw varchar(2000) not null,     --비번
 member_name varchar(20) not null,   --이름
 member_pnum varchar(20),            --전화번호
 member_adress varchar(50),          --주소
@@ -30,6 +30,8 @@ member_grade number(10) default 1 not null,   --회원계급
 member_num number(38) not null,         --회원번호
 member_latest varchar(30) default 'new'              --최근접속일
 );
+
+
 select * from member;
 --회원가입 인서트--
 insert into member (member_id,member_pw,member_name,member_pnum,member_adress,member_num) values
@@ -96,7 +98,7 @@ select * from tour_dcode;
 -- H : 숙박 - 11:호텔/리조트 12:모텔/여관 13:민박/펜션 14:휴양림/캠핑카 15:유스호스텔 16:황토나라테마촌
 -- I : 쇼핑 - 11:해남브랜드 12:해남특산물 13:해남미소 14:전통시장현황 15:주조장
 -- J : 교통 - 11:농어촌버스 12:직행직통버스 13:고속버스 14:우수영여객선 터미널 15:땅끝여객선 16:열차항공
-
+select count(*) as res from tour_view where tour_id like'A11%';
 
 -----------------------------------인서트문---------------------------------------------
 
@@ -343,7 +345,7 @@ NOTICE_STATE NUMBER DEFAULT 1 NOT NULL,               --공지상태
 NOTICE_WRITER VARCHAR2(40) NOT NULL,        --작성자
 NOTICE_TIT VARCHAR(200) NOT NULL,           --제목
 NOTICE_DETAIL VARCHAR(4000) NOT NULL,       --내용
-NOTICE_FORM_DATE DATE,                      --공지시작일
+NOTICE_FROM_DATE DATE,                      --공지시작일
 NOTICE_TO_DATE DATE,                        --공지끝
 NOTICE_REG_DATE DATE DEFAULT SYSDATE,       --작성일
 NOTICE_UPDATE_DATE DATE,                    --수정일
@@ -354,9 +356,17 @@ NOTICE_VIEW NUMBER DEFAULT 0                --조회수
 drop table notice;
 ---공지더미
 
-insert into notice 
-(NOTICE_UNINO,NOTICE_STATE,NOTICE_WRITER,NOTICE_TIT,NOTICE_DETAIL,NOTICE_FORM_DATE,NOTICE_TO_DATE)
+insert into notice (NOTICE_UNINO,NOTICE_STATE,NOTICE_WRITER,NOTICE_TIT,NOTICE_DETAIL,NOTICE_FROM_DATE,NOTICE_TO_DATE)
 values (
 NOTICE_SEQ.nextval,
-
+1,--공지상태 디펄트1
+'관리자',
+'제목',
+'내용',
+SYSDATE,--시작일
+'2022-08-19'--종료일
 );
+
+desc notice;
+select * from notice;
+commit;

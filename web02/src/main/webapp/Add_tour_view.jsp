@@ -48,7 +48,10 @@
         </tr>
         <tr>
             <th>이미지경로1</th>
-            <td><input type="text" name="tour_add_img1" id="tour_add_img1"></td>
+            <td>
+            <input type="text" name="tour_add_img1" id="tour_add_img1">
+            <label><input type="checkbox" name="img_default" id="img_default" onchange="defaultimg()" checked>기본값</label>
+            </td>
         </tr>
         <tr>
             <th>이미지경로2</th>
@@ -128,6 +131,38 @@
 		}
 		
 	}
+	
+		var img1 = document.getElementById("tour_add_img1");
+		var img2 = document.getElementById("tour_add_img2");
+		var img3 = document.getElementById("tour_add_img3");
+		var img4 = document.getElementById("tour_add_img4");
+		var ckbox = document.getElementById("img_default");
+		defaultimg();
+		function defaultimg(){
+		if (ckbox.checked == true){
+			img1.readOnly = true;
+			img2.readOnly = true;
+			img3.readOnly = true;
+			img4.readOnly = true;
+			img1.style = "background-color: #555;"
+			img2.style = "background-color: #555;"	
+			img3.style = "background-color: #555;"
+			img4.style = "background-color: #555;"
+			
+			
+		} else if(ckbox.checked == false){
+			img1.readOnly = false;
+			img2.readOnly = false;
+			img3.readOnly = false;
+			img4.readOnly = false;
+			img1.style = "background-color: ;"
+			img2.style = "background-color: ;"	
+			img3.style = "background-color: ;"
+			img4.style = "background-color: ;"
+		}
+		}
+		
+		
  /*
  -- A : 자연관광 - 11:산 12:등산/산책로 13:해수욕장
  -- B : 관광명소 - 11:사찰 12:주거건물 13:박물관/전시관 14:해남 8경
