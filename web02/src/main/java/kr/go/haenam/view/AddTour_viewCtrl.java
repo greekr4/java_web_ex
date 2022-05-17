@@ -34,7 +34,7 @@ public class AddTour_viewCtrl extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String tour_add_id = request.getParameter("tour_add_id");
+		//String tour_add_id = request.getParameter("tour_add_id");
 		String tour_add_name = request.getParameter("tour_add_name");
 		String tour_add_address = request.getParameter("tour_add_address");
 		String tour_add_tel = request.getParameter("tour_add_tel");
@@ -42,18 +42,46 @@ public class AddTour_viewCtrl extends HttpServlet {
 		String tour_add_img2 = request.getParameter("tour_add_img2");
 		String tour_add_img3 = request.getParameter("tour_add_img3");
 		String tour_add_img4 = request.getParameter("tour_add_img4");
+		String sel1 = request.getParameter("sel1");
+		String sel2 = request.getParameter("sel2");
 		PrintWriter out = response.getWriter();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int cnt = 0;
+		int codenum = 0;
+		String codenum_res = "";
 		String sql = "";
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SCOTT","TIGER");
+			sql = "select count(*) as res from tour_view where tour_id like ?";
+			pstmt = conn.prepareStatement(sql);
+			String code = sel1+sel2+'%';
+			pstmt.setString(1, code);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				codenum = rs.getInt("res");
+			}
+			if (codenum < 10) {
+				codenum_res = sel1 + sel2 + "000" + (codenum+1);
+			} else if(codenum < 100) {
+				codenum_res = sel1 + sel2 + "00" + (codenum+1);
+			} else if(codenum < 1000) {
+				codenum_res = sel1 + sel2 + "0" + (codenum+1);
+			} else {
+				codenum_res = sel1 + sel2 + (codenum+1);
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+			
+			
+			Class.forName("oracle.jdbc.OracleDriver");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SCOTT","TIGER");
 			sql = "insert into tour_view values(?,tour_view_seq.nextval,?,?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, tour_add_id);
+			pstmt.setString(1, codenum_res);
 			pstmt.setString(2, tour_add_name);
 			pstmt.setString(3, tour_add_address);
 			pstmt.setString(4, tour_add_tel);

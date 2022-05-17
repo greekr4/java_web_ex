@@ -11,6 +11,7 @@ create SEQUENCE tour_view_seq START WITH 1 INCREMENT by 1 MAXVALUE 100000 MINVAL
 drop SEQUENCE tour_board_seq;
 create SEQUENCE tour_board_seq START WITH 1 INCREMENT by 1 MAXVALUE 100000 MINVALUE 1 NOCACHE NOCYCLE;
 create SEQUENCE tour_comment_seq START WITH 1 INCREMENT by 1 MAXVALUE 100000 MINVALUE 1 NOCACHE NOCYCLE;
+create SEQUENCE notice_seq START WITH 1 INCREMENT by 1 MAXVALUE 100000 MINVALUE 1 NOCACHE NOCYCLE;
 
 select * from tour_view;
 select * from member where member_num = 9;
@@ -333,3 +334,29 @@ desc tour_board;
 desc tour_comment;
 select * from tour_comment;
 commit;
+
+--------------------공지
+
+create table NOTICE(
+NOTICE_UNINO NUMBER primary key,            --고유번호
+NOTICE_STATE NUMBER DEFAULT 1 NOT NULL,               --공지상태
+NOTICE_WRITER VARCHAR2(40) NOT NULL,        --작성자
+NOTICE_TIT VARCHAR(200) NOT NULL,           --제목
+NOTICE_DETAIL VARCHAR(4000) NOT NULL,       --내용
+NOTICE_FORM_DATE DATE,                      --공지시작일
+NOTICE_TO_DATE DATE,                        --공지끝
+NOTICE_REG_DATE DATE DEFAULT SYSDATE,       --작성일
+NOTICE_UPDATE_DATE DATE,                    --수정일
+NOTICE_DEL_DATE DATE,                       --삭제일
+NOTICE_VIEW NUMBER DEFAULT 0                --조회수
+);
+
+drop table notice;
+---공지더미
+
+insert into notice 
+(NOTICE_UNINO,NOTICE_STATE,NOTICE_WRITER,NOTICE_TIT,NOTICE_DETAIL,NOTICE_FORM_DATE,NOTICE_TO_DATE)
+values (
+NOTICE_SEQ.nextval,
+
+);
