@@ -32,6 +32,7 @@ member_latest varchar(30) default 'new'              --최근접속일
 );
 
 
+
 select * from member;
 --회원가입 인서트--
 insert into member (member_id,member_pw,member_name,member_pnum,member_adress,member_num) values

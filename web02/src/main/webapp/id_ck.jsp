@@ -11,6 +11,25 @@
 <meta charset="UTF-8">
 <title>메인 페이지</title>
 <link rel="stylesheet" href="test.css">
+<style>
+        button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: rgb(220, 220, 220);
+            font-weight: bold;
+            color: rgb(120, 120, 120);
+            border: none;
+            outline: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: ease .3s;
+        }
+
+        button:hover {
+            background: #8BC34A;
+            color: #ffffff;
+        }
+</style>
 </head>
 <body>
 
@@ -66,6 +85,7 @@ try{
 			window.close();
 			}
 			function re(){
+			opener.document.join.member_id.readOnly = false;
 			opener.document.join.member_id.value = "";
 			window.close();
 			}

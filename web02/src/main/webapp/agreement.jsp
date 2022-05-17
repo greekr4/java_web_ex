@@ -13,6 +13,43 @@
  margin:0 auto;
  text-align: center;
  }
+ *{margin: 0;padding: 0;box-sizing: border-box}
+body{background-color: #f7f7f7;}
+ul>li{list-style: none}
+a{text-decoration: none;}
+.clearfix::after{content: "";display: block;clear: both;}
+
+
+#joinForm{width: 460px;margin: 0 auto;}
+ul.join_box{border: 1px solid #ddd;background-color: #fff;}
+.checkBox,.checkBox>ul{position: relative;}
+.checkBox>ul>li{float: left;}
+.checkBox>ul>li:first-child{width: 85%;padding: 15px;font-weight: 600;color: #888;}
+.checkBox>ul>li:nth-child(2){position: absolute;top: 50%;right: 30px;margin-top: -12px;}
+.checkBox textarea{width: 96%;height: 200px; margin: 0 2%;background-color: #f7f7f7;color: #888; border: none;
+resize: none;
+
+
+}
+.footBtwrap{margin-top: 15px;}
+.footBtwrap>li{float: left;width: 50%;height: 60px;}
+        button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: rgb(220, 220, 220);
+            font-weight: bold;
+            color: rgb(120, 120, 120);
+            border: none;
+            outline: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: ease .3s;
+        }
+
+        button:hover {
+            background: #8BC34A;
+            color: #ffffff;
+        }
  </style>
 </head>
 <body>
@@ -22,7 +59,25 @@
 </header>
 <div class="ct">
 <div class="agree">
-<textarea rows="30" cols="90" readonly>제1장 총칙
+   <div id="joinForm">
+        <ul class="join_box">
+            <li class="checkBox check01">
+                <ul class="clearfix">
+                    <li style="font-size: 15px;">이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</li>
+                    <li class="checkAllBtn">
+                        <input type="checkbox" id="ck3" class="chkAll" onclick="checkall()">
+                    </li>
+                </ul>
+            </li>
+            <li class="checkBox check02">
+                <ul class="clearfix">
+                    <li>이용약관 동의(필수)</li>
+                    <li class="checkBtn">
+                        <input type="checkbox" id="ck1"> 
+                    </li>
+                </ul>
+                <textarea name="" id="" readonly>
+제1장 총칙
 제1조 (목적)
 이 약관은 전기통신사업법령 및 정보통신망이용촉진 및 정보보호 등에 관한 법률에 따라 한겨레신문㈜ 및 관계사{씨네21 ㈜(이상, 자회사) ㈜한겨레플러스(이상, 제휴사)} (이하 `회사`)에서 제공하는 모든 서비스(이하 `서비스`)의 이용절차,조건등 서비스 이용과 관련한 회사와 회원의 권리 및 의무에 관련된 사항을 규정함을 목적으로 합니다.
 
@@ -204,10 +259,20 @@ e .연락처
 3.본 약관의 해석과 적용 및 본 약관과 관련한 분쟁의 해결에는 대한민국 법률이 적용됩니다.
 부칙
 본 약관은 2009년 3월 6일부터 적용되며, 2008년 2월 1일부터 시행되던 약관은 본 약관으로 대체합니다.
-본 약관의 적용일자 이전 가입자 또한, 본 약관의 적용을 받습니다.</textarea><br>
-<input type="checkbox" name="ck1" id="ck1"> 회원약관에 동의합니다.
-<br><br><br>
-<textarea rows="30" cols="90" readonly>한겨레신문(주) 및 씨네21(주) 등 관계사는 (이하 '회사'라고 합니다.) 개인정보취급방침을 통해 이용자가 제공한 개인정보 가 어떠한 용도와 방식으로 이용되며 관리되고 있는지에 대해 안내해 드립니다. 회사는 '정보통신망 이용촉진 및 정보보호 등에 관한 법률' 등 개인정보와 관련된 법령 상의 개인정보보호규정 및 방송통신위원회가 제정한 '개인정보보호지침'을 준수하고 있습니다. 본 ‘개인정보 취급방침’은 수시로 내용이 변경될 수 있으므로 정기적으로 방문하셔서 확인하십시오.
+본 약관의 적용일자 이전 가입자 또한, 본 약관의 적용을 받습니다.
+
+                </textarea>
+            </li>
+            <li class="checkBox check03">
+                <ul class="clearfix">
+                    <li>개인정보 수집 및 이용에 대한 안내(필수)</li>
+                    <li class="checkBtn">
+                        <input type="checkbox" id="ck2">
+                    </li>
+                </ul>
+
+                <textarea name="" id="" readonly>
+개인정보취급방침을 통해 이용자가 제공한 개인정보 가 어떠한 용도와 방식으로 이용되며 관리되고 있는지에 대해 안내해 드립니다. 회사는 '정보통신망 이용촉진 및 정보보호 등에 관한 법률' 등 개인정보와 관련된 법령 상의 개인정보보호규정 및 방송통신위원회가 제정한 '개인정보보호지침'을 준수하고 있습니다. 본 ‘개인정보 취급방침’은 수시로 내용이 변경될 수 있으므로 정기적으로 방문하셔서 확인하십시오.
 
 수집하는 개인정보의 항목 및 수집방법
 개인정보의 수집 및 이용목적
@@ -339,13 +404,16 @@ TOP
 
 -개인정보침해신고센터 www.118.or.kr/ 국번없이 118
 -대검찰청 사이버범죄수사단 www.spo.go.kr 02-3480-2000
--경찰청 사이버테러대응센터 www.ctrc.go.kr 1566-0112</textarea><br>
-<input type="checkbox" name="ck2" id="ck2"> 개인정보처리방침에 동의합니다.
-<br>
-<input type="checkbox" onclick="checkall()" name="ck3" id="ck3"> 모두 동의하기
-<br><br><br>
-<button id="btn1" onclick="fnc1()">회원가입</button>&nbsp; &nbsp; &nbsp; &nbsp;
-<button id="btn1" onclick="location.href='index.jsp'">취소</button>
+-경찰청 사이버테러대응센터 www.ctrc.go.kr 1566-0112                    
+                </textarea>
+            </li>
+        </ul>
+        <ul class="footBtwrap clearfix">
+            <li><button onclick="location.href='index.jsp'" class="fpmgBt1">취소</button></li>
+            <li><button onclick="fnc1()" class="fpmgBt2">회원가입</button></li>
+        </ul>
+    </div>
+
 <script type="text/javascript">
 	function fnc1(){
 		var ck1 = document.getElementById("ck1");
