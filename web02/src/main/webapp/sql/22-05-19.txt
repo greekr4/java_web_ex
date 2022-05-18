@@ -1,0 +1,370 @@
+--------------------------------------------------------
+--  파일이 생성됨 - 목요일-5월-19-2022   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Sequence BOARD_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "BOARD_SEQ"  MINVALUE 1 MAXVALUE 100000 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence IMG_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "IMG_SEQ"  MINVALUE 1 MAXVALUE 100000 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence MEMBERNUM_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "MEMBERNUM_SEQ"  MINVALUE 1 MAXVALUE 100000 INCREMENT BY 1 START WITH 38 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence NOTICE_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "NOTICE_SEQ"  MINVALUE 1 MAXVALUE 100000 INCREMENT BY 1 START WITH 4 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SHOP_ADMIN_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "SHOP_ADMIN_SEQ"  MINVALUE 1 MAXVALUE 100000 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SHOP_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "SHOP_SEQ"  MINVALUE 1 MAXVALUE 100000 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence TOUR_BOARD_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TOUR_BOARD_SEQ"  MINVALUE 1 MAXVALUE 100000 INCREMENT BY 1 START WITH 9 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence TOUR_COMMENT_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TOUR_COMMENT_SEQ"  MINVALUE 1 MAXVALUE 100000 INCREMENT BY 1 START WITH 11 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence TOUR_VIEW_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TOUR_VIEW_SEQ"  MINVALUE 1 MAXVALUE 100000 INCREMENT BY 1 START WITH 38 NOCACHE  NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Table TOUR_BOARD
+--------------------------------------------------------
+
+  CREATE TABLE "TOUR_BOARD" 
+   (	"TOUR_BOARD_NUM" NUMBER(38,0), 
+	"TOUR_BOARD_PIDNO" VARCHAR2(50), 
+	"TOUR_BOARD_TIT" VARCHAR2(100), 
+	"TOUR_BOARD_DETAIL" VARCHAR2(2000), 
+	"TOUR_BOARD_WRITER" VARCHAR2(50), 
+	"TOUR_BOARD_CDATE" DATE DEFAULT SYSDATE, 
+	"TOUR_BOARD_VIEWS" NUMBER DEFAULT 0, 
+	"TOUR_BOARD_THUMB" NUMBER DEFAULT 0, 
+	"TOUR_BOARD_IMG1" VARCHAR2(50), 
+	"TOUR_BOARD_IMG2" VARCHAR2(50), 
+	"TOUR_BOARD_IMG3" VARCHAR2(50), 
+	"TOUR_BOARD_IMG4" VARCHAR2(50), 
+	"TOUR_BOARD_ADDRESS" VARCHAR2(200), 
+	"TOUR_BOARD_TEL" VARCHAR2(200)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table TOUR_CCODE
+--------------------------------------------------------
+
+  CREATE TABLE "TOUR_CCODE" 
+   (	"CCODE" VARCHAR2(2), 
+	"CCODE_RES" VARCHAR2(50)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table TOUR_COMMENT
+--------------------------------------------------------
+
+  CREATE TABLE "TOUR_COMMENT" 
+   (	"TOUR_COMMENT_UNINUM" NUMBER, 
+	"TOUR_COMMENT_BNUM" NUMBER, 
+	"TOUR_COMMENT_DETAIL" VARCHAR2(200), 
+	"TOUR_COMMENT_NAME" VARCHAR2(20), 
+	"TOUR_COMMENT_TDATE" VARCHAR2(30), 
+	"TOUR_COMMENT_THUMB" NUMBER DEFAULT 0
+   ) ;
+--------------------------------------------------------
+--  DDL for Table TOUR_DCODE
+--------------------------------------------------------
+
+  CREATE TABLE "TOUR_DCODE" 
+   (	"DCODE" VARCHAR2(10), 
+	"DCODE_RES" VARCHAR2(50)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table TOUR_VIEW
+--------------------------------------------------------
+
+  CREATE TABLE "TOUR_VIEW" 
+   (	"TOUR_ID" VARCHAR2(20), 
+	"TOUR_NUM" NUMBER, 
+	"TOUR_NAME" VARCHAR2(200), 
+	"TOUR_ADDRESS" VARCHAR2(200), 
+	"TOUR_TEL" VARCHAR2(200), 
+	"TOUR_IMG1" VARCHAR2(200) DEFAULT 'none', 
+	"TOUR_IMG2" VARCHAR2(200) DEFAULT 'none', 
+	"TOUR_IMG3" VARCHAR2(200) DEFAULT 'none', 
+	"TOUR_IMG4" VARCHAR2(200) DEFAULT 'none'
+   ) ;
+--------------------------------------------------------
+--  DDL for Table NOTICE
+--------------------------------------------------------
+
+  CREATE TABLE "NOTICE" 
+   (	"NOTICE_UNINO" NUMBER, 
+	"NOTICE_STATE" NUMBER DEFAULT 1, 
+	"NOTICE_WRITER" VARCHAR2(40), 
+	"NOTICE_TIT" VARCHAR2(200), 
+	"NOTICE_DETAIL" VARCHAR2(4000), 
+	"NOTICE_FROM_DATE" DATE, 
+	"NOTICE_TO_DATE" DATE, 
+	"NOTICE_REG_DATE" DATE DEFAULT SYSDATE, 
+	"NOTICE_UPDATE_DATE" DATE, 
+	"NOTICE_DEL_DATE" DATE, 
+	"NOTICE_VIEW" NUMBER DEFAULT 0                --조회수
+
+   ) ;
+--------------------------------------------------------
+--  DDL for Table MEMBER
+--------------------------------------------------------
+
+  CREATE TABLE "MEMBER" 
+   (	"MEMBER_ID" VARCHAR2(20), 
+	"MEMBER_PW" VARCHAR2(2000), 
+	"MEMBER_NAME" VARCHAR2(20), 
+	"MEMBER_PNUM" VARCHAR2(20), 
+	"MEMBER_ADDRESS" VARCHAR2(50), 
+	"MEMBER_CASH" NUMBER(38,0) DEFAULT 0, 
+	"MEMBER_POINT" NUMBER(38,0) DEFAULT 0, 
+	"MEMBER_GRADE" NUMBER(10,0) DEFAULT 1, 
+	"MEMBER_NUM" NUMBER(38,0), 
+	"MEMBER_LATEST" VARCHAR2(30) DEFAULT 'new'              --최근접속일
+
+   ) ;
+REM INSERTING into TOUR_BOARD
+SET DEFINE OFF;
+Insert into TOUR_BOARD (TOUR_BOARD_NUM,TOUR_BOARD_PIDNO,TOUR_BOARD_TIT,TOUR_BOARD_DETAIL,TOUR_BOARD_WRITER,TOUR_BOARD_CDATE,TOUR_BOARD_VIEWS,TOUR_BOARD_THUMB,TOUR_BOARD_IMG1,TOUR_BOARD_IMG2,TOUR_BOARD_IMG3,TOUR_BOARD_IMG4,TOUR_BOARD_ADDRESS,TOUR_BOARD_TEL) values (1,'A110001','금강산','<h4>소개</h4>
+		<p>해남의 금강산은 마산면의 맹진리와 화내리를 경계 짓는 만대산(萬垈山)과 옥천면과 해남읍을 경계 짓는 만대산(萬垈山)을 좌우로 거느린 산이다. 
+<br/> 여기서 만대(萬垈)는 만개의 큰바위란 뜻이다. 큰바위를 한자로 대(垈-터대,대지)라 하고, 대를 일반적으로 작은 봉우리로 해석할 수도 있다. &nbsp;결국 만대(萬垈)를 만봉(萬峰)으로 해석한다면 해남의 금강산은 만대(만봉)를 두개나 거느리는 산이니 봉우리가 이만봉 이어서 북한에 있는 금강산의 일만이천봉보다 팔천봉이나 더 많은 해남의 아름다운 명산이다. &nbsp;<출처 : 한국의 산천>
+<br/>
+<br/>* 행코스
+<br/>- 산행코스 1 : - 해남종합병원- 3,2,1봉- 만대산 - 금강재- 금강산- 우정봉- 금강저수지 (약 4시간 코스)
+<br/>
+<br/>* 산행코스 2 : (소요시간: &nbsp;약 5시간 30분)
+<br/>- 금강곡저수지- 삼봉 - &nbsp;만대산 - 금강재 - &nbsp;금강산정상(헬기장) 무명봉 - 정성 - 무명봉 - 금강산성 - 금강폭포 삼거리 - 우정봉삼거리 - 쉼터 삼거리 - 미암바위 - 삼거리 - 팔각정공원 
+<br/>
+<br/>* 산행코스 3 : (소요시간 6시간)
+<br/>- 금강산저수지 &nbsp;- 삼봉 - 만대산 - 금강재 - 금강산성 - 무명봉 - 정상 - 아침재 - 학동마을</p>
+	','관리자',to_date('22/05/13','RR/MM/DD'),0,0,'./img/A/A110001/0.png','./img/A/A110001/1.png','./img/A/A110001/2.png','./img/A/A110001/3.png','전라남도 해남군 해남읍 해리2길 50','산림녹지과 산림보호팀: 061-530- 5427산림녹지과 산림보호팀: 061-530- 5427');
+Insert into TOUR_BOARD (TOUR_BOARD_NUM,TOUR_BOARD_PIDNO,TOUR_BOARD_TIT,TOUR_BOARD_DETAIL,TOUR_BOARD_WRITER,TOUR_BOARD_CDATE,TOUR_BOARD_VIEWS,TOUR_BOARD_THUMB,TOUR_BOARD_IMG1,TOUR_BOARD_IMG2,TOUR_BOARD_IMG3,TOUR_BOARD_IMG4,TOUR_BOARD_ADDRESS,TOUR_BOARD_TEL) values (2,'A110002','주작산','<p>주작산은 이름에서도 풍기듯이 봉황이 날개를 활짝 펴고 나는 듯 한 형상을 지닌 산이라 해서 주작산이라 이름이 붙혀졌다. 주작산은 해남군 삼산면 오소재에서 북동향으로 강진 도암면 석문산 못 미쳐 봉황천까지 직선거리로 약 10km에 걸쳐 있는 산이다. 봉황의 머리 부분에 해당하는 지점이 최고봉으로 우측날개 부분은 해남 오소재로 이어지는 암릉이며 좌측날개는 작천 소령 북쪽에서 덕룡산 쪽으로 이어지는 능선이다. 
+<br/> 주작산에 이르는 암릉은 곳곳에 바위능선이 많고 정상에 서면 다도해가 한눈에 들어오며. 북동에서 남서방향으로 해안선과 나란히 이어져 확 트인 바다 내음을 마음껏 느낄 수 있는 산행이 된다.
+<br/>
+<br/>* 오소재 : 해남 옥천면에서 북일면 넘어서는 고개','관리자',to_date('22/05/13','RR/MM/DD'),0,0,'./img/A/A110002/0.png','./img/A/A110002/1.png','./img/A/A110002/2.png','./img/A/A110002/3.png','전라남도 해남군 해남읍 해리2길 50','123');
+Insert into TOUR_BOARD (TOUR_BOARD_NUM,TOUR_BOARD_PIDNO,TOUR_BOARD_TIT,TOUR_BOARD_DETAIL,TOUR_BOARD_WRITER,TOUR_BOARD_CDATE,TOUR_BOARD_VIEWS,TOUR_BOARD_THUMB,TOUR_BOARD_IMG1,TOUR_BOARD_IMG2,TOUR_BOARD_IMG3,TOUR_BOARD_IMG4,TOUR_BOARD_ADDRESS,TOUR_BOARD_TEL) values (3,'A110003','갈두산','갈두산은 해남군 최남단에 위치한 산으로 예부터 산자락에 칡이 많았다는데에서 산이름이 유래됐다.
+일명 사자봉으로도 불리는 갈두산의 모산은 해남군 최고봉인 두륜산(頭輪山·703m)이다.','관리자',to_date('22/05/13','RR/MM/DD'),0,0,'./img/A/A110003/0.png','./img/A/A110003/1.png','./img/A/A110003/2.png','./img/A/A110003/3.png','전라남도 해남군 해남읍 해리2길 50','123');
+Insert into TOUR_BOARD (TOUR_BOARD_NUM,TOUR_BOARD_PIDNO,TOUR_BOARD_TIT,TOUR_BOARD_DETAIL,TOUR_BOARD_WRITER,TOUR_BOARD_CDATE,TOUR_BOARD_VIEWS,TOUR_BOARD_THUMB,TOUR_BOARD_IMG1,TOUR_BOARD_IMG2,TOUR_BOARD_IMG3,TOUR_BOARD_IMG4,TOUR_BOARD_ADDRESS,TOUR_BOARD_TEL) values (8,'A110004','123','123123','관리자',to_date('22/05/17','RR/MM/DD'),0,0,'123','123','123','123','전라남도 해남군 해남읍 해리2길 50','123');
+REM INSERTING into TOUR_CCODE
+SET DEFINE OFF;
+Insert into TOUR_CCODE (CCODE,CCODE_RES) values ('A','자연관광');
+Insert into TOUR_CCODE (CCODE,CCODE_RES) values ('B','관광명소');
+Insert into TOUR_CCODE (CCODE,CCODE_RES) values ('C','문화재');
+Insert into TOUR_CCODE (CCODE,CCODE_RES) values ('D','코스관광');
+Insert into TOUR_CCODE (CCODE,CCODE_RES) values ('E','수련시설');
+Insert into TOUR_CCODE (CCODE,CCODE_RES) values ('F','축제');
+Insert into TOUR_CCODE (CCODE,CCODE_RES) values ('G','음식');
+Insert into TOUR_CCODE (CCODE,CCODE_RES) values ('H','숙박');
+Insert into TOUR_CCODE (CCODE,CCODE_RES) values ('I','쇼핑');
+Insert into TOUR_CCODE (CCODE,CCODE_RES) values ('J','교통');
+REM INSERTING into TOUR_COMMENT
+SET DEFINE OFF;
+Insert into TOUR_COMMENT (TOUR_COMMENT_UNINUM,TOUR_COMMENT_BNUM,TOUR_COMMENT_DETAIL,TOUR_COMMENT_NAME,TOUR_COMMENT_TDATE,TOUR_COMMENT_THUMB) values (8,2,'zz','aa','22-05-15 22:27',1);
+Insert into TOUR_COMMENT (TOUR_COMMENT_UNINUM,TOUR_COMMENT_BNUM,TOUR_COMMENT_DETAIL,TOUR_COMMENT_NAME,TOUR_COMMENT_TDATE,TOUR_COMMENT_THUMB) values (3,1,'와 좋아요11','회원1','22-05-13 17:14',79);
+Insert into TOUR_COMMENT (TOUR_COMMENT_UNINUM,TOUR_COMMENT_BNUM,TOUR_COMMENT_DETAIL,TOUR_COMMENT_NAME,TOUR_COMMENT_TDATE,TOUR_COMMENT_THUMB) values (6,1,'안녕하세요','바보','22-05-15 21:17',2);
+Insert into TOUR_COMMENT (TOUR_COMMENT_UNINUM,TOUR_COMMENT_BNUM,TOUR_COMMENT_DETAIL,TOUR_COMMENT_NAME,TOUR_COMMENT_TDATE,TOUR_COMMENT_THUMB) values (5,1,'테스트','회원2','22-05-15 21:15',4);
+Insert into TOUR_COMMENT (TOUR_COMMENT_UNINUM,TOUR_COMMENT_BNUM,TOUR_COMMENT_DETAIL,TOUR_COMMENT_NAME,TOUR_COMMENT_TDATE,TOUR_COMMENT_THUMB) values (7,1,'ㅋㅋㅋ','ㅋㅋㅋ','22-05-15 21:18',2);
+Insert into TOUR_COMMENT (TOUR_COMMENT_UNINUM,TOUR_COMMENT_BNUM,TOUR_COMMENT_DETAIL,TOUR_COMMENT_NAME,TOUR_COMMENT_TDATE,TOUR_COMMENT_THUMB) values (10,1,'별로에요','ㅋㅋ','22-05-16 22:39',1);
+Insert into TOUR_COMMENT (TOUR_COMMENT_UNINUM,TOUR_COMMENT_BNUM,TOUR_COMMENT_DETAIL,TOUR_COMMENT_NAME,TOUR_COMMENT_TDATE,TOUR_COMMENT_THUMB) values (9,3,'와좋아요','미래문도','22-05-16 15:02',1);
+REM INSERTING into TOUR_DCODE
+SET DEFINE OFF;
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('A11','산');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('A12','등산/산책로');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('A13','해수욕장');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('B11','사찰');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('B12','주거건물');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('B13','박물관/전시관');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('B14','해남 8경');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('C11','국가지정문화재');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('C12','도지정문화재');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('C13','유적건조물');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('D11','일정별코스');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('D12','권역별코스');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('D13','이야기별코스');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('D14','자전거코스');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('E11','템플스테이');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('E12','농어촌체험');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('E13','생테체험');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('F11','명량대첩축제');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('F12','땅끝매화축제');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('F13','흑석산철쭉제');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('F14','땅끝해넘이해맞이축제');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('F15','문화행사');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('F16','기타행사');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('F17','달마고도 힐링축제');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('F18','해남 미남 축제');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('G11','해남명물 8미');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('G12','해남군 대표음식점');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('G13','해남 제철 맛');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('G14','해남 추천 음식');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('G15','읍면별 음식점');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('H11','호텔/리조트');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('H12','모텔/여관');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('H13','민박/펜션');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('H14','휴양림/캠핑카');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('H15','유스호스텔');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('H16','황토나라테마촌');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('I11','해남브랜드');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('I12','해남특산물');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('I13','해남미소');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('I14','전통시장현황');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('I15','주조장');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('J11','농어촌버스');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('J12','직행직통버스');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('J13','고속버스');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('J14','우수영여객선 터미널');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('J15','땅끝여객선');
+Insert into TOUR_DCODE (DCODE,DCODE_RES) values ('J16','열차항공');
+REM INSERTING into TOUR_VIEW
+SET DEFINE OFF;
+Insert into TOUR_VIEW (TOUR_ID,TOUR_NUM,TOUR_NAME,TOUR_ADDRESS,TOUR_TEL,TOUR_IMG1,TOUR_IMG2,TOUR_IMG3,TOUR_IMG4) values ('A110002',12,'주작산','전라남도 해남군 북일면 오소재로 391 (오소재 쉼터옆)','산림녹지과 산림보호팀: 061-530-5427 / 관광안내: 061-532-1330','./img/A/A110002/0.png','123','123','123');
+Insert into TOUR_VIEW (TOUR_ID,TOUR_NUM,TOUR_NAME,TOUR_ADDRESS,TOUR_TEL,TOUR_IMG1,TOUR_IMG2,TOUR_IMG3,TOUR_IMG4) values ('A110001',2,'금강산','전라남도 해남군 해남읍 해리2길 50 (해촌서원)','산림녹지과 산림보호팀: 061-530- 5427/ 관광안내: 061-532-1330','./img/A/A110001/0.png','경로2','경로3','경로4');
+Insert into TOUR_VIEW (TOUR_ID,TOUR_NUM,TOUR_NAME,TOUR_ADDRESS,TOUR_TEL,TOUR_IMG1,TOUR_IMG2,TOUR_IMG3,TOUR_IMG4) values ('A110004',14,'두륜산','전라남도 해남군 삼산면 대흥사길 400','산림녹지과 도립공원팀: 061-530-5958/ 관광안내: 061-532-1330','./img/A/A110004/0.png','null','null','null');
+Insert into TOUR_VIEW (TOUR_ID,TOUR_NUM,TOUR_NAME,TOUR_ADDRESS,TOUR_TEL,TOUR_IMG1,TOUR_IMG2,TOUR_IMG3,TOUR_IMG4) values ('A110005',15,'달마산','전라남도 해남군 송지면 미황사길 164','산림녹지과 산림보호팀: 061-530-5427/ 관광안내: 061- 532- 1330','./img/A/A110005/0.png',null,null,null);
+Insert into TOUR_VIEW (TOUR_ID,TOUR_NUM,TOUR_NAME,TOUR_ADDRESS,TOUR_TEL,TOUR_IMG1,TOUR_IMG2,TOUR_IMG3,TOUR_IMG4) values ('A110006',16,'병풍산','전라남도 해남군 현산면 금쇄동길  금쇄동길 228','산림녹지과 산림보호팀: 061-530-5427/ 관광안내:  061-532-1330','./img/A/A110006/1.png','null','null','null');
+Insert into TOUR_VIEW (TOUR_ID,TOUR_NUM,TOUR_NAME,TOUR_ADDRESS,TOUR_TEL,TOUR_IMG1,TOUR_IMG2,TOUR_IMG3,TOUR_IMG4) values ('자웅산',10,'김태균','키키키','tel',null,null,null,null);
+Insert into TOUR_VIEW (TOUR_ID,TOUR_NUM,TOUR_NAME,TOUR_ADDRESS,TOUR_TEL,TOUR_IMG1,TOUR_IMG2,TOUR_IMG3,TOUR_IMG4) values ('A120001',18,'국토순례길- 땅끝길','전라남도 해남군 송지면 땅끝마을길 42 일원','관광실 관광마케팅팀: 061-530- 5798 / 관광안내: 061-532-1330','./img/A/A120001/0.png','d','d','d');
+Insert into TOUR_VIEW (TOUR_ID,TOUR_NUM,TOUR_NAME,TOUR_ADDRESS,TOUR_TEL,TOUR_IMG1,TOUR_IMG2,TOUR_IMG3,TOUR_IMG4) values ('A120002',20,'태고의 땅으로 떠나는 길 - 달마고도','전라남도 해남군 송지면 미황사길 164','관광실 축제팀 061-530-5160/ 관광안내: 061-532-1330','./img/A/A120002/0.png','null','null','null');
+Insert into TOUR_VIEW (TOUR_ID,TOUR_NUM,TOUR_NAME,TOUR_ADDRESS,TOUR_TEL,TOUR_IMG1,TOUR_IMG2,TOUR_IMG3,TOUR_IMG4) values ('A110011',35,'123','123','123','./img/A/A110011/0.png','./img/A/A110011/1.png','./img/A/A110011/2.png','./img/A/A110011/3.png');
+Insert into TOUR_VIEW (TOUR_ID,TOUR_NUM,TOUR_NAME,TOUR_ADDRESS,TOUR_TEL,TOUR_IMG1,TOUR_IMG2,TOUR_IMG3,TOUR_IMG4) values ('A110012',36,'123123123','123213','123123','./img/A/A110012/0.png','./img/A/A110012/1.png','./img/A/A110012/2.png','./img/A/A110012/3.png');
+Insert into TOUR_VIEW (TOUR_ID,TOUR_NUM,TOUR_NAME,TOUR_ADDRESS,TOUR_TEL,TOUR_IMG1,TOUR_IMG2,TOUR_IMG3,TOUR_IMG4) values ('F150001',37,'123','123','123','./img/F/F150001/0.png','./img/F/F150001/1.png','./img/F/F150001/2.png','./img/F/F150001/3.png');
+Insert into TOUR_VIEW (TOUR_ID,TOUR_NUM,TOUR_NAME,TOUR_ADDRESS,TOUR_TEL,TOUR_IMG1,TOUR_IMG2,TOUR_IMG3,TOUR_IMG4) values ('A110009',32,'123','123','123','./img/A/A110009/0.png','./img/A/A110009/1.png','./img/A/A110009/2.png','./img/A/A110009/3.png');
+Insert into TOUR_VIEW (TOUR_ID,TOUR_NUM,TOUR_NAME,TOUR_ADDRESS,TOUR_TEL,TOUR_IMG1,TOUR_IMG2,TOUR_IMG3,TOUR_IMG4) values ('A110003',5,'갈두산','전라남도 해남군 송지면 땅끝마을길 60-28','산림녹지과 산림보호팀: 061-530-5427/ 관광안내: 061-532-1330','./img/A/A110003/0.png','null','null','null');
+Insert into TOUR_VIEW (TOUR_ID,TOUR_NUM,TOUR_NAME,TOUR_ADDRESS,TOUR_TEL,TOUR_IMG1,TOUR_IMG2,TOUR_IMG3,TOUR_IMG4) values ('A110008',31,'테스트','테스트','테스테스테스트','./img/A/A110008/0.png','./img/A/A110008/1.png','./img/A/A110008/2.png','./img/A/A110008/3.png');
+Insert into TOUR_VIEW (TOUR_ID,TOUR_NUM,TOUR_NAME,TOUR_ADDRESS,TOUR_TEL,TOUR_IMG1,TOUR_IMG2,TOUR_IMG3,TOUR_IMG4) values ('A110010',34,'45645','6546','456','./img/A/A110010/0.png','./img/A/A110010/1.png','./img/A/A110010/2.png','./img/A/A110010/3.png');
+Insert into TOUR_VIEW (TOUR_ID,TOUR_NUM,TOUR_NAME,TOUR_ADDRESS,TOUR_TEL,TOUR_IMG1,TOUR_IMG2,TOUR_IMG3,TOUR_IMG4) values ('A110007',17,'흑석산(가학산)','전라남도 해남군 계곡면 산골길 306','산림녹지과 산림보호팀: 061- 530-5427 / 관광안내: 061-530-5915','./img/A/A110007/0.png','null','null','null');
+REM INSERTING into NOTICE
+SET DEFINE OFF;
+Insert into NOTICE (NOTICE_UNINO,NOTICE_STATE,NOTICE_WRITER,NOTICE_TIT,NOTICE_DETAIL,NOTICE_FROM_DATE,NOTICE_TO_DATE,NOTICE_REG_DATE,NOTICE_UPDATE_DATE,NOTICE_DEL_DATE,NOTICE_VIEW) values (2,2,'관리자','제목','내용입니다ㄴㅇㄹㄴㅇㄹㄴㅇㄹ',to_date('22/05/19','RR/MM/DD'),to_date('22/05/21','RR/MM/DD'),to_date('22/05/17','RR/MM/DD'),to_date('22/05/17','RR/MM/DD'),null,0);
+Insert into NOTICE (NOTICE_UNINO,NOTICE_STATE,NOTICE_WRITER,NOTICE_TIT,NOTICE_DETAIL,NOTICE_FROM_DATE,NOTICE_TO_DATE,NOTICE_REG_DATE,NOTICE_UPDATE_DATE,NOTICE_DEL_DATE,NOTICE_VIEW) values (3,3,'567','567123','ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ',to_date('22/05/03','RR/MM/DD'),to_date('22/05/17','RR/MM/DD'),to_date('22/05/17','RR/MM/DD'),to_date('22/05/17','RR/MM/DD'),null,0);
+REM INSERTING into MEMBER
+SET DEFINE OFF;
+Insert into MEMBER (MEMBER_ID,MEMBER_PW,MEMBER_NAME,MEMBER_PNUM,MEMBER_ADDRESS,MEMBER_CASH,MEMBER_POINT,MEMBER_GRADE,MEMBER_NUM,MEMBER_LATEST) values ('test7','c1f330d0aff31c1c87403f1e4347bcc21aff7c179908723535f2b31723702525','dddd','dddd','ddd',0,0,1,28,'new');
+Insert into MEMBER (MEMBER_ID,MEMBER_PW,MEMBER_NAME,MEMBER_PNUM,MEMBER_ADDRESS,MEMBER_CASH,MEMBER_POINT,MEMBER_GRADE,MEMBER_NUM,MEMBER_LATEST) values ('admin','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','관리자','010-0000-0000','관리자 주소',0,0,1,9,'new');
+Insert into MEMBER (MEMBER_ID,MEMBER_PW,MEMBER_NAME,MEMBER_PNUM,MEMBER_ADDRESS,MEMBER_CASH,MEMBER_POINT,MEMBER_GRADE,MEMBER_NUM,MEMBER_LATEST) values ('testuser1','a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3','홍길동','010-0000-0000','파주123',0,0,1,10,'new');
+Insert into MEMBER (MEMBER_ID,MEMBER_PW,MEMBER_NAME,MEMBER_PNUM,MEMBER_ADDRESS,MEMBER_CASH,MEMBER_POINT,MEMBER_GRADE,MEMBER_NUM,MEMBER_LATEST) values ('admin2','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','어드민2','010-2222-2222','강남',0,0,1,37,'new');
+Insert into MEMBER (MEMBER_ID,MEMBER_PW,MEMBER_NAME,MEMBER_PNUM,MEMBER_ADDRESS,MEMBER_CASH,MEMBER_POINT,MEMBER_GRADE,MEMBER_NUM,MEMBER_LATEST) values ('testst','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','테스트','테스트','테스트',0,0,1,33,'new');
+Insert into MEMBER (MEMBER_ID,MEMBER_PW,MEMBER_NAME,MEMBER_PNUM,MEMBER_ADDRESS,MEMBER_CASH,MEMBER_POINT,MEMBER_GRADE,MEMBER_NUM,MEMBER_LATEST) values ('ㅁㄴㄻㄴㄹ','96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e','123123','123','123123',0,0,1,34,'new');
+Insert into MEMBER (MEMBER_ID,MEMBER_PW,MEMBER_NAME,MEMBER_PNUM,MEMBER_ADDRESS,MEMBER_CASH,MEMBER_POINT,MEMBER_GRADE,MEMBER_NUM,MEMBER_LATEST) values ('test','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','테스트','010-4191-1611','파주1244',0,0,1,20,'new');
+Insert into MEMBER (MEMBER_ID,MEMBER_PW,MEMBER_NAME,MEMBER_PNUM,MEMBER_ADDRESS,MEMBER_CASH,MEMBER_POINT,MEMBER_GRADE,MEMBER_NUM,MEMBER_LATEST) values ('aaaa','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','addd','010-3333-3333','대구',0,0,1,22,'new');
+Insert into MEMBER (MEMBER_ID,MEMBER_PW,MEMBER_NAME,MEMBER_PNUM,MEMBER_ADDRESS,MEMBER_CASH,MEMBER_POINT,MEMBER_GRADE,MEMBER_NUM,MEMBER_LATEST) values ('test2','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','테스트','010-4191-1611','파주',0,0,1,23,'new');
+Insert into MEMBER (MEMBER_ID,MEMBER_PW,MEMBER_NAME,MEMBER_PNUM,MEMBER_ADDRESS,MEMBER_CASH,MEMBER_POINT,MEMBER_GRADE,MEMBER_NUM,MEMBER_LATEST) values ('test5','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','ddd','ddd','ddd',0,0,1,26,'new');
+Insert into MEMBER (MEMBER_ID,MEMBER_PW,MEMBER_NAME,MEMBER_PNUM,MEMBER_ADDRESS,MEMBER_CASH,MEMBER_POINT,MEMBER_GRADE,MEMBER_NUM,MEMBER_LATEST) values ('test6','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','ddddd','dddd','dddd',0,0,1,27,'new');
+Insert into MEMBER (MEMBER_ID,MEMBER_PW,MEMBER_NAME,MEMBER_PNUM,MEMBER_ADDRESS,MEMBER_CASH,MEMBER_POINT,MEMBER_GRADE,MEMBER_NUM,MEMBER_LATEST) values ('tes8','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','dddd','dddd','ddd',0,0,1,30,'new');
+Insert into MEMBER (MEMBER_ID,MEMBER_PW,MEMBER_NAME,MEMBER_PNUM,MEMBER_ADDRESS,MEMBER_CASH,MEMBER_POINT,MEMBER_GRADE,MEMBER_NUM,MEMBER_LATEST) values ('test89','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','1234','1234','1234',0,0,1,32,'new');
+--------------------------------------------------------
+--  DDL for Index SYS_C007114
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SYS_C007114" ON "TOUR_BOARD" ("TOUR_BOARD_NUM") 
+  ;
+--------------------------------------------------------
+--  DDL for Index SYS_C007050
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SYS_C007050" ON "TOUR_CCODE" ("CCODE") 
+  ;
+--------------------------------------------------------
+--  DDL for Index SYS_C007109
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SYS_C007109" ON "TOUR_COMMENT" ("TOUR_COMMENT_UNINUM") 
+  ;
+--------------------------------------------------------
+--  DDL for Index SYS_C007051
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SYS_C007051" ON "TOUR_DCODE" ("DCODE") 
+  ;
+--------------------------------------------------------
+--  DDL for Index SYS_C007074
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SYS_C007074" ON "TOUR_VIEW" ("TOUR_ID") 
+  ;
+--------------------------------------------------------
+--  DDL for Index SYS_C007163
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SYS_C007163" ON "NOTICE" ("NOTICE_UNINO") 
+  ;
+--------------------------------------------------------
+--  DDL for Index SYS_C007066
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SYS_C007066" ON "MEMBER" ("MEMBER_ID") 
+  ;
+--------------------------------------------------------
+--  Constraints for Table TOUR_BOARD
+--------------------------------------------------------
+
+  ALTER TABLE "TOUR_BOARD" ADD PRIMARY KEY ("TOUR_BOARD_NUM") ENABLE;
+  ALTER TABLE "TOUR_BOARD" MODIFY ("TOUR_BOARD_WRITER" NOT NULL ENABLE);
+  ALTER TABLE "TOUR_BOARD" MODIFY ("TOUR_BOARD_DETAIL" NOT NULL ENABLE);
+  ALTER TABLE "TOUR_BOARD" MODIFY ("TOUR_BOARD_TIT" NOT NULL ENABLE);
+  ALTER TABLE "TOUR_BOARD" MODIFY ("TOUR_BOARD_PIDNO" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table TOUR_CCODE
+--------------------------------------------------------
+
+  ALTER TABLE "TOUR_CCODE" ADD PRIMARY KEY ("CCODE") ENABLE;
+--------------------------------------------------------
+--  Constraints for Table TOUR_COMMENT
+--------------------------------------------------------
+
+  ALTER TABLE "TOUR_COMMENT" ADD PRIMARY KEY ("TOUR_COMMENT_UNINUM") ENABLE;
+  ALTER TABLE "TOUR_COMMENT" MODIFY ("TOUR_COMMENT_TDATE" NOT NULL ENABLE);
+  ALTER TABLE "TOUR_COMMENT" MODIFY ("TOUR_COMMENT_NAME" NOT NULL ENABLE);
+  ALTER TABLE "TOUR_COMMENT" MODIFY ("TOUR_COMMENT_DETAIL" NOT NULL ENABLE);
+  ALTER TABLE "TOUR_COMMENT" MODIFY ("TOUR_COMMENT_BNUM" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table TOUR_DCODE
+--------------------------------------------------------
+
+  ALTER TABLE "TOUR_DCODE" ADD PRIMARY KEY ("DCODE") ENABLE;
+--------------------------------------------------------
+--  Constraints for Table TOUR_VIEW
+--------------------------------------------------------
+
+  ALTER TABLE "TOUR_VIEW" ADD PRIMARY KEY ("TOUR_ID") ENABLE;
+  ALTER TABLE "TOUR_VIEW" MODIFY ("TOUR_NAME" NOT NULL ENABLE);
+  ALTER TABLE "TOUR_VIEW" MODIFY ("TOUR_NUM" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table NOTICE
+--------------------------------------------------------
+
+  ALTER TABLE "NOTICE" ADD PRIMARY KEY ("NOTICE_UNINO") ENABLE;
+  ALTER TABLE "NOTICE" MODIFY ("NOTICE_DETAIL" NOT NULL ENABLE);
+  ALTER TABLE "NOTICE" MODIFY ("NOTICE_TIT" NOT NULL ENABLE);
+  ALTER TABLE "NOTICE" MODIFY ("NOTICE_WRITER" NOT NULL ENABLE);
+  ALTER TABLE "NOTICE" MODIFY ("NOTICE_STATE" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table MEMBER
+--------------------------------------------------------
+
+  ALTER TABLE "MEMBER" ADD PRIMARY KEY ("MEMBER_ID") ENABLE;
+  ALTER TABLE "MEMBER" MODIFY ("MEMBER_NUM" NOT NULL ENABLE);
+  ALTER TABLE "MEMBER" MODIFY ("MEMBER_GRADE" NOT NULL ENABLE);
+  ALTER TABLE "MEMBER" MODIFY ("MEMBER_NAME" NOT NULL ENABLE);
+  ALTER TABLE "MEMBER" MODIFY ("MEMBER_PW" NOT NULL ENABLE);
