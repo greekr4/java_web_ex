@@ -76,7 +76,7 @@ try{
 	</div>
 	</div>
 	</div>
-<div class="hd_bt">
+<div class="hd_bt" id="hd_bt">
 	<div class="hb_wrap">
 	<div class="logo">
 	<a href="index.jsp"><img alt="로고" src="./img/index/h_logo.png"></a>
@@ -93,7 +93,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("A")){ %>
-		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>#<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}

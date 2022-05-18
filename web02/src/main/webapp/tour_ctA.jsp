@@ -83,7 +83,7 @@ ArrayList<tour_viewVO> Volist = (ArrayList<tour_viewVO>) request.getAttribute("t
 <div class="ct">
 
 <section class="page" id="A11">
-<h2>테스트페이지(A11-산)</h2>
+<a href="#A12"><h2>테스트페이지(A11-산)</h2></a>
 <div class="subct">
 
 <%for(int i=0;i<Volist.size();i++)
@@ -148,7 +148,20 @@ ArrayList<tour_viewVO> Volist = (ArrayList<tour_viewVO>) request.getAttribute("t
 </section>
 
 
+<script type="text/javascript">
 
+var test1 = document.getElementById("hd_bt");
+
+setInterval(() => {
+	if (window.scrollY > 135){
+		test1.style.position="fixed";
+		test1.style.top=0;
+	} else if (window.scrollY < 135){
+		test1.style.position="unset";
+	}
+}, 1000);
+
+</script>
 
 
 
