@@ -66,6 +66,13 @@ ArrayList<tour_viewVO> Volist = (ArrayList<tour_viewVO>) request.getAttribute("t
     font-size: 12px;
     line-height: 1.5em;
 	}
+	
+	.page { clear:both; min-height:100vh; display:none; width: 100%; }
+	.page:target { display:block; }
+	.page_con { clear:both; width: 100%; }
+	.page_wrap { width: 1280px; margin: 0 auto; min-height:20vh; }
+
+
  </style>
 </head>
 <body>
@@ -74,6 +81,8 @@ ArrayList<tour_viewVO> Volist = (ArrayList<tour_viewVO>) request.getAttribute("t
 <%@ include file="hd.jsp" %>
 </header>
 <div class="ct">
+
+<section class="page" id="A11">
 <h2>테스트페이지(A11-산)</h2>
 <div class="subct">
 
@@ -100,14 +109,9 @@ ArrayList<tour_viewVO> Volist = (ArrayList<tour_viewVO>) request.getAttribute("t
 	
 	<%}} %>
 
-		
-
-
-
-
-
 </div>
-
+</section>
+<section class="page" id="A12">
 <h2>테스트페이지(A12-등산/산책로)</h2>
 <div class="subct">
 
@@ -141,6 +145,13 @@ ArrayList<tour_viewVO> Volist = (ArrayList<tour_viewVO>) request.getAttribute("t
 
 
 </div>
+</section>
+
+
+
+
+
+
 
 
 </div>

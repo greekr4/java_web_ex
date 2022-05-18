@@ -50,8 +50,8 @@ try{
 %>   
     
 
-    
-   <div class="hd_top">
+ <nav>
+<div class="hd_top">
 <div class="hd_wrap_top">
 <div class="tnb">
 				<ul class="dd2" id="">
@@ -81,11 +81,11 @@ try{
 	<div class="logo">
 	<a href="index.jsp"><img alt="로고" src="./img/index/h_logo.png"></a>
  	</div>
-	<ul><a href="GetTour_viewCtrl"><span>미리보는 해남</span></a>
+	<ul><span>미리보는 해남</span>
 	<div class="submenu_box">
 	<div class="submenu_wrap">
 	<li>
-	<ul class="submenu"><span>자연관광</span>
+	<ul class="submenu"><a href="GetTour_viewCtrl?pno=A11"><span>자연관광</span></a>
 	
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
@@ -93,7 +93,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("A")){ %>
-		<a href="<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -112,7 +112,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("B")){ %>
-		<li><%=CDVo.getDcode_res() %></li>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -129,7 +129,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("C")){ %>
-		<li><%=CDVo.getDcode_res() %></li>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -149,7 +149,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("D")){ %>
-		<li><%=CDVo.getDcode_res() %></li>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -168,7 +168,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("E")){ %>
-		<li><%=CDVo.getDcode_res() %></li>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -198,7 +198,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("F")){ %>
-		<li><%=CDVo.getDcode_res() %></li>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -228,7 +228,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("G")){ %>
-		<li><%=CDVo.getDcode_res() %></li>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -247,7 +247,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("H")){ %>
-		<li><%=CDVo.getDcode_res() %></li>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -266,7 +266,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("I")){ %>
-		<li><%=CDVo.getDcode_res() %></li>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -297,7 +297,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("J")){ %>
-		<li><%=CDVo.getDcode_res() %></li>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -336,11 +336,13 @@ try{
 			</div>
 	</ul><!-- 땅끝마실 -->
 	<div class="menu">
+	
 	<a href="index.jsp"><img alt="메뉴" src="./img/index/icon_sitemap_on.png"></a>
  	</div>
 	</div>
-</div>
 
+</div>
+</nav>
 <script type="text/javascript">
 
 </script>

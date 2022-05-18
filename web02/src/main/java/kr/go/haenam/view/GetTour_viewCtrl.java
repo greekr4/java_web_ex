@@ -60,7 +60,13 @@ public class GetTour_viewCtrl extends HttpServlet {
 				tour_viewList.add(tour_view);
 			}
 			request.setAttribute("tour_viewList", tour_viewList);
-			RequestDispatcher view = request.getRequestDispatcher("test.jsp");
+			RequestDispatcher view = null;
+			String pno = request.getParameter("pno");
+			if(pno.substring(0,1).equals("A")) {
+			System.out.println("tour_ctA.jsp#"+pno);
+			view = request.getRequestDispatcher("tour_ctA.jsp#"+pno);
+			}
+			
 			view.forward(request, response);
 			
 		}catch (Exception e){
