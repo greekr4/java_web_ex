@@ -16,6 +16,8 @@
 
 <%
 String[] a;
+String[] address;
+String[] tel;
 String urlPath = "https://www.haenam.go.kr/tour/index.9is?contentUid=18e3368f655bdbc601663ec8af0b547b&pageIndex=1&cmsSearchType=CMS_GROUP_ID00000123&tCimUniqId=TCIM_000000000000509&searchKeyword=";
 String pageContents = "";
 StringBuilder contents = new StringBuilder();
@@ -37,9 +39,30 @@ try{
     buff.close();
 	a = contents.toString().split("<div class=\"about\">");
 	a = a[1].split("</div>");
-    System.out.println("\n\n\n\n여기부터");
+	
+	address = contents.toString().split("주소</span><span class=\"txt02\">");
+	address = address[1].split("</span></dd>");
+	
+	tel = contents.toString().split("문의</span><span class=\"txt02\">");
+	tel = tel[1].split("<a href=");
+
+	
+    System.out.println("\n내용\n");
     System.out.println(a[0]);
-    System.out.println("\n\n\n\n여기까지");
+    out.println("내용<br>"+a[0]+"<br><br>");
+    System.out.println("\n내용끝\n");
+    
+    System.out.println("\n주소\n");
+    System.out.println(address[0]);
+    System.out.println("\n주소끝\n");
+    out.println("주소<br>"+address[0]+"<br><br>");
+    
+    System.out.println("\n문의\n");
+    System.out.println(tel[0]);
+    System.out.println("\n문의끝\n");
+    out.println("문의<br>"+tel[0]+"<br><br>");
+    
+    
 }catch(Exception e){
     e.printStackTrace();
 }

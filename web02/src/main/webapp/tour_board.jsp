@@ -313,10 +313,22 @@ border-bottom: 1px solid #000;
 ArrayList<tour_boardVO> Volist = (ArrayList<tour_boardVO>) request.getAttribute("tour_board_detail");
 ArrayList<tour_commentVO> Vo2list = (ArrayList<tour_commentVO>) request.getAttribute("tour_comment_list");
 if (Volist.size() == 0 && sid.equals("admin")){
-response.sendRedirect("GetTour_boardListCtrl");
-} else if (Volist.size() == 0 && !sid.equals("admin")){
-response.sendRedirect("index.jsp");	
+	
+	out.println("<script>"
+	+ "var msgvalue = confirm('상세 페이지가 없습니다. 지금 만드시겠습니까?');"
+	+ "if(msgvalue == true){ window.open('Send_AddTour_board','추가','width=430,height=500,location=no,status=no,scrollbars=yes'); }"
+	+ "else { history.back(); }"
+	+ "history.back();"
+	+ "</script>");
+	return;
+
 }
+else if (Volist.size() == 0 && !sid.equals("admin")){
+	out.println("<script>alert('페이지없음');history.back();</script>");
+	return;
+	//response.sendRedirect("/GetTour_viewCtrl");
+}
+
 
 tour_boardVO Vo = Volist.get(0);
 %>   
