@@ -60,6 +60,7 @@ margin: 0 auto;
 
 .board_top h1{
 text-align: center;
+font-size : 32px;
 }
 
 .board_top li{

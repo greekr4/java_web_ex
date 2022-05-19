@@ -8,8 +8,14 @@
     
 <%
 ArrayList<tour_viewVO> Volist = (ArrayList<tour_viewVO>) request.getAttribute("tour_viewList");
-
+String dcode = (String)request.getParameter("pno");
+String dcode3 = (String)request.getParameter("pno");
+Connection conn2 = null;
+PreparedStatement pstmt2 = null;
+ResultSet rs2 = null;
+String sql2 = "";
 %>   
+    
     
     
 <!DOCTYPE html>
@@ -73,6 +79,10 @@ ArrayList<tour_viewVO> Volist = (ArrayList<tour_viewVO>) request.getAttribute("t
 	.page_wrap { width: 1280px; margin: 0 auto; min-height:20vh; }
 
 
+
+
+
+
  </style>
 </head>
 <body>
@@ -83,14 +93,16 @@ ArrayList<tour_viewVO> Volist = (ArrayList<tour_viewVO>) request.getAttribute("t
 <div class="ct">
 
 <section class="page" id="A11">
-<a href="#A12"><h2>테스트페이지(A11-산)</h2></a>
 <div class="subct">
-
+<%@ include file="subct_top.conf" %>
+			
+			
 <%for(int i=0;i<Volist.size();i++)
 	{
 	tour_viewVO Vo = Volist.get(i);
 	if (Vo.getDcode_res().equals("산")){
 	%>
+
 
 	
 	<div class="view_item">
@@ -112,8 +124,8 @@ ArrayList<tour_viewVO> Volist = (ArrayList<tour_viewVO>) request.getAttribute("t
 </div>
 </section>
 <section class="page" id="A12">
-<h2>테스트페이지(A12-등산/산책로)</h2>
 <div class="subct">
+<%@ include file="subct_top.conf" %>
 
 <%for(int i=0;i<Volist.size();i++)
 	{
@@ -146,10 +158,43 @@ ArrayList<tour_viewVO> Volist = (ArrayList<tour_viewVO>) request.getAttribute("t
 
 </div>
 </section>
+<section class="page" id="A13">
+<div class="subct">
+<%@ include file="subct_top.conf" %>
+<%for(int i=0;i<Volist.size();i++)
+	{
+	tour_viewVO Vo = Volist.get(i);
+	if (Vo.getDcode_res().equals("해수욕장")){
+	%>
 
+	
+	<div class="view_item">
+		<a href="/web02/GetboardMoreCtrl?pidno=<%=Vo.getTour_id() %>">
+		<div class="item_img">
+		<img alt="" src="<%=Vo.getTour_img1() %>">
+		</div>
+		<div class="item_txt">
+		<h2><%=Vo.getTour_name() %></h2>
+		<p><img src="./img/index/ico_loca.png" style="display:block; width:15px; float: left;"></img><%=Vo.getTour_address() %></p>
+		<p><img src="./img/index/ico_call.png" style="display:block; width:15px; float: left;"></img><%=Vo.getTour_tel() %></p>
+		</div>
+		</a>
+	</div>
+	
+	
+	<%}} %>
+
+		
+
+
+
+
+
+</div>
+</section>
 
 <script type="text/javascript">
-
+/* 
 var test1 = document.getElementById("hd_bt");
 
 setInterval(() => {
@@ -160,7 +205,7 @@ setInterval(() => {
 		test1.style.position="unset";
 	}
 }, 1000);
-
+*/
 </script>
 
 

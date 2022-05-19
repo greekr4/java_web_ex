@@ -5,6 +5,7 @@
 <%@ page import="java.util.ArrayList"%>
 
 
+
 <%
 	//로그인여부
 	String sid = (String) session.getAttribute("sid");
@@ -112,7 +113,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("B")){ %>
-		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>#<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -129,7 +130,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("C")){ %>
-		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>#<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -149,7 +150,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("D")){ %>
-		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>#<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -168,7 +169,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("E")){ %>
-		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>#<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -198,7 +199,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("F")){ %>
-		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>#<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -228,7 +229,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("G")){ %>
-		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>#<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -247,7 +248,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("H")){ %>
-		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>#<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -266,7 +267,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("I")){ %>
-		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>#<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}
@@ -297,7 +298,7 @@ try{
 	tour_CDcodeVO CDVo = CDcodeList.get(i);
 	
 	if(CDVo.getCcode().equals("J")){ %>
-		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
+		<a href="GetTour_viewCtrl?pno=<%=CDVo.getDcode() %>#<%=CDVo.getDcode() %>"><li><%=CDVo.getDcode_res() %></li></a>
 		
 		<%
 	}

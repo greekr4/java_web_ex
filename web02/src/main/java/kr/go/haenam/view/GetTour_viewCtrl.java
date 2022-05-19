@@ -62,10 +62,30 @@ public class GetTour_viewCtrl extends HttpServlet {
 			request.setAttribute("tour_viewList", tour_viewList);
 			RequestDispatcher view = null;
 			String pno = request.getParameter("pno");
+			
 			if(pno.substring(0,1).equals("A")) {
-			System.out.println("tour_ctA.jsp#"+pno);
 			view = request.getRequestDispatcher("tour_ctA.jsp#"+pno);
+			} else if(pno.substring(0,1).equals("B")) {
+			view = request.getRequestDispatcher("tour_ctB.jsp#"+pno);
+			} else if(pno.substring(0,1).equals("C")) {
+			view = request.getRequestDispatcher("tour_ctC.jsp#"+pno);
+			} else if(pno.substring(0,1).equals("D")) {
+			view = request.getRequestDispatcher("tour_ctD.jsp#"+pno);
+			} else if(pno.substring(0,1).equals("E")) {
+			view = request.getRequestDispatcher("tour_ctE.jsp#"+pno);
+			} else if(pno.substring(0,1).equals("F")) {
+			view = request.getRequestDispatcher("tour_ctF.jsp#"+pno);
+			} else if(pno.substring(0,1).equals("G")) {
+			view = request.getRequestDispatcher("tour_ctG.jsp#"+pno);
+			} else if(pno.substring(0,1).equals("H")) {
+			view = request.getRequestDispatcher("tour_ctH.jsp#"+pno);
+			} else if(pno.substring(0,1).equals("I")) {
+			view = request.getRequestDispatcher("tour_ctI.jsp#"+pno);
+			} else if(pno.substring(0,1).equals("J")) {
+			view = request.getRequestDispatcher("tour_ctJ.jsp#"+pno);
 			}
+			
+			
 			
 			view.forward(request, response);
 			

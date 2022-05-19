@@ -61,12 +61,13 @@ public class LoginPro extends HttpServlet {
 			pstmt.setString(1, l_id);
 			pstmt.setString(2, l_pw2);
 			rs = pstmt.executeQuery();
+			if(rs.wasNull()) response.sendRedirect("login.jsp");
 			while(rs.next()) {
 				session.setAttribute("sid", rs.getString("member_id"));
 				session.setAttribute("sname", rs.getString("member_name"));
 				response.sendRedirect("index.jsp");
 			} 
-			response.sendRedirect("login.jsp");
+			
 
 			//request.setAttribute("tour_boardList", tour_boardList);
 //			RequestDispatcher view = request.getRequestDispatcher("index.jsp");
