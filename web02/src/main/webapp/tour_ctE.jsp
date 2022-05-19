@@ -100,7 +100,7 @@ String sql2 = "";
 		
 		}
 		.subct_top li a{
-			width:300px;
+			width:400px;
 		    display: block;
 		    font-size: 18px;
 		    line-height: 65px;
@@ -120,13 +120,13 @@ String sql2 = "";
 </header>
 <div class="ct">
 
-<section class="page" id="B11">
+<section class="page" id="E11">
 <div class="subct">
 <%@ include file="subct_top.conf" %>
 <%for(int i=0;i<Volist.size();i++)
 	{
 	tour_viewVO Vo = Volist.get(i);
-	if (Vo.getDcode_res().equals("사찰")){
+	if (Vo.getDcode_res().equals("템플스테이")){
 	%>
 
 	
@@ -148,13 +148,13 @@ String sql2 = "";
 
 </div>
 </section>
-<section class="page" id="B12">
+<section class="page" id="E12">
 <div class="subct">
 <%@ include file="subct_top.conf" %>
 <%for(int i=0;i<Volist.size();i++)
 	{
 	tour_viewVO Vo = Volist.get(i);
-	if (Vo.getDcode_res().equals("주거건물")){
+	if (Vo.getDcode_res().equals("농어촌체험")){
 	%>
 
 	
@@ -182,13 +182,13 @@ String sql2 = "";
 
 </div>
 </section>
-<section class="page" id="B13">
+<section class="page" id="E13">
 <div class="subct">
 <%@ include file="subct_top.conf" %>
 <%for(int i=0;i<Volist.size();i++)
 	{
 	tour_viewVO Vo = Volist.get(i);
-	if (Vo.getDcode_res().equals("박물관/전시관")){
+	if (Vo.getDcode_res().equals("생태체험")){
 	%>
 
 	
@@ -210,33 +210,7 @@ String sql2 = "";
 </div>
 </section>
 
-<section class="page" id="B14">
-<div class="subct">
-<%@ include file="subct_top.conf" %>
-<%for(int i=0;i<Volist.size();i++)
-	{
-	tour_viewVO Vo = Volist.get(i);
-	if (Vo.getDcode_res().equals("해남 8경")){
-	%>
 
-	
-	<div class="view_item">
-		<a href="/web02/GetboardMoreCtrl?pidno=<%=Vo.getTour_id() %>">
-		<div class="item_img">
-		<img alt="" src="<%=Vo.getTour_img1() %>">
-		</div>
-		<div class="item_txt">
-		<h2><%=Vo.getTour_name() %></h2>
-		<p><img src="./img/index/ico_loca.png" style="display:block; width:15px; float: left;"></img><%=Vo.getTour_address() %></p>
-		<p><img src="./img/index/ico_call.png" style="display:block; width:15px; float: left;"></img><%=Vo.getTour_tel() %></p>
-		</div>
-		</a>
-	</div>
-	
-	
-	<%}} %>
-</div>
-</section>
 
 <script type="text/javascript">
 /* 

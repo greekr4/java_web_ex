@@ -79,7 +79,40 @@ String sql2 = "";
 	.page_wrap { width: 1280px; margin: 0 auto; min-height:20vh; }
 
 
-
+.subct_top{
+		clear: both;
+		width: 1600px;
+		margin: 0 auto;
+		}
+		
+		.subct_top h1{
+		text-align: center;
+		font-size : 32px;
+		}
+		
+		.subct_top li{
+		float: left;
+		}
+		.subct_top ul{
+			max-width: 1220px;
+		    margin: 0 auto;
+		    display: flex;
+		    width: 100%;
+		    text-align: center;
+		    justify-content: space-evenly;
+		
+		}
+		.subct_top li a{
+			width:400px;
+		    display: block;
+		    font-size: 18px;
+		    line-height: 65px;
+		    background: #fafafa;
+		    position: relative;
+		    border-top: 2px solid #eb6000;
+		    margin:30px 0;
+		  	z-index: 2;
+		    }
 
 
 

@@ -120,13 +120,13 @@ String sql2 = "";
 </header>
 <div class="ct">
 
-<section class="page" id="B11">
+<section class="page" id="D11">
 <div class="subct">
 <%@ include file="subct_top.conf" %>
 <%for(int i=0;i<Volist.size();i++)
 	{
 	tour_viewVO Vo = Volist.get(i);
-	if (Vo.getDcode_res().equals("사찰")){
+	if (Vo.getDcode_res().equals("일정별코스")){
 	%>
 
 	
@@ -148,13 +148,13 @@ String sql2 = "";
 
 </div>
 </section>
-<section class="page" id="B12">
+<section class="page" id="D12">
 <div class="subct">
 <%@ include file="subct_top.conf" %>
 <%for(int i=0;i<Volist.size();i++)
 	{
 	tour_viewVO Vo = Volist.get(i);
-	if (Vo.getDcode_res().equals("주거건물")){
+	if (Vo.getDcode_res().equals("권역별코스")){
 	%>
 
 	
@@ -182,13 +182,13 @@ String sql2 = "";
 
 </div>
 </section>
-<section class="page" id="B13">
+<section class="page" id="D13">
 <div class="subct">
 <%@ include file="subct_top.conf" %>
 <%for(int i=0;i<Volist.size();i++)
 	{
 	tour_viewVO Vo = Volist.get(i);
-	if (Vo.getDcode_res().equals("박물관/전시관")){
+	if (Vo.getDcode_res().equals("이야기별코스")){
 	%>
 
 	
@@ -210,13 +210,13 @@ String sql2 = "";
 </div>
 </section>
 
-<section class="page" id="B14">
+<section class="page" id="D14">
 <div class="subct">
 <%@ include file="subct_top.conf" %>
 <%for(int i=0;i<Volist.size();i++)
 	{
 	tour_viewVO Vo = Volist.get(i);
-	if (Vo.getDcode_res().equals("해남 8경")){
+	if (Vo.getDcode_res().equals("자전거코스")){
 	%>
 
 	

@@ -205,8 +205,9 @@ display:block;
 
 }
 
-.board_box2 h2{
+.board_box2 h4{
     position: relative;
+    margin-top:20px;
     margin-bottom: 20px;
     padding-left: 32px;
     font-size: 1.8em;
@@ -215,7 +216,7 @@ display:block;
     letter-spacing: -0.5px;
 }
 
-.board_box2 h2:before{
+.board_box2 h4:before{
 	position: absolute;
     top: 3px;
     left: 0;
@@ -227,7 +228,7 @@ display:block;
     box-sizing: border-box;
 }
 
-.board_box2 h2:after{
+.board_box2 h4:after{
 	position: absolute;
     top: 0px;
     left: 14px;
@@ -236,6 +237,13 @@ display:block;
     width: 11px;
     height: 11px;
     background: #eb6900;
+}
+
+.board_box2 p{
+margin-bottom: 30px;
+font-size: 0.9em;
+line-height: 1.6;
+color:#666;
 }
 
 .comment_wrap{
@@ -368,7 +376,9 @@ try{
 	rs = pstmt.executeQuery();
 	while(rs.next()){
 %>
-<li><a><%=rs.getString("dcode_res") %></a></li>
+
+
+<li><a href="GetTour_viewCtrl?pno=<%=rs.getString("dcode") %>#<%=rs.getString("dcode") %>"><%=rs.getString("dcode_res") %></a></li>
 <%
 	}
 }catch(Exception e){
@@ -418,8 +428,6 @@ try{
 
 <div class="board_box2">
 
-<h2>소개</h2><br>
-
 <p><%=Vo.getTour_board_detail() %></p>
 </div>
 
@@ -447,7 +455,7 @@ try{
 		<%=Vo2.getTour_comment_thumb() %>
 		</div>
 		<div class="comment_box5">
-		<a href=""	onclick="window.open('Add_comment_thumb?tour_comment_uninum=<%=Vo2.getTour_comment_uninum() %>','따봉','width=1,height=1,location=no,status=no,scrollbars=yes');"	><img src="./img/rec.png" alt="" id="rec" style="display:block; width:25px;"></a>
+		<a href=""	onclick="window.open('Add_comment_thumb?tour_comment_uninum=<%=Vo2.getTour_comment_uninum() %>','따봉','width=1,height=1,location=no,status=no,scrollbars=yes');"	>추천<img src="./img/rec.png" alt="" id="rec" style="display:block; width:25px;"></a>
 		</div>
 		
 		<%} %>
