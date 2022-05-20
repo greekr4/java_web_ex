@@ -36,6 +36,11 @@ try{
 	            <th>게시판번호</th>
 	            <td><input type="text" name="tour_comment_bnum" id="tour_comment_bnum" value="<%=rs.getInt("tour_comment_bnum") %>" style="display:none;" required><%=rs.getInt("tour_comment_bnum") %></td>
 	        </tr>
+	         <tr>
+	            <th>제목</th>
+	            <td><input type="text" name="tour_comment_tit" id="tour_comment_tit" 
+	            value="<%=rs.getString("tour_comment_tit") %>" required></td>
+	        </tr>
 	        <tr>
 	            <th>내용</th>
 	            <td><input type="text" name="tour_comment_detail" id="tour_comment_detail" 

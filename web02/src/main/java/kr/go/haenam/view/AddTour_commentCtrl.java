@@ -35,6 +35,7 @@ public class AddTour_commentCtrl extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String tour_comment_bno = request.getParameter("tour_comment_bno");
+		String tour_comment_tit = request.getParameter("tour_comment_tit");
 		String tour_comment_detail = request.getParameter("tour_comment_detail");
 		String tour_comment_name = request.getParameter("tour_comment_name");
 		PrintWriter out = response.getWriter();
@@ -46,11 +47,12 @@ public class AddTour_commentCtrl extends HttpServlet {
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SCOTT","TIGER");
-			sql = "insert into tour_comment values(tour_comment_seq.nextval,?,?,?,TO_CHAR(sysdate,'YY-MM-DD HH24:MI'),0)";
+			sql = "insert into tour_comment values(tour_comment_seq.nextval,?,?,?,TO_CHAR(sysdate,'YY-MM-DD HH24:MI'),0,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, tour_comment_bno);
 			pstmt.setString(2, tour_comment_detail);
 			pstmt.setString(3, tour_comment_name);
+			pstmt.setString(4, tour_comment_tit);
 			cnt = pstmt.executeUpdate();
 			if(cnt>=1){ //성공
 				out.println("<script language='javascript'>self.close(); </script>");

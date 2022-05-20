@@ -16,6 +16,10 @@
             <td><input type="text" name="tour_comment_bno" id="tour_comment_bno" value="<%=cbno %>" required></td>
         </tr>
         <tr>
+            <th>제목</th>
+            <td><input type="text" name="tour_comment_tit" id="tour_comment_tit" required></td>
+        </tr>
+        <tr>
             <th>내용</th>
             <td><input type="text" name="tour_comment_detail" id="tour_comment_detail" required></td>
         </tr>

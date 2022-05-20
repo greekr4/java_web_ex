@@ -52,6 +52,8 @@ try{
     
 
  <nav>
+ 
+ <!-- 
 <div class="hd_top">
 <div class="hd_wrap_top">
 <div class="tnb">
@@ -77,6 +79,8 @@ try{
 	</div>
 	</div>
 	</div>
+-->
+	
 <div class="hd_bt" id="hd_bt">
 	<div class="hb_wrap">
 	<div class="logo">
@@ -86,7 +90,7 @@ try{
 	<div class="submenu_box">
 	<div class="submenu_wrap">
 	<li>
-	<ul class="submenu"><a href="GetTour_viewCtrl?pno=A11"><span>자연관광</span></a>
+	<ul class="submenu"><a href="GetTour_viewCtrl?pno=A11#A11"><span>자연관광</span></a>
 	
 	<%for(int i=0;i<CDcodeList.size();i++)
 	{
@@ -313,7 +317,7 @@ try{
 			</div>
 			</div>
 	</ul> <!-- 여행 이야기 -->
-	<ul><span>달마고도</span>
+	<ul><span>이용후기</span>
 			<div class="submenu_box">
 			<div class="submenu_wrap">
 			<li>
@@ -323,9 +327,9 @@ try{
 			</li>
 			</div>
 			</div>
-	</ul> <!-- 달마고도 -->
+	</ul> <!-- 이용후기 -->
 	
- 	<ul><span>땅끝마실</span>
+ 	<ul><span>공지사항</span>
 			<div class="submenu_box">
 			<div class="submenu_wrap">
 			<li>
@@ -335,11 +339,47 @@ try{
 			</li>
 			</div>
 			</div>
-	</ul><!-- 땅끝마실 -->
-	<div class="menu">
+	</ul><!-- 공지사항 -->
 	
-	<a href="index.jsp"><img alt="메뉴" src="./img/index/icon_sitemap_on.png"></a>
- 	</div>
+	<style>
+	.ttt li{
+	font-size: 20px;
+	line-height: 2em;
+	} 
+	</style>
+	<ul class="ttt" style="float: right;"><a href="index.jsp"><img alt="메뉴" src="./img/index/icon_sitemap_on.png"></a>
+	<div class="submenu_box">
+	<div class="submenu_wrap" style="float: right;position: relative;right: 100px; width: auto;">
+	
+	
+	<% if (sid.equals("admin")){ %>
+	                <li><a href="/web02/GetCustomerListCtrl">회원목록</a></li>
+                    <li><a href="/web02/GetTour_viewListCtrl">투어뷰목록</a></li>
+                    <li><a href="/web02/GetTour_boardListCtrl">투어보드목록</a></li>
+                    <li><a href="/web02/GetTour_commentListCtrl">투어코맨트목록</a></li>
+                    <li><a href="/web02/GetNoticelistCtrl">공지사항관리</a></li>
+                    <li><%=sid %>님 (<%=sname %>)</li>
+                    <li><a href="/web02/logout.jsp">로그아웃</a></li>
+                   <% }else if (sid.equals("non-member")){ %>
+                   <li><a href="/web02/login.jsp">로그인</a></li>
+     			   <li><a href="/web02/agreement.jsp">회원가입</a></li>
+                   
+                   <%}else{ %>
+                   <li><a href="MypageCtrl">My page</a></li>
+     			   <li><%=sid %>님 (<%=sname %>)</li>
+     			   <li><a href="/web02/logout.jsp">로그아웃</a></li>
+                   <%} %>
+		
+	
+
+	
+
+	
+	</div>
+	</div>
+
+	</ul>
+
 	</div>
 
 </div>

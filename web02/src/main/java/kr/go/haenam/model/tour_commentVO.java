@@ -4,10 +4,12 @@ public class tour_commentVO {
 	
 	private int tour_comment_uninum;//			--댓글고유번호
 	private int tour_comment_bnum;//			--글번호
+	private String tour_comment_tit;//			--댓글제목
 	private String tour_comment_detail;//		--댓글내용
 	private String tour_comment_name;//			--작성자
 	private String tour_comment_tdate;//		--작성일
 	private int tour_comment_thumb;//			--따봉
+	
 	public int getTour_comment_uninum() {
 		return tour_comment_uninum;
 	}
@@ -43,6 +45,12 @@ public class tour_commentVO {
 	}
 	public void setTour_comment_thumb(int tour_comment_thumb) {
 		this.tour_comment_thumb = tour_comment_thumb;
+	}
+	public String getTour_comment_tit() {
+		return tour_comment_tit;
+	}
+	public void setTour_comment_tit(String tour_comment_tit) {
+		this.tour_comment_tit = tour_comment_tit;
 	}
 			
 

@@ -239,6 +239,7 @@ margin: 0 auto;
 		<tr class="table-primary">
 		<th>댓글고유번호</th>
 		<th>게시글번호</th>
+		<th>제목</th>
 		<th>내용</th>
 		<th>작성자</th>
 		<th>작성일</th>
@@ -255,6 +256,7 @@ margin: 0 auto;
 	<tr class="table-active">
 	<td><%=mem2.getTour_comment_uninum() %></td>
 	<td><%=mem2.getTour_comment_bnum() %></td>
+	<td><%=mem2.getTour_comment_tit() %></td>
 	<td><%=mem2.getTour_comment_detail() %></td>
 	<td><%=mem2.getTour_comment_name() %></td>
 	<td><%=mem2.getTour_comment_tdate() %></td>

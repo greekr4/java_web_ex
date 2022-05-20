@@ -32,6 +32,7 @@ public class EditTour_commentCtrl extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String tour_comment_uninum = request.getParameter("tour_comment_uninum");
+		String tour_comment_tit = request.getParameter("tour_comment_tit");
 		String tour_comment_detail = request.getParameter("tour_comment_detail");
 
 
@@ -44,10 +45,11 @@ public class EditTour_commentCtrl extends HttpServlet {
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SCOTT","TIGER");
-			sql = "update tour_comment set tour_comment_detail = ? where tour_comment_uninum=?";
+			sql = "update tour_comment set tour_comment_tit=?,tour_comment_detail=? where tour_comment_uninum=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, tour_comment_detail);
-			pstmt.setString(2, tour_comment_uninum);
+			pstmt.setString(1, tour_comment_tit);
+			pstmt.setString(2, tour_comment_detail);
+			pstmt.setString(3, tour_comment_uninum);
 			cnt = pstmt.executeUpdate();
 			if(cnt>=1){ //성공
 				out.println("<script language='javascript'>alert('OK');</script>");

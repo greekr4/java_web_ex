@@ -1,0 +1,29 @@
+웹 프로그래밍 언어
+	jsp(->spring), php(->lalavel), asp(->.net), javascript(->react), python(->django)
+	android(->kotlin)
+jsp의 프로그래밍
+	- 동적인 페이지의 언어로서 정적인 html, css, javascript, xml, json, 바이너리 파일 등을 활용하여
+	웹 서비스를 지속하는 언어이며, 프로그래밍 기술임
+jsp의 기본 구성요소
+	- 디렉티브(Directive) : <%@ %> -> jsp 페이지의 설정 정보
+	- 스크립트 : jsp의 기본요소
+		스크립트릿(Scriptlet) : <%  %>
+		표현식(Expression) : <%= %>
+		선언부(Declaration) : <%! %>
+	- 기본 객체 : request, response, out, session, application, page(pageContext), exception 
+		request : 클라이언트의 요청 정보 저장
+		response : 응답할 정보를 저장
+		session : HTTP 세션(사용권) 정보 저장
+			cookie도 사용권을 저장하는 객체이지만, 클라이언트에 접속정보가 남아서 현재는 사용을 하지 않음
+		application : 웹 애플리케이션에 대한 정보를 저장
+		page : jsp 페이지를 구현한 자바 클래스 인스턴스 정보를 저장(jsp+서블릿+컨트롤러+DAO+VO)
+		pageContext : 현재 jsp 페이지의 정보를 저장
+		exception : 예외처리 및 에러 페이지 정보를 저장하고 제어
+		out : jsp(웹 문서형식) 코드로 출력하기 위한 출력 스트림 객체
+	- 표현 언어(Expression Language) : ${코드 }
+	- 표준 액션 태그 : 스크립트를 쓰지 않고, html을 혼용할 경우 활용 - <jsp:액션태그명></jsp:액션태그명>
+	- 커스텀 태그 : xml처럼 개발자가 태그를 추가하여 사용 - <커스텀태그></커스텀태그>
+	- 태그라이브러리 : 태그처럼 쉽게 반복문, 조건문, 특정 객체 생성 등을 활용할 수 있도록 라이브러리 형태로 제공
+		jstl, fmt, ~
+	- jsp 주석 : 모든 언어를 각주 처리 할 수 있음 -> <%--  --%>
+				
