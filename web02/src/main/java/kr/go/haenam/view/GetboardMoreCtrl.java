@@ -82,6 +82,7 @@ public class GetboardMoreCtrl extends HttpServlet {
 				tour_commentVO tour_comment = new tour_commentVO();
 				tour_comment.setTour_comment_uninum(rs.getInt("tour_comment_uninum"));
 				tour_comment.setTour_comment_bnum(rs.getInt("tour_comment_bnum"));
+				tour_comment.setTour_comment_tit(rs.getString("tour_comment_tit"));
 				tour_comment.setTour_comment_detail(rs.getString("tour_comment_detail"));
 				tour_comment.setTour_comment_name(rs.getString("tour_comment_name"));
 				tour_comment.setTour_comment_tdate(rs.getString("tour_comment_tdate"));

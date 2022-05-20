@@ -19,14 +19,14 @@ import kr.go.haenam.model.tour_commentVO;
 /**
  * Servlet implementation class GetTour_commentListCtrl
  */
-@WebServlet("/GetTour_commentListCtrl")
-public class GetTour_commentListCtrl extends HttpServlet {
+@WebServlet("/GetTour_commentBoard")
+public class GetTour_commentBoard extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetTour_commentListCtrl() {
+    public GetTour_commentBoard() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,6 +36,7 @@ public class GetTour_commentListCtrl extends HttpServlet {
 	 */
     /////
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int unino = Integer.parseInt(request.getParameter("unino"));
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -43,8 +44,9 @@ public class GetTour_commentListCtrl extends HttpServlet {
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SCOTT","TIGER");
-			sql = "select * from tour_comment order by tour_comment_uninum desc";
+			sql = "select * from tour_comment where tour_comment_uninum=?";
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, unino);
 			rs = pstmt.executeQuery();
 			ArrayList<tour_commentVO> tour_commentList = new ArrayList<tour_commentVO>();
 			while(rs.next()) {
@@ -59,7 +61,7 @@ public class GetTour_commentListCtrl extends HttpServlet {
 				tour_commentList.add(tour_comment);
 			}
 			request.setAttribute("tour_commentList", tour_commentList);
-			RequestDispatcher view = request.getRequestDispatcher("tour_commentList.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("commentBoard2.jsp");
 			view.forward(request, response);
 			
 		}catch (Exception e){

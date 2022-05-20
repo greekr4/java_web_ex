@@ -317,7 +317,7 @@ try{
 			</div>
 			</div>
 	</ul> <!-- 여행 이야기 -->
-	<ul><span>이용후기</span>
+	<ul class="nonhover"><span><a href="GetTour_commentListCtrl2">이용후기</a></span>
 			<div class="submenu_box">
 			<div class="submenu_wrap">
 			<li>
@@ -329,7 +329,7 @@ try{
 			</div>
 	</ul> <!-- 이용후기 -->
 	
- 	<ul><span>공지사항</span>
+ 	<ul class="nonhover"><span><a href="GetNoticelistCtrl2">공지사항</a></span>
 			<div class="submenu_box">
 			<div class="submenu_wrap">
 			<li>
@@ -341,7 +341,13 @@ try{
 			</div>
 	</ul><!-- 공지사항 -->
 	
+	
+	
 	<style>
+	
+	.hb_wrap ul.nonhover:hover .submenu_wrap{
+	display: none;
+	}
 	.ttt li{
 	font-size: 20px;
 	line-height: 2em;

@@ -458,7 +458,7 @@ try{
 		<%=Vo2.getTour_comment_name() %>
 		</div>
 		<div class="comment_box2">
-		<%=Vo2.getTour_comment_detail() %>
+		<a href="GetTour_commentBoard?unino=<%=Vo2.getTour_comment_uninum() %>"><%=Vo2.getTour_comment_tit() %></a>
 		</div>
 		<div class="comment_box3">
 		<%=Vo2.getTour_comment_tdate() %>
@@ -467,7 +467,7 @@ try{
 		<%=Vo2.getTour_comment_thumb() %>
 		</div>
 		<div class="comment_box5">
-		<a href=""	onclick="window.open('Add_comment_thumb?tour_comment_uninum=<%=Vo2.getTour_comment_uninum() %>','따봉','width=1,height=1,location=no,status=no,scrollbars=yes');"	>추천<img src="./img/rec.png" alt="" id="rec" style="display:block; width:25px;"></a>
+		<a href=""	onclick="window.open('Add_comment_thumb?tour_comment_uninum=<%=Vo2.getTour_comment_uninum() %>','따봉','width=1,height=1,location=no,status=no,scrollbars=yes');"	>추천</a>
 		</div>
 		
 		<%} %>

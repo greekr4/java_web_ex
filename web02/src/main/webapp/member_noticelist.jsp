@@ -1,10 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="kr.go.haenam.model.noticeVO"%>
+<%@ page import="java.util.ArrayList"%>
+
+    
+<%
+ArrayList<noticeVO> Volist = (ArrayList<noticeVO>) request.getAttribute("noticeList");
+System.out.println(Volist.size());
+%>   
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <link rel="stylesheet" href="common.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
 <style>
 .table {
   --bs-table-bg: transparent;
@@ -193,7 +204,7 @@ margin: 30px auto;
 
 button {
 display: inline-block;
-padding: 12px 24px;
+padding: 3px 6px;
 background: rgb(220, 220, 220);
 font-weight: bold;
 color: rgb(120, 120, 120);
@@ -208,41 +219,9 @@ button:hover {
 background: #8BC34A;
 color: #ffffff;
 }
-.test1{
-width: 1200px;
-overflow: hidden;
+.btn_box{
+width: 100%;
 margin: 0 auto;
-border-top: 2px solid #000;
-}
-.test1 h4{
-font-size: 24px;
-line-height: 55px;
-margin-left: 1em;
-}
-.testul{
-	padding: 10px 20px 5px 20px;
-    font-size: 1em;
-    background: #f8f8f8;
-    height: 25px;
-    border-top: 1px solid #bbb;
-    border-bottom: 1px solid #bbb;
-}
-.testul li{
-	position: relative;
-    float: left;
-    margin: 0 20px 5px 0;
-}
-.test1 strong{
-margin-right: 1em;
-}
-.detailbox{
-margin-top: 10px;
-margin-bottom: 10px;
-border-bottom: 1px solid #bbb;
-min-height: 200px;
-}
-.detailbox p {
-margin-left: 1em;
 }
 
 </style>
@@ -252,50 +231,43 @@ margin-left: 1em;
 <header id="hd">
 <%@ include file="hd.jsp" %>
 </header>
-<div class="ct">
+
 <div class="tb_wrap">
-<button style="margin-bottom: 10px;" onclick="window.open('Send_AddTour_board','추가','width=430,height=500,location=no,status=no,scrollbars=yes');">추가</button>
+<h1 style="text-align: center">공지사항</h1>
+<button style="margin-bottom: 10px;" onclick="window.open('Send_Addnotice','추가','width=430,height=500,location=no,status=no,scrollbars=yes');">추가</button>
 <table class="table table-hover">
 	<thead>
 		<tr class="table-primary">
-		<th colspan="4" style="line-height: 36px; font-size: 32px; text-align: left;"><span style="margin-left: 1em;">제목</span></th>
+		<th style="width: 5%">번호</th>
+		<%-- ><th>다녀온곳</th> --%>
+		<th style="width: 60%">제목</th>
+		<th style="width: 15%">작성자</th>
+		<th style="width: 15%">작성일</th>
+		<th style="width: 5%">조회수</th>
 		</tr>
-
 	</thead>
-	<tbody>
+
+<%for(int i=0;i<Volist.size();i++)
+	{
+	noticeVO Vo = new noticeVO();
+	Vo = Volist.get(i);
+	%>
 	<tr class="table-active">
-		<th>작성자</th><td>ㅇㅇㅇ</td>
-		<th>작성일</th><td>ㅌㅌㅌ</td>
+	<td style="text-align: center"><%=Vo.getNOTICE_UNINO() %></td>
+	<%-- <td><%=mem2.getTour_comment_bnum() %></td> --%>
+	<td><a href="GetNoticeBoard?unino=<%=Vo.getNOTICE_UNINO() %>"><%=Vo.getNOTICE_TIT() %></a></td>
+	<td style="text-align: center"><%=Vo.getNOTICE_WRITER() %></td>
+	<td style="text-align: center"><%=Vo.getNOTICE_REG_DATE() %></td>
+	<td style="text-align: center"><%=Vo.getNOTICE_VIEW() %></td>
+
 	</tr>
-	<tr>
-		<td colspan="4" rowspan="10" style="color:#000; height: 500px; border-bottom: 1px dotted #000;"><span style="margin-left: 1em;">내용</span></td>
-	</tr>
-	</tbody>
+
+	<%} %>
 </table>
-</div>
-
-<div class="test1">
-<h4>제목</h4>
-	<ul class="testul">
-		<li>
-			<strong>작성자</strong><span class="user">ㅇㅇㅇ</span>
-		</li>
-		<li>
-			<strong>작성일</strong><span class="cdate">2022-02-02</span>
-		</li>
-	</ul>
-	<div class="detailbox">
-	<p>내용칸입니다.</p>
-	</div>
-</div>
-
-
 </div>
 <footer id="ft">
 <%@ include file="ft.jsp" %>
 </footer>
 </div>
-
-
 </body>
 </html>

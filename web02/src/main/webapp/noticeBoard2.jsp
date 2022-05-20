@@ -1,20 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
-<%@ page import="kr.go.haenam.model.tour_commentVO"%>
+<%@ page import="kr.go.haenam.model.noticeVO"%>
 <%@ page import="java.util.ArrayList"%>
-
     
 <%
-ArrayList<tour_commentVO> mem = (ArrayList<tour_commentVO>) request.getAttribute("tour_commentList");
+ArrayList<noticeVO> Volist = (ArrayList<noticeVO>) request.getAttribute("noticeList");
+noticeVO Vo = new noticeVO();
+Vo = Volist.get(0);
 %>   
+
 
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="common.css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" href="common.css">
 <style>
 .table {
   --bs-table-bg: transparent;
@@ -203,7 +204,7 @@ margin: 30px auto;
 
 button {
 display: inline-block;
-padding: 3px 6px;
+padding: 12px 24px;
 background: rgb(220, 220, 220);
 font-weight: bold;
 color: rgb(120, 120, 120);
@@ -218,9 +219,41 @@ button:hover {
 background: #8BC34A;
 color: #ffffff;
 }
-.btn_box{
-width: 100%;
+.board_wrap{
+width: 1200px;
+overflow: hidden;
 margin: 0 auto;
+border-top: 2px solid #000;
+}
+.board_wrap h4{
+font-size: 24px;
+line-height: 55px;
+margin-left: 1em;
+}
+.board_ul{
+	padding: 10px 20px 5px 20px;
+    font-size: 1em;
+    background: #f8f8f8;
+    height: 25px;
+    border-top: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+}
+.board_ul li{
+	position: relative;
+    float: left;
+    margin: 0 20px 5px 0;
+}
+.board_wrap strong{
+margin-right: 1em;
+}
+.detailbox{
+margin-top: 10px;
+margin-bottom: 10px;
+border-bottom: 1px solid #bbb;
+min-height: 200px;
+}
+.detailbox p {
+margin-left: 1em;
 }
 
 </style>
@@ -230,43 +263,32 @@ margin: 0 auto;
 <header id="hd">
 <%@ include file="hd.jsp" %>
 </header>
+<div class="ct">
 
-<div class="tb_wrap">
-<h1 style="text-align: center">이용후기</h1>
-<button style="margin-bottom: 10px;" onclick="window.open('Send_AddTour_comment','추가','width=430,height=500,location=no,status=no,scrollbars=yes');">추가</button>
-<table class="table table-hover">
-	<thead>
-		<tr class="table-primary">
-		<th style="width: 5%">번호</th>
-		<%-- ><th>다녀온곳</th> --%>
-		<th style="width: 60%">제목</th>
-		<th style="width: 15%">작성자</th>
-		<th style="width: 15%">작성일</th>
-		<th style="width: 5%">따봉</th>
-		</tr>
-	</thead>
+<div class="board_wrap">
+<h4><%=Vo.getNOTICE_TIT() %></h4>
+	<ul class="board_ul">
+		<li>
+		
+			<strong>작성자</strong><span class="user"><%=Vo.getNOTICE_WRITER() %></span>
+		</li>
+		<li>
+			<strong>작성일</strong><span class="cdate"><%=Vo.getNOTICE_REG_DATE() %></span>
+		</li>
+	</ul>
+	<div class="detailbox">
+	<p><%=Vo.getNOTICE_DETAIL() %></p>
+	
+	</div>
+</div>
 
-<%for(int i=0;i<mem.size();i++)
-	{
-	tour_commentVO mem2 = new tour_commentVO();
-	mem2 = mem.get(i);
-	%>
-	<tr class="table-active">
-	<td style="text-align: center"><%=mem2.getTour_comment_uninum() %></td>
-	<%-- <td><%=mem2.getTour_comment_bnum() %></td> --%>
-	<td><a href="GetTour_commentBoard?unino=<%=mem2.getTour_comment_uninum() %>"><%=mem2.getTour_comment_tit() %></a></td>
-	<td style="text-align: center"><%=mem2.getTour_comment_name() %></td>
-	<td style="text-align: center"><%=mem2.getTour_comment_tdate() %></td>
-	<td style="text-align: center"><%=mem2.getTour_comment_thumb() %></td>
 
-	</tr>
-
-	<%} %>
-</table>
 </div>
 <footer id="ft">
 <%@ include file="ft.jsp" %>
 </footer>
 </div>
+
+
 </body>
 </html>

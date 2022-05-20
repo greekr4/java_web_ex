@@ -19,14 +19,14 @@ import kr.go.haenam.model.tour_commentVO;
 /**
  * Servlet implementation class GetTour_commentListCtrl
  */
-@WebServlet("/GetTour_commentListCtrl")
-public class GetTour_commentListCtrl extends HttpServlet {
+@WebServlet("/GetTour_commentListCtrl2")
+public class GetTour_commentListCtrl2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetTour_commentListCtrl() {
+    public GetTour_commentListCtrl2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -59,7 +59,7 @@ public class GetTour_commentListCtrl extends HttpServlet {
 				tour_commentList.add(tour_comment);
 			}
 			request.setAttribute("tour_commentList", tour_commentList);
-			RequestDispatcher view = request.getRequestDispatcher("tour_commentList.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("member_commentlist.jsp");
 			view.forward(request, response);
 			
 		}catch (Exception e){
