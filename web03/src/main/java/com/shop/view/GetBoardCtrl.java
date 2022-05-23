@@ -13,22 +13,30 @@ import javax.servlet.http.HttpServletResponse;
 import com.shop.common.Shop_BoardVO;
 import com.shop.model.BoardDAO;
 
-
-@WebServlet("/GetBoardListCtrl")
-public class GetBoardListCtrl extends HttpServlet {
+/**
+ * Servlet implementation class GetBoardCtrl
+ */
+@WebServlet("/GetBoardCtrl")
+public class GetBoardCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
-    public GetBoardListCtrl() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public GetBoardCtrl() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
-
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int no = Integer.parseInt(request.getParameter("no"));
 		BoardDAO DAO = new BoardDAO();
-		ArrayList<Shop_BoardVO> Volist = DAO.getBoardList();
-		request.setAttribute("BoardVolist", Volist);
-		RequestDispatcher view = request.getRequestDispatcher("./board/BoardList.jsp");
+		Shop_BoardVO Vo = DAO.getBoard(no);
+		request.setAttribute("BoardVo", Vo);
+		RequestDispatcher view = request.getRequestDispatcher("./board/Board.jsp");
 		view.forward(request, response);
 	}
 

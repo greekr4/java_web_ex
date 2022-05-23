@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*"%>
-<%@ page import="com.shop.common.Shop_BoardVO"%>
-<%@ page import="java.util.ArrayList"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="path" value="${pageContext.request.contextPath }" />
+
+
     
-<%
-ArrayList<Shop_BoardVO> Volist = (ArrayList<Shop_BoardVO>) request.getAttribute("BoardVolist");
-%>   
+
 
 <!DOCTYPE html>
 <html>
@@ -228,44 +226,44 @@ margin: 0 auto;
 <body>
 <div class="container">
 <header id="hd">
-
+<jsp:include page="../hd.jsp"></jsp:include>
 </header>
 
 <div class="tb_wrap">
 <h1 style="text-align: center">DAO를 이용한 Shop_Board 리스트</h1>
 <button style="margin-bottom: 10px;" onclick="window.open('Send_Addnotice','추가','width=430,height=500,location=no,status=no,scrollbars=yes');">추가</button>
+<form method="post" action="zzzz">
+<select id="" class="" name="">
+<option value="tit">제목</option>
+<option value="con">내용</option>
+</select>
+<input type="text" name=""><button style="margin-left: 10px;" onclick="submit" >검색</button>
+
+</form>
 <table class="table table-hover">
 	<thead>
 		<tr class="table-primary">
 		<th style="width: 5%">번호</th>
-		<%-- ><th>다녀온곳</th> --%>
 		<th style="width: 60%">제목</th>
 		<th style="width: 15%">작성자</th>
 		<th style="width: 15%">작성일</th>
 		<th style="width: 5%">조회수</th>
 		</tr>
 	</thead>
-
-<%for(int i=0;i<Volist.size();i++)
-	{
-	Shop_BoardVO Vo = new Shop_BoardVO();
-	Vo = Volist.get(i);
-	%>
+	<c:forEach items="${BoardVolist }" var="vo" varStatus="status">
 	<tr class="table-active">
-	<td style="text-align: center"><%=Vo.getNo() %></td>
-	<%-- <td><%=mem2.getTour_comment_bnum() %></td> --%>
-	<td><a href="GetNoticeBoard?unino=<%=Vo.getNo() %>"><%=Vo.getTit() %></a></td>
-	<td style="text-align: center"><%=Vo.getWriter() %></td>
-	<td style="text-align: center"><%=Vo.getRegdate() %></td>
-	<td style="text-align: center"><%=Vo.getViewed() %></td>
-
+	<td style="text-align: center">${vo.no }</td>
+	<td><a href="${path }/GetBoardCtrl?no=${vo.no }">${vo.tit }</a></td>
+	<td style="text-align: center">${vo.writer }</td>
+	<td style="text-align: center">${vo.regdate }</td>
+	<td style="text-align: center">${vo.viewed }</td>
 	</tr>
+	</c:forEach>
 
-	<%} %>
 </table>
 </div>
 <footer id="ft">
-
+<jsp:include page="../ft.jsp"></jsp:include>
 </footer>
 </div>
 </body>
