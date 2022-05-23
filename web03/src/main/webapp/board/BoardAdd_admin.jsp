@@ -1,28 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="path" value="${pageContext.request.contextPath }" />
 
+
+    
 
 
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="common.css">
 <meta charset="UTF-8">
-<!--  -->
-<script src="./js/jquery-latest.js"></script>
-<script src="./js/bootstrap.js"></script>
-<script src="./js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="./css/bootstrap.css">
-<link rel="stylesheet" href="./css/bootstrap.min.css">
-<!--  -->
+<title>글쓰기</title>
 <style>
-*{
-margin: 0;
-padding: 0;
+
+html{
+width: 410px;
+height: 200px;
 }
-ul, li{
-list-style: none;
+
+.container{
+width: 100%;
+height: 100%;
 }
 .table {
   --bs-table-bg: transparent;
@@ -204,7 +204,7 @@ list-style: none;
 
 /* 여기까지 */
 .tb_wrap{
-width: 1200px;
+width: 420px;
 margin: 30px auto;
 }
 
@@ -226,129 +226,51 @@ button:hover {
 background: #8BC34A;
 color: #ffffff;
 }
-.board_wrap{
-width: 1200px;
-overflow: hidden;
+.btn_box{
+width: 100%;
 margin: 0 auto;
-border-top: 2px solid #000;
-}
-.board_wrap h4{
-font-size: 24px;
-line-height: 55px;
-margin-left: 1em;
-}
-.board_ul{
-	padding: 10px 20px 5px 20px;
-    font-size: 1em;
-    background: #f8f8f8;
-    height: 25px;
-    border-top: 1px solid #bbb;
-    border-bottom: 1px solid #bbb;
-    padding-bottom: 30px;
-}
-.board_ul li{
-	position: relative;
-    float: left;
-    margin: 0 20px 5px 0;
-}
-.board_wrap strong{
-margin-right: 1em;
-}
-.detailbox{
-margin-top: 10px;
-margin-bottom: 10px;
-border-bottom: 1px solid #bbb;
-min-height: 200px;
-}
-.detailbox p {
-margin-left: 1em;
 }
 
 </style>
 </head>
 <body>
 <div class="container2">
-<header id="hd">
-<jsp:include page="../hd.jsp"></jsp:include>
-</header>
-<div class="ct">
-<!-- 회원 -->
-<div class="board_wrap" style="margin-top:20px;">
-<h4>${BoardVo.tit }</h4>
-	<ul class="board_ul">
-		<li>
-		
-			<strong>작성자</strong><span class="user">${BoardVo.writer }</span>
-		</li>
-		<li>
-			<strong>작성일</strong><span class="cdate">${BoardVo.regdate }</span>
-		</li>
-	</ul>
-	<div class="detailbox">
-	<p>${BoardVo.con }</p>
-	
-	</div>
-
-</div>
-
-<!-- 관리자 -->
-<br>
-<h3 style="text-align: center;">-----관리자-----</h3>
 
 
-<form action="EditBoardCtrl" method="post">
-<div class="board_wrap" style="margin-top:20px;">
-<h4><input type="text" value="${BoardVo.tit }" name="tit"  ></h4>
-	<ul class="board_ul">
-		<li>
-			<strong>작성자</strong><span class="user"><input type="text" value="${BoardVo.writer }" name="writer"></span>
-		</li>
-		<li>
-			<strong>작성일</strong><span class="cdate">${BoardVo.regdate }</span>
-		</li>
-		<li>
-			<strong>공개/비공개</strong><span class="lock_span">
-			<select name="lock_post" id="lock_post">
-			<option value="1">공개</option>
-			<option value="2">비공개</option>
-			</select>
-			
-			<script>
-			var lpv = ${BoardVo.lock_post };
-			if (lpv == 1){
-			$("#lock_post").val("1").prop("select", true);
-			}else{
-			$("#lock_post").val("2").prop("select", true);
-			}
-			
-			
-			</script>
-			</span>
-		</li>
-	</ul>
-	<div class="detailbox">
-	<p>
-	<textarea name="con" id="" cols="150" rows="10">${BoardVo.con }</textarea>
+<div class="tb_wrap">
+
+<form action="../AddBoardCtrl" method="post">
+<table class="table table-hover">
+	<tr class="table-active">
+		<th>tit</th><td><input type="text" name="tit"></td>
+	</tr>
 	
+	<tr class="table-active">
+		<th>con</th><td><input type="text" name="con"></td>
+	</tr>
 	
-	
-	</p>
-	
-	</div>
-	<input type="hidden" value="${BoardVo.no }" name="no">
-	<button type="submit">수정</button>
-	<button type="button" onclick="location.href='DelBoardCtrl';">삭제</button>
-</div>
+	<tr class="table-active">
+		<th>writer</th><td><input type="text" name="writer"></td>
+	</tr>
+	<tr class="table-active">
+		<th>lock_post</th>
+		<td>
+		<select name="lock_post">
+		<option value="1">공개</option>
+		<option value="2">비공개</option>
+		</select>
+		</td>
+	</tr>
+	<tr class="table-active">
+		<th colspan="2"><button type="submit">작성</button></th>
+	</tr>
+</table>
 </form>
-
-
 
 </div>
 <footer id="ft">
 <jsp:include page="../ft.jsp"></jsp:include>
 </footer>
 </div>
-
-
 </body>
 </html>

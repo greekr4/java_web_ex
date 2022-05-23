@@ -13,6 +13,13 @@
 <link rel="stylesheet" href="common.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!--  -->
+<script src="./js/jquery-latest.js"></script>
+<script src="./js/bootstrap.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="./css/bootstrap.css">
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<!--  -->
 <style>
 .table {
   --bs-table-bg: transparent;
@@ -224,22 +231,23 @@ margin: 0 auto;
 </style>
 </head>
 <body>
-<div class="container">
+<div class="container2">
 <header id="hd">
 <jsp:include page="../hd.jsp"></jsp:include>
 </header>
 
 <div class="tb_wrap">
 <h1 style="text-align: center">DAO를 이용한 Shop_Board 리스트</h1>
-<button style="margin-bottom: 10px;" onclick="window.open('Send_Addnotice','추가','width=430,height=500,location=no,status=no,scrollbars=yes');">추가</button>
-<form method="post" action="zzzz">
-<select id="" class="" name="">
+<button style="margin-bottom: 10px;" onclick="window.open('./board/BoardAdd_admin.jsp','추가','width=430,height=260,location=no,status=no,scrollbars=no');">추가</button>
+
+<form method="post" action="GetBoardSearchList">
+<select id="s_type" class="s_type" name="s_type">
 <option value="tit">제목</option>
 <option value="con">내용</option>
 </select>
-<input type="text" name=""><button style="margin-left: 10px;" onclick="submit" >검색</button>
-
+<input type="text" name="s_detail"><button style="margin-left: 10px;" onclick="submit" >검색</button>
 </form>
+
 <table class="table table-hover">
 	<thead>
 		<tr class="table-primary">
