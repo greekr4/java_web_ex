@@ -337,7 +337,7 @@ margin-left: 1em;
 	</div>
 	<input type="hidden" value="${BoardVo.no }" name="no">
 	<button type="submit">수정</button>
-	<button type="button" onclick="location.href='DelBoardCtrl';">삭제</button>
+	<button type="button" onclick="location.href='DelBoardCtrl?no=${BoardVo.no }';">삭제</button>
 </div>
 </form>
 

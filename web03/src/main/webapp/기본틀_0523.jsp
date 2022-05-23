@@ -21,13 +21,6 @@
 
 
 <style>
-
-* {margin: 0; padding: 0;}
-a {text-decoration: none; color: black;}
-ul { list-style: none;}
-.wrap{clear: both; width: 100%;}
-#hd{width: 100%;}
-
 </style>
 </head>
 <body>
