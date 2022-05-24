@@ -57,6 +57,45 @@ public class MemberDAO {
 		return list;
 	}
 	
+	public Shop_MemberVO getMemberPage(String id){
+		Shop_MemberVO Vo = new Shop_MemberVO();
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "select * from shop_member where mid=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				Vo.setMno(rs.getInt("mno"));
+				Vo.setMid(rs.getString("mid"));
+				Vo.setMpw(rs.getString("mpw"));
+				Vo.setMname(rs.getString("mname"));
+				Vo.setMnick(rs.getString("mnick"));
+				Vo.setMtel(rs.getString("mtel"));
+				Vo.setMaddress(rs.getString("maddress"));
+				Vo.setMemail(rs.getString("memail"));
+				Vo.setMcash(rs.getInt("mcash"));
+				Vo.setMpoint(rs.getInt("mpoint"));
+				Vo.setMgrade(rs.getInt("mgrade"));
+				Vo.setMjday(rs.getDate("mjday"));
+				Vo.setMlatest(rs.getDate("mlatest"));		
+			}
+		} catch(ClassNotFoundException e) {
+			System.out.println("드라이버 로딩이 실패되었습니다.");
+			e.printStackTrace();
+		} catch(SQLException e) {
+			System.out.println("SQL구문이 처리되지 못했습니다.");
+			e.printStackTrace();
+		} catch(Exception e) {
+			System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다.");
+			e.printStackTrace();
+		} finally {
+			JDBCConnection.close(rs, pstmt, conn);
+		}
+		return Vo; //기본정보만 보냄
+	}
+	
+	/////////////////////////////////////////////
 	public int joinMember(Shop_MemberVO Vo){
 		try {
 			conn = JDBCConnection.getConnection();
@@ -98,7 +137,7 @@ public class MemberDAO {
 			System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다.");
 			e.printStackTrace();
 		} finally {
-			JDBCConnection.close(rs, pstmt, conn);
+			JDBCConnection.close(pstmt, conn);
 		}
 		return cnt;
 	}
@@ -138,7 +177,7 @@ public class MemberDAO {
 			System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다.");
 			e.printStackTrace();
 		} finally {
-			JDBCConnection.close(rs, pstmt, conn);
+			JDBCConnection.close(pstmt, conn);
 		}
 		return cnt;
 	}
@@ -160,7 +199,7 @@ public class MemberDAO {
 			System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다.");
 			e.printStackTrace();
 		} finally {
-			JDBCConnection.close(rs, pstmt, conn);
+			JDBCConnection.close(pstmt, conn);
 		}
 		return cnt;
 	}
@@ -203,7 +242,7 @@ public class MemberDAO {
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-			return 1;
+			return 2;		//있으면 2
 			}
 		} catch(ClassNotFoundException e) {
 			System.out.println("드라이버 로딩이 실패되었습니다.");
@@ -217,7 +256,7 @@ public class MemberDAO {
 		} finally {
 			JDBCConnection.close(rs, pstmt, conn);
 		}
-		return 0;
+		return 1; //없으면 1
 	}
 
 	

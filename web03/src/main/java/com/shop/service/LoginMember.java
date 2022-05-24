@@ -2,6 +2,7 @@ package com.shop.service;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Base64;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,9 +34,9 @@ public class LoginMember extends HttpServlet {
 		MemberDAO DAO = new MemberDAO();
 		String l_id = request.getParameter("l_id");
 		String l_pw = request.getParameter("l_pw");
+		l_pw = Base64.getEncoder().encodeToString(l_pw.getBytes());	//BASE64
 		Shop_MemberVO Vo = DAO.loginMember(l_id, l_pw);
 		String log = Vo.getMid();
-		System.out.println(log);
 		if(log != null) {
 			session.setAttribute("sid", Vo.getMid());
 			session.setAttribute("sname", Vo.getMname());

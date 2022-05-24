@@ -87,27 +87,26 @@
 <div class="loginbox">
     <div class="join-page">
   <div class="form">
+  	<h2>My Page</h2>
     <form class="join" id="join" action="../JoinMember" method="post">
-      <input type="text" placeholder="id" name="j_id" id="j_id" required/>
-      <button type="button" onclick="idck();">Check</button>
-      <input type="password" placeholder="password" name="j_pw" id="j_pw" required/>
-      <input type="password" placeholder="password_ck" name="j_pw2" id="j_pw2" required/>
-      <input type="text" placeholder="name" name="j_name" id="j_name" required/>
-      <input type="text" placeholder="nickname" name="j_nick" id="j_nick" required/>
-      <input type="text" placeholder="tel" name="j_tel" id="j_tel" required/>
-      <input type="text" placeholder="address" name="j_address" id="j_address" required/>
-      <input type="text" placeholder="email" name="j_email" id="j_email" required/>   
+      <input type="text" placeholder="id" name="my_id" id="my_id" required/>
+      <input type="password" placeholder="password" name="my_pw" id="my_pw" required/>
+      <input type="text" placeholder="name" name="my_name" id="my_name" required/>
+      <input type="text" placeholder="nickname" name="my_nick" id="my_nick" required/>
+      <input type="text" placeholder="tel" name="my_tel" id="my_tel" required/>
+      <input type="text" placeholder="address" name="my_address" id="my_address" required/>
+      <input type="text" placeholder="email" name="my_email" id="my_email" required/>   
       <c:if test="${sid == 'admin' }">
       <!-- admin -->
-      <input type="text" name="j_cash" id="j_cash" placeholder="cash">
-      <input type="text" name="j_point" id="j_point" placeholder="point">
-      <input type="text" name="j_grade" id="j_grade" placeholder="grade">
+      <input type="text" name="my_cash" id="my_cash" placeholder="cash">
+      <input type="text" name="my_point" id="my_point" placeholder="point">
+      <input type="text" name="my_grade" id="my_grade" placeholder="grade">
       </c:if>   
       <!-- 기본회원 -->   
       <c:if test="${sid != 'admin' }">
-      <input type="hidden" name="j_cash" id="j_cash" placeholder="cash">
-      <input type="hidden" name="j_point" id="j_point" placeholder="point">
-      <input type="hidden" name="j_grade" id="j_grade" placeholder="grade">
+      <input type="hidden" name="my_cash" id="my_cash" placeholder="cash">
+      <input type="hidden" name="my_point" id="my_point" placeholder="point">
+      <input type="hidden" name="my_grade" id="my_grade" placeholder="grade">
       </c:if> 
       <button type="button" onclick="join();">join</button>
     </form>
@@ -115,22 +114,22 @@
     function idck() {
     var xPos = (document.body.offsetWidth/2) - (300/2); // 가운데 정렬
     var yPos = (document.body.offsetHeight/2) - (200/2);
-    var ck_id = document.getElementById("j_id").value;
+    var ck_id = document.getElementById("my_id").value;
     var href = '../IDcheckCtrl?ck_id='+ck_id
     window.open(href, "pop_name", "width=300, height=200, left="+xPos+", top="+yPos+", menubar=yes, status=yes, titlebar=yes, resizable=yes");
    	}
     function join(){
-    var ck1 = document.getElementById("j_id").readOnly;
-    var ck2 = document.getElementById("j_pw").value;
-    var ck3 = document.getElementById("j_pw2").value;
-    var ck4 = document.getElementById("j_name").value;
-    var ck5 = document.getElementById("j_nick").value;
-    var ck6 = document.getElementById("j_tel").value;
-    var ck7 = document.getElementById("j_address").value;
-    var ck8 = document.getElementById("j_email").value;
-    var ck9 = document.getElementById("j_cash").value;
-    var ck10 = document.getElementById("j_point").value;
-    var ck11 = document.getElementById("j_grade").value;
+    var ck1 = document.getElementById("my_id").readOnly;
+    var ck2 = document.getElementById("my_pw").value;
+    var ck3 = document.getElementById("my_pw2").value;
+    var ck4 = document.getElementById("my_name").value;
+    var ck5 = document.getElementById("my_nick").value;
+    var ck6 = document.getElementById("my_tel").value;
+    var ck7 = document.getElementById("my_address").value;
+    var ck8 = document.getElementById("my_email").value;
+    var ck9 = document.getElementById("my_cash").value;
+    var ck10 = document.getElementById("my_point").value;
+    var ck11 = document.getElementById("my_grade").value;
     if(ck1 == false){
     	alert('아이디 중복검사를 해주세요');
     	return;

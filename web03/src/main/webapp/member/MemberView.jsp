@@ -89,26 +89,15 @@
   <div class="form">
     <form class="join" id="join" action="../JoinMember" method="post">
       <input type="text" placeholder="id" name="j_id" id="j_id" required/>
-      <button type="button" onclick="idck();">Check</button>
       <input type="password" placeholder="password" name="j_pw" id="j_pw" required/>
-      <input type="password" placeholder="password_ck" name="j_pw2" id="j_pw2" required/>
       <input type="text" placeholder="name" name="j_name" id="j_name" required/>
       <input type="text" placeholder="nickname" name="j_nick" id="j_nick" required/>
       <input type="text" placeholder="tel" name="j_tel" id="j_tel" required/>
       <input type="text" placeholder="address" name="j_address" id="j_address" required/>
-      <input type="text" placeholder="email" name="j_email" id="j_email" required/>   
-      <c:if test="${sid == 'admin' }">
-      <!-- admin -->
-      <input type="text" name="j_cash" id="j_cash" placeholder="cash">
-      <input type="text" name="j_point" id="j_point" placeholder="point">
-      <input type="text" name="j_grade" id="j_grade" placeholder="grade">
-      </c:if>   
-      <!-- 기본회원 -->   
-      <c:if test="${sid != 'admin' }">
-      <input type="hidden" name="j_cash" id="j_cash" placeholder="cash">
-      <input type="hidden" name="j_point" id="j_point" placeholder="point">
-      <input type="hidden" name="j_grade" id="j_grade" placeholder="grade">
-      </c:if> 
+      <input type="text" placeholder="email" name="j_email" id="j_email" required/>          
+      <input type="hidden" name="j_cash" id="j_cash" value="0">
+      <input type="hidden" name="j_point" id="j_point" value="0">
+      <input type="hidden" name="j_grade" id="j_grade" value="1">
       <button type="button" onclick="join();">join</button>
     </form>
     <script type="text/javascript">
@@ -128,9 +117,6 @@
     var ck6 = document.getElementById("j_tel").value;
     var ck7 = document.getElementById("j_address").value;
     var ck8 = document.getElementById("j_email").value;
-    var ck9 = document.getElementById("j_cash").value;
-    var ck10 = document.getElementById("j_point").value;
-    var ck11 = document.getElementById("j_grade").value;
     if(ck1 == false){
     	alert('아이디 중복검사를 해주세요');
     	return;
@@ -157,15 +143,6 @@
     	return;
     }if(ck2 != ck3){
     	alert('비밀번호 확인이 틀립니다.');
-    	return;
-    }if(ck9 == ""){
-    	alert('운영자님 빈칸이 있어요');
-    	return;
-    }if(ck10 == ""){
-    	alert('운영자님 빈칸이 있어요');
-    	return;
-    }if(ck11 == ""){
-    	alert('운영자님 빈칸이 있어요');
     	return;
     }
     

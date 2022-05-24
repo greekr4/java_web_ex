@@ -94,3 +94,4 @@ commit;
 
 
 update shop_member set mpoint=mpoint+10 where mid='admin';
+update shop_member set mpw='MTIzNA==' where mid='admin';

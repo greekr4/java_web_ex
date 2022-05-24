@@ -202,7 +202,7 @@
 
 /* 여기까지 */
 .tb_wrap{
-width: 1200px;
+width: 1500px;
 margin: 30px auto;
 }
 
@@ -228,7 +228,9 @@ color: #ffffff;
 width: 100%;
 margin: 0 auto;
 }
-
+th{
+text-align: center;
+}
 </style>
 </head>
 <body>
@@ -238,8 +240,8 @@ margin: 0 auto;
 </header>
 
 <div class="tb_wrap">
-<h1 style="text-align: center">DAO를 이용한 Shop_Board 리스트</h1>
-<button style="margin-bottom: 10px;" onclick="window.open('./board/BoardAdd_admin.jsp','추가','width=430,height=260,location=no,status=no,scrollbars=no');">추가</button>
+<h1 style="text-align: center">DAO를 이용한 Member 리스트</h1>
+<button style="margin-bottom: 10px;" onclick="window.open('./member/join.jsp','추가','width=430,height=1080,location=no,status=no,scrollbars=no');">추가</button>
 
 <form method="post" action="GetBoardSearchListCtrl">
 <select id="s_type" class="s_type" name="s_type">
@@ -252,20 +254,37 @@ margin: 0 auto;
 <table class="table table-hover">
 	<thead>
 		<tr class="table-primary">
-		<th style="width: 5%">번호</th>
-		<th style="width: 60%">제목</th>
-		<th style="width: 15%">작성자</th>
-		<th style="width: 15%">작성일</th>
-		<th style="width: 5%">조회수</th>
+		<th style="width: 3%">번호</th>
+		<th style="width: 8.3%">아이디</th>
+		<th style="width: 8.3%">비밀번호</th>
+		<th style="width: 8.3%">이름</th>
+		<th style="width: 8.3%">닉네임</th>
+		<th style="width: 8.3%">연락처</th>
+		<th style="width: 8.3%">주소</th>
+		<th style="width: 8.3%">이메일</th>
+		<th style="width: 8.3%">보유머니</th>
+		<th style="width: 8.3%">포인트</th>
+		<th style="width: 3%">등급</th>
+		<th style="width: 10%">가입일</th>
+		<th style="width: 10%">최근</th>
 		</tr>
 	</thead>
-	<c:forEach items="${BoardVolist }" var="vo" varStatus="status">
+	<c:forEach items="${MemberList }" var="vo" varStatus="status">
 	<tr class="table-active">
-	<td style="text-align: center">${vo.no }</td>
-	<td><a href="${path }/GetBoardCtrl?no=${vo.no }">${vo.tit }</a></td>
-	<td style="text-align: center">${vo.writer }</td>
-	<td style="text-align: center">${vo.regdate }</td>
-	<td style="text-align: center">${vo.viewed }</td>
+	<td style="text-align: center">${vo.mno }</td>
+	<td style="text-align: center">${vo.mid }</td>
+	<td style="text-align: center">${vo.mpw }</td>
+	<td style="text-align: center">${vo.mname }</td>
+	<td style="text-align: center">${vo.mnick }</td>
+	<td style="text-align: center">${vo.mtel }</td>
+	<td style="text-align: center">${vo.maddress }</td>
+	<td style="text-align: center">${vo.memail }</td>
+	<td style="text-align: center">${vo.mcash }</td>
+	<td style="text-align: center">${vo.mpoint }</td>
+	<td style="text-align: center">${vo.mgrade }</td>
+	<td style="text-align: center">${vo.mjday }</td>
+	<td style="text-align: center">${vo.mlatest }</td>
+
 	</tr>
 	</c:forEach>
 

@@ -15,199 +15,9 @@
 <script src="./js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="./css/bootstrap.css">
 <link rel="stylesheet" href="./css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/common.css">
 <!--  -->
 <style>
-*{
-margin: 0;
-padding: 0;
-}
-ul, li{
-list-style: none;
-}
-.table {
-  --bs-table-bg: transparent;
-  --bs-table-accent-bg: transparent;
-  --bs-table-striped-color: #fff;
-  --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
-  --bs-table-active-color: #000;
-  --bs-table-active-bg: rgba(0, 0, 0, 0.1);
-  --bs-table-hover-color: #555;
-  --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
-  width: 100%;
-  margin-bottom: 1rem;
-  color: #fff;
-  vertical-align: top;
-  border-color: #444;
-  margin-left: auto; 
-  margin-right: auto;
-  font-size: 0.8em;
-}
-
-.table > :not(caption) > * > * {
-  padding: 0.5rem 0.5rem;
-  background-color: var(--bs-table-bg);
-  border-bottom-width: 1px;
-  box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
-}
-
-.table > tbody {
-  vertical-align: inherit;
-}
-
-.table > thead {
-  vertical-align: bottom;
-}
-
-.table > :not(:first-child) {
-  border-top: 2px solid currentColor;
-}
-
-.caption-top {
-  caption-side: top;
-}
-
-.table-sm > :not(caption) > * > * {
-  padding: 0.25rem 0.25rem;
-}
-
-.table-bordered > :not(caption) > * {
-  border-width: 1px 0;
-}
-
-.table-bordered > :not(caption) > * > * {
-  border-width: 0 1px;
-}
-
-.table-borderless > :not(caption) > * > * {
-  border-bottom-width: 0;
-}
-
-.table-borderless > :not(:first-child) {
-  border-top-width: 0;
-}
-
-.table-striped > tbody > tr:nth-of-type(odd) > * {
-  --bs-table-accent-bg: var(--bs-table-striped-bg);
-  color: var(--bs-table-striped-color);
-}
-
-.table-active {
-  --bs-table-accent-bg: var(--bs-table-active-bg);
-  color: #000;
-}
-
-.table-hover > tbody > tr:hover > * {
-  --bs-table-accent-bg: var(--bs-table-hover-bg);
-  color: var(--bs-table-hover-color);
-}
-
-.table-primary {
-  --bs-table-bg: #375a7f;
-  --bs-table-striped-bg: #416285;
-  --bs-table-striped-color: #fff;
-  --bs-table-active-bg: #4b6b8c;
-  --bs-table-active-color: #fff;
-  --bs-table-hover-bg: #466689;
-  --bs-table-hover-color: #fff;
-  color: #fff;
-  border-color: #4b6b8c;
-}
-
-.table-secondary {
-  --bs-table-bg: #444444;
-  --bs-table-striped-bg: #4d4d4d;
-  --bs-table-striped-color: #fff;
-  --bs-table-active-bg: #575757;
-  --bs-table-active-color: #fff;
-  --bs-table-hover-bg: #525252;
-  --bs-table-hover-color: #fff;
-  color: #fff;
-  border-color: #575757;
-}
-
-.table-success {
-  --bs-table-bg: #00bc8c;
-  --bs-table-striped-bg: #0dbf92;
-  --bs-table-striped-color: #fff;
-  --bs-table-active-bg: #1ac398;
-  --bs-table-active-color: #fff;
-  --bs-table-hover-bg: #13c195;
-  --bs-table-hover-color: #fff;
-  color: #fff;
-  border-color: #1ac398;
-}
-
-.table-info {
-  --bs-table-bg: #3498db;
-  --bs-table-striped-bg: #3e9ddd;
-  --bs-table-striped-color: #fff;
-  --bs-table-active-bg: #48a2df;
-  --bs-table-active-color: #fff;
-  --bs-table-hover-bg: #43a0de;
-  --bs-table-hover-color: #fff;
-  color: #fff;
-  border-color: #48a2df;
-}
-
-.table-warning {
-  --bs-table-bg: #f39c12;
-  --bs-table-striped-bg: #f4a11e;
-  --bs-table-striped-color: #fff;
-  --bs-table-active-bg: #f4a62a;
-  --bs-table-active-color: #fff;
-  --bs-table-hover-bg: #f4a324;
-  --bs-table-hover-color: #fff;
-  color: #fff;
-  border-color: #f4a62a;
-}
-
-.table-danger {
-  --bs-table-bg: #e74c3c;
-  --bs-table-striped-bg: #e85546;
-  --bs-table-striped-color: #fff;
-  --bs-table-active-bg: #e95e50;
-  --bs-table-active-color: #fff;
-  --bs-table-hover-bg: #e9594b;
-  --bs-table-hover-color: #fff;
-  color: #fff;
-  border-color: #e95e50;
-}
-
-.table-light {
-  --bs-table-bg: #adb5bd;
-  --bs-table-striped-bg: #b1b9c0;
-  --bs-table-striped-color: #fff;
-  --bs-table-active-bg: #b5bcc4;
-  --bs-table-active-color: #fff;
-  --bs-table-hover-bg: #b3bbc2;
-  --bs-table-hover-color: #fff;
-  color: #fff;
-  border-color: #b5bcc4;
-}
-
-.table-dark {
-  --bs-table-bg: #303030;
-  --bs-table-striped-bg: #3a3a3a;
-  --bs-table-striped-color: #fff;
-  --bs-table-active-bg: #454545;
-  --bs-table-active-color: #fff;
-  --bs-table-hover-bg: #404040;
-  --bs-table-hover-color: #fff;
-  color: #fff;
-  border-color: #454545;
-}
-
-.table-responsive {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* 여기까지 */
-.tb_wrap{
-width: 1200px;
-margin: 30px auto;
-}
-
 
 button {
 display: inline-block;
@@ -273,6 +83,7 @@ margin-left: 1em;
 </header>
 <div class="ct">
 <!-- 회원 -->
+<c:if test="${sid != 'admin' }">
 <div class="board_wrap" style="margin-top:20px;">
 <h4>${BoardVo.tit }</h4>
 	<ul class="board_ul">
@@ -288,10 +99,12 @@ margin-left: 1em;
 	<p>${BoardVo.con }</p>
 	
 	</div>
-
+<button type="button" onclick="location.href='./GetBoardListCtrl';">목록</button>
 </div>
+</c:if>
 
 <!-- 관리자 -->
+<c:if test="${sid == 'admin' }">
 <br>
 <h3 style="text-align: center;">-----관리자-----</h3>
 
@@ -338,9 +151,11 @@ margin-left: 1em;
 	<input type="hidden" value="${BoardVo.no }" name="no">
 	<button type="submit">수정</button>
 	<button type="button" onclick="location.href='DelBoardCtrl?no=${BoardVo.no }';">삭제</button>
+	<button type="button" onclick="location.href='./GetBoardListCtrl';">목록</button>
 </div>
-</form>
 
+</form>
+</c:if>
 
 
 </div>
