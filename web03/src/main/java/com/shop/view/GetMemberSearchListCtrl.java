@@ -10,20 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.shop.common.Shop_BoardVO;
+import com.shop.common.Shop_MemberVO;
 import com.shop.model.BoardDAO;
+import com.shop.model.MemberDAO;
 
 /**
- * Servlet implementation class GetBoardSearchList
+ * Servlet implementation class GetMemberSearchListCtrl
  */
-@WebServlet("/GetBoardSearchListCtrl")
-public class GetBoardSearchListCtrl extends HttpServlet {
+@WebServlet("/GetMemberSearchListCtrl")
+public class GetMemberSearchListCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetBoardSearchListCtrl() {
+    public GetMemberSearchListCtrl() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,16 +37,12 @@ public class GetBoardSearchListCtrl extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		String s_type = request.getParameter("s_type");
 		String s_detail = request.getParameter("s_detail");
-		ArrayList<Shop_BoardVO> Volist = new ArrayList<Shop_BoardVO>();
-		BoardDAO DAO = new BoardDAO();
-		Volist = DAO.getBoardSearch(s_type,s_detail);
-	
-
-		request.setAttribute("BoardVolist", Volist);
-		RequestDispatcher view = request.getRequestDispatcher("./board/BoardList.jsp");
+		ArrayList<Shop_MemberVO> Volist = new ArrayList<Shop_MemberVO>();
+		MemberDAO DAO = new MemberDAO();
+		Volist = DAO.getMemberSearch(s_type,s_detail);
+		request.setAttribute("MemberList", Volist);
+		RequestDispatcher view = request.getRequestDispatcher("./member/MemberList.jsp");
 		view.forward(request, response);
-		
-		
 	}
 
 }

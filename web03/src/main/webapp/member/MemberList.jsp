@@ -243,10 +243,10 @@ text-align: center;
 <h1 style="text-align: center">DAO를 이용한 Member 리스트</h1>
 <button style="margin-bottom: 10px;" onclick="window.open('./member/join.jsp','추가','width=430,height=1080,location=no,status=no,scrollbars=no');">추가</button>
 
-<form method="post" action="GetBoardSearchListCtrl">
+<form method="post" action="GetMemberSearchListCtrl">
 <select id="s_type" class="s_type" name="s_type">
-<option value="tit">제목</option>
-<option value="con">내용</option>
+<option value="ids">아이디</option>
+<option value="names">이름</option>
 </select>
 <input type="text" name="s_detail"><button style="margin-left: 10px;" onclick="submit" >검색</button>
 </form>

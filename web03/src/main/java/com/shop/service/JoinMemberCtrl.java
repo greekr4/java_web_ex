@@ -16,14 +16,14 @@ import com.shop.model.MemberDAO;
 /**
  * Servlet implementation class JoinMember
  */
-@WebServlet("/JoinMember")
-public class JoinMember extends HttpServlet {
+@WebServlet("/JoinMemberCtrl")
+public class JoinMemberCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JoinMember() {
+    public JoinMemberCtrl() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,11 +40,12 @@ public class JoinMember extends HttpServlet {
 		Shop_MemberVO Vo = new Shop_MemberVO();
 		String j_id = request.getParameter("j_id");
 		String j_pw = request.getParameter("j_pw");
-		j_pw = Base64.getEncoder().encodeToString(j_pw.getBytes());	//BASE64
 		String j_name = request.getParameter("j_name");
 		String j_nick = request.getParameter("j_nick");
 		String j_tel = request.getParameter("j_tel");
 		String j_address = request.getParameter("j_address");
+		String j_address2 = request.getParameter("j_address2");
+		j_address = j_address +" "+ j_address2;
 		String j_email = request.getParameter("j_email");
 		int j_cash = Integer.parseInt(request.getParameter("j_cash"));
 		int j_point = Integer.parseInt(request.getParameter("j_point"));

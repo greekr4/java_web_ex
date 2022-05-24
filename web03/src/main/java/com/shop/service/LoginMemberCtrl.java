@@ -15,12 +15,12 @@ import com.shop.common.Shop_MemberVO;
 import com.shop.model.MemberDAO;
 
 
-@WebServlet("/LoginMember")
-public class LoginMember extends HttpServlet {
+@WebServlet("/LoginMemberCtrl")
+public class LoginMemberCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public LoginMember() {
+    public LoginMemberCtrl() {
         super();
     }
 
@@ -34,7 +34,6 @@ public class LoginMember extends HttpServlet {
 		MemberDAO DAO = new MemberDAO();
 		String l_id = request.getParameter("l_id");
 		String l_pw = request.getParameter("l_pw");
-		l_pw = Base64.getEncoder().encodeToString(l_pw.getBytes());	//BASE64
 		Shop_MemberVO Vo = DAO.loginMember(l_id, l_pw);
 		String log = Vo.getMid();
 		if(log != null) {

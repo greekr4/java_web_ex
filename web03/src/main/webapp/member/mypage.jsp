@@ -107,9 +107,9 @@
       <input type="text" name="my_cash2" id="my_cash2" placeholder="cash" value="cash : ${MemberVo.mcash }" readonly>
       <input type="text" name="my_point2" id="my_point2" placeholder="point" value="point : ${MemberVo.mpoint }" readonly>
       <input type="text" name="my_grade2" id="my_grade2" placeholder="grade" value="grade : ${MemberVo.mgrade }" readonly>
-      <input type="hidden" name="j_cash" id="j_cash" value="0">
-      <input type="hidden" name="j_point" id="j_point" value="0">
-      <input type="hidden" name="j_grade" id="j_grade" value="1">
+      <input type="hidden" name="my_cash" id="my_cash" placeholder="cash" value="${MemberVo.mcash }">
+      <input type="hidden" name="my_point" id="my_point" placeholder="point" value="${MemberVo.mpoint }">
+      <input type="hidden" name="my_grade" id="my_grade" placeholder="grade" value="${MemberVo.mgrade }">
       </c:if> 
       <button type="button" onclick="Edit();">Edit</button>
       <button type="button" onclick="Del();" style="margin-top:5px;">Del</button>

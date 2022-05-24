@@ -57,7 +57,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="${path }">회원가입
+          <a class="nav-link active" href="${path }/member/agreement.jsp">회원가입
             <span class="visually-hidden"></span>
           </a>
         </li>
@@ -72,7 +72,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="${path }/LogoutMember">로그아웃
+          <a class="nav-link active" href="${path }/LogoutMemberCtrl">로그아웃
             <span class="visually-hidden"></span>
           </a>
         </li>

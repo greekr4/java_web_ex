@@ -38,7 +38,6 @@ public class EditMemberCtrl extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String my_id = request.getParameter("my_id");
 		String my_pw = request.getParameter("my_pw");
-		my_pw = Base64.getEncoder().encodeToString(my_pw.getBytes());	//BASE64
 		String my_name = request.getParameter("my_name");
 		String my_nick = request.getParameter("my_nick");
 		String my_tel = request.getParameter("my_tel");

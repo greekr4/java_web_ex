@@ -12,6 +12,7 @@
 <script src="../js/jquery-latest.js"></script>
 <script src="../js/bootstrap.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <link rel="stylesheet" href="../css/bootstrap.css">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/common.css">
@@ -87,7 +88,7 @@
 <div class="loginbox">
     <div class="join-page">
   <div class="form">
-    <form class="join" id="join" action="../JoinMember" method="post">
+    <form class="join" id="join" action="../JoinMemberCtrl" method="post">
       <input type="text" placeholder="id" name="j_id" id="j_id" required/>
       <button type="button" onclick="idck();">Check</button>
       <input type="password" placeholder="password" name="j_pw" id="j_pw" required/>
@@ -95,7 +96,8 @@
       <input type="text" placeholder="name" name="j_name" id="j_name" required/>
       <input type="text" placeholder="nickname" name="j_nick" id="j_nick" required/>
       <input type="text" placeholder="tel" name="j_tel" id="j_tel" required/>
-      <input type="text" placeholder="address" name="j_address" id="j_address" required/>
+      <input type="text" placeholder="address" name="j_address" id="j_address"  onclick="findAddr();" readonly required/>
+      <input type="text" placeholder="detail_address" name="j_address2" id="j_address2" required/>
       <input type="text" placeholder="email" name="j_email" id="j_email" required/>   
       <c:if test="${sid == 'admin' }">
       <!-- admin -->
@@ -112,6 +114,24 @@
       <button type="button" onclick="join();">join</button>
     </form>
     <script type="text/javascript">
+    function findAddr() {
+		new daum.Postcode({
+			oncomplete: function(data){
+			
+			var roadAddr = data.roadAddress;
+			var jibunAddr = data.jibunAddress;
+			console.log(roadAddr);
+			console.log(jibunAddr);
+			if(roadAddr != ""){
+			document.getElementById("j_address").value = roadAddr;
+			}else{
+			document.getElementById("j_address").value = jibunAddr;
+			}
+			}
+		}).open();
+	}
+    
+    
     function idck() {
     var xPos = (document.body.offsetWidth/2) - (300/2); // 가운데 정렬
     var yPos = (document.body.offsetHeight/2) - (200/2);
@@ -131,6 +151,7 @@
     var ck9 = document.getElementById("j_cash").value;
     var ck10 = document.getElementById("j_point").value;
     var ck11 = document.getElementById("j_grade").value;
+    var ck12 = document.getElementById("j_address2").value;
     if(ck1 == false){
     	alert('아이디 중복검사를 해주세요');
     	return;
@@ -151,6 +172,9 @@
     	return;
     }if(ck7 == ""){
     	alert('주소를 입력해주세요');
+    	return;
+    }if(ck12 == ""){
+    	alert('상세주소를 입력해주세요');
     	return;
     }if(ck8 == ""){
     	alert('이메일을 입력해주세요');

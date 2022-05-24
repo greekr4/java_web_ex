@@ -171,13 +171,19 @@ public class BoardDAO {
 		return cnt;
 	}		
 	/////////////////////////////////////////////////
-	public ArrayList<Shop_BoardVO> getBoardSearch_tit(String tit){
+	public ArrayList<Shop_BoardVO> getBoardSearch(String s_type,String s_txt){
 		ArrayList<Shop_BoardVO> list = null;
 		try {
 			conn = JDBCConnection.getConnection();
+			if(s_type.equals("tit")) {
 			sql = "select * from shop_board where tit like ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "%"+tit+"%");
+			pstmt.setString(1, "%"+s_txt+"%");
+			}else {
+			sql = "select * from shop_board where con like ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+s_txt+"%");
+			}
 			rs = pstmt.executeQuery();
 			list = new ArrayList<Shop_BoardVO>();
 			while(rs.next()) {
@@ -207,39 +213,4 @@ public class BoardDAO {
 		return list;
 	}
 	/////////////////////////////////////////////////
-	public ArrayList<Shop_BoardVO> getBoardSearch_con(String con){
-		ArrayList<Shop_BoardVO> list = null;
-		try {
-			conn = JDBCConnection.getConnection();
-			sql = "select * from shop_board where con like ?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "%"+con+"%");
-			rs = pstmt.executeQuery();
-			list = new ArrayList<Shop_BoardVO>();
-			while(rs.next()) {
-				Shop_BoardVO vo = new Shop_BoardVO();
-				vo.setNo(rs.getInt("no"));
-				vo.setTit(rs.getString("tit"));
-				vo.setCon(rs.getString("con"));
-				vo.setWriter(rs.getString("writer"));
-				vo.setRegdate(rs.getDate("regdate"));
-				vo.setViewed(rs.getInt("viewed"));
-				vo.setThumb(rs.getInt("thumb"));
-				vo.setLock_post(rs.getInt("lock_post"));
-				list.add(vo);
-			}
-		} catch(ClassNotFoundException e) {
-			System.out.println("드라이버 로딩이 실패되었습니다.");
-			e.printStackTrace();
-		} catch(SQLException e) {
-			System.out.println("SQL구문이 처리되지 못했습니다.");
-			e.printStackTrace();
-		} catch(Exception e) {
-			System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다.");
-			e.printStackTrace();
-		} finally {
-			JDBCConnection.close(rs, pstmt, conn);
-		}
-		return list;
-	}	
 }

@@ -86,7 +86,7 @@
 <div class="loginbox">
     <div class="login-page">
   <div class="form">
-    <form class="login-form" action="../LoginMember" method="post">
+    <form class="login-form" action="../LoginMemberCtrl" method="post">
       <input type="text" placeholder="username" name="l_id" id="l_id" />
       <input type="password" placeholder="password" name="l_pw" id="l_pw" />
       <button type="submit">login</button>
