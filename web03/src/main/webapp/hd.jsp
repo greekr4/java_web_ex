@@ -67,7 +67,7 @@
       <c:if test="${sid != null }">
             		<ul class="navbar-nav me-auto" style="float: right;">
         <li class="nav-item">
-          <a class="nav-link active" href="${path }/member/login.jsp">${sname } (${sid })
+          <a class="nav-link active" href="${path }/GetMyPageCtrl?uid=${sid }">${sname } (${sid })
             <span class="visually-hidden"></span>
           </a>
         </li>

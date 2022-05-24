@@ -9,12 +9,12 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <!--  -->
-<script src="../js/jquery-latest.js"></script>
-<script src="../js/bootstrap.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="../css/bootstrap.css">
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/common.css">
+<script src="./js/jquery-latest.js"></script>
+<script src="./js/bootstrap.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="./css/bootstrap.css">
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/common.css">
 <!--  -->
 
 
@@ -89,26 +89,29 @@
   <div class="form">
   	<h2>My Page</h2>
     <form class="join" id="join" action="../JoinMember" method="post">
-      <input type="text" placeholder="id" name="my_id" id="my_id" required/>
+      <input type="text" placeholder="id" name="my_id" id="my_id" value="${MemberVo.mid }" required/>
       <input type="password" placeholder="password" name="my_pw" id="my_pw" required/>
-      <input type="text" placeholder="name" name="my_name" id="my_name" required/>
-      <input type="text" placeholder="nickname" name="my_nick" id="my_nick" required/>
-      <input type="text" placeholder="tel" name="my_tel" id="my_tel" required/>
-      <input type="text" placeholder="address" name="my_address" id="my_address" required/>
-      <input type="text" placeholder="email" name="my_email" id="my_email" required/>   
+      <input type="text" placeholder="name" name="my_name" id="my_name" value="${MemberVo.mname }"required/>
+      <input type="text" placeholder="nickname" name="my_nick" id="my_nick"value="${MemberVo.mnick }" required/>
+      <input type="text" placeholder="tel" name="my_tel" id="my_tel" value="${MemberVo.mtel }" required/>
+      <input type="text" placeholder="address" name="my_address" id="my_address" value="${MemberVo.maddress }" required/>
+      <input type="text" placeholder="email" name="my_email" id="my_email" value="${MemberVo.memail }" required/>   
       <c:if test="${sid == 'admin' }">
       <!-- admin -->
-      <input type="text" name="my_cash" id="my_cash" placeholder="cash">
-      <input type="text" name="my_point" id="my_point" placeholder="point">
-      <input type="text" name="my_grade" id="my_grade" placeholder="grade">
+      <input type="text" name="my_cash" id="my_cash" placeholder="cash" value="${MemberVo.mcash }">
+      <input type="text" name="my_point" id="my_point" placeholder="point" value="${MemberVo.mpoint }">
+      <input type="text" name="my_grade" id="my_grade" placeholder="grade" value="${MemberVo.mgrade }">
       </c:if>   
       <!-- 기본회원 -->   
       <c:if test="${sid != 'admin' }">
-      <input type="hidden" name="my_cash" id="my_cash" placeholder="cash">
-      <input type="hidden" name="my_point" id="my_point" placeholder="point">
-      <input type="hidden" name="my_grade" id="my_grade" placeholder="grade">
+      <input type="text" name="my_cash2" id="my_cash2" placeholder="cash" value="cash : ${MemberVo.mcash }" readonly>
+      <input type="text" name="my_point2" id="my_point2" placeholder="point" value="point : ${MemberVo.mpoint }" readonly>
+      <input type="text" name="my_grade2" id="my_grade2" placeholder="grade" value="grade : ${MemberVo.mgrade }" readonly>
+      <input type="hidden" name="j_cash" id="j_cash" value="0">
+      <input type="hidden" name="j_point" id="j_point" value="0">
+      <input type="hidden" name="j_grade" id="j_grade" value="1">
       </c:if> 
-      <button type="button" onclick="join();">join</button>
+      <button type="button" onclick="join();">Edit</button>
     </form>
     <script type="text/javascript">
     function idck() {

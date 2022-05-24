@@ -105,9 +105,9 @@
       </c:if>   
       <!-- 기본회원 -->   
       <c:if test="${sid != 'admin' }">
-      <input type="hidden" name="j_cash" id="j_cash" placeholder="cash">
-      <input type="hidden" name="j_point" id="j_point" placeholder="point">
-      <input type="hidden" name="j_grade" id="j_grade" placeholder="grade">
+      <input type="hidden" name="j_cash" id="j_cash" value="0">
+      <input type="hidden" name="j_point" id="j_point" value="0">
+      <input type="hidden" name="j_grade" id="j_grade" value="1">
       </c:if> 
       <button type="button" onclick="join();">join</button>
     </form>

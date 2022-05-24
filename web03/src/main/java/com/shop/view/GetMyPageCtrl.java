@@ -33,8 +33,9 @@ public class GetMyPageCtrl extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberDAO DAO = new MemberDAO();
-		ArrayList<Shop_MemberVO> Volist = DAO.getMemberList();
-		request.setAttribute("MemberVo", Volist);
+		String uid = request.getParameter("uid");
+		Shop_MemberVO Vo = DAO.getMemberPage(uid);
+		request.setAttribute("MemberVo", Vo);
 		RequestDispatcher view = request.getRequestDispatcher("./member/mypage.jsp");
 		view.forward(request, response);
 	}
