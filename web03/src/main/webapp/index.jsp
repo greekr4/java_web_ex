@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>인덱스</title>
 <!--  -->
 <script src="./js/jquery-latest.js"></script>
 <script src="./js/bootstrap.js"></script>
@@ -21,13 +21,6 @@
 
 
 <style>
-
-* {margin: 0; padding: 0;}
-a {text-decoration: none; color: black;}
-ul { list-style: none;}
-.wrap{clear: both; width: 100%;}
-#hd{width: 100%;}
-
 </style>
 </head>
 <body>

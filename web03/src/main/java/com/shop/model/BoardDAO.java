@@ -206,7 +206,6 @@ public class BoardDAO {
 		}
 		return list;
 	}
-	/////////////////////////////////////////////	
 	/////////////////////////////////////////////////
 	public ArrayList<Shop_BoardVO> getBoardSearch_con(String con){
 		ArrayList<Shop_BoardVO> list = null;

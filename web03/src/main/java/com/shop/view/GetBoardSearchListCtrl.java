@@ -16,14 +16,14 @@ import com.shop.model.BoardDAO;
 /**
  * Servlet implementation class GetBoardSearchList
  */
-@WebServlet("/GetBoardSearchList")
-public class GetBoardSearchList extends HttpServlet {
+@WebServlet("/GetBoardSearchListCtrl")
+public class GetBoardSearchListCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetBoardSearchList() {
+    public GetBoardSearchListCtrl() {
         super();
         // TODO Auto-generated constructor stub
     }

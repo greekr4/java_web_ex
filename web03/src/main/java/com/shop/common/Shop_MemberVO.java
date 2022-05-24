@@ -8,6 +8,7 @@ public class Shop_MemberVO {
 	private String mpw;
 	private String mname;
 	private String mtel;
+	private String maddress;
 	private String memail;
 	private String mnick;
 	private int mcash;
@@ -88,4 +89,11 @@ public class Shop_MemberVO {
 	public void setMlatest(Date mlatest) {
 		this.mlatest = mlatest;
 	}
+	public String getMaddress() {
+		return maddress;
+	}
+	public void setMaddress(String maddress) {
+		this.maddress = maddress;
+	}
+	
 }

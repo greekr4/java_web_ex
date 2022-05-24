@@ -45,6 +45,7 @@ mid varchar2(100) not null primary key,
 mpw varchar2(2000) not null,
 mname varchar2(20) not null,
 mtel varchar2(50) not null,
+maddress varchar2(200) not null,
 memail varchar2(100) not null,
 mnick varchar2(50) not null,
 mcash number default 0,
@@ -60,6 +61,7 @@ insert into shop_member values(
 '1234',
 '관리자',
 '010-0000-0000',
+'파주시',
 'admin@admin.com',
 '관리자',
 1000,
@@ -75,6 +77,7 @@ insert into shop_member values(
 '1234',
 '관리자2',
 '010-0000-0000',
+'파주시',
 'admin2@admin.com',
 '관리자2',
 1000,
@@ -88,3 +91,6 @@ select * from shop_member;
 
 desc shop_member;
 commit;
+
+
+update shop_member set mpoint=mpoint+10 where mid='admin';

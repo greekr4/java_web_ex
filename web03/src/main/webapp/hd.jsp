@@ -42,9 +42,10 @@
         </li>
 
       </ul>
-		<ul class="navbar-nav me-auto" style="float: right;">
+      <c:if test="${sid == null }">
+      		<ul class="navbar-nav me-auto" style="float: right;">
         <li class="nav-item">
-          <a class="nav-link active" href="${path }">로그인
+          <a class="nav-link active" href="${path }/member/login.jsp">로그인
             <span class="visually-hidden"></span>
           </a>
         </li>
@@ -53,8 +54,24 @@
             <span class="visually-hidden"></span>
           </a>
         </li>
-
       </ul>
+      </c:if>
+      
+      <c:if test="${sid != null }">
+            		<ul class="navbar-nav me-auto" style="float: right;">
+        <li class="nav-item">
+          <a class="nav-link active" href="${path }/member/login.jsp">${sname } (${sid })
+            <span class="visually-hidden"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="${path }/LogoutMember">로그아웃
+            <span class="visually-hidden"></span>
+          </a>
+        </li>
+      </ul>
+      </c:if>
+
     </div>
   </div>
 </nav>

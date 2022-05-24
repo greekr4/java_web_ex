@@ -240,7 +240,7 @@ margin: 0 auto;
 <h1 style="text-align: center">DAO를 이용한 Shop_Board 리스트</h1>
 <button style="margin-bottom: 10px;" onclick="window.open('./board/BoardAdd_admin.jsp','추가','width=430,height=260,location=no,status=no,scrollbars=no');">추가</button>
 
-<form method="post" action="GetBoardSearchList">
+<form method="post" action="GetBoardSearchListCtrl">
 <select id="s_type" class="s_type" name="s_type">
 <option value="tit">제목</option>
 <option value="con">내용</option>
