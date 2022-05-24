@@ -182,12 +182,12 @@ public class MemberDAO {
 		return cnt;
 	}
 	
-	public int delMember(Shop_MemberVO Vo){
+	public int delMember(String uid){
 		try {
 			conn = JDBCConnection.getConnection();
 			sql = "delete from shop_member where mid=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, Vo.getMid());
+			pstmt.setString(1, uid);
 			cnt = pstmt.executeUpdate();
 		} catch(ClassNotFoundException e) {
 			System.out.println("드라이버 로딩이 실패되었습니다.");

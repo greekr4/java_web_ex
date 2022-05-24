@@ -202,7 +202,7 @@
 
 /* 여기까지 */
 .tb_wrap{
-width: 1500px;
+width: 1600px;
 margin: 30px auto;
 }
 
@@ -257,7 +257,7 @@ text-align: center;
 		<th style="width: 3%">번호</th>
 		<th style="width: 8.3%">아이디</th>
 		<th style="width: 8.3%">비밀번호</th>
-		<th style="width: 8.3%">이름</th>
+		<th style="width: 4%">이름</th>
 		<th style="width: 8.3%">닉네임</th>
 		<th style="width: 8.3%">연락처</th>
 		<th style="width: 8.3%">주소</th>
@@ -267,7 +267,9 @@ text-align: center;
 		<th style="width: 3%">등급</th>
 		<th style="width: 10%">가입일</th>
 		<th style="width: 10%">최근</th>
+		<th style="width: 4%"></th>
 		</tr>
+		<!--/GetMyPageCtrl?uid=${sid } -->
 	</thead>
 	<c:forEach items="${MemberList }" var="vo" varStatus="status">
 	<tr class="table-active">
@@ -284,6 +286,7 @@ text-align: center;
 	<td style="text-align: center">${vo.mgrade }</td>
 	<td style="text-align: center">${vo.mjday }</td>
 	<td style="text-align: center">${vo.mlatest }</td>
+	<td><a href="./GetMyPageCtrl?uid=${vo.mid }">수정</a></td>
 
 	</tr>
 	</c:forEach>
