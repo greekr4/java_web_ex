@@ -1,8 +1,7 @@
-package com.shop.service;
+package com.shop.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Base64;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,17 +13,13 @@ import javax.servlet.http.HttpSession;
 import com.shop.common.Shop_MemberVO;
 import com.shop.model.MemberDAO;
 
-
 @WebServlet("/LoginMemberCtrl")
 public class LoginMemberCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-
     public LoginMemberCtrl() {
         super();
     }
-
-
+    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
@@ -40,18 +35,10 @@ public class LoginMemberCtrl extends HttpServlet {
 			session.setAttribute("sid", Vo.getMid());
 			session.setAttribute("sname", Vo.getMname());
 			session.setAttribute("snick", Vo.getMnick());
-			out.println("<script>"
-					+ "alert('로그인성공');"
-					+ "location.href='./index.jsp';"
-					+ "</script>");
+			out.println("<script>alert('로그인성공'); location.href='./index.jsp'; </script>");
 		} else {
-			out.println("<script>"
-					+ "alert('로그인실패');"
-					+ "history.back();;"
-					+ "</script>");
+			out.println("<script>alert('로그인실패'); history.back(); </script>");
 		}
-		
-		
 	}
 
 }

@@ -15,35 +15,26 @@ import com.shop.common.Shop_MemberVO;
 class VOtest {
 	private Shop_BoardVO bvo;
 	private Shop_MemberVO mvo;
-	private String data1 = "여기는 제목";
+	private String data1 = "제목입니다.";
 	private String data2 = "admin"; 
-	
 	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-		System.out.println("ins start");
-	}
-
+	static void setUpBeforeClass() throws Exception {System.out.println("ins start");}
 	@AfterAll
-	static void tearDownAfterClass() throws Exception {
-		System.out.println("ins end");
-	}
-
+	static void tearDownAfterClass() throws Exception {System.out.println("ins end");}
 	@BeforeEach
 	void setUp() throws Exception {
 		System.out.println("test start");
 		bvo = new Shop_BoardVO();
 		mvo = new Shop_MemberVO();
-		
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		System.out.println("test end");
 	}
-
 	@Test
 	void VOtest1() {
-		bvo.setTit("여기는 제목");
+		bvo.setTit("제목입니다.");
 		System.out.println("데이터 : "+bvo.getTit());
 		assertEquals(data1, bvo.getTit());
 		fail("VOtest1 fail");
@@ -55,5 +46,4 @@ class VOtest {
 		assertEquals(data2, mvo.getMid());
 		fail("VOtest2 fail");
 	}
-
 }

@@ -1,4 +1,4 @@
-package com.shop.service;
+package com.shop.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;

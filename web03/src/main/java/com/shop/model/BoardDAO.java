@@ -16,7 +16,7 @@ public class BoardDAO {
 	String sql = "";
 	int cnt = 0;
 	
-	/////////////////////////////////////////////
+	//게시판 리스트
 	public ArrayList<Shop_BoardVO> getBoardList(){
 		ArrayList<Shop_BoardVO> list = null;
 		try {
@@ -37,21 +37,14 @@ public class BoardDAO {
 				vo.setLock_post(rs.getInt("lock_post"));
 				list.add(vo);
 			}
-		} catch(ClassNotFoundException e) {
-			System.out.println("드라이버 로딩이 실패되었습니다.");
-			e.printStackTrace();
-		} catch(SQLException e) {
-			System.out.println("SQL구문이 처리되지 못했습니다.");
-			e.printStackTrace();
-		} catch(Exception e) {
-			System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다.");
-			e.printStackTrace();
-		} finally {
-			JDBCConnection.close(rs, pstmt, conn);
 		}
+		catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
+		catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
+		catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
+		finally 							{ JDBCConnection.close(rs, pstmt, conn); }
 		return list;
 	}
-	/////////////////////////////////////////////
+	//게시판 상세
 	public Shop_BoardVO getBoard(int no) {
 		Shop_BoardVO vo = new Shop_BoardVO();
 		try {
@@ -70,21 +63,14 @@ public class BoardDAO {
 				vo.setThumb(rs.getInt("thumb"));
 				vo.setLock_post(rs.getInt("lock_post"));
 			}
-		} catch(ClassNotFoundException e) {
-			System.out.println("드라이버 로딩이 실패되었습니다.");
-			e.printStackTrace();
-		} catch(SQLException e) {
-			System.out.println("SQL구문이 처리되지 못했습니다.");
-			e.printStackTrace();
-		} catch(Exception e) {
-			System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다.");
-			e.printStackTrace();
-		} finally {
-			JDBCConnection.close(rs, pstmt, conn);
-		}
+		} 
+		catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
+		catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
+		catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
+		finally 							{ JDBCConnection.close(rs, pstmt, conn); }
 		return vo;
 	}
-	/////////////////////////////////////////////
+	//게시판 추가
 	public int addBoard(Shop_BoardVO vo) {
 		try {
 			conn = JDBCConnection.getConnection();
@@ -104,21 +90,14 @@ public class BoardDAO {
 			pstmt.setString(3, vo.getWriter());
 			pstmt.setInt(4, vo.getLock_post());
 			cnt = pstmt.executeUpdate();
-		} catch(ClassNotFoundException e) {
-			System.out.println("드라이버 로딩이 실패되었습니다.");
-			e.printStackTrace();
-		} catch(SQLException e) {
-			System.out.println("SQL구문이 처리되지 못했습니다.");
-			e.printStackTrace();
-		} catch(Exception e) {
-			System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다.");
-			e.printStackTrace();
-		} finally {
-			JDBCConnection.close(pstmt, conn);
 		}
+		catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
+		catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
+		catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
+		finally 							{ JDBCConnection.close(pstmt, conn); }
 		return cnt;
 	}
-	/////////////////////////////////////////////
+	//게시판 수정
 	public int editBoard(Shop_BoardVO vo) {
 		try {
 			conn = JDBCConnection.getConnection();
@@ -134,21 +113,14 @@ public class BoardDAO {
 			pstmt.setInt(3, vo.getLock_post());
 			pstmt.setInt(4, vo.getNo());
 			cnt = pstmt.executeUpdate();
-		} catch(ClassNotFoundException e) {
-			System.out.println("드라이버 로딩이 실패되었습니다.");
-			e.printStackTrace();
-		} catch(SQLException e) {
-			System.out.println("SQL구문이 처리되지 못했습니다.");
-			e.printStackTrace();
-		} catch(Exception e) {
-			System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다.");
-			e.printStackTrace();
-		} finally {
-			JDBCConnection.close(pstmt, conn);
 		}
+		catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
+		catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
+		catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
+		finally 							{ JDBCConnection.close(pstmt, conn); }
 		return cnt;
 	}	
-	/////////////////////////////////////////////
+	//게시판 삭제
 	public int delBoard(Shop_BoardVO vo) {
 		try {
 			conn = JDBCConnection.getConnection();
@@ -156,21 +128,14 @@ public class BoardDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, vo.getNo());
 			cnt = pstmt.executeUpdate();
-		} catch(ClassNotFoundException e) {
-			System.out.println("드라이버 로딩이 실패되었습니다.");
-			e.printStackTrace();
-		} catch(SQLException e) {
-			System.out.println("SQL구문이 처리되지 못했습니다.");
-			e.printStackTrace();
-		} catch(Exception e) {
-			System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다.");
-			e.printStackTrace();
-		} finally {
-			JDBCConnection.close(pstmt, conn);
 		}
+		catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
+		catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
+		catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
+		finally 							{ JDBCConnection.close(pstmt, conn); }
 		return cnt;
 	}		
-	/////////////////////////////////////////////////
+	//게시판 검색
 	public ArrayList<Shop_BoardVO> getBoardSearch(String s_type,String s_txt){
 		ArrayList<Shop_BoardVO> list = null;
 		try {
@@ -198,18 +163,11 @@ public class BoardDAO {
 				vo.setLock_post(rs.getInt("lock_post"));
 				list.add(vo);
 			}
-		} catch(ClassNotFoundException e) {
-			System.out.println("드라이버 로딩이 실패되었습니다.");
-			e.printStackTrace();
-		} catch(SQLException e) {
-			System.out.println("SQL구문이 처리되지 못했습니다.");
-			e.printStackTrace();
-		} catch(Exception e) {
-			System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다.");
-			e.printStackTrace();
-		} finally {
-			JDBCConnection.close(rs, pstmt, conn);
 		}
+		catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
+		catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
+		catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
+		finally 							{ JDBCConnection.close(rs, pstmt, conn); }
 		return list;
 	}
 	/////////////////////////////////////////////////

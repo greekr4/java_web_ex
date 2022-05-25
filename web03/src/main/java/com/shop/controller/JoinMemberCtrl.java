@@ -1,4 +1,4 @@
-package com.shop.service;
+package com.shop.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,24 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.shop.common.Shop_MemberVO;
 import com.shop.model.MemberDAO;
 
-/**
- * Servlet implementation class JoinMember
- */
 @WebServlet("/JoinMemberCtrl")
 public class JoinMemberCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public JoinMemberCtrl() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+    public JoinMemberCtrl() {super();}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
@@ -50,25 +37,14 @@ public class JoinMemberCtrl extends HttpServlet {
 		int j_cash = Integer.parseInt(request.getParameter("j_cash"));
 		int j_point = Integer.parseInt(request.getParameter("j_point"));
 		int j_grade = Integer.parseInt(request.getParameter("j_grade"));
-
-		Vo.setMid(j_id);
-		Vo.setMpw(j_pw);
-		Vo.setMname(j_name);
-		Vo.setMnick(j_nick);
-		Vo.setMtel(j_tel);
-		Vo.setMaddress(j_address);
-		Vo.setMemail(j_email);
-		Vo.setMcash(j_cash);
-		Vo.setMpoint(j_point);
-		Vo.setMgrade(j_grade);
-		
+		Vo.setMid(j_id);		Vo.setMpw(j_pw);		Vo.setMname(j_name);		Vo.setMnick(j_nick);
+		Vo.setMtel(j_tel);		Vo.setMaddress(j_address);		Vo.setMemail(j_email);
+		Vo.setMcash(j_cash);		Vo.setMpoint(j_point);		Vo.setMgrade(j_grade);
 		if (DAO.joinMember(Vo) > 0) {
 		out.println("<script>"
 				+ "alert('가입성공!');"
 				+ "location.href='index.jsp';"
 				+ "</script>");
 		}
-		
 	}
-
 }
