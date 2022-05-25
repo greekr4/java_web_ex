@@ -1,6 +1,6 @@
 select * from shop_member;
 select * from shop_board;
-
+select mno,mid,mpw,mname,mtel,maddress,memail,mnick,mcash,mpoint,mgrade,to_char(mjday,'yyyy-MM-dd HH24:mi:ss') as jday, to_char(mlatest,'yyyy-MM-dd HH24:mi:ss') as latest from shop_member order by mno desc;
 
 create table shop_board (
 no number primary key,

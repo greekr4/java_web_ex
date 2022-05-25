@@ -15,7 +15,6 @@ public class BoardDAO {
 	private ResultSet rs = null;
 	String sql = "";
 	int cnt = 0;
-	
 	//게시판 리스트
 	public ArrayList<Shop_BoardVO> getBoardList(){
 		ArrayList<Shop_BoardVO> list = null;

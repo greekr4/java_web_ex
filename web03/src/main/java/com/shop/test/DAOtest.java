@@ -54,11 +54,14 @@ class DAOtest {
 	@Test
 	void VOtest1() {
 		dao1.addBoard(vo1);
+		
 		fail("VOtest1 fail");
 	}
 	@Test
 	void VOtest2() {
 		dao2.loginMember(vo2.getMid(), vo2.getMpw());
+		dao2.JSONgetMemberList();
+
 		fail("VOtest2 fail");
 	}
 

@@ -1,5 +1,4 @@
 package com.shop.model;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Base64;
 
 import com.shop.common.JDBCConnection;
-import com.shop.common.Shop_BoardVO;
 import com.shop.common.Shop_MemberVO;
 
 public class MemberDAO {
@@ -17,7 +15,6 @@ public class MemberDAO {
 	private ResultSet rs = null;
 	String sql = "";
 	int cnt = 0;
-	
 	//멤버 리스트
 	public ArrayList<Shop_MemberVO> getMemberList(){
 		ArrayList<Shop_MemberVO> list = null;
@@ -51,6 +48,39 @@ public class MemberDAO {
 		finally 							{ JDBCConnection.close(rs, pstmt, conn); }
 		return list;
 	}
+	//멤버 리스트 (JSON)
+		public ArrayList<Shop_MemberVO> JSONgetMemberList(){
+			ArrayList<Shop_MemberVO> list = null;
+			try {
+				conn = JDBCConnection.getConnection();
+				sql = "select mno,mid,mpw,mname,mtel,maddress,memail,mnick,mcash,mpoint,mgrade,to_char(mjday,'yyyy-MM-dd HH24:mi:ss') as jday, to_char(mlatest,'yyyy-MM-dd HH24:mi:ss') as latest from shop_member order by mno desc";
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				list = new ArrayList<Shop_MemberVO>();
+				while(rs.next()) {
+					Shop_MemberVO Vo = new Shop_MemberVO();
+					Vo.setMno(rs.getInt("mno"));
+					Vo.setMid(rs.getString("mid"));
+					Vo.setMpw(rs.getString("mpw"));
+					Vo.setMname(rs.getString("mname"));
+					Vo.setMnick(rs.getString("mnick"));
+					Vo.setMtel(rs.getString("mtel"));
+					Vo.setMaddress(rs.getString("maddress"));
+					Vo.setMemail(rs.getString("memail"));
+					Vo.setMcash(rs.getInt("mcash"));
+					Vo.setMpoint(rs.getInt("mpoint"));
+					Vo.setMgrade(rs.getInt("mgrade"));
+					Vo.setMjday2(rs.getString("jday"));
+					Vo.setMlatest2(rs.getString("latest"));
+					list.add(Vo);
+				}
+			}
+			catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
+			catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
+			catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
+			finally 							{ JDBCConnection.close(rs, pstmt, conn); }
+			return list;
+		}
 	//멤버리스트_검색
 	public ArrayList<Shop_MemberVO> getMemberSearch(String s_type,String s_txt){
 		ArrayList<Shop_MemberVO> list = null;

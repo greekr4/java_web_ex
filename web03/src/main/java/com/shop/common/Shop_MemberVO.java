@@ -16,6 +16,9 @@ public class Shop_MemberVO {
 	private int mgrade;
 	private Date mjday;
 	private Date mlatest;
+	private String mjday2;
+	private String mlatest2;
+	
 	
 	public int getMno() {return mno;}
 	public void setMno(int mno) {this.mno = mno;}
@@ -43,5 +46,17 @@ public class Shop_MemberVO {
 	public void setMlatest(Date mlatest) {this.mlatest = mlatest;}
 	public String getMaddress() {return maddress;}
 	public void setMaddress(String maddress) {this.maddress = maddress;}
+	public String getMjday2() {
+		return mjday2;
+	}
+	public void setMjday2(String mjday2) {
+		this.mjday2 = mjday2;
+	}
+	public String getMlatest2() {
+		return mlatest2;
+	}
+	public void setMlatest2(String mlatest2) {
+		this.mlatest2 = mlatest2;
+	}
 	
 }
