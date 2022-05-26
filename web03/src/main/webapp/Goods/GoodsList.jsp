@@ -275,7 +275,7 @@ cursor: pointer;
 	</thead>
 	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
 	<tr class="table-active">
-	<td style="text-align: center">${vo.gno }</td>
+	<td style="text-align: center" id="g_no">${vo.gno }</td>
 	<td style="text-align: center">${vo.gcode }</td>
 	<td style="text-align: center">${vo.gname }</td>
 	<td style="text-align: center">${vo.gdetail }</td>
@@ -287,7 +287,7 @@ cursor: pointer;
 	<td style="text-align: center">${vo.gsize }</td>
 	<td style="text-align: center">
 	<a style="color:blue;" href="#" onclick="window.open('./GetEditGoodsCtrl?g_no=${vo.gno }','수정','width=430,height=1080,location=no,status=no,scrollbars=no');">수정</a> | 
-	<a style="color:blue;" href="#" onclick="window.open('./DelGoodsCtrl?g_no=${vo.gno }','삭제','width=430,height=1080,location=no,status=no,scrollbars=no');">삭제</a></td>
+	<a style="color:blue;" href="#" onclick="DelGoods();">삭제</a></td>
 
 	</tr>
 	</c:forEach>
@@ -301,7 +301,19 @@ function GoViewer() {
     var href = './Goods/GoodsImageViewer.jsp?img=' + document.getElementById('l_img').textContent;
     window.open(href, "pop_name", "width=300, height=200, left="+xPos+", top="+yPos+", menubar=yes, status=yes, titlebar=yes, resizable=yes");
 }
+
+function DelGoods() {
+	
+   var retVal = confirm("정말 삭제하실껀가요?");
+   if( retVal == true ){
+	   var href = './DelGoodsCtrl?g_no=' + document.getElementById('g_no').textContent;
+	   window.open(href,'hiddenframe1','width=430,height=1080,location=no,status=no,scrollbars=no');
+	   
+   }	
+	
+}
 </script>
+<iframe width=0 height=0 name="hiddenframe1" style="display:none;"></iframe>
 </div>
 <footer id="ft">
 <jsp:include page="../ft.jsp"></jsp:include>
