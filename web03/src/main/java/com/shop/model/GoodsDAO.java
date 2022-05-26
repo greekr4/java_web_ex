@@ -33,7 +33,7 @@ public class GoodsDAO {
 				Vo.setGimage(rs.getString("gimage"));
 				Vo.setGprice(rs.getInt("gprice"));
 				Vo.setGamount(rs.getInt("gamount"));
-				Vo.setGoption(rs.getString("gopton"));
+				Vo.setGoption(rs.getString("goption"));
 				Vo.setGoption2(rs.getString("goption2"));
 				Vo.setGsize(rs.getString("gsize"));
 				list.add(Vo);
@@ -63,7 +63,7 @@ public class GoodsDAO {
 					Vo.setGimage(rs.getString("gimage"));
 					Vo.setGprice(rs.getInt("gprice"));
 					Vo.setGamount(rs.getInt("gamount"));
-					Vo.setGoption(rs.getString("gopton"));
+					Vo.setGoption(rs.getString("goption"));
 					Vo.setGoption2(rs.getString("goption2"));
 					Vo.setGsize(rs.getString("gsize"));
 				}
@@ -80,7 +80,7 @@ public class GoodsDAO {
 			try {
 				conn = JDBCConnection.getConnection();
 				sql = "insert into goods values("
-						+ "?,(select nvl(max(gno),0)+1 from goods),?,?,?,?,?,?,?,?);";
+						+ "?,(select nvl(max(gno),0)+1 from goods),?,?,?,?,?,?,?,?)";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, Vo.getGcode());
 				pstmt.setString(2, Vo.getGname());

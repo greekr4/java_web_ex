@@ -153,3 +153,5 @@ where gno = 1;
 
 
 delete from goods where gno = 2;
+
+select * from goods order by gno desc

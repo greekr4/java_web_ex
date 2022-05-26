@@ -240,8 +240,8 @@ text-align: center;
 </header>
 
 <div class="tb_wrap">
-<h1 style="text-align: center">DAO를 이용한 Member 리스트</h1>
-<button style="margin-bottom: 10px;" onclick="window.open('./member/join.jsp','추가','width=430,height=1080,location=no,status=no,scrollbars=no');">추가</button>
+<h1 style="text-align: center">Goods 리스트</h1>
+<button style="margin-bottom: 10px;" onclick="window.open('./Goods/GoodsAdd.jsp','추가','width=430,height=1080,location=no,status=no,scrollbars=no');">추가</button>
 
 <form method="post" action="GetMemberSearchListCtrl">
 <select id="s_type" class="s_type" name="s_type">
@@ -254,39 +254,33 @@ text-align: center;
 <table class="table table-hover">
 	<thead>
 		<tr class="table-primary">
-		<th style="width: 3%">번호</th>
-		<th style="width: 8.3%">아이디</th>
-		<th style="width: 8.3%">비밀번호</th>
-		<th style="width: 4%">이름</th>
-		<th style="width: 8.3%">닉네임</th>
-		<th style="width: 8.3%">연락처</th>
-		<th style="width: 8.3%">주소</th>
-		<th style="width: 8.3%">이메일</th>
-		<th style="width: 8.3%">보유머니</th>
-		<th style="width: 8.3%">포인트</th>
-		<th style="width: 3%">등급</th>
-		<th style="width: 10%">가입일</th>
-		<th style="width: 10%">최근</th>
-		<th style="width: 4%"></th>
+		<th>번호</th>
+		<th>코드</th>
+		<th>이름</th>
+		<th>내용</th>
+		<th>가격</th>
+		<th>수량</th>
+		<th>옵션1</th>
+		<th>옵션2</th>
+		<th>사이즈</th>
+		<th>사진</th>
+		<th>버튼</th>
 		</tr>
 		<!--/GetMyPageCtrl?uid=${sid } -->
 	</thead>
 	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
 	<tr class="table-active">
-	<td style="text-align: center">${vo.gcode }</td>
 	<td style="text-align: center">${vo.gno }</td>
+	<td style="text-align: center">${vo.gcode }</td>
 	<td style="text-align: center">${vo.gname }</td>
-	<td style="text-align: center">${vo.mname }</td>
-	<td style="text-align: center">${vo.mnick }</td>
-	<td style="text-align: center">${vo.mtel }</td>
-	<td style="text-align: center">${vo.maddress }</td>
-	<td style="text-align: center">${vo.memail }</td>
-	<td style="text-align: center">${vo.mcash }</td>
-	<td style="text-align: center">${vo.mpoint }</td>
-	<td style="text-align: center">${vo.mgrade }</td>
-	<td style="text-align: center">${vo.mjday }</td>
-	<td style="text-align: center">${vo.mlatest }</td>
-	<td><a href="./GetMyPageCtrl?uid=${vo.mid }">수정</a></td>
+	<td style="text-align: center">${vo.gdetail }</td>
+	<td style="text-align: center">${vo.gprice }</td>
+	<td style="text-align: center">${vo.gamount }</td>
+	<td style="text-align: center">${vo.goption }</td>
+	<td style="text-align: center">${vo.goption2 }</td>
+	<td style="text-align: center">${vo.gsize }</td>
+	<td style="text-align: center">${vo.gimage }</td>
+	<td style="text-align: center"><a href="./GetEditGoodsCtrl?g_no=${vo.gno }">수정</a> | <a href="./DelGoodsCtrl?g_no=${vo.gno }">삭제</a></td>
 
 	</tr>
 	</c:forEach>
