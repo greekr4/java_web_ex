@@ -45,6 +45,9 @@
         <li class="nav-item">
           <a class="nav-link" href="${path }/GetMemberListCtrl" style="color:pink;">멤버리스트(admin)</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="${path }/GetGoodsListCtrl" style="color:pink;">상품리스트(admin)</a>
+        </li>        
       </c:if>
 	  <!-- 운영자게시판 -->
       </ul>

@@ -95,3 +95,61 @@ commit;
 
 update shop_member set mpoint=mpoint+10 where mid='admin';
 update shop_member set mpw='MTIzNA==' where mid='admin';
+
+
+
+create table goods(
+gcode varchar2(2000) primary key,			--상품코드
+gno number not null,						--상품번호
+gname varchar2(200) not null,				--상품이름
+gdetail varchar2(1000) not null,			--상품설명
+gimage varchar2(2000),						--상품이미지
+gprice number not null,						--상품가격
+gamount number not null,					--상품수량
+goption varchar2(200) default 1,			--상품옵션1
+goption2 varchar2(200),						--상품옵션2
+gsize varchar2(200)							--상품사이즈
+);
+
+insert into goods values(
+'A110001',
+1,
+'루어',
+'5인치/5g',
+'./image/1.png',
+5000,
+10,
+1,
+0,
+0
+);
+
+insert into goods values(
+'A110002',
+(select nvl(max(gno),0)+1 from goods),
+'루어',
+'5인치/5g',
+'./image/1.png',
+5000,
+10,
+1,
+0,
+0
+);
+
+select * from goods;
+select * from goods where gcode='A110001' order by gno desc;
+
+update goods set 
+gname = 'a',
+gdetail = 'b',
+gimage = 'c',
+gprice = 100,
+gamount = 10,
+goption = '1',
+goption2 = '0',
+gsize = '0'
+where gno = 1;
+
+
+delete from goods where gno = 2;
