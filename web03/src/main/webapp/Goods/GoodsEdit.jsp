@@ -9,13 +9,13 @@
 <meta charset="UTF-8">
 <title>상품추가</title>
 <!--  -->
-<script src="../js/jquery-latest.js"></script>
-<script src="../js/bootstrap.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+<script src="./js/jquery-latest.js"></script>
+<script src="./js/bootstrap.js"></script>
+<script src="./js/bootstrap.min.js"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<link rel="stylesheet" href="../css/bootstrap.css">
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="./css/bootstrap.css">
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/common.css">
 <!--  -->
 
 
@@ -88,17 +88,18 @@
 <div class="loginbox">
     <div class="AddGoodsForm">
   <div class="form">
-    <form class="AddGoodsForm" id="AddGoodsForm" action="../AddGoodsCtrl" method="post">
-      <input type="text" placeholder="상품코드" name="g_code" id="g_code" required/>
-      <input type="text" placeholder="상품이름" name="g_name" id="g_name" required/>
-      <input type="text" placeholder="상품설명" name="g_detail" id="g_detail" required/>
-      <input type="text" placeholder="이미지경로" name="g_image" id="g_image" required/>
-      <input type="text" placeholder="가격" name="g_price" id="g_price" required/>
-      <input type="text" placeholder="수랑" name="g_amount" id="g_amount" required/>
-      <input type="text" placeholder="옵션1" name="g_option" id="g_option" required/>   
-      <input type="text" placeholder="옵션2" name="g_option2" id="g_option2" required/>   
-      <input type="text" placeholder="사이즈" name="g_size" id="g_size" required/>   
-      <button type="submit">Add</button>
+    <form class="AddGoodsForm" id="AddGoodsForm" action="./EditGoodsCtrl" method="post">
+      <input type="text" name="g_no" id="g_no" value="${GoodsVo.gno }" readonly >
+      <input type="text" placeholder="상품코드" name="g_code" id="g_code" value="${GoodsVo.gcode }"/>
+      <input type="text" placeholder="상품이름" name="g_name" id="g_name" required value="${GoodsVo.gname }"/>
+      <input type="text" placeholder="상품설명" name="g_detail" id="g_detail" required value="${GoodsVo.gdetail }"/>
+      <input type="text" placeholder="이미지경로" name="g_image" id="g_image" required value="${GoodsVo.gimage }"/>
+      <input type="text" placeholder="가격" name="g_price" id="g_price" required value="${GoodsVo.gprice }"/>
+      <input type="text" placeholder="수랑" name="g_amount" id="g_amount" required value="${GoodsVo.gamount }"/>
+      <input type="text" placeholder="옵션1" name="g_option" id="g_option" required value="${GoodsVo.goption }"/>   
+      <input type="text" placeholder="옵션2" name="g_option2" id="g_option2" required value="${GoodsVo.goption2 }"/>   
+      <input type="text" placeholder="사이즈" name="g_size" id="g_size" required value="${GoodsVo.gsize }"/>   
+      <button type="submit">Edit</button>
     </form>
     <script type="text/javascript">
        

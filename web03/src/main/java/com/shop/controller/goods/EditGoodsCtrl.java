@@ -12,30 +12,24 @@ import javax.servlet.http.HttpServletResponse;
 import com.shop.common.GoodsVO;
 import com.shop.model.GoodsDAO;
 
-/**
- * Servlet implementation class AddGoods
- */
-@WebServlet("/AddGoodsCtrl")
-public class AddGoodsCtrl extends HttpServlet {
+
+@WebServlet("/EditGoodsCtrl")
+public class EditGoodsCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AddGoodsCtrl() {
+
+    public EditGoodsCtrl() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; UTF-8");
 		PrintWriter out = response.getWriter();
-		
+		int g_no = Integer.parseInt(request.getParameter("g_no"));
 		String g_code = request.getParameter("g_code");
 		String g_name = request.getParameter("g_name");
 		String g_detail = request.getParameter("g_detail");
@@ -48,6 +42,7 @@ public class AddGoodsCtrl extends HttpServlet {
 		
 		GoodsDAO DAO = new GoodsDAO();
 		GoodsVO Vo = new GoodsVO();
+		Vo.setGno(g_no);
 		Vo.setGcode(g_code);
 		Vo.setGname(g_name);
 		Vo.setGdetail(g_detail);
@@ -57,15 +52,14 @@ public class AddGoodsCtrl extends HttpServlet {
 		Vo.setGoption(g_option);
 		Vo.setGoption2(g_option2);
 		Vo.setGsize(g_size);
-		
-		if ((DAO.AddGoods(Vo) > 0)){
-			//글쓰기 성공
-			out.println("<script>alert('등록성공'); opener.parent.location.reload(); window.close();</script>");
+		if(DAO.EditGoods(Vo)>0) {
+			//성공
+			out.println("<script>alert('수정성공'); opener.parent.location.reload(); window.close();</script>");
 		} else {
-			//글쓰기 실패
-			out.println("<script>alert('등록실패'); window.close();</script>");
+			//실패
+			out.println("<script>alert('수정실패');window.close();</script>");
 		}
 	}
-
+	
 
 }

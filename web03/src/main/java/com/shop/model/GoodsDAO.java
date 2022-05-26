@@ -51,7 +51,7 @@ public class GoodsDAO {
 			GoodsVO Vo = new GoodsVO();
 			try {
 				conn = JDBCConnection.getConnection();
-				sql = "select * from goods where gcode=?";
+				sql = "select * from goods where gno=?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, gno);
 				rs = pstmt.executeQuery();
@@ -104,6 +104,7 @@ public class GoodsDAO {
 					try {
 						conn = JDBCConnection.getConnection();
 						sql = "update goods set "
+								+ "gcode = ?,"
 								+ "gname = ?,"
 								+ "gdetail = ?,"
 								+ "gimage = ?,"
@@ -114,15 +115,16 @@ public class GoodsDAO {
 								+ "gsize = ?"
 								+ "where gno = ?";
 						pstmt = conn.prepareStatement(sql);
-						pstmt.setString(1, Vo.getGname());
-						pstmt.setString(2, Vo.getGdetail());
-						pstmt.setString(3, Vo.getGimage());
-						pstmt.setInt(4, Vo.getGprice());
-						pstmt.setInt(5, Vo.getGamount());
-						pstmt.setString(6, Vo.getGoption());
-						pstmt.setString(7, Vo.getGoption2());
-						pstmt.setString(8, Vo.getGsize());
-						pstmt.setInt(9, Vo.getGno());
+						pstmt.setString(1, Vo.getGcode());
+						pstmt.setString(2, Vo.getGname());
+						pstmt.setString(3, Vo.getGdetail());
+						pstmt.setString(4, Vo.getGimage());
+						pstmt.setInt(5, Vo.getGprice());
+						pstmt.setInt(6, Vo.getGamount());
+						pstmt.setString(7, Vo.getGoption());
+						pstmt.setString(8, Vo.getGoption2());
+						pstmt.setString(9, Vo.getGsize());
+						pstmt.setInt(10, Vo.getGno());
 						cnt = pstmt.executeUpdate();
 					}
 					catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
@@ -136,6 +138,7 @@ public class GoodsDAO {
 			try {
 				conn = JDBCConnection.getConnection();
 				sql = "delete from goods where gno = ?";
+				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, gno);
 				cnt = pstmt.executeUpdate();
 			}
