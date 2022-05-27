@@ -246,8 +246,6 @@ cursor: pointer;
 
 <div class="tb_wrap">
 <h1 style="text-align: center">장바구니</h1>
-<button style="margin-bottom: 10px;" onclick="window.open('./Goods/GoodsAdd.jsp','추가','width=430,height=1080,location=no,status=no,scrollbars=no');">추가</button>
-
 <form method="post" action="GetMemberSearchListCtrl">
 <select id="s_type" class="s_type" name="s_type">
 <option value="ids">아이디</option>
@@ -296,12 +294,11 @@ function GoViewer() {
     window.open(href, "pop_name", "width=300, height=200, left="+xPos+", top="+yPos+", menubar=yes, status=yes, titlebar=yes, resizable=yes");
 }
 
-function DelBasket(gno) {
+function DelBasket(bno) {
 	   var retVal = confirm("정말 삭제하실껀가요?");
 	   if( retVal == true ){
-		   var href = './DelBasketCtrl?g_no=' + gno
-				   alert(href);
-		   window.open(href,'','width=430,height=1080,location=no,status=no,scrollbars=no');
+		   var href = './DelBasketCtrl?bno=' + bno
+		   window.open(href,'hiddenframe1','width=430,height=1080,location=no,status=no,scrollbars=no');
 		   
 	   }	
 		

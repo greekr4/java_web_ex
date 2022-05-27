@@ -88,11 +88,12 @@
 <div class="loginbox">
     <div class="AddGoodsForm">
   <div class="form">
-    <form class="AddGoodsForm" id="AddGoodsForm" action="../AddGoodsCtrl" method="post">
+    <form class="AddGoodsForm" id="AddGoodsForm" action="../AddGoodsCtrl" method="post" enctype="multipart/form-data">
       <input type="text" placeholder="상품코드" name="g_code" id="g_code" required/>
       <input type="text" placeholder="상품이름" name="g_name" id="g_name" required/>
       <input type="text" placeholder="상품설명" name="g_detail" id="g_detail" required/>
-      <input type="text" placeholder="이미지경로" name="g_image" id="g_image" required/>
+<!--       <input type="text" placeholder="이미지경로" name="g_image" id="g_image" required/> -->
+      <input type="file" placeholder="" name="g_upload" id="g_upload" required/>
       <input type="text" placeholder="가격" name="g_price" id="g_price" required/>
       <input type="text" placeholder="수랑" name="g_amount" id="g_amount" required/>
       <input type="text" placeholder="옵션1" name="g_option" id="g_option" required/>   

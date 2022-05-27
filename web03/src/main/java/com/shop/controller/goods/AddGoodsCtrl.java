@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.shop.common.GoodsVO;
 import com.shop.model.GoodsDAO;
 
@@ -35,16 +37,28 @@ public class AddGoodsCtrl extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; UTF-8");
 		PrintWriter out = response.getWriter();
+//		String uploadpath = request.getRealPath("img");
+		String path = request.getRealPath(getServletInfo());
+		String uploadpath = "D:\\Taek\\java_web\\web03\\src\\main\\webapp\\img";
+		System.out.println(uploadpath);
 		
-		String g_code = request.getParameter("g_code");
-		String g_name = request.getParameter("g_name");
-		String g_detail = request.getParameter("g_detail");
-		String g_image = request.getParameter("g_image");
-		int g_price = Integer.parseInt(request.getParameter("g_price"));
-		int g_amount = Integer.parseInt(request.getParameter("g_amount"));
-		String g_option = request.getParameter("g_option");
-		String g_option2 = request.getParameter("g_option2");
-		String g_size = request.getParameter("g_size");
+		int maxSize = 1024*1024*100;
+		DefaultFileRenamePolicy policy = new DefaultFileRenamePolicy();
+		MultipartRequest multi = new MultipartRequest(request, uploadpath, maxSize, "UTF-8", policy);
+
+//		String upload = multi.getFilesystemName("upload");
+//		String upload2 = multi.getOriginalFileName("upload");
+		
+		
+		String g_code = multi.getParameter("g_code");
+		String g_name = multi.getParameter("g_name");
+		String g_detail = multi.getParameter("g_detail");
+		String g_image = multi.getFilesystemName("g_upload");
+		int g_price = Integer.parseInt(multi.getParameter("g_price"));
+		int g_amount = Integer.parseInt(multi.getParameter("g_amount"));
+		String g_option = multi.getParameter("g_option");
+		String g_option2 = multi.getParameter("g_option2");
+		String g_size = multi.getParameter("g_size");
 		
 		GoodsDAO DAO = new GoodsDAO();
 		GoodsVO Vo = new GoodsVO();

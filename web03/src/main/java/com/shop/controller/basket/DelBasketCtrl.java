@@ -32,6 +32,9 @@ public class DelBasketCtrl extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; UTF-8");
 		BasketDAO DAO = new BasketDAO();
 		PrintWriter out = response.getWriter();
 		int bno = Integer.parseInt(request.getParameter("bno"));
