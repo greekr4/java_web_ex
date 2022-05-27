@@ -245,7 +245,7 @@ cursor: pointer;
 </header>
 
 <div class="tb_wrap">
-<h1 style="text-align: center">Goods 리스트</h1>
+<h1 style="text-align: center">장바구니</h1>
 <button style="margin-bottom: 10px;" onclick="window.open('./Goods/GoodsAdd.jsp','추가','width=430,height=1080,location=no,status=no,scrollbars=no');">추가</button>
 
 <form method="post" action="GetMemberSearchListCtrl">
@@ -262,32 +262,26 @@ cursor: pointer;
 		<th>번호</th>
 		<th>코드</th>
 		<th>이름</th>
-		<th>내용</th>
 		<th>사진</th>
-		<th>가격</th>
 		<th>수량</th>
-		<th>옵션1</th>
-		<th>옵션2</th>
-		<th>사이즈</th>
+		<th>가격</th>
+		<th>추가일</th>
 		<th>버튼</th>
 		</tr>
 		<!--/GetMyPageCtrl?uid=${sid } -->
 	</thead>
-	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
+	<c:forEach items="${Basketlist }" var="vo" varStatus="status">
 	<tr class="table-active">
-	<td style="text-align: center" id="g_no">${vo.gno }</td>
+	<td style="text-align: center" id="g_no">${vo.bno }</td>
 	<td style="text-align: center">${vo.gcode }</td>
 	<td style="text-align: center">${vo.gname }</td>
-	<td style="text-align: center">${vo.gdetail }</td>
-	<td style="text-align: center"><a onclick="GoViewer('${vo.gimage }');"href="#">${vo.gimage }</a></td>
+	<td style="text-align: center">${vo.gimage }</td>
+	<td style="text-align: center">${vo.bamount }</td>
 	<td style="text-align: center">${vo.gprice }</td>
-	<td style="text-align: center">${vo.gamount }</td>
-	<td style="text-align: center">${vo.goption }</td>
-	<td style="text-align: center">${vo.goption2 }</td>
-	<td style="text-align: center">${vo.gsize }</td>
-	<td style="text-align: center">
-	<a style="color:blue;" href="#" onclick="window.open('./GetEditGoodsCtrl?g_no=${vo.gno }','수정','width=430,height=1080,location=no,status=no,scrollbars=no');">수정</a> | 
-	<a style="color:blue;" href="#" onclick="DelGoods(${vo.gno })">삭제</a></td>
+	<td style="text-align: center">${vo.bdate }</td>
+
+	<td style="text-align: center"> 
+	<a style="color:blue;" href="#" onclick="DelBasket(${vo.bno })">삭제</a></td>
 
 	</tr>
 	</c:forEach>
@@ -295,22 +289,23 @@ cursor: pointer;
 </table>
 <script type="text/javascript">
 
-function GoViewer(img) {
+function GoViewer() {
     var xPos = (document.body.offsetWidth/2) - (300/2); // 가운데 정렬
     var yPos = (document.body.offsetHeight/2) - (200/2);
-    var href = './Goods/GoodsImageViewer.jsp?img=' + img
+    var href = './Goods/GoodsImageViewer.jsp?img=' + document.getElementById('l_img').textContent;
     window.open(href, "pop_name", "width=300, height=200, left="+xPos+", top="+yPos+", menubar=yes, status=yes, titlebar=yes, resizable=yes");
 }
 
-function DelGoods(gno) {
-   var retVal = confirm("정말 삭제하실껀가요?");
-   if( retVal == true ){
-	   var href = './DelGoodsCtrl?g_no=' + gno
-	   window.open(href,'hiddenframe1','width=430,height=1080,location=no,status=no,scrollbars=no');
-	   
-   }	
-	
-}
+function DelBasket(gno) {
+	   var retVal = confirm("정말 삭제하실껀가요?");
+	   if( retVal == true ){
+		   var href = './DelBasketCtrl?g_no=' + gno
+				   alert(href);
+		   window.open(href,'','width=430,height=1080,location=no,status=no,scrollbars=no');
+		   
+	   }	
+		
+	}
 </script>
 <iframe width=0 height=0 name="hiddenframe1" style="display:none;"></iframe>
 </div>

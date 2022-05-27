@@ -155,3 +155,25 @@ where gno = 1;
 delete from goods where gno = 2;
 
 select * from goods order by gno desc
+drop table basket
+create table basket(
+bno number primary key,
+gcode varchar2(1000) not null,
+bamount number default 1,
+userid varchar2(200) not null,
+bdate varchar2(200) default sysdate
+);
+
+
+select * from basket;
+insert into basket values(
+(select nvl(max(bno),0)+1 from basket),
+'A110001',
+'admin',
+sysdate
+)
+
+
+select a.bno, a.gcode, a.bamount , a.userid, a.bdate, b.gname, b.gimage, b.gprice from basket a inner join goods b on a.gcode = b.gcode;
+
+select a.bno, a.gcode, a.bamount , a.userid, a.bdate, b.gname, b.gimage, b.gprice from basket a inner join goods b on a.gcode = b.gcode where userid ='admin' order by a.bno desc

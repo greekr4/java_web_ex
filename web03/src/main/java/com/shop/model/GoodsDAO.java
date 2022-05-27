@@ -148,6 +148,36 @@ public class GoodsDAO {
 			finally 							{ JDBCConnection.close(rs, pstmt, conn); }
 			return cnt;
 		}		
-	
+		//상품 <-> 장바구니
+		public ArrayList<GoodsVO> GetGoodsList_Basket(String s_gcode){
+			ArrayList<GoodsVO> list = null;
+			try {
+				conn = JDBCConnection.getConnection();
+				sql = "select * from goods where gcode = ? order by gno desc";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, s_gcode);
+				rs = pstmt.executeQuery();
+				list = new ArrayList<GoodsVO>();
+				while(rs.next()) {
+					GoodsVO Vo = new GoodsVO();
+					Vo.setGcode(rs.getString("gcode"));
+					Vo.setGno(rs.getInt("gno"));
+					Vo.setGname(rs.getString("gname"));
+					Vo.setGdetail(rs.getString("gdetail"));
+					Vo.setGimage(rs.getString("gimage"));
+					Vo.setGprice(rs.getInt("gprice"));
+					Vo.setGamount(rs.getInt("gamount"));
+					Vo.setGoption(rs.getString("goption"));
+					Vo.setGoption2(rs.getString("goption2"));
+					Vo.setGsize(rs.getString("gsize"));
+					list.add(Vo);
+				}
+			}
+			catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
+			catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
+			catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
+			finally 							{ JDBCConnection.close(rs, pstmt, conn); }
+			return list;
+		}	
 	
 }

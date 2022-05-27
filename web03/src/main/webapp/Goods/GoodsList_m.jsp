@@ -245,8 +245,7 @@ cursor: pointer;
 </header>
 
 <div class="tb_wrap">
-<h1 style="text-align: center">Goods 리스트</h1>
-<button style="margin-bottom: 10px;" onclick="window.open('./Goods/GoodsAdd.jsp','추가','width=430,height=1080,location=no,status=no,scrollbars=no');">추가</button>
+<h1 style="text-align: center">Goods 리스트_멤버</h1>
 
 <form method="post" action="GetMemberSearchListCtrl">
 <select id="s_type" class="s_type" name="s_type">
@@ -279,33 +278,32 @@ cursor: pointer;
 	<td style="text-align: center">${vo.gcode }</td>
 	<td style="text-align: center">${vo.gname }</td>
 	<td style="text-align: center">${vo.gdetail }</td>
-	<td style="text-align: center"><a onclick="GoViewer('${vo.gimage }');"href="#">${vo.gimage }</a></td>
+	<td style="text-align: center"><a onclick="GoViewer();"href="#" id="l_img">${vo.gimage }</a></td>
 	<td style="text-align: center">${vo.gprice }</td>
 	<td style="text-align: center">${vo.gamount }</td>
 	<td style="text-align: center">${vo.goption }</td>
 	<td style="text-align: center">${vo.goption2 }</td>
 	<td style="text-align: center">${vo.gsize }</td>
 	<td style="text-align: center">
-	<a style="color:blue;" href="#" onclick="window.open('./GetEditGoodsCtrl?g_no=${vo.gno }','수정','width=430,height=1080,location=no,status=no,scrollbars=no');">수정</a> | 
-	<a style="color:blue;" href="#" onclick="DelGoods(${vo.gno })">삭제</a></td>
-
+	<a style="color:blue;" href="#" onclick="window.open('./AddBasketCtrl?gcode=${vo.gcode }','hiddenframe1','width=430,height=1080,location=no,status=no,scrollbars=no');">장바구니추가</a> 
 	</tr>
 	</c:forEach>
 
 </table>
 <script type="text/javascript">
 
-function GoViewer(img) {
+function GoViewer() {
     var xPos = (document.body.offsetWidth/2) - (300/2); // 가운데 정렬
     var yPos = (document.body.offsetHeight/2) - (200/2);
-    var href = './Goods/GoodsImageViewer.jsp?img=' + img
+    var href = './Goods/GoodsImageViewer.jsp?img=' + document.getElementById('l_img').textContent;
     window.open(href, "pop_name", "width=300, height=200, left="+xPos+", top="+yPos+", menubar=yes, status=yes, titlebar=yes, resizable=yes");
 }
 
-function DelGoods(gno) {
+function DelGoods() {
+	
    var retVal = confirm("정말 삭제하실껀가요?");
    if( retVal == true ){
-	   var href = './DelGoodsCtrl?g_no=' + gno
+	   var href = './DelGoodsCtrl?g_no=' + document.getElementById('g_no').textContent;
 	   window.open(href,'hiddenframe1','width=430,height=1080,location=no,status=no,scrollbars=no');
 	   
    }	

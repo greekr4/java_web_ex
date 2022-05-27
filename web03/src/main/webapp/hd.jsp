@@ -35,7 +35,7 @@
           <a class="nav-link" href="${path }/GetBoardListCtrl">게시판</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">미구현</a>
+          <a class="nav-link" href="${path }/GetGoodsList_mCtrl">상품게시판</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">미구현</a>
@@ -71,6 +71,11 @@
             		<ul class="navbar-nav me-auto" style="float: right;">
         <li class="nav-item">
           <a class="nav-link active" href="${path }/GetMyPageCtrl?uid=${sid }">${sname } (${sid })
+            <span class="visually-hidden"></span>
+          </a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link active" href="${path }/GetBasketListCtrl">${sname }의 장바구니
             <span class="visually-hidden"></span>
           </a>
         </li>
