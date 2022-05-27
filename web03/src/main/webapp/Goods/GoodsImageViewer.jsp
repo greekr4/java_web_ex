@@ -21,7 +21,7 @@ cursor: pointer;
 </head>
 <body>
 <div>
-<img alt="#" src="../<%=img %>" onclick="window.close();">
+<img alt="#" src="../img/<%=img %>" onclick="window.close();">
 
 </div>
 </body>

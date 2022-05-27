@@ -38,7 +38,7 @@
           <a class="nav-link" href="${path }/GetGoodsList_mCtrl">상품게시판</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">미구현</a>
+          <a class="nav-link" href="${path }/GetGoodsList_tCtrl">테스트게시판</a>
         </li>
       <!-- 운영자게시판 -->
       <c:if test="${sid == 'admin' }">

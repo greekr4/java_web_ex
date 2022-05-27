@@ -278,7 +278,7 @@ cursor: pointer;
 	<td style="text-align: center">${vo.gcode }</td>
 	<td style="text-align: center">${vo.gname }</td>
 	<td style="text-align: center">${vo.gdetail }</td>
-	<td style="text-align: center"><a onclick="GoViewer();"href="#" id="l_img">${vo.gimage }</a></td>
+	<td style="text-align: center"><a onclick="GoViewer('${vo.gimage }');"href="#">${vo.gimage }</a></td>
 	<td style="text-align: center">${vo.gprice }</td>
 	<td style="text-align: center">${vo.gamount }</td>
 	<td style="text-align: center">${vo.goption }</td>
@@ -292,10 +292,10 @@ cursor: pointer;
 </table>
 <script type="text/javascript">
 
-function GoViewer() {
+function GoViewer(img) {
     var xPos = (document.body.offsetWidth/2) - (300/2); // 가운데 정렬
     var yPos = (document.body.offsetHeight/2) - (200/2);
-    var href = './Goods/GoodsImageViewer.jsp?img=' + document.getElementById('l_img').textContent;
+    var href = './Goods/GoodsImageViewer.jsp?img=' + img
     window.open(href, "pop_name", "width=300, height=200, left="+xPos+", top="+yPos+", menubar=yes, status=yes, titlebar=yes, resizable=yes");
 }
 
