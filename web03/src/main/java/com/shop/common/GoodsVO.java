@@ -11,6 +11,8 @@ public class GoodsVO {
 	private String goption;		//상품옵션1
 	private String goption2;	//상품옵션2
 	private String gsize;		//상품사이즈
+	private String gcate1;		//카테고리1
+	private String gcate2;		//카테고리2
 	public String getGcode() {
 		return gcode;
 	}
@@ -78,6 +80,18 @@ public class GoodsVO {
 		return "GoodsVO [gcode=" + gcode + ", gno=" + gno + ", gname=" + gname + ", gdetail=" + gdetail + ", gimage="
 				+ gimage + ", gprice=" + gprice + ", gamount=" + gamount + ", goption=" + goption + ", goption2="
 				+ goption2 + ", gsize=" + gsize + "]";
+	}
+	public String getGcate1() {
+		return gcate1;
+	}
+	public void setGcate1(String gcate1) {
+		this.gcate1 = gcate1;
+	}
+	public String getGcate2() {
+		return gcate2;
+	}
+	public void setGcate2(String gcate2) {
+		this.gcate2 = gcate2;
 	}
 
 }

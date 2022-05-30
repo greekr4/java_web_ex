@@ -2,18 +2,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!--  -->
-<script src="../js/jquery-latest.js"></script>
-<script src="../js/bootstrap.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="../css/bootstrap.css">
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/common.css">
+<script src="./js/jquery-latest.js"></script>
+<script src="./js/bootstrap.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="./css/bootstrap.css">
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/common.css">
 <!--  -->
 
 
@@ -38,8 +40,7 @@
         }
         .gtxt_wrap{
             float: left;
-            width: 60%;
-            background-color: aqua;
+            width: 40%;
         }
         .gcon{
             margin-left: 100px;
@@ -72,31 +73,73 @@ button:hover,.form button:active,.form button:focus {
 <div class="ct">
     <div class="gbox">
         <div class="gimg">
-            <img src="../img/1.jpg" alt="">
+        
+            <img src="./img/${GoodsVo.gimage }" alt="">
         </div>
         <div class="gtxt_wrap">
             <div class="gcon">
-            <h4>잭슨 QU-On</h4>
-            <p>디테일</p>
-            <p>가격</p>
-            <p>남은 수량</p>
+            <h4>${GoodsVo.gname }</h4>
+            <p>${GoodsVo.gdetail }</p>
+            <p>가격 : <fmt:formatNumber value="${GoodsVo.gprice}" pattern="#,###"/>원</p>
+            <p>남은 수량 : ${GoodsVo.gamount }</p>
+            <p>수량     
+            <input type="number" value="1" style="text-align: center; width: 50px" id="amount">
+            </p>
+            <p id="tot">총합 : <fmt:formatNumber value="${GoodsVo.gprice}" pattern="#,###"/>원</p>
             <p>옵션
             <select name="" id="">
-                <option value="">1</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>               
             </select>
-             </p>
-             <p>옵션
-             <select name="" id="">
-             <option value="">1</option>
-            </select>
+
+
+             <p>옵션2
+			    <c:choose>
+       			<c:when test="${GoodsVo.goption2 > 0 }">
+       			<select name="" id="">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>   
+                </select> 
+                </c:when>
+                
+                <c:otherwise>
+                 <select name="" id="">
+                <option value="0">옵션없음</option>  
+                </select> 
+                </c:otherwise>           
+
+       		</c:choose>
             </p>
             <p><button>주문하기</button></p>
-            <p><button>장바구니</button></p>
+            <p><button id="addBasket">장바구니</button></p>
         </div>
         </div>
 
     </div>
 </div>
+<script type="text/javascript">
+$('#amount').change(function(){
+	var val1 = parseInt($('#amount').val());
+	var val2 = ${GoodsVo.gprice};
+	var val3 = parseInt(val1 * val2).toLocaleString('en');
+	$('#tot').text("총합 : " + val3+"원");
+});
+
+
+$('#addBasket').click(function(){
+	var bamount = $('#amount').val();
+	window.open('./AddBasketCtrl?gcode=${GoodsVo.gcode }&bamount='+bamount,'hiddenframe1','width=430,height=1080,location=no,status=no,scrollbars=no');	
+});
+
+
+
+
+</script>
+<iframe width=0 height=0 name="hiddenframe1" style="display:none;"></iframe>
 <footer id="ft">
 <jsp:include page="../ft.jsp"></jsp:include>
 </footer>

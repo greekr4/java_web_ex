@@ -33,11 +33,13 @@ public class AddBasketCtrl extends HttpServlet {
 		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
 		String gcode = request.getParameter("gcode");
+		int bamount = Integer.parseInt(request.getParameter("bamount"));
 		String userid = (String) session.getAttribute("sid");
 		BasketDAO DAO = new BasketDAO();
 		BasketVO Vo = new BasketVO();
 		Vo.setGcode(gcode);
 		Vo.setUserid(userid);
+		Vo.setBamount(bamount);
 		if(DAO.addBasket(Vo) > 0) {
 			//성공
 			out.println("<script>alert('장바구니에 추가되었습니다.') </script>");

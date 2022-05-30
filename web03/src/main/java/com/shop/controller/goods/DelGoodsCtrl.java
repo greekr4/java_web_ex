@@ -22,6 +22,7 @@ public class DelGoodsCtrl extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
+	
     public DelGoodsCtrl() {
         super();
         // TODO Auto-generated constructor stub

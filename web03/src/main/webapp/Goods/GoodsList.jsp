@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="path" value="${pageContext.request.contextPath }" />
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
     
 
@@ -261,6 +261,8 @@ cursor: pointer;
 		<tr class="table-primary">
 		<th>번호</th>
 		<th>코드</th>
+		<th>카테1</th>
+		<th>카테2</th>
 		<th>이름</th>
 		<th>내용</th>
 		<th>사진</th>
@@ -277,10 +279,12 @@ cursor: pointer;
 	<tr class="table-active">
 	<td style="text-align: center" id="g_no">${vo.gno }</td>
 	<td style="text-align: center">${vo.gcode }</td>
+	<td style="text-align: center">${vo.gcate1 }</td>
+	<td style="text-align: center">${vo.gcate2 }</td>
 	<td style="text-align: center">${vo.gname }</td>
 	<td style="text-align: center">${vo.gdetail }</td>
 	<td style="text-align: center"><a onclick="GoViewer('${vo.gimage }');"href="#">${vo.gimage }</a></td>
-	<td style="text-align: center">${vo.gprice }</td>
+	<td style="text-align: center"><fmt:formatNumber value="${vo.gprice}" pattern="#,###"/>원</td>
 	<td style="text-align: center">${vo.gamount }</td>
 	<td style="text-align: center">${vo.goption }</td>
 	<td style="text-align: center">${vo.goption2 }</td>

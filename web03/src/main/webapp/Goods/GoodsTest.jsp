@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,14 +80,14 @@
 <div class="subct">
 	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
 	<div class="view_item">
-		<a href="/web02/GetboardMoreCtrl?pidno=">
+		<a href="./GetGoodsCtrl?gno=${vo.gno }">
 		<div class="item_img">
 		<img alt="" src="./img/${vo.gimage }">
 		</div>
 		<div class="item_txt">
 		<h2>${vo.gname }</h2>
 		<p>${vo.gdetail }</p>
-		<p>가격 : ${vo.gprice }원</p>
+		<p>가격 : <fmt:formatNumber value="${vo.gprice}" pattern="#,###"/>원</p>
 		</div>
 		</a>
 	</div>

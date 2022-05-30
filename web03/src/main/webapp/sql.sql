@@ -177,3 +177,62 @@ sysdate
 select a.bno, a.gcode, a.bamount , a.userid, a.bdate, b.gname, b.gimage, b.gprice from basket a inner join goods b on a.gcode = b.gcode;
 
 select a.bno, a.gcode, a.bamount , a.userid, a.bdate, b.gname, b.gimage, b.gprice from basket a inner join goods b on a.gcode = b.gcode where userid ='admin' order by a.bno desc
+
+
+create table shop_ccode (ccode varchar2(20), ccode_res varchar(50));
+create table shop_dcode (dcode varchar2(20), dcode_res varchar(50));
+
+--A	루어/미끼
+--B	바늘/훅
+--C	루어낚시대
+--D	릴
+--E	기타
+
+
+--A -------- 	11 : 웜
+--				12 : 하드베이트
+--				13 : 프로그
+--				14 : 스피너베이트
+			
+--B -------- 	11 : 지그헤드
+--				12 : 와이드갭
+--				13 : 언더헤드
+			
+--C --------	11 : 배스로드
+--				12 : 계류로드
+--				13 : 가물치로드
+			
+--D --------	11 : 스피닝릴
+--				12 : 베이트릴
+
+--E --------	11 : 카본 루어라인
+--				12 : 모노 루어라인
+--				13 : 하이브리드 라인
+
+insert into shop_ccode values('A','루어·미끼');
+insert into shop_ccode values('B','바늘·훅');
+insert into shop_ccode values('C','루어낚시대');
+insert into shop_ccode values('D','릴');
+insert into shop_ccode values('E','기타');
+
+insert into shop_dcode values('A11','웜');
+insert into shop_dcode values('A12','하드베이트');
+insert into shop_dcode values('A13','프로그');
+insert into shop_dcode values('A14','스피너베이트');
+insert into shop_dcode values('B11','지그헤드');
+insert into shop_dcode values('B12','와이드갭');
+insert into shop_dcode values('B13','언더헤드');
+insert into shop_dcode values('C11','배스로드');
+insert into shop_dcode values('C12','계류로드');
+insert into shop_dcode values('C13','가물치로드');
+insert into shop_dcode values('D11','스피닝릴');
+insert into shop_dcode values('D12','베이트릴');
+insert into shop_dcode values('E11','카본 루어라인');
+insert into shop_dcode values('E12','모노 루어라인');
+insert into shop_dcode values('E13','하이브리드 라인');
+
+select * from shop_ccode;
+select * from shop_dcode;
+
+select * from goods a inner join shop_ccode b on substr(a.gcode,1,1) = b.ccode inner join shop_dcode c on substr(a.gcode,1,3) = c.dcode;
+select * from goods a inner join shop_ccode b on substr(a.gcode,1,1) = b.ccode inner join shop_dcode c on substr(a.gcode,1,3) = c.dcode order by a.gno desc

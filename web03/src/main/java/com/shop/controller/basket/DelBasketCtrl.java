@@ -40,7 +40,7 @@ public class DelBasketCtrl extends HttpServlet {
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		if(DAO.delBasket(bno) > 0) {
 			//성공
-			out.println("<script>alert('삭제성공');window.close();</script>");
+			out.println("<script>alert('삭제성공'); opener.parent.location.reload(); window.close();</script>");
 		}else {
 			//실패
 			out.println("<script>alert('삭제실패');window.close();</script>");

@@ -12,9 +12,11 @@
 <script src="./js/jquery-latest.js"></script>
 <script src="./js/bootstrap.js"></script>
 <script src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <link rel="stylesheet" href="./css/bootstrap.css">
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 <link rel="stylesheet" href="./css/common.css">
+<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 <!--  -->
 
 
@@ -115,6 +117,50 @@
       <button type="button" onclick="Del();" style="margin-top:5px;">Del</button>
     </form>
     <script type="text/javascript">
+    toastr.options.preventDuplicates = true;
+    toastr.options.positionClass = "toast-top-full-width";
+    $('#my_id').click(function(){
+    toastr.remove()
+    toastr.info('ID');
+    });
+    $('#my_pw').click(function(){
+    toastr.remove()
+     toastr.info('PassWord');
+    });
+    $('#my_name').click(function(){
+    toastr.remove()    	
+    toastr.info('YourName');
+    });
+    $('#my_nick').click(function(){
+    toastr.remove()
+    toastr.info('Nickname');
+    });    
+    $('#my_tel').click(function(){
+    toastr.remove()
+    toastr.info('Tel');
+    });    
+    $('#my_address').click(function(){
+    toastr.remove()
+    toastr.info('Address');
+    });
+    $('#my_email').click(function(){
+    toastr.remove()
+    toastr.info('Email');
+    });    
+    $('#my_cash').click(function(){
+    toastr.remove()
+    toastr.info('Cash');
+    }); 
+    $('#my_point').click(function(){
+    toastr.remove()
+    toastr.info('Point');
+    }); 
+    $('#my_grade').click(function(){
+    toastr.remove()
+    toastr.info('Grade');
+    });     
+    
+    
     function Edit(){
     var ck1 = document.getElementById("my_id").readOnly;
     var ck2 = document.getElementById("my_pw").value;

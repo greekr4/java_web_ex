@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="path" value="${pageContext.request.contextPath }" />
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
     
 
@@ -264,33 +264,61 @@ cursor: pointer;
 		<th>수량</th>
 		<th>가격</th>
 		<th>추가일</th>
+		<th>총금액</th>
 		<th>버튼</th>
 		</tr>
 		<!--/GetMyPageCtrl?uid=${sid } -->
 	</thead>
+
 	<c:forEach items="${Basketlist }" var="vo" varStatus="status">
 	<tr class="table-active">
 	<td style="text-align: center" id="g_no">${vo.bno }</td>
 	<td style="text-align: center">${vo.gcode }</td>
 	<td style="text-align: center">${vo.gname }</td>
-	<td style="text-align: center">${vo.gimage }</td>
-	<td style="text-align: center">${vo.bamount }</td>
-	<td style="text-align: center">${vo.gprice }</td>
+	<td style="text-align: center"><a onclick="GoViewer('${vo.gimage }');"href="#">${vo.gimage }</a></td>
+	<td style="text-align: center"><input type="number" value="${vo.bamount }" class="bamount" onchange="tot();" /></td>
+	<td style="text-align: center"><fmt:formatNumber value="${vo.gprice}" pattern="#,###"/>원
+	<input type="hidden" value="${vo.gprice}" class="bprice"/>
+	</td>
 	<td style="text-align: center">${vo.bdate }</td>
-
+	<td style="text-align: center" class="tot2"><fmt:formatNumber value="${vo.gprice * vo.bamount }" pattern="#,###"/>원</td>
 	<td style="text-align: center"> 
-	<a style="color:blue;" href="#" onclick="DelBasket(${vo.bno })">삭제</a></td>
-
+	<a style="color:blue;" href="#" onclick="DelBasket(${vo.bno })">결제하기</a> | 
+	<a style="color:blue;" href="#" onclick="DelBasket(${vo.bno })">삭제</a>
+	</td>
 	</tr>
+	<c:set var="t_price" value="${t_price + vo.gprice * vo.bamount}" />
 	</c:forEach>
 
 </table>
+<button id="btn"><fmt:formatNumber value="${t_price}" pattern="#,###"/>원 결제하기</button>
 <script type="text/javascript">
+function tot(){
+var totval = 0;
+for (i=0;i<100;i++){
+	if($('.bamount').eq(i).val() == null)
+	{
 
-function GoViewer() {
+	$('#btn').text(totval.toLocaleString('en')+"원 결제하기");
+	break;
+	}
+	var val1 = parseInt($('.bamount').eq(i).val());
+	var val2 = parseInt($('.bprice').eq(i).val());
+	var val3 = val1 * val2;
+	var totval = totval + val3;
+	$('.tot2').eq(i).text(val3.toLocaleString('en')+"원");
+	
+}
+
+	
+}
+
+
+
+function GoViewer(img) {
     var xPos = (document.body.offsetWidth/2) - (300/2); // 가운데 정렬
     var yPos = (document.body.offsetHeight/2) - (200/2);
-    var href = './Goods/GoodsImageViewer.jsp?img=' + document.getElementById('l_img').textContent;
+    var href = './Goods/GoodsImageViewer.jsp?img=' + img
     window.open(href, "pop_name", "width=300, height=200, left="+xPos+", top="+yPos+", menubar=yes, status=yes, titlebar=yes, resizable=yes");
 }
 

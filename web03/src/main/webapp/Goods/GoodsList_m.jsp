@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="path" value="${pageContext.request.contextPath }" />
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
     
 
@@ -279,13 +279,13 @@ cursor: pointer;
 	<td style="text-align: center">${vo.gname }</td>
 	<td style="text-align: center">${vo.gdetail }</td>
 	<td style="text-align: center"><a onclick="GoViewer('${vo.gimage }');"href="#">${vo.gimage }</a></td>
-	<td style="text-align: center">${vo.gprice }</td>
+	<td style="text-align: center"><fmt:formatNumber value="${vo.gprice}" pattern="#,###"/>원</td>
 	<td style="text-align: center">${vo.gamount }</td>
 	<td style="text-align: center">${vo.goption }</td>
 	<td style="text-align: center">${vo.goption2 }</td>
 	<td style="text-align: center">${vo.gsize }</td>
 	<td style="text-align: center">
-	<a style="color:blue;" href="#" onclick="window.open('./AddBasketCtrl?gcode=${vo.gcode }','hiddenframe1','width=430,height=1080,location=no,status=no,scrollbars=no');">장바구니추가</a> 
+	<a style="color:blue;" href="#" onclick="window.open('./AddBasketCtrl?gcode=${vo.gcode }&bamount=1','hiddenframe1','width=430,height=1080,location=no,status=no,scrollbars=no');">장바구니추가</a> 
 	</tr>
 	</c:forEach>
 

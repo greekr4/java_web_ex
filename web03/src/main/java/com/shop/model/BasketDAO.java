@@ -24,22 +24,23 @@ public class BasketDAO {
 			pstmt.setString(1, Vo.getGcode());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				sql = "update basket set bamount = bamount+1 where bno = ?";
+				sql = "update basket set bamount = bamount+? where bno = ?";
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, rs.getInt("bno"));
+				pstmt.setInt(1, Vo.getBamount());
+				pstmt.setInt(2, rs.getInt("bno"));
 				cnt = pstmt.executeUpdate();
 			}else {
 				sql = "insert into basket values("
 					+ "(select nvl(max(bno),0)+1 from basket),"
 					+ "?,"
-					+ "1,"
+					+ "?,"
 					+ "?,"
 					+ "SYSDATE"
 					+ ")";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, Vo.getGcode());
-				//pstmt.setInt(2, Vo.getBamount());
-				pstmt.setString(2, Vo.getUserid());
+				pstmt.setInt(2, Vo.getBamount());
+				pstmt.setString(3, Vo.getUserid());
 				cnt = pstmt.executeUpdate();
 			}
 

@@ -20,7 +20,7 @@ public class GoodsDAO {
 		ArrayList<GoodsVO> list = null;
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "select * from goods order by gno desc";
+			sql = "select * from goods a inner join shop_ccode b on substr(a.gcode,1,1) = b.ccode inner join shop_dcode c on substr(a.gcode,1,3) = c.dcode order by a.gno desc";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			list = new ArrayList<GoodsVO>();
@@ -36,6 +36,8 @@ public class GoodsDAO {
 				Vo.setGoption(rs.getString("goption"));
 				Vo.setGoption2(rs.getString("goption2"));
 				Vo.setGsize(rs.getString("gsize"));
+				Vo.setGcate1(rs.getString("ccode_res"));
+				Vo.setGcate2(rs.getString("dcode_res"));
 				list.add(Vo);
 			}
 		}
