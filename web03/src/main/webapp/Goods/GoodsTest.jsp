@@ -3,6 +3,20 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%-- <%@ page import="com.shop.common.CcodeVO"%>
+<%@ page import="com.shop.common.DcodeVO"%>
+<%@ page import="com.shop.model.CodeDAO"%>
+<%@ page import="java.util.ArrayList"%>
+
+   
+<%
+   CodeDAO DAO = new CodeDAO();
+   ArrayList<CcodeVO> Volist = DAO.getCcode();
+   ArrayList<DcodeVO> Volist2 = DAO.getDcode();
+   request.setAttribute("Volist", Volist);
+   request.setAttribute("Volist2", Volist2);   
+%> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +29,7 @@
 <link rel="stylesheet" href="./css/bootstrap.css">
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 <link rel="stylesheet" href="./css/common.css">
+<link rel="stylesheet" href="./css/ft.css">
 <!--  -->
 
 
@@ -59,7 +74,7 @@
     font-size: 12px;
     line-height: 1.5em;
 	}
-		.subct{
+	.subct{
 	clear:both;
 	display:flex;
 	width:1235px;
@@ -69,6 +84,41 @@
 	/*background-color: #777;*/
 	
 	}
+	
+	
+	section {display : none;}
+	section:target {
+	display:block;
+	}
+	
+	.menubtn_wrap{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	clear: both;
+	width: 100%;
+	}
+	.menubtn_box{
+	margin:0 auto;
+	text-align: center;
+	}
+	
+	button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #343a40;
+  width: 200px;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+button:hover,.form button:active,.form button:focus {
+  background: #444a50;
+}
 </style>
 </head>
 <body>
@@ -77,8 +127,21 @@
 <jsp:include page="../hd.jsp"></jsp:include>
 </header>
 <div class="ct">
+
+
+<section id="A11"> 
 <div class="subct">
+	<div class="menubtn_wrap">
+	<div class="menubtn_box">
+	<c:forEach items="${Volist2 }" var="Vo" varStatus="status">
+	<c:if test="${fn:substring(Vo.dcode,0,1) == 'A' }">
+	<a href="#${Vo.dcode }"><button>${Vo.dcode_res }</button></a>
+	</c:if>
+	</c:forEach>
+	</div>
+	</div>
 	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
+	<c:if test="${fn:substring(vo.gcode,0,3) == 'A11' }">
 	<div class="view_item">
 		<a href="./GetGoodsCtrl?gno=${vo.gno }">
 		<div class="item_img">
@@ -91,9 +154,103 @@
 		</div>
 		</a>
 	</div>
+	</c:if>
 	</c:forEach>
 </div>
+</section>
+
+<section id="A12"> 
+<div class="subct">
+	<div class="menubtn_wrap">
+	<div class="menubtn_box">
+	<c:forEach items="${Volist2 }" var="Vo" varStatus="status">
+	<c:if test="${fn:substring(Vo.dcode,0,1) == 'A' }">
+	<a href="#${Vo.dcode }"><button>${Vo.dcode_res }</button></a>
+	</c:if>
+	</c:forEach>
+	</div>
+	</div>
+	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
+	<c:if test="${fn:substring(vo.gcode,0,3) == 'A12' }">
+	<div class="view_item">
+		<a href="./GetGoodsCtrl?gno=${vo.gno }">
+		<div class="item_img">
+		<img alt="" src="./img/${vo.gimage }">
+		</div>
+		<div class="item_txt">
+		<h2>${vo.gname }</h2>
+		<p>${vo.gdetail }</p>
+		<p>가격 : <fmt:formatNumber value="${vo.gprice}" pattern="#,###"/>원</p>
+		</div>
+		</a>
+	</div>
+	</c:if>
+	</c:forEach>
 </div>
+</section>
+
+<section id="A13"> 
+<div class="subct">
+	<div class="menubtn_wrap">
+	<div class="menubtn_box">
+	<c:forEach items="${Volist2 }" var="Vo" varStatus="status">
+	<c:if test="${fn:substring(Vo.dcode,0,1) == 'A' }">
+	<a href="#${Vo.dcode }"><button>${Vo.dcode_res }</button></a>
+	</c:if>
+	</c:forEach>
+	</div>
+	</div>
+	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
+	<c:if test="${fn:substring(vo.gcode,0,3) == 'A13' }">
+	<div class="view_item">
+		<a href="./GetGoodsCtrl?gno=${vo.gno }">
+		<div class="item_img">
+		<img alt="" src="./img/${vo.gimage }">
+		</div>
+		<div class="item_txt">
+		<h2>${vo.gname }</h2>
+		<p>${vo.gdetail }</p>
+		<p>가격 : <fmt:formatNumber value="${vo.gprice}" pattern="#,###"/>원</p>
+		</div>
+		</a>
+	</div>
+	</c:if>
+	</c:forEach>
+</div>
+</section>
+
+<section id="A14"> 
+<div class="subct">
+	<div class="menubtn_wrap">
+	<div class="menubtn_box">
+	<c:forEach items="${Volist2 }" var="Vo" varStatus="status">
+	<c:if test="${fn:substring(Vo.dcode,0,1) == 'A' }">
+	<a href="#${Vo.dcode }"><button>${Vo.dcode_res }</button></a>
+	</c:if>
+	</c:forEach>
+	</div>
+	</div>
+	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
+	<c:if test="${fn:substring(vo.gcode,0,3) == 'A14' }">
+	<c:if test="${vo.gno == '' }">상품없어요</c:if>
+	<div class="view_item">
+		<a href="./GetGoodsCtrl?gno=${vo.gno }">
+		<div class="item_img">
+		<img alt="" src="./img/${vo.gimage }">
+		</div>
+		<div class="item_txt">
+		<h2>${vo.gname }</h2>
+		<p>${vo.gdetail }</p>
+		<p>가격 : <fmt:formatNumber value="${vo.gprice}" pattern="#,###"/>원</p>
+		</div>
+		</a>
+	</div>
+	</c:if>
+	</c:forEach>
+</div>
+</section>
+
+</div> <!-- //ct -->
 <footer id="ft">
 <jsp:include page="../ft.jsp"></jsp:include>
 </footer>

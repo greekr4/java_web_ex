@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="./css/bootstrap.css">
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 <link rel="stylesheet" href="./css/common.css">
+<link rel="stylesheet" href="./css/ft.css">
 <!--  -->
 <style>
 .table {
@@ -295,7 +296,7 @@ cursor: pointer;
 <script type="text/javascript">
 function tot(){
 var totval = 0;
-for (i=0;i<100;i++){
+for (i=0;$('.bamount').length;i++){
 	if($('.bamount').eq(i).val() == null)
 	{
 

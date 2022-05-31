@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="../css/bootstrap.css">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/ft.css">
 <!--  -->
 
 
@@ -89,7 +90,20 @@
     <div class="AddGoodsForm">
   <div class="form">
     <form class="AddGoodsForm" id="AddGoodsForm" action="../AddGoodsCtrl" method="post" enctype="multipart/form-data">
-      <input type="text" placeholder="상품코드" name="g_code" id="g_code" required/>
+       <select name="sel1" id="sel1" onchange="selfn()">
+		            <option value="A">루어·미끼</option>
+		            <option value="B">바늘·훅</option>
+		            <option value="C">루어낚시대</option>
+		            <option value="D">릴</option>
+		            <option value="E">기타</option>
+            </select>
+
+       		 <select name="sel2" id="sel2">
+	            <option value="11">웜</option>
+	            <option value="12">하드베이트</option>
+	            <option value="13">프로그</option>
+	            <option value="14">스피너베이트</option>
+            </select>      
       <input type="text" placeholder="상품이름" name="g_name" id="g_name" required/>
       <input type="text" placeholder="상품설명" name="g_detail" id="g_detail" required/>
 <!--       <input type="text" placeholder="이미지경로" name="g_image" id="g_image" required/> -->
@@ -102,7 +116,92 @@
       <button type="submit">Add</button>
     </form>
     <script type="text/javascript">
-       
+	var sel1 = document.getElementById("sel1");
+	var sel2 = document.getElementById("sel2");
+    var listA = ["웜","하드베이트","프로그","스피너베이트"];
+    var listB = ["지그헤드","와이드갭","언더헤드"];
+    var listC = ["배스로드","계류로드","가물치로드"];
+    var listD = ["스피닝릴","베이트릴"];
+    var listE = ["카본 루어라인","모노 루어라인","하이브리드 라인"];
+
+
+	function selfn(){
+        var num = 11;
+        sel2.innerHTML = ""
+		if (sel1.value == "A"){
+            for(var i=0;i<listA.length;i++){
+            sel2.innerHTML += "<option value='"+ (num+i) +"'>"+ listA[i]+"</option>";
+            }
+		}else if (sel1.value == "B"){
+            for(var i=0;i<listB.length;i++){
+            sel2.innerHTML += "<option value='"+ (num+i) +"'>"+ listB[i]+"</option>";
+            }
+		}else if (sel1.value == "C"){
+            for(var i=0;i<listC.length;i++){
+            sel2.innerHTML += "<option value='"+ (num+i) +"'>"+ listC[i]+"</option>";
+            }
+		}else if (sel1.value == "D"){
+            for(var i=0;i<listD.length;i++){
+            sel2.innerHTML += "<option value='"+ (num+i) +"'>"+ listD[i]+"</option>";
+            }
+		}else if (sel1.value == "E"){
+            for(var i=0;i<listE.length;i++){
+            sel2.innerHTML += "<option value='"+ (num+i) +"'>"+ listE[i]+"</option>";
+            }
+		}else if (sel1.value == "F"){
+            for(var i=0;i<listF.length;i++){
+            sel2.innerHTML += "<option value='"+ (num+i) +"'>"+ listF[i]+"</option>";
+            }
+		}else if (sel1.value == "G"){
+            for(var i=0;i<listG.length;i++){
+            sel2.innerHTML += "<option value='"+ (num+i) +"'>"+ listG[i]+"</option>";
+            }
+		}else if (sel1.value == "H"){
+            for(var i=0;i<listH.length;i++){
+            sel2.innerHTML += "<option value='"+ (num+i) +"'>"+ listH[i]+"</option>";
+            }
+		}else if (sel1.value == "I"){
+            for(var i=0;i<listI.length;i++){
+            sel2.innerHTML += "<option value='"+ (num+i) +"'>"+ listI[i]+"</option>";
+            }
+		}else if (sel1.value == "J"){
+            for(var i=0;i<listJ.length;i++){
+            sel2.innerHTML += "<option value='"+ (num+i) +"'>"+ listJ[i]+"</option>";
+            }
+		}
+		
+	}
+	
+		
+		
+		
+/* 	--A	루어/미끼
+	--B	바늘/훅
+	--C	루어낚시대
+	--D	릴
+	--E	기타
+
+
+	--A -------- 	11 : 웜
+	--				12 : 하드베이트
+	--				13 : 프로그
+	--				14 : 스피너베이트
+				
+	--B -------- 	11 : 지그헤드
+	--				12 : 와이드갭
+	--				13 : 언더헤드
+				
+	--C --------	11 : 배스로드
+	--				12 : 계류로드
+	--				13 : 가물치로드
+				
+	--D --------	11 : 스피닝릴
+	--				12 : 베이트릴
+
+	--E --------	11 : 카본 루어라인
+	--				12 : 모노 루어라인
+	--				13 : 하이브리드 라인 */
+
     
     </script>
   </div>

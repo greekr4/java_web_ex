@@ -11,6 +11,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="../css/ft.css">
 <meta charset="UTF-8">
 <title>글쓰기</title>
 <style>

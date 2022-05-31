@@ -19,9 +19,10 @@ public class BasketDAO {
 		public int addBasket(BasketVO Vo) {
 			try {
 			conn = JDBCConnection.getConnection();
-			sql = "select * from basket where gcode =?";
+			sql = "select * from basket where gcode =? and userid =?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, Vo.getGcode());
+			pstmt.setString(2, Vo.getUserid());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				sql = "update basket set bamount = bamount+? where bno = ?";

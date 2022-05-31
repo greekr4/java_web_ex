@@ -1,5 +1,13 @@
 select * from shop_member;
 select * from shop_board;
+select * from goods;
+select * from BASKET;
+select * from Shop_ccode;
+select * from shop_dcode;
+select * from shop_ccode,shop_dcode
+delete from DB_ACCESS
+select count(*) as cnt from goods where gcode like '%B11%'
+select count(*) from goods
 select mno,mid,mpw,mname,mtel,maddress,memail,mnick,mcash,mpoint,mgrade,to_char(mjday,'yyyy-MM-dd HH24:mi:ss') as jday, to_char(mlatest,'yyyy-MM-dd HH24:mi:ss') as latest from shop_member order by mno desc;
 
 create table shop_board (
@@ -236,3 +244,25 @@ select * from shop_dcode;
 
 select * from goods a inner join shop_ccode b on substr(a.gcode,1,1) = b.ccode inner join shop_dcode c on substr(a.gcode,1,3) = c.dcode;
 select * from goods a inner join shop_ccode b on substr(a.gcode,1,1) = b.ccode inner join shop_dcode c on substr(a.gcode,1,3) = c.dcode order by a.gno desc
+
+
+
+create table payment(ono number primary key, -- 결제번호
+    paytype varchar2(20),   -- 결제방식
+    payno varchar2(30),     -- 결제카드번호
+    money number,           -- 결제금액
+    sdate date,             -- 결제일
+    gcode varchar2(2000),   -- 상품코드
+    amount number,          -- 수량
+    userid varchar2(20),    -- 사용자아이디
+	rname varchar2(30),     -- 수신자명
+    tel varchar2(20),       -- 수신자전화번호
+    addr1 varchar2(200),    -- 수신자 기본주소
+    addr2 varchar2(100),    -- 수신자 상세주소
+    postcode varchar2(10),  -- 수신자 우편번호
+    transno varchar2(50),   -- 배송코드
+    transco varchar2(50),   -- 배송회사
+    rstatus varchar2(20),   -- 수신상태
+    rdate date,             -- 도착일
+	memo varchar2(100)      -- 메모
+);

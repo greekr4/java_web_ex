@@ -1,9 +1,5 @@
 @charset "UTF-8";
-* {margin: 0; padding: 0;}
-a {text-decoration: none; color: black;}
-ul { list-style: none;}
-.wrap{clear: both; width: 100%;}
-#hd{width: 100%;}
+
 
 /* 푸터 */
 #ft {clear:both;}
@@ -48,4 +44,4 @@ ul { list-style: none;}
 #footer .section3 #instafeed img { text-decoration: none; border: none; width: 105px; height: 105px; margin: 0px 2px; transition: all 0.3s ease 0s; }
 #footer .section3 #instafeed img:hover { opacity: 0.6; transition: all 0.3s ease 0s; }
 
-/* 푸터 */
+

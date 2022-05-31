@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.shop.common.JDBCConnection;
+import com.shop.common.Shop_MemberVO;
 import com.shop.common.GoodsVO;
 
 public class GoodsDAO {
@@ -81,6 +82,36 @@ public class GoodsDAO {
 		public int AddGoods(GoodsVO Vo){
 			try {
 				conn = JDBCConnection.getConnection();
+				
+				sql = "select count(*) as cnt from goods where gcode like ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, Vo.getGcate1()+"%");
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					int count = rs.getInt("cnt");
+					String code = Vo.getGcode();
+					String code2 = "";
+					if (count < 10) {
+						code2 = "000";
+						code = code+code2+(count+1);
+						Vo.setGcode(code);
+					} else if (count < 100) {
+						code2 = "00";
+						code = code+code2+(count+1);
+						Vo.setGcode(code);
+					} else if (count < 1000) {
+						code2 = "0";
+						code = code+code2+(count+1);
+						Vo.setGcode(code);
+						
+					} else
+					{
+						code = code+code2+(count+1);
+						Vo.setGcode(code);
+					}
+				}
+				
+				
 				sql = "insert into goods values("
 						+ "?,(select nvl(max(gno),0)+1 from goods),?,?,?,?,?,?,?,?)";
 				pstmt = conn.prepareStatement(sql);

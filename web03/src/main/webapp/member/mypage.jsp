@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="./css/bootstrap.css">
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 <link rel="stylesheet" href="./css/common.css">
+<link rel="stylesheet" href="./css/ft.css">
 <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 <!--  -->
 

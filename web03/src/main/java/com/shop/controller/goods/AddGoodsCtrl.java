@@ -49,8 +49,10 @@ public class AddGoodsCtrl extends HttpServlet {
 //		String upload = multi.getFilesystemName("upload");
 //		String upload2 = multi.getOriginalFileName("upload");
 		
-		
-		String g_code = multi.getParameter("g_code");
+		String sel1 = multi.getParameter("sel1");
+		String sel2 = multi.getParameter("sel2");
+		//String g_code = multi.getParameter("g_code");
+		String g_code = sel1 + sel2;
 		String g_name = multi.getParameter("g_name");
 		String g_detail = multi.getParameter("g_detail");
 		String g_image = multi.getFilesystemName("g_upload");
