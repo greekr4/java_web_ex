@@ -266,3 +266,6 @@ create table payment(ono number primary key, -- 결제번호
     rdate date,             -- 도착일
 	memo varchar2(100)      -- 메모
 );
+
+
+select count(*) as cnt from goods where gcode like 'A11%'

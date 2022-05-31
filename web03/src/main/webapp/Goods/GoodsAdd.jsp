@@ -24,6 +24,7 @@
 
 
 <style>
+html {overflow:hidden;} 
 .form {
   position: relative;
   z-index: 1;

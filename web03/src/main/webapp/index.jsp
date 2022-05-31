@@ -104,7 +104,7 @@ margin-top:50px;}
 	<div class="ct_wrap">
 		<div class="main_image">
 
-			<a href="./GetGoodsList_tCtrl"><img alt="1" src="./img/index/1.jpg" class="main_item1"></a>
+			<a href="./GetGoodsList_tCtrl#A11"><img alt="1" src="./img/index/1.jpg" class="main_item1"></a>
 			<img alt="2" src="./img/index/2.jpg" class="main_item2">
 			<img alt="3" src="./img/index/3.jpg" class="main_item3">
 			<img alt="4" src="./img/index/4.jpg" class="main_item4">

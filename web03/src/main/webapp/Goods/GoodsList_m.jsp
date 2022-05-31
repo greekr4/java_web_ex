@@ -248,13 +248,13 @@ cursor: pointer;
 <div class="tb_wrap">
 <h1 style="text-align: center">Goods 리스트_멤버</h1>
 
-<form method="post" action="GetMemberSearchListCtrl">
+<!-- <form method="post" action="GetMemberSearchListCtrl">
 <select id="s_type" class="s_type" name="s_type">
 <option value="ids">아이디</option>
 <option value="names">이름</option>
 </select>
 <input type="text" name="s_detail"><button style="margin-left: 10px;" onclick="submit" >검색</button>
-</form>
+</form> -->
 
 <table class="table table-hover">
 	<thead>
