@@ -275,7 +275,7 @@ cursor: pointer;
 	<tr class="table-active">
 	<td style="text-align: center" id="g_no">${vo.bno }</td>
 	<td style="text-align: center">${vo.gcode }</td>
-	<td style="text-align: center">${vo.gname }</td>
+	<td style="text-align: center"><a href="./GetGoodsCtrl?gcode=${vo.gcode }">${vo.gname }</a></td>
 	<td style="text-align: center"><a onclick="GoViewer('${vo.gimage }');"href="#">${vo.gimage }</a></td>
 	<td style="text-align: center"><input type="number" value="${vo.bamount }" class="bamount" onchange="tot();" /></td>
 	<td style="text-align: center"><fmt:formatNumber value="${vo.gprice}" pattern="#,###"/>원

@@ -143,7 +143,7 @@ button:hover,.form button:active,.form button:focus {
 	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
 	<c:if test="${fn:substring(vo.gcode,0,3) == 'A11' }">
 	<div class="view_item">
-		<a href="./GetGoodsCtrl?gno=${vo.gno }">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
 		<div class="item_img">
 		<img alt="" src="./img/${vo.gimage }">
 		</div>
@@ -173,7 +173,7 @@ button:hover,.form button:active,.form button:focus {
 	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
 	<c:if test="${fn:substring(vo.gcode,0,3) == 'A12' }">
 	<div class="view_item">
-		<a href="./GetGoodsCtrl?gno=${vo.gno }">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
 		<div class="item_img">
 		<img alt="" src="./img/${vo.gimage }">
 		</div>
@@ -203,7 +203,7 @@ button:hover,.form button:active,.form button:focus {
 	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
 	<c:if test="${fn:substring(vo.gcode,0,3) == 'A13' }">
 	<div class="view_item">
-		<a href="./GetGoodsCtrl?gno=${vo.gno }">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
 		<div class="item_img">
 		<img alt="" src="./img/${vo.gimage }">
 		</div>
@@ -232,9 +232,8 @@ button:hover,.form button:active,.form button:focus {
 	</div>
 	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
 	<c:if test="${fn:substring(vo.gcode,0,3) == 'A14' }">
-	<c:if test="${vo.gno == '' }">상품없어요</c:if>
 	<div class="view_item">
-		<a href="./GetGoodsCtrl?gno=${vo.gno }">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
 		<div class="item_img">
 		<img alt="" src="./img/${vo.gimage }">
 		</div>

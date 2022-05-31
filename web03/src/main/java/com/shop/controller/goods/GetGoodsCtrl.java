@@ -33,8 +33,8 @@ public class GetGoodsCtrl extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		GoodsDAO DAO = new GoodsDAO();
-		int gno = Integer.parseInt(request.getParameter("gno"));
-		GoodsVO Vo = DAO.GetGoods(gno);
+		String gcode = request.getParameter("gcode");
+		GoodsVO Vo = DAO.GetGoods(gcode);
 		request.setAttribute("GoodsVo", Vo);
 		RequestDispatcher view = request.getRequestDispatcher("./Goods/GoodsTest2.jsp");
 		view.forward(request, response);
