@@ -10,6 +10,7 @@
 <%@page import="javax.mail.Authenticator"%>
 <%@page import="java.util.Properties"%>
 <%
+
 	request.setCharacterEncoding("utf-8");
 	String from = request.getParameter("from");
 	String to = request.getParameter("to");

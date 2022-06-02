@@ -99,4 +99,30 @@ public class BasketDAO {
 			finally 							{ JDBCConnection.close(pstmt, conn); }
 			return list;
 		}		
+		//장바구니 정보 가져오기
+				public BasketVO getBasket(int bno) {
+					BasketVO Vo = new BasketVO();
+					try {
+					conn = JDBCConnection.getConnection();
+					sql = "select a.bno, a.gcode, a.bamount , a.userid, a.bdate, b.gname, b.gimage, b.gprice from basket a inner join goods b on a.gcode = b.gcode where bno =? order by a.bno desc";
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setInt(1, bno);
+					rs= pstmt.executeQuery();
+					if(rs.next()) {
+					Vo.setBno(rs.getInt("bno"));
+					Vo.setGcode(rs.getString("gcode"));
+					Vo.setBamount(rs.getInt("bamount"));
+					Vo.setUserid(rs.getString("userid"));
+					Vo.setBdate(rs.getString("bdate"));
+					Vo.setGname(rs.getString("gname"));
+					Vo.setGimage(rs.getString("gimage"));
+					Vo.setGprice(rs.getInt("gprice"));
+					}
+					}
+					catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
+					catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
+					catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
+					finally 							{ JDBCConnection.close(pstmt, conn); }
+					return Vo;
+				}		
 }

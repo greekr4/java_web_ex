@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="./css/common.css">
 <link rel="stylesheet" href="./css/ft.css">
 <!--  -->
+
 <style>
 .table {
   --bs-table-bg: transparent;

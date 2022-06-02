@@ -2,13 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <div id="footer">
 
-
-<!-- 하단 롤링 배너 추가시 이안에 넣어주세요 -->
-<!-- 편집창 상단 가상태그 팝업 열기 누르시고 사용자 태그 탭의 하단롤링 배너 태그를 넣어주세요 -->
-
-<!-- 하단 롤링 배너 추가시 이안에 넣어주세요 -->
 
 
 	<div class="cboth section">
@@ -84,21 +80,14 @@
 		<!-- 하단 인스타그램 -->
 		<div id="instafeed">
                 </div>
-			<!-- 메이크샵 V파인더 플러그인 인스타그램 
-				<p>INSTAGRAM @DASOLFISHING</p>
-				 하단 인스타그램 
-				<div id="instafeed">
-	        	            <script type="text/javascript" src="http://vfinder.io/js/viewfinder.js"></script><iframe src="http://vfinder.io/view/list.html?shop_id=dasolfishing" id="viewfinderListFrame" name="viewfinderListFrame" title="Instagram Widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:920px;"></iframe><iframe id="viewfinderPopup" name="viewfinderPopup" src=""style="display:none;position:fixed;top:-2px;left:-2px;width:100%;height:100%;z-index:9999;" style="filter: Alpha(Opacity=35);"></iframe>
-		                </div>
-			메이크샵 V파인더 플러그인 인스타그램 -->
+
 	</div>
 
-<!-- WIDERPLANET HOME SCRIPT START 2018.2.2 -->
+
 <div id="wp_tg_cts" style="display:none;"></div>
 <script type="text/javascript">
 var wp_conf = 'ti=39442&v=1&device=web';
 </script>
-<!--script type="text/javascript" defer src="//cdn-aitg.widerplanet.com/js/wp_astg_2.0_shop.js"></script-->
-<!-- // WIDERPLANET HOME SCRIPT END 2018.2.2 -->
+
 
 </div><!-- //footer -->

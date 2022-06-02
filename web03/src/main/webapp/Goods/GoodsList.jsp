@@ -248,7 +248,6 @@ cursor: pointer;
 <div class="tb_wrap">
 <h1 style="text-align: center">Goods 리스트</h1>
 <button style="margin-bottom: 10px;" onclick="window.open('./Goods/GoodsAdd.jsp','추가','width=430,height=900,location=no,status=no,scrollbars=no');">추가</button>
-
 <!-- <form method="post" action="GetMemberSearchListCtrl">
 <select id="s_type" class="s_type" name="s_type">
 <option value="ids">아이디</option>

@@ -9,6 +9,8 @@ delete from DB_ACCESS
 select count(*) as cnt from goods where gcode like '%B11%'
 select count(*) from goods
 select mno,mid,mpw,mname,mtel,maddress,memail,mnick,mcash,mpoint,mgrade,to_char(mjday,'yyyy-MM-dd HH24:mi:ss') as jday, to_char(mlatest,'yyyy-MM-dd HH24:mi:ss') as latest from shop_member order by mno desc;
+select * from payment;
+
 
 create table shop_board (
 no number primary key,
@@ -266,6 +268,9 @@ create table payment(ono number primary key, -- 결제번호
     rdate date,             -- 도착일
 	memo varchar2(100)      -- 메모
 );
+
+insert into payment values(1,'계좌이체','1111-2222-3333-4444',5000,sysdate,'A110001',1,'admin','김태균','010-4191-1611','당동리','12-1','413-871','1','','승인전','','메모');
+insert into payment values((select nvl(max(ono),0)+1 from payment),'계좌이체','1111-2222-3333-4444',5000,sysdate,'A110001',1,'admin','김태균','010-4191-1611','당동리','12-1','413-871','1','','승인전','','메모');
 
 
 select count(*) as cnt from goods where gcode like 'A11%'

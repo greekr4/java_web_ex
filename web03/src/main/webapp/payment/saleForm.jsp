@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="com.shop.model.MemberDAO" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +13,7 @@
 <script src="./js/bootstrap.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <link rel="stylesheet" href="./css/bootstrap.css">
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 <link rel="stylesheet" href="./css/common.css">
@@ -91,76 +92,49 @@
 <div class="loginbox">
     <div class="join-page">
   <div class="form">
-  	<h2>My Page</h2>
+  	<h2>구매 하기</h2>
     <form class="join" id="join" action="EditMemberCtrl" method="post">
-      <input type="text" placeholder="id" name="my_id" id="my_id" value="${MemberVo.mid }" required readonly/>
-      <input type="password" placeholder="password" name="my_pw" id="my_pw" required/>
-      <input type="text" placeholder="name" name="my_name" id="my_name" value="${MemberVo.mname }"required readonly/>
-      <input type="text" placeholder="nickname" name="my_nick" id="my_nick"value="${MemberVo.mnick }" required/>
-      <input type="text" placeholder="tel" name="my_tel" id="my_tel" value="${MemberVo.mtel }" required/>
-      <input type="text" placeholder="address" name="my_address" id="my_address" value="${MemberVo.maddress }" required/>
-      <input type="text" placeholder="email" name="my_email" id="my_email" value="${MemberVo.memail }" required/>   
-      <c:if test="${sid == 'admin' }">
-      <!-- admin -->
-      <input type="text" name="my_cash" id="my_cash" placeholder="cash" value="${MemberVo.mcash }">
-      <input type="text" name="my_point" id="my_point" placeholder="point" value="${MemberVo.mpoint }">
-      <input type="text" name="my_grade" id="my_grade" placeholder="grade" value="${MemberVo.mgrade }">
-      </c:if>   
-      <!-- 기본회원 -->   
-      <c:if test="${sid != 'admin' }">
-      <input type="text" name="my_cash2" id="my_cash2" placeholder="cash" value="cash : ${MemberVo.mcash }" readonly>
-      <input type="text" name="my_point2" id="my_point2" placeholder="point" value="point : ${MemberVo.mpoint }" readonly>
-      <input type="text" name="my_grade2" id="my_grade2" placeholder="grade" value="grade : ${MemberVo.mgrade }" readonly>
-      <input type="hidden" name="my_cash" id="my_cash" placeholder="cash" value="${MemberVo.mcash }">
-      <input type="hidden" name="my_point" id="my_point" placeholder="point" value="${MemberVo.mpoint }">
-      <input type="hidden" name="my_grade" id="my_grade" placeholder="grade" value="${MemberVo.mgrade }">
-      </c:if> 
-      <button type="button" onclick="Edit();">Edit</button>
-      <button type="button" onclick="Del();" style="margin-top:5px;">Del</button>
+      <input type="text" placeholder="상품명" name="my_id" id="my_id" value="${BasketVo.gname }" required readonly/>
+      <img style="display: block; width: 100%;" alt="img" src="./img/${BasketVo.gimage }">
+      <input type="text" placeholder="수량" name="" id="my_name" value="${BasketVo.bamount }개"required readonly/>
+      <input type="text" placeholder="가격" name="" id="my_nick"value="<fmt:formatNumber value='${BasketVo.gprice}' pattern='#,###'/>원" required readonly/>
+      <input type="text" placeholder="수신자 명" name="my_tel" id="my_tel" value="" required/>
+      <input type="text" placeholder="수신자 연락처" name="my_address" id="my_address" value="" required/>
+      <input type="text" placeholder="수신자 주소" name="j_address" id="j_address"  onclick="findAddr();" readonly required/>
+      <input type="text" placeholder="상세주소" name="my_email" id="my_email" value="" required/>
+      <input type="text" name="" id="my_cash" placeholder="요청 사항" value="">
+      <select>
+      <option>계좌 이체</option>
+      <option>신용카드 결제</option>
+      <option>무통장 입금</option>
+      </select>
+      <input type="text" name="my_grade" id="my_grade" placeholder="카드사/은행명" value="">
+      <input type="text" name="my_grade" id="my_grade" placeholder="카드번호/계좌번호" value=""> 
+      <button type="button" onclick="Edit();">Purchase</button>
+      <button type="button" onclick="Del();" style="margin-top:5px;">Cancel</button>
     </form>
     <script type="text/javascript">
+    function findAddr() {
+		new daum.Postcode({
+			oncomplete: function(data){
+			
+			var roadAddr = data.roadAddress;
+			var jibunAddr = data.jibunAddress;
+			console.log(roadAddr);
+			console.log(jibunAddr);
+			if(roadAddr != ""){
+			document.getElementById("j_address").value = roadAddr;
+			}else{
+			document.getElementById("j_address").value = jibunAddr;
+			}
+			}
+		}).open();
+	}
+    
+    
     toastr.options.preventDuplicates = true;
     toastr.options.positionClass = "toast-top-full-width";
-    $('#my_id').click(function(){
-    toastr.remove()
-    toastr.info('ID');
-    });
-    $('#my_pw').click(function(){
-    toastr.remove()
-     toastr.info('PassWord');
-    });
-    $('#my_name').click(function(){
-    toastr.remove()    	
-    toastr.info('YourName');
-    });
-    $('#my_nick').click(function(){
-    toastr.remove()
-    toastr.info('Nickname');
-    });    
-    $('#my_tel').click(function(){
-    toastr.remove()
-    toastr.info('Tel');
-    });    
-    $('#my_address').click(function(){
-    toastr.remove()
-    toastr.info('Address');
-    });
-    $('#my_email').click(function(){
-    toastr.remove()
-    toastr.info('Email');
-    });    
-    $('#my_cash').click(function(){
-    toastr.remove()
-    toastr.info('Cash');
-    }); 
-    $('#my_point').click(function(){
-    toastr.remove()
-    toastr.info('Point');
-    }); 
-    $('#my_grade').click(function(){
-    toastr.remove()
-    toastr.info('Grade');
-    });     
+ 
     
     
     function Edit(){

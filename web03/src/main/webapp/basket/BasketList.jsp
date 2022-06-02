@@ -255,6 +255,7 @@ cursor: pointer;
 <input type="text" name="s_detail"><button style="margin-left: 10px;" onclick="submit" >검색</button>
 </form> -->
 
+
 <table class="table table-hover">
 	<thead>
 		<tr class="table-primary">
@@ -284,7 +285,7 @@ cursor: pointer;
 	<td style="text-align: center">${vo.bdate }</td>
 	<td style="text-align: center" class="tot2"><fmt:formatNumber value="${vo.gprice * vo.bamount }" pattern="#,###"/>원</td>
 	<td style="text-align: center"> 
-	<a style="color:blue;" href="#" onclick="DelBasket(${vo.bno })">결제하기</a> | 
+	<a style="color:blue;" href="./GoPayment?bno=${vo.bno}">결제하기</a> | 
 	<a style="color:blue;" href="#" onclick="DelBasket(${vo.bno })">삭제</a>
 	</td>
 	</tr>

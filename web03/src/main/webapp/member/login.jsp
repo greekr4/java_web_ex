@@ -60,6 +60,7 @@
   transition: all 0.3 ease;
   cursor: pointer;
 }
+
 .form button:hover,.form button:active,.form button:focus {
   background: #444a50;
 }
