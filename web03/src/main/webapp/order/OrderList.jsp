@@ -246,7 +246,7 @@ cursor: pointer;
 </header>
 
 <div class="tb_wrap">
-<h1 style="text-align: center">장바구니</h1>
+<h1 style="text-align: center">오더리스트</h1>
 <!-- <form method="post" action="GetMemberSearchListCtrl">
 <select id="s_type" class="s_type" name="s_type">
 <option value="ids">아이디</option>
@@ -259,114 +259,44 @@ cursor: pointer;
 <table class="table table-hover">
 	<thead>
 		<tr class="table-primary">
-		<th>번호</th>
-		<th>코드</th>
+		<th>고유번호</th>
+		<th>주문번호</th>
+		<th>STATE</th>
+		<th>PAY_STATE</th>
 		<th>이름</th>
-		<th>사진</th>
-		<th>수량</th>
-		<th>가격</th>
-		<th>추가일</th>
+		<th>폰번</th>
+		<th>우편번호</th>
+		<th>주소</th>
+		<th>주소2</th>
+		<th>이메일</th>
+		<th>아이디</th>
 		<th>총금액</th>
-		<th>버튼</th>
+		<th>주문일</th>
 		</tr>
 		<!--/GetMyPageCtrl?uid=${sid } -->
 	</thead>
 
-	<c:forEach items="${Basketlist }" var="vo" varStatus="status">
+	<c:forEach items="${OrderList }" var="vo" varStatus="status">
 	<tr class="table-active">
-	<td style="text-align: center" id="g_no">${vo.bno }</td>
-	<td style="text-align: center">${vo.gcode }</td>
-	<td style="text-align: center"><a href="./GetGoodsCtrl?gcode=${vo.gcode }">${vo.gname }</a></td>
-	<td style="text-align: center"><a onclick="GoViewer('${vo.gimage }');"href="#">${vo.gimage }</a></td>
-	<td style="text-align: center"><input type="number" value="${vo.bamount }" class="bamount test2" onchange="tot();" /></td>
-	<td style="text-align: center"><fmt:formatNumber value="${vo.gprice}" pattern="#,###"/>원
-	<input type="hidden" value="${vo.gprice}" class="bprice"/>
-	</td>
-	<td style="text-align: center">${vo.bdate }</td>
-	<td style="text-align: center" class="tot2"><fmt:formatNumber value="${vo.gprice * vo.bamount }" pattern="#,###"/>원</td>
-	<td style="text-align: center"> 
-	<a style="color:blue;" href="./GoPayment?bno=${vo.bno}">결제하기</a> | 
-	<a style="color:blue;" href="#" onclick="DelBasket(${vo.bno })">삭제</a>
-	</td>
+		<th>${vo.order_seq }</th>
+		<th>${vo.order_no }</th>
+		<th>${vo.order_state }</th>
+		<th>${vo.order_pay_state }</th>
+		<th>${vo.delivery_user_name }</th>
+		<th>${vo.delivery_cellphone }</th>
+		<th>${vo.delivery_zip_code }</th>
+		<th>${vo.delivery_address }</th>
+		<th>${vo.delivery_address_details }</th>
+		<th>${vo.order_email }</th>
+		<th>${vo.user_id }</th>
+		<th>${vo.gtotal }</th>
+		<th>${vo.regdate }</th>
 	</tr>
-	<c:set var="t_price" value="${t_price + vo.gprice * vo.bamount}" />
-	<input type="text" name="test" id="test" class="test" value="${vo.gcode }">
 	</c:forEach>
 
 </table>
-<button id="btn"><fmt:formatNumber value="${t_price}" pattern="#,###"/>원 결제하기</button>
 <script type="text/javascript">
 
-
-$('#btn').click(function(){
-	
-		var zzzz = [];
-		var xxxx = [];
-			for(i=0;i<$('.test').length;i++){
-				zzzz.push($('.test').eq(i).val());
-			}
-			for(i=0;i<$('.test2').length;i++){
-				xxxx.push($('.test2').eq(i).val());
-			}
-				
-            var formData = {
-                    "gcode" : zzzz,        //배열 저장
-                    "qty" : xxxx
-                };
-	$.ajax({
-		type: "post",
-		url: "./test",
-		dataType: "json",
-		data: formData,
-		success: function (data) {
-		}    
-		});
-});
-
-	
-
-
-
-function tot(){
-var totval = 0;
-for (i=0;$('.bamount').length;i++){
-	if($('.bamount').eq(i).val() == null)
-	{
-	$('#btn').text(totval.toLocaleString('en')+"원 결제하기");
-	break;
-	}
-	
-	
-	
-	var val1 = parseInt($('.bamount').eq(i).val());
-	var val2 = parseInt($('.bprice').eq(i).val());
-	var val3 = val1 * val2;
-	var totval = totval + val3;
-	$('.tot2').eq(i).text(val3.toLocaleString('en')+"원");
-	
-}
-
-	
-}
-
-
-
-function GoViewer(img) {
-    var xPos = (document.body.offsetWidth/2) - (300/2); // 가운데 정렬
-    var yPos = (document.body.offsetHeight/2) - (200/2);
-    var href = './Goods/GoodsImageViewer.jsp?img=' + img
-    window.open(href, "pop_name", "width=300, height=200, left="+xPos+", top="+yPos+", menubar=yes, status=yes, titlebar=yes, resizable=yes");
-}
-
-function DelBasket(bno) {
-	   var retVal = confirm("정말 삭제하실껀가요?");
-	   if( retVal == true ){
-		   var href = './DelBasketCtrl?bno=' + bno
-		   window.open(href,'hiddenframe1','width=430,height=1080,location=no,status=no,scrollbars=no');
-		   
-	   }	
-		
-	}
 </script>
 <iframe width=0 height=0 name="hiddenframe1" style="display:none;"></iframe>
 </div>

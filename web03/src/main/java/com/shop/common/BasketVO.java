@@ -6,10 +6,10 @@ public class BasketVO {
 	private int bamount;
 	private String userid;
 	private String bdate;
-	
 	private String gname;
 	private String gimage;
 	private int gprice;
+	private int gno;
 	
 	
 	public int getBno() {
@@ -59,5 +59,11 @@ public class BasketVO {
 	}
 	public void setGprice(int gprice) {
 		this.gprice = gprice;
+	}
+	public int getGno() {
+		return gno;
+	}
+	public void setGno(int gno) {
+		this.gno = gno;
 	}
 }

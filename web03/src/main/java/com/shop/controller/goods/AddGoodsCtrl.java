@@ -39,7 +39,7 @@ public class AddGoodsCtrl extends HttpServlet {
 		PrintWriter out = response.getWriter();
 //		String uploadpath = request.getRealPath("img");
 		String path = request.getRealPath(getServletInfo());
-		String uploadpath = "D:\\Taek\\java_web\\web03\\src\\main\\webapp\\img";
+		String uploadpath = "D:\\taek\\java_web\\web03\\src\\main\\webapp\\img";
 		System.out.println(uploadpath);
 		
 		int maxSize = 1024*1024*100;

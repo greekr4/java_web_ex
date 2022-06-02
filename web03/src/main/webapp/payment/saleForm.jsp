@@ -94,43 +94,76 @@
   <div class="form">
   	<h2>구매 하기</h2>
     <form class="join" id="join" action="EditMemberCtrl" method="post">
+      <input type="text" name="gno" id="gno" value="${BasketVo.gno }">
       <input type="text" placeholder="상품명" name="my_id" id="my_id" value="${BasketVo.gname }" required readonly/>
       <img style="display: block; width: 100%;" alt="img" src="./img/${BasketVo.gimage }">
-      <input type="text" placeholder="수량" name="" id="my_name" value="${BasketVo.bamount }개"required readonly/>
-      <input type="text" placeholder="가격" name="" id="my_nick"value="<fmt:formatNumber value='${BasketVo.gprice}' pattern='#,###'/>원" required readonly/>
-      <input type="text" placeholder="수신자 명" name="my_tel" id="my_tel" value="" required/>
+      <input type="text" placeholder="수량" name="amount" id="amount" value="${BasketVo.bamount }개"required readonly/>
+      <input type="text" placeholder="가격" name="gprice" id="gprice"value="<fmt:formatNumber value='${BasketVo.gprice}' pattern='#,###'/>원" required readonly/>
+      <input type="text" placeholder="수신자 명" name="rname" id="rname" value="" required/>
       <input type="text" placeholder="수신자 연락처" name="my_address" id="my_address" value="" required/>
-      <input type="text" placeholder="수신자 주소" name="j_address" id="j_address"  onclick="findAddr();" readonly required/>
-      <input type="text" placeholder="상세주소" name="my_email" id="my_email" value="" required/>
-      <input type="text" name="" id="my_cash" placeholder="요청 사항" value="">
-      <select>
+      <input type="text" placeholder="수신자 주소" name="addr1" id="addr1"  onclick="findAddr();" readonly required/>
+      <input type="text" placeholder="우편번호" name="postcode" id="postcode" value="" required/>
+      <input type="text" placeholder="상세주소" name="addr2" id="addr2" value="" required/>
+      
+      <input type="text" name="memo" id="memo" placeholder="요청 사항" value="">
+      <select name="paytype" id="paytype">
       <option>계좌 이체</option>
       <option>신용카드 결제</option>
       <option>무통장 입금</option>
       </select>
-      <input type="text" name="my_grade" id="my_grade" placeholder="카드사/은행명" value="">
-      <input type="text" name="my_grade" id="my_grade" placeholder="카드번호/계좌번호" value=""> 
+      <input type="text" name="payplace" id="payplace" placeholder="카드사/은행명" value="">
+      <input type="text" name="payno" id="payno" placeholder="카드번호/계좌번호" value=""> 
       <button type="button" onclick="Edit();">Purchase</button>
       <button type="button" onclick="Del();" style="margin-top:5px;">Cancel</button>
     </form>
     <script type="text/javascript">
     function findAddr() {
-		new daum.Postcode({
-			oncomplete: function(data){
-			
-			var roadAddr = data.roadAddress;
-			var jibunAddr = data.jibunAddress;
-			console.log(roadAddr);
-			console.log(jibunAddr);
-			if(roadAddr != ""){
-			document.getElementById("j_address").value = roadAddr;
-			}else{
-			document.getElementById("j_address").value = jibunAddr;
-			}
-			}
-		}).open();
-	}
-    
+			  new daum.Postcode({
+		            oncomplete: function(data) {
+		                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+		                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+		                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+		                var addr = ''; // 주소 변수
+		                var extraAddr = ''; // 참고항목 변수
+
+		                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+		                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+		                    addr = data.roadAddress;
+		                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+		                    addr = data.jibunAddress;
+		                }
+
+		                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+		                if(data.userSelectedType === 'R'){
+		                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+		                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+		                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+		                        extraAddr += data.bname;
+		                    }
+		                    // 건물명이 있고, 공동주택일 경우 추가한다.
+		                    if(data.buildingName !== '' && data.apartment === 'Y'){
+		                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+		                    }
+		                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+		                    if(extraAddr !== ''){
+		                        extraAddr = ' (' + extraAddr + ')';
+		                    }
+		                    // 조합된 참고항목을 해당 필드에 넣는다.
+		                   
+		                
+		                } else {
+		                   
+		                }
+
+		                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+		                document.getElementById("postcode").value = data.zonecode;	//우편번호
+		                document.getElementById("addr1").value = addr;				//주소1
+		                // 커서를 상세주소 필드로 이동한다.
+		                document.getElementById("addr2").focus();					//주소2(상세주소)
+		            }
+		        }).open();
+    }
     
     toastr.options.preventDuplicates = true;
     toastr.options.positionClass = "toast-top-full-width";

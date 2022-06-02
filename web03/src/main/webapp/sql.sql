@@ -11,6 +11,23 @@ select count(*) from goods
 select mno,mid,mpw,mname,mtel,maddress,memail,mnick,mcash,mpoint,mgrade,to_char(mjday,'yyyy-MM-dd HH24:mi:ss') as jday, to_char(mlatest,'yyyy-MM-dd HH24:mi:ss') as latest from shop_member order by mno desc;
 select * from payment;
 
+CREATE TABLE db_access (
+  no number primary key,
+  request_uri varchar(100),
+  query_string varchar(200),
+  remote_address varchar(30),
+  server_name varchar(60),
+  server_port varchar(10),
+  locale varchar(20),
+  browser varchar(200),
+  referer varchar(255),
+  session_id varchar(80),
+  user_id varchar(20),
+  response_time number,
+  reg_date date default sysdate
+);
+
+
 
 create table shop_board (
 no number primary key,
@@ -121,6 +138,7 @@ goption2 varchar2(200),						--상품옵션2
 gsize varchar2(200)							--상품사이즈
 );
 
+select * from goods;
 insert into goods values(
 'A110001',
 1,
@@ -274,3 +292,79 @@ insert into payment values((select nvl(max(ono),0)+1 from payment),'계좌이체
 
 
 select count(*) as cnt from goods where gcode like 'A11%'
+
+drop table shop_order
+drop table shop_order_line
+
+create table shop_order(
+ORDER_SEQ number primary key,
+ORDER_STATE number,
+ORDER_PAY_STATE number,
+ORDER_NO number,
+DELIVERY_USER_NAME varchar2(20),
+DELIVERY_CELLPHONE varchar2(15),
+DELIVERY_ZIP_CODE varchar2(50),
+DELIVERY_ADDRESS varchar2(200),
+DELIVERY_ADDRESS_DETAILS varchar2(200),
+ORDER_EMAIL varchar2(200),
+user_id varchar2 (40),
+gtotal number,
+regdate date
+)
+
+create table shop_order_line(
+order_line_seq number primary key,
+order_no number,
+goods_code varchar2(40),
+gqty number
+);
+
+insert into shop_order values(
+1, --시퀸스
+1,
+1,
+1, --주문번호
+'김태균',
+'01041911611',
+'12345',
+'경기도파주시당동1로',
+'123-456',
+'greekr3@greekr3.com',
+'admin',
+1000,
+sysdate
+)
+
+insert into shop_order values(
+(select nvl(max(ORDER_SEQ),0)+1 from shop_order), --시퀸스
+1,
+1,
+(select nvl(max(ORDER_NO),0)+1 from shop_order), --주문번호 int ?
+'김태균',
+'01041911611',
+'12345',
+'경기도파주시당동1로',
+'123-456',
+'greekr3@greekr3.com',
+'admin',
+2000,
+sysdate
+)
+
+
+
+
+insert into shop_order_line values(
+(select nvl(max(order_line_seq),0)+1 from shop_order_line),
+1,										-- 주문번호 int ?,
+'A110001',
+1
+)
+
+
+select * from shop_ccode;
+select * from shop_dcode;
+
+select * from shop_order
+select * from shop_order_line
+

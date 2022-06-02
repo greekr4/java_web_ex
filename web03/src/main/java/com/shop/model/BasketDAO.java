@@ -104,7 +104,7 @@ public class BasketDAO {
 					BasketVO Vo = new BasketVO();
 					try {
 					conn = JDBCConnection.getConnection();
-					sql = "select a.bno, a.gcode, a.bamount , a.userid, a.bdate, b.gname, b.gimage, b.gprice from basket a inner join goods b on a.gcode = b.gcode where bno =? order by a.bno desc";
+					sql = "select a.bno, a.gcode, a.bamount , a.userid, a.bdate, b.gname, b.gimage, b.gprice, b.gno from basket a inner join goods b on a.gcode = b.gcode where bno =? order by a.bno desc";
 					pstmt = conn.prepareStatement(sql);
 					pstmt.setInt(1, bno);
 					rs= pstmt.executeQuery();
@@ -117,6 +117,7 @@ public class BasketDAO {
 					Vo.setGname(rs.getString("gname"));
 					Vo.setGimage(rs.getString("gimage"));
 					Vo.setGprice(rs.getInt("gprice"));
+					Vo.setGno(rs.getInt("gno"));
 					}
 					}
 					catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
