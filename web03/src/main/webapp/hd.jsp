@@ -51,7 +51,7 @@
 
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="${path }">DASOL 다솔낚시마트</a>
+    <a class="navbar-brand" href="${path }">태균낚시마트</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -136,6 +136,11 @@
             		<ul class="navbar-nav me-auto" style="float: right;">
         <li class="nav-item">
           <a class="nav-link active" href="${path }/GetMyPageCtrl?uid=${sid }">${sname } (${sid })
+            <span class="visually-hidden"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="${path }/GetOrderListCtrl_m">${sname }의 주문내역
             <span class="visually-hidden"></span>
           </a>
         </li>

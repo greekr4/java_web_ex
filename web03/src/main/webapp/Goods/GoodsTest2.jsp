@@ -83,7 +83,13 @@ button:hover,.form button:active,.form button:focus {
             <h4>${GoodsVo.gname }</h4>
             <p>${GoodsVo.gdetail }</p>
             <p>가격 : <fmt:formatNumber value="${GoodsVo.gprice}" pattern="#,###"/>원</p>
+            <c:if test="${GoodsVo.gamount <= 0 }">
+            <p style="color:red;">품절</p>
+            </c:if>
+            <c:if test="${GoodsVo.gamount > 0 }">
             <p>남은 수량 : ${GoodsVo.gamount }</p>
+            </c:if>
+            
             <p>수량     
             <input type="number" value="1" style="text-align: center; width: 50px" id="amount">
             </p>
@@ -134,7 +140,13 @@ $('#amount').change(function(){
 
 $('#addBasket').click(function(){
 	var bamount = $('#amount').val();
+	var amount = ${GoodsVo.gamount };
+	if (amount < bamount){
+		alert('수량을 확인해주세요!');
+		return;
+	}else {
 	window.open('./AddBasketCtrl?gcode=${GoodsVo.gcode }&bamount='+bamount,'hiddenframe1','width=430,height=1080,location=no,status=no,scrollbars=no');	
+	}
 });
 
 

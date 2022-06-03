@@ -10,17 +10,17 @@
 	<div class="cboth section">
 		<div class="cboth inner">
 			<ul>
-				<li><a href="http://www.dasolfishing.co.kr/shop/page.html?id=1">회사소개</a></li>
-				<li><a href="http://www.dasolfishing.co.kr/shop/page.html?id=3">매장소개</a></li>
-				<li><a href="javascript:view_join_terms();">이용약관</a></li>
-				<li><a href="/html/info.html">이용안내</a></li>
-				<li class="privacy"><a href="javascript:bottom_privacy();">개인정보처리방침</a></li>
-				<li><a href="http://www.dasolfishing.co.kr/board/board.html?code=choitomas">고객센터 바로가기</a></li>
-				<li><a href="http://www.dasolfishing.co.kr/board/board.html?code=choitomas_image3">캠페인/낚시터 청소활동</a></li>
-				<li><a href="http://www.dasolfishing.co.kr/board/board.html?code=choitomas_board23">앵글러 기재</a></li>
-				<li><a href="http://www.dasolfishing.co.kr/shop/page.html?id=4">캠페인/꽁초제로운동</a></li>
-				<li><a href="http://www.dasolfishing.co.kr/board/board.html?code=choitomas_board22">캠페인/55클린상</a></li>
-				<li><a href="http://www.dasolfishing.co.kr/board/board.html?code=choitomas_board21">다솔 행사</a></li>
+				<li><a href="#">회사소개</a></li>
+				<li><a href="#">매장소개</a></li>
+				<li><a href="#">이용약관</a></li>
+				<li><a href="#">이용안내</a></li>
+				<li class="privacy"><a href="#">개인정보처리방침</a></li>
+				<li><a href="#">고객센터 바로가기</a></li>
+				<li><a href="#">캠페인/낚시터 청소활동</a></li>
+				<li><a href="#">앵글러 기재</a></li>
+				<li><a href="#">캠페인/꽁초제로운동</a></li>
+				<li><a href="#">캠페인/55클린상</a></li>
+				<li><a href="#">다솔 행사</a></li>
 			</ul>
 		</div>
 	</div><!-- //section -->
@@ -30,22 +30,22 @@
 			
 			<div class="f_cs_center"><!-- 콜센터 영역 -->
 				<div class="ft_title">CALL CENTER</div>
-				<div class="cs_call">031.202.0918</div>
+				<div class="cs_call">010-4191-1611</div>
 				<div class="cs_info">
 				평일&토요일 : 오전 10:00 ~ 오후 6:00<br>
 				공휴일 : 오전 10:00 ~ 오후 6:00<br>
 				일요일 : 정기휴무 (설,추석 당일만 휴무)<br>
 				점심시간 : 12:00 ~ 13:00 (전화상담 휴식)<br>
-				Email : choitomas@naver.com
+				Email : greekr4@naver.com
 				</div>
 			</div><!-- //f_cs_center -->
 			
 			<div class="f_cs_bank"><!-- 은행정보 영역 -->
 				<div class="ft_title">BANK ACCOUNT</div>
-				<div class="cs_call">예금주 : (주)다솔낚시마트</div>
+				<div class="cs_call">예금주 : 김태균</div>
 				<div class="cboth cs_info">
-				국민은행 200037-04-001762<br>
-				농협은행 355-8724-0301-23<br>
+				농협은행 301-0133-8910-31<br>
+				카카오뱅크 3333-0778-78289<br>
 				</div><!-- //cs_info -->
 			
 				<div class="cboth left_brand">
@@ -57,12 +57,12 @@
 			<div class="f_cs_copy">
 				<div class="ft_title">COMPANY INFO</div>
 				<div class="cs_info">
-				COMPANY : (주)다솔낚시마트    &nbsp;/ &nbsp;   OWNER : 최훈    &nbsp;/ &nbsp;   <br>CALL CENTER : [택배관련문의] 031-202-0918 / [제품관련문의] 031-202-0907    &nbsp;/ &nbsp;    FAX : 031-202-0866<br>
-				ADDRESS : 경기도 화성시 영통로 23 B1 (경기도 화성시 반월동 135-10 B1)    &nbsp;/ &nbsp;   개인정보관리책임자 : 정재훈<a href="javascript:top_sendmail();">choitomas@naver.com</a><br>
-				사업자등록번호 : 661-87-00354 <a href="http://www.ftc.go.kr/info/bizinfo/communicationList.jsp" target="_blank"><b>[사업자정보확인]</b></a>    &nbsp;/ &nbsp;   통신판매업 신고번호  : 제2016-화성동부-0066호<BR>
-				부서별 : 쇼핑몰 031-202-0918 / 매장 031-202-0907 / 다솔 동탄점 1층 민물매장 070-4367-4098
+				COMPANY : (주)태균낚시마트    &nbsp;/ &nbsp;   OWNER : 김태균    &nbsp;/ &nbsp;   <br>CALL CENTER : [택배관련문의] 031-000-0000 / [제품관련문의] 031-000-0000    &nbsp;/ &nbsp;    FAX : 031-202-0866<br>
+				ADDRESS : 경기도 파주시 당동1로 12 (경기도 파주시 문산읍)    &nbsp;/ &nbsp;   개인정보관리책임자 : 김태균 <a href="#">greekr4@naver.com</a><br>
+				사업자등록번호 : 000-00-00000 <a href="#" target="_blank"><b>[사업자정보확인]</b></a>    &nbsp;/ &nbsp;   통신판매업 신고번호  : 제2016-파주동부-0001호<BR>
+				부서별 : 쇼핑몰 031-000-0000 / 매장 031-000-0000 / 태균 파주점 1층 민물매장 070-0000-0000
 				</div>
-				<div class="copyright">Copyright by (주)다솔낚시마트. All rights reserved</div>
+				<div class="copyright">Copyright by (주)태균낚시마트. All rights reserved</div>
 			</div><!-- //f_cs_copy -->
 			
 		</div><!-- //inner -->

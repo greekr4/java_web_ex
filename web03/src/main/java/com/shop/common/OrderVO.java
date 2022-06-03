@@ -16,10 +16,12 @@ public class OrderVO {
 	private int gtotal;
 	private String regdate;
 	
+	///////////자세히보기에 관함
 	private int order_line_seq;
 	private int order_line_no;
 	private String gcode;
 	private String gname;
+	private int gprice;
 	
 	
 	public int getOrder_seq() {
@@ -131,6 +133,12 @@ public class OrderVO {
 	}
 	public void setGname(String gname) {
 		this.gname = gname;
+	}
+	public int getGprice() {
+		return gprice;
+	}
+	public void setGprice(int gprice) {
+		this.gprice = gprice;
 	}
 	
 

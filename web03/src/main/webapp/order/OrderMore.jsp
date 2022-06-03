@@ -241,12 +241,12 @@ cursor: pointer;
 </head>
 <body>
 <div class="container2">
-<header id="hd">
+<%-- <header id="hd">
 <jsp:include page="../hd.jsp"></jsp:include>
-</header>
+</header> --%>
 
 <div class="tb_wrap">
-<h1 style="text-align: center">오더리스트</h1>
+<h1 style="text-align: center">상세보기</h1>
 <!-- <form method="post" action="GetMemberSearchListCtrl">
 <select id="s_type" class="s_type" name="s_type">
 <option value="ids">아이디</option>
@@ -261,89 +261,34 @@ cursor: pointer;
 		<tr class="table-primary">
 		<th>고유번호</th>
 		<th>주문번호</th>
-		<th>STATE</th>
-		<th></th>
-		<th>PAY_STATE</th>
-		<th></th>
-		<th>이름</th>
-		<th>폰번</th>
-		<th>우편번호</th>
-		<th>주소</th>
-		<th>주소2</th>
-		<th>이메일</th>
-		<th>아이디</th>
-		<th>총금액</th>
-		<th>주문일</th>
-		<th></th>
+		<th>GCODE</th>
+		<th>GQTY</th>
+		<th>GNAME</th>
+		<th>GPRICE</th>
 		</tr>
 		<!--/GetMyPageCtrl?uid=${sid } -->
 	</thead>
 
-	<c:forEach items="${OrderList }" var="vo" varStatus="status">
+	<c:forEach items="${OrderMoreList }" var="vo" varStatus="status">
 	<tr class="table-active">
-		<th>${vo.order_seq }</th>
-		<th>${vo.order_no }</th>
-		<th>
-		<select name="state" id="state" class="state">
-		<option value="1">배송대기</option>
-		<option value="2">배송시작</option>
-		<option value="3">배송완료</option>
-		<option value="4">수신완료</option>
-		</select>
-		</th>
-		<th><a href="#" onclick="EditState('S',${status.index },${vo.order_seq })">처리</a></th>
-		<th>
-		<select name="pay_state" id="pay_state" class="pay_state">
-		<option value="1">결제대기</option>
-		<option value="2">결제완료</option>
-		<option value="3">처리완료</option>
-		</select>
-		<script>
-		$('.state').eq(${status.index}).val("${vo.order_state }");
-		$('.pay_state').eq(${status.index}).val("${vo.order_pay_state }");
-		</script>
-		</th>
-		<th><a href="#" onclick="EditState('P',${status.index },${vo.order_seq })">처리</a></th>
-
-		<th>${vo.delivery_user_name }</th>
-		<th>${vo.delivery_cellphone }</th>
-		<th>${vo.delivery_zip_code }</th>
-		<th>${vo.delivery_address }</th>
-		<th>${vo.delivery_address_details }</th>
-		<th>${vo.order_email }</th>
-		<th>${vo.user_id }</th>
-		<th>${vo.gtotal }</th>
-		<th>${vo.regdate }</th>
-		<th><a href="#" onclick="more(${vo.order_no })">상세보기</a></th>
+		<th>${vo.order_line_seq }</th>
+		<th>${vo.order_line_no }</th>
+		<th>${vo.gcode }</th>
+		<th>${vo.gqty }</th>
+		<th>${vo.gname }</th>
+		<th>${vo.gprice }</th>
 	</tr>
 	</c:forEach>
 
 </table>
 <script type="text/javascript">
-function more(ono){
-	window.open('./GetOrderMoreCtrl?ono='+ono,'더보기','width=1900,height=500,location=no,status=no,scrollbars=no');
-}
 
-function EditState(type,val,oseq) {
-	   var retVal = confirm("정말 수정하실껀가요?");
-	   if (type == "S"){
-		   var val2 = $('.state').eq(val).val();
-	   } else{
-		   var val2 = $('.pay_state').eq(val).val();
-	   }
-	   if( retVal == true ){
-		   var href = './EditOrderCtrl?type=' + type + "&val=" + val2 + "&oseq=" + oseq
-		   window.open(href,'hiddenframe1','width=430,height=1080,location=no,status=no,scrollbars=no');
-		   
-	   }	
-		
-	}
 </script>
 <iframe width=0 height=0 name="hiddenframe1" style="display:none;"></iframe>
 </div>
-<footer id="ft">
+<%-- <footer id="ft">
 <jsp:include page="../ft.jsp"></jsp:include>
-</footer>
+</footer> --%>
 </div>
 </body>
 </html>

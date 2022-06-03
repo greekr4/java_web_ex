@@ -315,7 +315,7 @@ regdate date
 create table shop_order_line(
 order_line_seq number primary key,
 order_no number,
-goods_code varchar2(40),
+gcode varchar2(40),
 gqty number
 );
 
@@ -368,3 +368,12 @@ select * from shop_dcode;
 select * from shop_order
 select * from shop_order_line
 
+
+update shop_order set order_state = 4 where order_no = 2;
+
+
+select a.*,b.gname,b.gprice from shop_order_line a
+inner join goods b on a.gcode = b.gcode where a.order_no = 6;
+
+delete from shop_order;
+delete from shop_order_line;

@@ -240,5 +240,23 @@ public class GoodsDAO {
 			finally 							{ JDBCConnection.close(rs, pstmt, conn); }
 			return list;
 		}	
+		
+		//출고처리
+		public int ReleaseGoods(String gcode, int qty) {
+			try {
+				conn = JDBCConnection.getConnection();
+				sql = "update goods set gamount = gamount - ? where gcode = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, qty);
+				pstmt.setString(2, gcode);
+				cnt = pstmt.executeUpdate();
+
+			}
+			catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
+			catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
+			catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
+			finally 							{ JDBCConnection.close(rs, pstmt, conn); }
+			return cnt;
+		}
 	
 }

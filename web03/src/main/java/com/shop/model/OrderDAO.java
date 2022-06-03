@@ -51,6 +51,42 @@ public class OrderDAO {
 		return list;
 	}
 	
+	public ArrayList<OrderVO> GetOrderList(String sid) {
+		ArrayList<OrderVO> list = new ArrayList<OrderVO>();
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "select * from shop_order where user_id = ? order by ORDER_NO desc";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, sid);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				OrderVO Vo = new OrderVO();
+				Vo.setOrder_seq(rs.getInt("order_seq"));
+				Vo.setOrder_state(rs.getInt("ORDER_STATE"));
+				Vo.setOrder_pay_state(rs.getInt("ORDER_PAY_STATE"));
+				Vo.setOrder_no(rs.getInt("order_no"));
+				Vo.setDelivery_user_name(rs.getString("delivery_user_name"));
+				Vo.setDelivery_cellphone(rs.getString("delivery_cellphone"));
+				Vo.setDelivery_zip_code(rs.getString("DELIVERY_ZIP_CODE"));
+				Vo.setDelivery_address(rs.getString("DELIVERY_ADDRESS"));
+				Vo.setDelivery_address_details(rs.getString("DELIVERY_ADDRESS_DETAILS"));
+				Vo.setOrder_email(rs.getString("order_email"));
+				Vo.setUser_id(rs.getString("user_id"));
+				Vo.setGtotal(rs.getInt("GTOTAL"));
+				Vo.setRegdate(rs.getString("regdate"));
+				list.add(Vo);
+			}
+		}
+		catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
+		catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
+		catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
+		finally 							{ JDBCConnection.close(rs, pstmt, conn); }
+		
+		
+		
+		return list;
+	}
+	
 	
 	public int AddOrder(OrderVO Vo) {
 		int ono = 0;
@@ -126,5 +162,59 @@ public class OrderDAO {
 	}
 	
 	
+	
+	public ArrayList<OrderVO> GetOrderMore(int ono) {
+		ArrayList<OrderVO> list = new ArrayList<OrderVO>();
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "select a.*,b.gname,b.gprice from shop_order_line a "
+					+ "inner join goods b on a.gcode = b.gcode where a.order_no = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, ono);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				OrderVO Vo = new OrderVO();
+				Vo.setOrder_line_seq(rs.getInt("order_line_seq"));
+				Vo.setOrder_line_no(rs.getInt("order_no"));
+				Vo.setGcode(rs.getString("gcode"));
+				Vo.setGqty(rs.getInt("gqty"));
+				Vo.setGname(rs.getString("gname"));
+				Vo.setGprice(rs.getInt("gprice"));
+				list.add(Vo);
+			}
+		}
+		catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
+		catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
+		catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
+		finally 							{ JDBCConnection.close(rs, pstmt, conn); }
+		
+		
+		
+		return list;
+	}
+	
+	public int Edit_Order_State(String type,int val,int oseq ) {
+		try {
+			conn = JDBCConnection.getConnection();
+			if (type.equals("S")) {
+				sql = "update shop_order set order_state = ? where order_seq = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, val);
+				pstmt.setInt(2, oseq);
+				cnt = pstmt.executeUpdate();
+			}else if (type.equals("P")) {
+				sql = "update shop_order set order_pay_state = ? where order_seq = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, val);
+				pstmt.setInt(2, oseq);
+				cnt = pstmt.executeUpdate();
+			}
+			}
+		catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
+		catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
+		catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
+		finally 							{ JDBCConnection.close(rs, pstmt, conn); }
+		return cnt;
+	}
 
 }

@@ -212,7 +212,10 @@ border-bottom: 0;
 		success: function (data) {
 		}    
 		});
+    alert('주문이 접수 되었습니다.');
+    location.href ="./GetOrderListCtrl_m"
 });
+
 
     
     
