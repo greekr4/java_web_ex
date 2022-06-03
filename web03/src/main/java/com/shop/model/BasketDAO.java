@@ -69,6 +69,23 @@ public class BasketDAO {
 					finally 							{ JDBCConnection.close(pstmt, conn); }
 					return cnt;
 				}
+				
+				//장바구니 삭제 (아이디)
+				public int delBasket(String sid) {
+					try {
+					conn = JDBCConnection.getConnection();
+					sql = "delete from basket where userid = ?";
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1,sid);
+					cnt = pstmt.executeUpdate();
+
+					}
+					catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
+					catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
+					catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
+					finally 							{ JDBCConnection.close(pstmt, conn); }
+					return cnt;
+				}
 		
 		//장바구니 보기(아이디)
 		public ArrayList<BasketVO> getBasketList(String userid) {

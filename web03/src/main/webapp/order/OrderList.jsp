@@ -272,6 +272,7 @@ cursor: pointer;
 		<th>아이디</th>
 		<th>총금액</th>
 		<th>주문일</th>
+		<th></th>
 		</tr>
 		<!--/GetMyPageCtrl?uid=${sid } -->
 	</thead>
@@ -291,6 +292,7 @@ cursor: pointer;
 		<th>${vo.user_id }</th>
 		<th>${vo.gtotal }</th>
 		<th>${vo.regdate }</th>
+		<th><a href="#">상세보기</a></th>
 	</tr>
 	</c:forEach>
 

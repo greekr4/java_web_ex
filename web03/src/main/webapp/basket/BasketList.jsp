@@ -295,7 +295,9 @@ cursor: pointer;
 
 </table>
 <button id="btn"><fmt:formatNumber value="${t_price}" pattern="#,###"/>원 결제하기</button>
+<a href="./GetOrderCtrl">결제하러가기</a>
 <script type="text/javascript">
+
 
 
 $('#btn').click(function(){

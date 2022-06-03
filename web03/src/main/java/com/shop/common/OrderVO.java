@@ -19,6 +19,7 @@ public class OrderVO {
 	private int order_line_seq;
 	private int order_line_no;
 	private String gcode;
+	private String gname;
 	
 	
 	public int getOrder_seq() {
@@ -124,6 +125,12 @@ public class OrderVO {
 	}
 	public void setDelivery_address_details(String delivery_address_details) {
 		this.delivery_address_details = delivery_address_details;
+	}
+	public String getGname() {
+		return gname;
+	}
+	public void setGname(String gname) {
+		this.gname = gname;
 	}
 	
 

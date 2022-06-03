@@ -37,7 +37,7 @@ public class test extends HttpServlet {
 		int z = 0;
 		int x = 0;
 		OrderDAO DAO = new OrderDAO();
-		ono = DAO.AddOrder();
+//		ono = DAO.AddOrder();
 		
 		for (int i=0;i<test.length;i++) {
 			x = Integer.parseInt(test2[i]);

@@ -52,7 +52,7 @@ public class OrderDAO {
 	}
 	
 	
-	public int AddOrder() {
+	public int AddOrder(OrderVO Vo) {
 		int ono = 0;
 		try {
 			conn = JDBCConnection.getConnection();
@@ -65,20 +65,31 @@ public class OrderDAO {
 						+ "(select nvl(max(ORDER_SEQ),0)+1 from shop_order)," //시퀸스
 						+ "1,"	// 주문상태
 						+ "1,"	// 결제상태
-						+ "?," //주문번호 (ono)
-						+ "'zz'," //이름
-						+ "'z'," //번호
-						+ "'z'," //우편번호
-						+ "'z'," //어드레스1
-						+ "'z'," //어드레스2
-						+ "'z'," //이메일
-						+ "'z'," //아이디
-						+ "2000," //주문총금액
+						+ "?," //주문번호 (ono)	1
+						+ "?," //이름				2
+						+ "?," //번호				3
+						+ "?," //우편번호			4
+						+ "?," //어드레스1			5
+						+ "?," //어드레스2			6
+						+ "?," //이메일			7
+						+ "?," //아이디			8
+						+ "?," //주문총금액			9
 						+ "sysdate"
 						+ ")";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, ono);
+				pstmt.setString(2, Vo.getDelivery_user_name());
+				pstmt.setString(3, Vo.getDelivery_cellphone());
+				pstmt.setString(4, Vo.getDelivery_zip_code());
+				pstmt.setString(5, Vo.getDelivery_address());
+				pstmt.setString(6, Vo.getDelivery_address_details());
+				pstmt.setString(7, Vo.getOrder_email());
+				pstmt.setString(8, Vo.getUser_id());
+				pstmt.setInt(9, Vo.getGtotal());
 				cnt = pstmt.executeUpdate();
+					if(cnt>0) {
+						return ono;
+					}
 				////////////////////////
 			}
 
@@ -88,7 +99,7 @@ public class OrderDAO {
 		catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
 		catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
 		finally 							{ JDBCConnection.close(rs, pstmt, conn); }
-		return ono;
+		return cnt;
 	}
 	
 	public int AddOrder_line(int ono, String gcode, int qty) {
