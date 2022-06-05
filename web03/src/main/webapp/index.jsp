@@ -56,8 +56,6 @@ display: block;
 width: 100%;
 }
 
-
-
 <!-- -->
 .section1 {margin:40px auto 0;}
 .section1 .today_special {width:420px;float:left;}
