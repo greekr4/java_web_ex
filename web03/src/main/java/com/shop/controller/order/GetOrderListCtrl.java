@@ -1,4 +1,4 @@
-package com.shop.cotroller.order;
+package com.shop.controller.order;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,31 +14,29 @@ import com.shop.common.OrderVO;
 import com.shop.model.OrderDAO;
 
 /**
- * Servlet implementation class GetOrderCtrl
+ * Servlet implementation class GetOrderListCtrl
  */
-@WebServlet("/GetOrderMoreCtrl")
-public class GetOrderMoreCtrl extends HttpServlet {
+@WebServlet("/GetOrderListCtrl")
+public class GetOrderListCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetOrderMoreCtrl() {
+    public GetOrderListCtrl() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int ono = Integer.parseInt(request.getParameter("ono"));
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OrderDAO DAO = new OrderDAO();
-		ArrayList<OrderVO> Volist = DAO.GetOrderMore(ono);
-		request.setAttribute("OrderMoreList", Volist);
-		RequestDispatcher view = request.getRequestDispatcher("./order/OrderMore.jsp");
+		ArrayList<OrderVO> Volist = DAO.GetOrderList();
+		request.setAttribute("OrderList", Volist);
+		RequestDispatcher view = request.getRequestDispatcher("./order/OrderList.jsp");
 		view.forward(request, response);
 	}
-
 
 }

@@ -1,4 +1,4 @@
-package com.shop.cotroller.order;
+package com.shop.controller.order;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

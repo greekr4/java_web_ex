@@ -27,7 +27,9 @@
 <style>
         .gbox{
             width: 1000px;
-            margin: 0 auto;
+            height: 500px;
+            margin: 50px auto;
+            
       
         }
         .gimg{
@@ -122,11 +124,14 @@ button:hover,.form button:active,.form button:focus {
 
        		</c:choose>
             </p>
-            <p><button>주문하기</button></p>
+           <!--  <p><button>주문하기</button></p> -->
             <p><button id="addBasket">장바구니</button></p>
         </div>
         </div>
 
+    </div>
+    <div class="coment_wrap">
+    <h2>이용후기</h2>
     </div>
 </div>
 <script type="text/javascript">

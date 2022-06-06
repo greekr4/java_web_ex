@@ -1,31 +1,25 @@
-package com.shop.controller.payment;
+package com.shop.controller.basket;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.shop.common.BasketVO;
-import com.shop.common.GoodsVO;
 import com.shop.model.BasketDAO;
-import com.shop.model.GoodsDAO;
 
 /**
- * Servlet implementation class GoPayment
+ * Servlet implementation class EditBasketCtrl
  */
-@WebServlet("/GoPayment")
-public class GoPayment extends HttpServlet {
+@WebServlet("/EditBasketCtrl")
+public class EditBasketCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GoPayment() {
+    public EditBasketCtrl() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,12 +28,15 @@ public class GoPayment extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BasketDAO DAO = new BasketDAO();
 		int bno = Integer.parseInt(request.getParameter("bno"));
-		BasketVO Vo = DAO.getBasket(bno);
-		request.setAttribute("BasketVo", Vo);
-		RequestDispatcher view = request.getRequestDispatcher("./order/OrderForm2.jsp");
-		view.forward(request, response);
+		int qty = Integer.parseInt(request.getParameter("qty"));
+		BasketDAO DAO = new BasketDAO();
+		int cnt = DAO.EditBasket_Amount(bno, qty);
+		if (cnt > 0) {
+			//System.out.println("성공");
+		} else {
+			System.out.println("실패");
+		}
 	}
 
 }

@@ -278,7 +278,7 @@ cursor: pointer;
 	<td style="text-align: center">${vo.gcode }</td>
 	<td style="text-align: center"><a href="./GetGoodsCtrl?gcode=${vo.gcode }">${vo.gname }</a></td>
 	<td style="text-align: center"><a onclick="GoViewer('${vo.gimage }');"href="#">${vo.gimage }</a></td>
-	<td style="text-align: center"><input type="number" value="${vo.bamount }" class="bamount test2" onchange="tot();" /></td>
+	<td style="text-align: center"><input type="number" style="width: 70px" value="${vo.bamount }" class="bamount test2" onchange="tot();" /> <a href="#" onclick="editqty(${vo.bno},$('.bamount').eq(${status.index }).val());">변경</a></td>
 	<td style="text-align: center"><fmt:formatNumber value="${vo.gprice}" pattern="#,###"/>원
 	<input type="hidden" value="${vo.gprice}" class="bprice"/>
 	</td>
@@ -294,13 +294,20 @@ cursor: pointer;
 	</c:forEach>
 
 </table>
-<button id="btn"><fmt:formatNumber value="${t_price}" pattern="#,###"/>원 결제하기</button>
-<a href="./GetOrderCtrl">결제하러가기</a>
+<a href="./GetOrderCtrl"><button id="btn"><fmt:formatNumber value="${t_price}" pattern="#,###"/>원 결제하기</button></a>
+
 <script type="text/javascript">
 
 
+function editqty(bno,qty) {
+	window.open('./EditBasketCtrl?bno='+bno+'&qty='+qty,'hiddenframe1','width=430,height=1080,location=no,status=no,scrollbars=no');
+	
+}
 
-$('#btn').click(function(){
+
+
+
+/* $('#btn').click(function(){
 	
 		var zzzz = [];
 		var xxxx = [];
@@ -323,9 +330,9 @@ $('#btn').click(function(){
 		success: function (data) {
 		}    
 		});
-});
+}); 
+ */
 
-	
 
 
 

@@ -1,4 +1,4 @@
-package com.shop.controller.payment;
+package com.shop.controller.order;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,23 +9,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.shop.common.BasketVO;
-import com.shop.common.GoodsVO;
 import com.shop.model.BasketDAO;
-import com.shop.model.GoodsDAO;
 
 /**
- * Servlet implementation class GoPayment
+ * Servlet implementation class GetOrderCtrl
  */
-@WebServlet("/GoPayment")
-public class GoPayment extends HttpServlet {
+@WebServlet("/GetOrderCtrl")
+public class GetOrderCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GoPayment() {
+    public GetOrderCtrl() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,12 +33,14 @@ public class GoPayment extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		String sid = (String)session.getAttribute("sid");
 		BasketDAO DAO = new BasketDAO();
-		int bno = Integer.parseInt(request.getParameter("bno"));
-		BasketVO Vo = DAO.getBasket(bno);
-		request.setAttribute("BasketVo", Vo);
-		RequestDispatcher view = request.getRequestDispatcher("./order/OrderForm2.jsp");
+		ArrayList<BasketVO> Volist = DAO.getBasketList(sid);
+		request.setAttribute("BasketVolist", Volist);
+		RequestDispatcher view = request.getRequestDispatcher("./order/OrderForm.jsp");
 		view.forward(request, response);
 	}
+
 
 }
