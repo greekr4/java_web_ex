@@ -373,7 +373,18 @@ update shop_order set order_state = 4 where order_no = 2;
 
 
 select a.*,b.gname,b.gprice from shop_order_line a
-inner join goods b on a.gcode = b.gcode where a.order_no = 6;
+inner join goods b on a.gcode = b.gcode where a.order_no = 9;
 
 delete from shop_order;
 delete from shop_order_line;
+
+create table shop_comment(
+c_seq number primary key,
+gcode varchar2(2000) not null,
+user_id	varchar2(200) not null,
+cdetail varchar2(2000) not null,
+thumb number not null
+);
+
+
+select * from shop_order_line

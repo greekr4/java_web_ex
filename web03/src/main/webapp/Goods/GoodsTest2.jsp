@@ -131,7 +131,15 @@ button:hover,.form button:active,.form button:focus {
 
     </div>
     <div class="coment_wrap">
-    <h2>이용후기</h2>
+    	<div class="coment_top">
+    		<h2>이용후기</h2>
+    	</div>
+    	<div class="coment_main">
+			<div class="thumbs">★★★★★</div>
+			<div class="detail">좋아요</div>
+			<div class="id">admin</div>
+    	</div>
+    
     </div>
 </div>
 <script type="text/javascript">
