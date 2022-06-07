@@ -76,7 +76,7 @@
 
         <!-- 인스타그램 -->
 	<div class="cboth section3">
-		<p>INSTAGRAM @DASOLFISHING</p>
+		<p>INSTAGRAM @tae.virus</p>
 		<!-- 하단 인스타그램 -->
 		<div id="instafeed">
                 </div>

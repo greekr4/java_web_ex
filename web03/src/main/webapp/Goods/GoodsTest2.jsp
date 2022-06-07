@@ -139,8 +139,37 @@ button:hover,.form button:active,.form button:focus {
 			<div class="detail">좋아요</div>
 			<div class="id">admin</div>
     	</div>
-    
     </div>
+    
+    <style>
+    .coment_wrap{
+    clear:both;
+    width: 800px;
+    margin:0 auto;
+    }
+    .coment_top{
+    text-align: center;
+    border-bottom: 1px solid #000;
+    }
+    .coment_main{
+    margin-top: 30px;
+    display: flex;
+    text-align: center;
+    }
+    .coment_main .thumbs{
+    width: 30%;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    }
+    .coment_main .detail{
+    width: 60%;
+    border-right: 1px solid #000;
+    }
+    .coment_main .id{
+    width: 10%;
+    border-right: 1px solid #000;
+    }
+    </style>
 </div>
 <script type="text/javascript">
 $('#amount').change(function(){

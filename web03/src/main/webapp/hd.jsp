@@ -64,11 +64,11 @@
           </a> --%>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="${path }/GetBoardListCtrl">게시판</a>
+          <a class="nav-link" href="${path }/GetBoardListCtrl">공지사항</a>
         </li>
-        <li class="nav-item">
+<%--         <li class="nav-item">
           <a class="nav-link" href="${path }/GetGoodsList_mCtrl">상품게시판</a>
-        </li>
+        </li> --%>
 <%--         <li class="nav-item">
           <a class="nav-link menu_goods">쇼핑 게시판</a>
           	<ul class="menu_sub">

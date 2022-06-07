@@ -239,9 +239,10 @@ margin: 0 auto;
 </header>
 
 <div class="tb_wrap">
-<h1 style="text-align: center">DAO를 이용한 Shop_Board 리스트</h1>
+<h1 style="text-align: center">공지사항</h1>
+<c:if test="${sid == 'admin' }">
 <button style="margin-bottom: 10px;" onclick="window.open('./board/BoardAdd_admin.jsp','추가','width=430,height=260,location=no,status=no,scrollbars=no');">추가</button>
-
+</c:if>
 <form method="post" action="GetBoardSearchListCtrl">
 <select id="s_type" class="s_type" name="s_type">
 <option value="tit">제목</option>

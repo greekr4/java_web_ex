@@ -266,7 +266,7 @@ cursor: pointer;
 		<th>수량</th>
 		<th>가격</th>
 		<th>추가일</th>
-		<th>총금액</th>
+		<th style="width:150px;">총금액</th>
 		<th>버튼</th>
 		</tr>
 		<!--/GetMyPageCtrl?uid=${sid } -->
@@ -290,7 +290,7 @@ cursor: pointer;
 	</td>
 	</tr>
 	<c:set var="t_price" value="${t_price + vo.gprice * vo.bamount}" />
-	<input type="text" name="test" id="test" class="test" value="${vo.gcode }">
+	<input type="hidden" name="test" id="test" class="test" value="${vo.gcode }">
 	</c:forEach>
 
 </table>
