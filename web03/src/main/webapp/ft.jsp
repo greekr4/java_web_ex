@@ -57,7 +57,7 @@
 			<div class="f_cs_copy">
 				<div class="ft_title">COMPANY INFO</div>
 				<div class="cs_info">
-				COMPANY : (주)태균낚시마트    &nbsp;/ &nbsp;   OWNER : 김태균    &nbsp;/ &nbsp;   <br>CALL CENTER : [택배관련문의] 031-000-0000 / [제품관련문의] 031-000-0000    &nbsp;/ &nbsp;    FAX : 031-202-0866<br>
+				COMPANY : (주)태균낚시마트    &nbsp;/ &nbsp;   OWNER : 김태균    &nbsp;/ &nbsp;   <br>CALL CENTER : [택배관련문의] 031-000-0000 / [제품관련문의] 031-000-0000    &nbsp;/ &nbsp;    FAX : 031-000-0000<br>
 				ADDRESS : 경기도 파주시 당동1로 12 (경기도 파주시 문산읍)    &nbsp;/ &nbsp;   개인정보관리책임자 : 김태균 <a href="#">greekr4@naver.com</a><br>
 				사업자등록번호 : 000-00-00000 <a href="#" target="_blank"><b>[사업자정보확인]</b></a>    &nbsp;/ &nbsp;   통신판매업 신고번호  : 제2016-파주동부-0001호<BR>
 				부서별 : 쇼핑몰 031-000-0000 / 매장 031-000-0000 / 태균 파주점 1층 민물매장 070-0000-0000

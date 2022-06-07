@@ -311,7 +311,7 @@ cursor: pointer;
 		<th>${vo.delivery_address }</th>
 		<th>${vo.delivery_address_details }</th>
 		<th>${vo.order_email }</th>
-		<th>${vo.gtotal }</th>
+		<th><fmt:formatNumber value="${vo.gtotal}" pattern="#,###"/></th>
 		<th>${vo.regdate }</th>
 		<th>
 		<a href="#" onclick="more(${vo.order_no })">상세보기</a> 
