@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상품추가</title>
+<title>상품 추가</title>
 <!--  -->
 <script src="../js/jquery-latest.js"></script>
 <script src="../js/bootstrap.js"></script>

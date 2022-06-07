@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>태균낚시마트 - 상품</title>
 <!--  -->
 <script src="./js/jquery-latest.js"></script>
 <script src="./js/bootstrap.js"></script>
@@ -134,11 +134,43 @@ button:hover,.form button:active,.form button:focus {
     	<div class="coment_top">
     		<h2>이용후기</h2>
     	</div>
-    	<div class="coment_main">
-			<div class="thumbs">★★★★★</div>
-			<div class="detail">좋아요</div>
-			<div class="id">admin</div>
-    	</div>
+    	<c:choose>
+    	<c:when test="${not empty CommentVO }">
+		    	<c:forEach items="${CommentVO }" var="Vo" varStatus="status">
+		    	<div class="coment_main">
+					<div class="thumbs">
+					<c:choose> 
+					<c:when test="${Vo.thumb == 5}">
+					★★★★★
+					</c:when> 
+					<c:when test="${Vo.thumb == 4}">
+					★★★★☆
+					</c:when> 
+					<c:when test="${Vo.thumb == 3}">
+					★★★☆☆
+					</c:when> 
+					<c:when test="${Vo.thumb == 2}">
+					★★☆☆☆
+					</c:when> 
+					<c:when test="${Vo.thumb == 1}">
+					★★☆☆☆
+					</c:when> 
+					<c:otherwise>
+					☆☆☆☆☆
+					</c:otherwise> 
+				</c:choose> 
+					</div>
+					<div class="detail">${Vo.cdetail }</div>
+					<div class="id">${Vo.user_id }</div>
+		    	</div>
+		    	</c:forEach>
+    	</c:when>
+    	<c:otherwise>
+					    	<div class="coment_main">
+					    	<h4 style="text-align: center; width: 100%">아직 후기가 없습니다~</h4>
+					    	</div>
+		</c:otherwise> 
+    	</c:choose>
     </div>
     
     <style>

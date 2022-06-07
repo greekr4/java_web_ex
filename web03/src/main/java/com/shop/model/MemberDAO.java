@@ -275,7 +275,8 @@ public class MemberDAO {
 			if(rs.next()) {
 			Vo.setMid(rs.getString("mid"));
 			Vo.setMname(rs.getString("mname"));
-			Vo.setMnick(rs.getString("mnick"));			
+			Vo.setMnick(rs.getString("mnick"));		
+			this.LoginPoint(id);
 			}
 		}
 		catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
@@ -285,7 +286,25 @@ public class MemberDAO {
 		return Vo; //기본정보만 보냄
 	}
 	/////////////////////////////////////////////////
-	
+	public int LoginPoint(String id) {
+		int p_value = 5;
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "update shop_member set mpoint=mpoint+? , mlatest=sysdate where mid=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, p_value);
+			pstmt.setString(2, id);
+			cnt = pstmt.executeUpdate();
+
+		}
+		catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
+		catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
+		catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
+		finally 							{ JDBCConnection.close(rs, pstmt, conn); }
+		
+		
+		return cnt;
+	}
 	
 	
 	

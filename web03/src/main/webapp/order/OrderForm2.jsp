@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>주문하기</title>
+<title>태균낚시마트 - 주문하기</title>
 <!--  -->
 <script src="./js/jquery-latest.js"></script>
 <script src="./js/bootstrap.js"></script>

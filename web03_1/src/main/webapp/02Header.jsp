@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>디렉티브</title>
+<title>헤더</title>
 </head>
 <body>
 

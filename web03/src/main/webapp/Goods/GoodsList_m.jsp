@@ -12,7 +12,7 @@
 <head>
 <link rel="stylesheet" href="common.css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>태균낚시마트 - 상품리스트(회원)</title>
 <!--  -->
 <script src="./js/jquery-latest.js"></script>
 <script src="./js/bootstrap.js"></script>

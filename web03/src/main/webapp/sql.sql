@@ -10,6 +10,10 @@ select count(*) as cnt from goods where gcode like '%B11%'
 select count(*) from goods
 select mno,mid,mpw,mname,mtel,maddress,memail,mnick,mcash,mpoint,mgrade,to_char(mjday,'yyyy-MM-dd HH24:mi:ss') as jday, to_char(mlatest,'yyyy-MM-dd HH24:mi:ss') as latest from shop_member order by mno desc;
 select * from payment;
+select * from shop_comment;
+
+insert into shop_comment values(1,'A110001','admin','너무 좋아요',5);
+
 
 CREATE TABLE db_access (
   no number primary key,
@@ -388,3 +392,4 @@ thumb number not null
 
 
 select * from shop_order_line
+update shop_member set mpoint=mpoint+ latest=sysdate where mid=?
