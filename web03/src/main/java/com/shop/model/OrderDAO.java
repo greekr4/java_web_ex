@@ -87,6 +87,78 @@ public class OrderDAO {
 		return list;
 	}
 	
+	public ArrayList<OrderVO> GetOrderList_pay(int pay_state) {
+		ArrayList<OrderVO> list = new ArrayList<OrderVO>();
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "select * from shop_order where ORDER_PAY_STATE = ? order by ORDER_NO desc";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, pay_state);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				OrderVO Vo = new OrderVO();
+				Vo.setOrder_seq(rs.getInt("order_seq"));
+				Vo.setOrder_state(rs.getInt("ORDER_STATE"));
+				Vo.setOrder_pay_state(rs.getInt("ORDER_PAY_STATE"));
+				Vo.setOrder_no(rs.getInt("order_no"));
+				Vo.setDelivery_user_name(rs.getString("delivery_user_name"));
+				Vo.setDelivery_cellphone(rs.getString("delivery_cellphone"));
+				Vo.setDelivery_zip_code(rs.getString("DELIVERY_ZIP_CODE"));
+				Vo.setDelivery_address(rs.getString("DELIVERY_ADDRESS"));
+				Vo.setDelivery_address_details(rs.getString("DELIVERY_ADDRESS_DETAILS"));
+				Vo.setOrder_email(rs.getString("order_email"));
+				Vo.setUser_id(rs.getString("user_id"));
+				Vo.setGtotal(rs.getInt("GTOTAL"));
+				Vo.setRegdate(rs.getString("regdate"));
+				list.add(Vo);
+			}
+		}
+		catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
+		catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
+		catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
+		finally 							{ JDBCConnection.close(rs, pstmt, conn); }
+		
+		
+		
+		return list;
+	}
+	
+	
+	public ArrayList<OrderVO> GetOrderList_deli(int state) {
+		ArrayList<OrderVO> list = new ArrayList<OrderVO>();
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "select * from shop_order where ORDER_STATE = ? order by ORDER_NO desc";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, state);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				OrderVO Vo = new OrderVO();
+				Vo.setOrder_seq(rs.getInt("order_seq"));
+				Vo.setOrder_state(rs.getInt("ORDER_STATE"));
+				Vo.setOrder_pay_state(rs.getInt("ORDER_PAY_STATE"));
+				Vo.setOrder_no(rs.getInt("order_no"));
+				Vo.setDelivery_user_name(rs.getString("delivery_user_name"));
+				Vo.setDelivery_cellphone(rs.getString("delivery_cellphone"));
+				Vo.setDelivery_zip_code(rs.getString("DELIVERY_ZIP_CODE"));
+				Vo.setDelivery_address(rs.getString("DELIVERY_ADDRESS"));
+				Vo.setDelivery_address_details(rs.getString("DELIVERY_ADDRESS_DETAILS"));
+				Vo.setOrder_email(rs.getString("order_email"));
+				Vo.setUser_id(rs.getString("user_id"));
+				Vo.setGtotal(rs.getInt("GTOTAL"));
+				Vo.setRegdate(rs.getString("regdate"));
+				list.add(Vo);
+			}
+		}
+		catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
+		catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
+		catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
+		finally 							{ JDBCConnection.close(rs, pstmt, conn); }
+		
+		
+		
+		return list;
+	}
 	
 	public int AddOrder(OrderVO Vo) {
 		int ono = 0;

@@ -262,6 +262,9 @@ width: 80%;
 .right_menu{
 width: 10%;
 }
+td{
+text-align: center;
+}
 
 </style>
 </head>
@@ -326,8 +329,8 @@ width: 10%;
 		<td>
 		<select name="pay_state" id="pay_state" class="pay_state">
 		<option value="1">결제대기</option>
-		<option value="2">결제완료</option>
-		<option value="3">처리완료</option>
+		<option value="2">승인대기</option>
+		<option value="3">결제완료</option>
 		</select>
 		<script>
 		$('.state').eq(${status.index}).val("${vo.order_state }");

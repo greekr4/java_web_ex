@@ -42,7 +42,7 @@ public class EditOrderCtrl extends HttpServlet {
 		
 		if (cnt > 0) {
 			//성공
-			out.println("<script>alert('성공');</script>");
+			out.println("<script>opener.parent.location.reload();alert('성공');</script>");
 		}else {
 			//실패
 			out.println("<script>alert('실패');</script>");

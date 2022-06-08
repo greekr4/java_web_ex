@@ -20,7 +20,6 @@
 
 
 
-
 <style>
 .main_image{
 clear: both;
