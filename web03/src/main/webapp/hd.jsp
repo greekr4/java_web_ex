@@ -98,7 +98,7 @@
 
       <!-- 운영자게시판 -->
       <c:if test="${sid == 'admin' }">
-          <li class="nav-item">
+<%--           <li class="nav-item">
           <a class="nav-link" style="color:pink;">     |||||     </a>
         </li>
         <li class="nav-item">
@@ -109,6 +109,9 @@
         </li>        
         <li class="nav-item">
           <a class="nav-link" href="${path }/GetOrderListCtrl" style="color:pink;">주문(admin)</a>
+        </li> --%>
+         <li class="nav-item">
+          <a class="nav-link" href="${path }/index_admin.jsp" style="color:pink;">관리자페이지</a>
         </li>
         <%-- <li class="nav-item">
           <a class="nav-link" href="${path }/AccessListCtrl" style="color:pink;">접속로그(admin)</a>

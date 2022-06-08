@@ -3,16 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="path" value="${pageContext.request.contextPath }" />
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
-    
-
-
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="common.css">
 <meta charset="UTF-8">
-<title>태균낚시마트 - 상품리스트</title>
+<title>태균낚시마트</title>
 <!--  -->
 <script src="./js/jquery-latest.js"></script>
 <script src="./js/bootstrap.js"></script>
@@ -22,7 +17,14 @@
 <link rel="stylesheet" href="./css/common.css">
 <link rel="stylesheet" href="./css/ft.css">
 <!--  -->
+
+
+
+
+
 <style>
+
+
 .table {
   --bs-table-bg: transparent;
   --bs-table-accent-bg: transparent;
@@ -237,6 +239,35 @@ a {
 color: blue;
 cursor: pointer;
 }
+
+.ct_wrap{
+clear:both;
+}
+img{
+display: block;
+width: 100%;
+}
+.admin_wrap{
+width: 100%;
+margin-top: 50px;
+}
+.flex_box{
+display: flex;
+}
+.left_menu{
+margin-left: 30px;
+width: 10%;
+}
+.left_menu li{
+margin-left: 1em;
+}
+.main{
+width: 80%;
+}
+.right_menu{
+width: 10%;
+}
+
 </style>
 </head>
 <body>
@@ -244,9 +275,14 @@ cursor: pointer;
 <header id="hd">
 <jsp:include page="../hd.jsp"></jsp:include>
 </header>
-
-<div class="tb_wrap">
-<h1 style="text-align: center">Goods 리스트</h1>
+<div class="ct">
+	<div class="ct_wrap">
+		<div class="admin_wrap">
+			<div class="flex_box">
+				<div class="left_menu">
+					<jsp:include page="../admin_menu.jsp"></jsp:include>
+				</div>
+				<div class="main">
 <button style="margin-bottom: 10px;" onclick="window.open('./Goods/GoodsAdd.jsp','추가','width=430,height=900,location=no,status=no,scrollbars=no');">추가</button>
 <!-- <form method="post" action="GetMemberSearchListCtrl">
 <select id="s_type" class="s_type" name="s_type">
@@ -317,7 +353,15 @@ function DelGoods(gno) {
 }
 </script>
 <iframe width=0 height=0 name="hiddenframe1" style="display:none;"></iframe>
+				</div>
+				<div class="right_menu">
+				
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+
 <footer id="ft">
 <jsp:include page="../ft.jsp"></jsp:include>
 </footer>

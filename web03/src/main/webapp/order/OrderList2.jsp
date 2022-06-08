@@ -3,11 +3,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="path" value="${pageContext.request.contextPath }" />
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+    
+
+
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="common.css">
 <meta charset="UTF-8">
-<title>태균낚시마트</title>
+<title>태균낚시마트 - 주문 목록</title>
 <!--  -->
 <script src="./js/jquery-latest.js"></script>
 <script src="./js/bootstrap.js"></script>
@@ -17,11 +22,6 @@
 <link rel="stylesheet" href="./css/common.css">
 <link rel="stylesheet" href="./css/ft.css">
 <!--  -->
-
-
-
-
-
 <style>
 .table {
   --bs-table-bg: transparent;
@@ -202,6 +202,11 @@
 }
 
 /* 여기까지 */
+.tb_wrap{
+width: 1600px;
+margin: 30px auto;
+}
+
 
 button {
 display: inline-block;
@@ -232,37 +237,6 @@ a {
 color: blue;
 cursor: pointer;
 }
-
-
-
-.ct_wrap{
-clear:both;
-}
-img{
-display: block;
-width: 100%;
-}
-.admin_wrap{
-width: 100%;
-margin-top: 50px;
-}
-.flex_box{
-display: flex;
-}
-.left_menu{
-margin-left: 30px;
-width: 10%;
-}
-.left_menu li{
-margin-left: 1em;
-}
-.main{
-width: 80%;
-}
-.right_menu{
-width: 10%;
-}
-
 </style>
 </head>
 <body>
@@ -270,14 +244,9 @@ width: 10%;
 <header id="hd">
 <jsp:include page="../hd.jsp"></jsp:include>
 </header>
-<div class="ct">
-	<div class="ct_wrap">
-		<div class="admin_wrap">
-			<div class="flex_box">
-				<div class="left_menu">
-				<jsp:include page="../admin_menu.jsp"></jsp:include>
-				</div>
-				<div class="main">
+
+<div class="tb_wrap">
+<h1 style="text-align: center">오더리스트</h1>
 <!-- <form method="post" action="GetMemberSearchListCtrl">
 <select id="s_type" class="s_type" name="s_type">
 <option value="ids">아이디</option>
@@ -312,18 +281,18 @@ width: 10%;
 
 	<c:forEach items="${OrderList }" var="vo" varStatus="status">
 	<tr class="table-active">
-		<td>${vo.order_seq }</td>
-		<td>${vo.order_no }</td>
-		<td>
+		<th>${vo.order_seq }</th>
+		<th>${vo.order_no }</th>
+		<th>
 		<select name="state" id="state" class="state">
 		<option value="1">배송대기</option>
 		<option value="2">배송시작</option>
 		<option value="3">배송완료</option>
 		<option value="4">수신완료</option>
 		</select>
-		</td>
-		<td><a href="#" onclick="EditState('S',${status.index },${vo.order_seq })">처리</a></td>
-		<td>
+		</th>
+		<th><a href="#" onclick="EditState('S',${status.index },${vo.order_seq })">처리</a></th>
+		<th>
 		<select name="pay_state" id="pay_state" class="pay_state">
 		<option value="1">결제대기</option>
 		<option value="2">결제완료</option>
@@ -333,19 +302,19 @@ width: 10%;
 		$('.state').eq(${status.index}).val("${vo.order_state }");
 		$('.pay_state').eq(${status.index}).val("${vo.order_pay_state }");
 		</script>
-		</td>
-		<td><a href="#" onclick="EditState('P',${status.index },${vo.order_seq })">처리</a></td>
+		</th>
+		<th><a href="#" onclick="EditState('P',${status.index },${vo.order_seq })">처리</a></th>
 
-		<td>${vo.delivery_user_name }</td>
-		<td>${vo.delivery_cellphone }</td>
-		<td>${vo.delivery_zip_code }</td>
-		<td>${vo.delivery_address }</td>
-		<td>${vo.delivery_address_details }</td>
-		<td>${vo.order_email }</td>
-		<td>${vo.user_id }</td>
-		<td><fmt:formatNumber value="${vo.gtotal }" pattern="#,###"/></td>
-		<td>${vo.regdate }</td>
-		<td><a href="#" onclick="more(${vo.order_no })">상세보기</a></td>
+		<th>${vo.delivery_user_name }</th>
+		<th>${vo.delivery_cellphone }</th>
+		<th>${vo.delivery_zip_code }</th>
+		<th>${vo.delivery_address }</th>
+		<th>${vo.delivery_address_details }</th>
+		<th>${vo.order_email }</th>
+		<th>${vo.user_id }</th>
+		<th><fmt:formatNumber value="${vo.gtotal }" pattern="#,###"/></th>
+		<th>${vo.regdate }</th>
+		<th><a href="#" onclick="more(${vo.order_no })">상세보기</a></th>
 	</tr>
 	</c:forEach>
 
@@ -371,15 +340,7 @@ function EditState(type,val,oseq) {
 	}
 </script>
 <iframe width=0 height=0 name="hiddenframe1" style="display:none;"></iframe>
-				</div>
-				<div class="right_menu">
-				
-				</div>
-			</div>
-		</div>
-	</div>
 </div>
-
 <footer id="ft">
 <jsp:include page="../ft.jsp"></jsp:include>
 </footer>

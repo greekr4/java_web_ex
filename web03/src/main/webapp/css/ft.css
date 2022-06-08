@@ -3,12 +3,13 @@
 
 /* 푸터 */
 
+
 #ft {clear:both;}
 #footer { width: 100%; margin-top: 100px; font-weight: normal !important; }
 #footer .section { width: 100%; border-top: 1px solid rgb(34, 34, 34); border-bottom: 1px solid rgb(233, 233, 233); margin: 0px auto; height: 75px; }
 #footer .section .inner { width: 1260px; margin: 0px auto; height: 49px; }
 #footer .section .inner ul li { float: left; }
-#footer .section .inner ul li a { font-size: 13px; color: rgb(119, 119, 119); display: block; line-height: 75px; padding: 0px 12px; letter-spacing: -0.5px; background-image: url("/design/choitomas/0704everday/footer_menu_bg.gif"); background-position: 0px 20px; background-repeat: no-repeat; }
+#footer .section .inner ul li a { font-size: 13px; color: rgb(119, 119, 119); display: block; line-height: 75px; padding: 0px 12px; letter-spacing: -0.5px; background-image: url("./img/index/footer_menu_bg.gif"); background-position: 0px 20px; background-repeat: no-repeat; }
 #footer .section .inner ul li a:hover { color: rgb(0, 0, 0); }
 #footer .section .inner ul li:first-child a { padding-left: 10px; background-image: url(""); }
 #footer .section .inner .privacy a { color: rgb(0, 0, 0); }

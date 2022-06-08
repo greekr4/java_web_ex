@@ -47,7 +47,7 @@ public class AddCommentCtrl extends HttpServlet {
 	Vo.setGcode(gcode);
 	int cnt = DAO.addComment(Vo);
 	if (cnt > 0) {
-		out.println("<script>window.close();</script>");
+		out.println("<script>opener.parent.location.reload(); window.close();</script>");
 	}else {
 		System.out.println("실패");
 		out.println("<script>window.close();</script>");

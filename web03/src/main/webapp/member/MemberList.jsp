@@ -1,18 +1,12 @@
+<%@page import="javax.swing.text.AbstractDocument.Content"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="path" value="${pageContext.request.contextPath }" />
-
-
- 
-
-
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="common.css">
 <meta charset="UTF-8">
-<title>태균낚시마트 - 회원 목록</title>
+<title>태균낚시마트</title>
 <!--  -->
 <script src="./js/jquery-latest.js"></script>
 <script src="./js/bootstrap.js"></script>
@@ -22,6 +16,11 @@
 <link rel="stylesheet" href="./css/common.css">
 <link rel="stylesheet" href="./css/ft.css">
 <!--  -->
+
+
+
+
+
 <style>
 .table {
   --bs-table-bg: transparent;
@@ -203,8 +202,7 @@
 
 /* 여기까지 */
 .tb_wrap{
-width: 1600px;
-margin: 30px auto;
+clear: both;
 }
 
 
@@ -232,6 +230,48 @@ margin: 0 auto;
 th{
 text-align: center;
 }
+td{
+font-size: 11px;
+}
+
+
+
+
+
+
+img{
+display: block;
+width: 100%;
+}
+.admin_wrap{
+width: 100%;
+margin-top: 50px;
+}
+.flex_box{
+display: flex;
+}
+.left_menu{
+margin-left: 30px;
+width: 10%;
+}
+
+.left_menu li{
+margin-left: 1em;
+}
+
+.main{
+width: 80%;
+}
+.right_menu{
+width: 10%;
+
+}
+
+a {
+color: blue;
+cursor: pointer;
+}
+
 </style>
 </head>
 <body>
@@ -239,9 +279,14 @@ text-align: center;
 <header id="hd">
 <jsp:include page="../hd.jsp"></jsp:include>
 </header>
-
-<div class="tb_wrap">
-<h1 style="text-align: center">DAO를 이용한 Member 리스트</h1>
+<div class="ct">
+	<div class="ct_wrap">
+		<div class="admin_wrap">
+			<div class="flex_box">
+				<div class="left_menu">
+					<jsp:include page="../admin_menu.jsp"></jsp:include>
+				</div>
+				<div class="main">
 <button style="margin-bottom: 10px;" onclick="window.open('./member/join.jsp','추가','width=430,height=1080,location=no,status=no,scrollbars=no');">추가</button>
 
 <form method="post" action="GetMemberSearchListCtrl">
@@ -257,18 +302,18 @@ text-align: center;
 		<tr class="table-primary">
 		<th style="width: 3%">번호</th>
 		<th style="width: 8.3%">아이디</th>
-		<th style="width: 8.3%">비밀번호</th>
+		<th style="width: 5.6%">비밀번호</th>
 		<th style="width: 4%">이름</th>
-		<th style="width: 8.3%">닉네임</th>
-		<th style="width: 8.3%">연락처</th>
-		<th style="width: 8.3%">주소</th>
+		<th style="width: 7.3%">닉네임</th>
+		<th style="width: 7.3%">연락처</th>
+		<th style="width: 20%">주소</th>
 		<th style="width: 8.3%">이메일</th>
-		<th style="width: 8.3%">보유머니</th>
-		<th style="width: 8.3%">포인트</th>
+		<th style="width: 7.3%">보유머니</th>
+		<th style="width: 7.3%">포인트</th>
 		<th style="width: 3%">등급</th>
-		<th style="width: 10%">가입일</th>
-		<th style="width: 10%">최근</th>
-		<th style="width: 4%"></th>
+		<th style="width: 8%">가입일</th>
+		<th style="width: 8%">최근</th>
+		<th style="width: 3%"></th>
 		</tr>
 		<!--/GetMyPageCtrl?uid=${sid } -->
 	</thead>
@@ -280,7 +325,7 @@ text-align: center;
 	<td style="text-align: center">${vo.mname }</td>
 	<td style="text-align: center">${vo.mnick }</td>
 	<td style="text-align: center">${vo.mtel }</td>
-	<td style="text-align: center">${vo.maddress }</td>
+	<td style="text-align: center;">${vo.maddress }</td>
 	<td style="text-align: center">${vo.memail }</td>
 	<td style="text-align: center">${vo.mcash }</td>
 	<td style="text-align: center">${vo.mpoint }</td>
@@ -293,7 +338,15 @@ text-align: center;
 	</c:forEach>
 
 </table>
+				</div>
+				<div class="right_menu">
+				
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+
 <footer id="ft">
 <jsp:include page="../ft.jsp"></jsp:include>
 </footer>

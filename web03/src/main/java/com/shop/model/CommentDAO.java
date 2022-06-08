@@ -20,14 +20,15 @@ public class CommentDAO {
 	//이용후기 불러오기
 	public ArrayList<CommentVO> getComment(String gcode) {
 		ArrayList<CommentVO> Volist = new ArrayList<CommentVO>();
-		CommentVO Vo = new CommentVO();
+		
 		try {
 		conn = JDBCConnection.getConnection();
-		sql = "select * from shop_comment where gcode = ?";
+		sql = "select * from shop_comment where gcode = ? order by C_SEQ desc";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, gcode);
 		rs = pstmt.executeQuery();
 		while(rs.next()) {
+		CommentVO Vo = new CommentVO();
 		Vo.setC_seq(rs.getInt("c_seq"));
 		Vo.setGcode(rs.getString("gcode"));
 		Vo.setUser_id(rs.getString("user_id"));
