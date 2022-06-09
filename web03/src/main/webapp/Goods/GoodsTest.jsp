@@ -39,23 +39,73 @@
 <style>
 .view_item{
 	float:left;
-	border: 1px solid #000;
 	width:32%;
 	margin:5px 5px;
-	height: 364px;
+	height: 450px;
 	overflow: hidden;
+	/* border: 1px solid #000; */
 	/*background-color: #555;*/
 	}
+
 	.item_img{
+	overflow:hidden;
 	clear: both;
 	width: 100%;
-	height: 264px;
+	height: 300px;
+	border: 1px solid #fff;
+	box-sizing: border-box;
 	}
-	.view_item img{
-	display: block;
-	width :100%;
-	height: 100%;
+	.item_img:hover{
+	border: 1px solid #777;
 	}
+
+.scale {
+width: 100%;
+height: 264px;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transition: all 0.3s ease-in-out;  
+}
+.scale:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+.sale_con{
+z-index:998;
+position: relative;
+text-align:center;
+font-weight:bold;
+color:black;
+background-color: #fff;
+width: 50px;
+height: 40px;
+top:10px;
+left:10px;
+border:1px solid #ddd;
+border-top: 1px solid #000;
+
+}
+
+.item_img:hover .sale_con{
+color:white;
+background-color: #000;
+transition: all 0.2s ease-in-out;  
+}
+
+
+	
+.view_item img{
+overflow:hidden;
+display: block;
+width :100%;
+height: 100%;
+}
 	
 	.item_txt{
 	clear: both;
@@ -63,17 +113,33 @@
 	height: 100px;
 	}
 	.item_txt h2{
-	font-size:20px;
-	font-weight: 500;
+	white-space:nowrap;
+	font-size:16px;
+	font-weight: bold;
 	line-height: 1em;
 	margin:10px;
 	}
 	
-	.item_txt p{
-	margin-left:10px;
+	.item_txt .txt_detail{
+	margin-left:18px;
     font-size: 12px;
     line-height: 1.5em;
+    color:#777;
 	}
+	.item_txt .txt_price1{
+	margin-left:18px;
+    font-size: 12px;
+    text-decoration: line-through;
+    line-height: 1.5em;
+    color:#777;
+	}	
+	.item_txt .txt_price2{
+	margin-left:18px;
+    font-size: 20px;
+    font-weight:bold;
+    line-height: 1.5em;
+
+	}	
 	.subct{
 	clear:both;
 	display:flex;
@@ -143,17 +209,24 @@ button:hover,.form button:active,.form button:focus {
 	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
 	<c:if test="${fn:substring(vo.gcode,0,3) == 'A11' }">
 	<div class="view_item">
-		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
 		<div class="item_img">
+		<div class="sale_con">
+		20%
+		</div>
+		<div class="scale">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
 		<img alt="" src="./img/${vo.gimage }">
+		</a>
+		</div>
 		</div>
 		<div class="item_txt">
 		<h2>${vo.gname }</h2>
-		<p>${vo.gdetail }</p>
-		<p>가격 : <fmt:formatNumber value="${vo.gprice}" pattern="#,###"/>원</p>
+		<span class="txt_detail">${vo.gdetail }</span><br>
+		<span class="txt_price1"> <fmt:formatNumber value="${vo.gprice / 0.8 }" pattern="#,###" />원</span><br>
+		<span class="txt_price2"><fmt:formatNumber value="${vo.gprice }" pattern="#,###"/>원</span>
 		</div>
-		</a>
 	</div>
+	
 	</c:if>
 	</c:forEach>
 </div>
@@ -174,16 +247,22 @@ button:hover,.form button:active,.form button:focus {
 	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
 	<c:if test="${fn:substring(vo.gcode,0,3) == 'A12' }">
 	<div class="view_item">
-		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
 		<div class="item_img">
+		<div class="sale_con">
+		20%
+		</div>
+		<div class="scale">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
 		<img alt="" src="./img/${vo.gimage }">
+		</a>
+		</div>
 		</div>
 		<div class="item_txt">
 		<h2>${vo.gname }</h2>
-		<p>${vo.gdetail }</p>
-		<p>가격 : <fmt:formatNumber value="${vo.gprice}" pattern="#,###"/>원</p>
+		<span class="txt_detail">${vo.gdetail }</span><br>
+		<span class="txt_price1"> <fmt:formatNumber value="${vo.gprice / 0.8 }" pattern="#,###" />원</span><br>
+		<span class="txt_price2"><fmt:formatNumber value="${vo.gprice }" pattern="#,###"/>원</span>
 		</div>
-		</a>
 	</div>
 	</c:if>
 	</c:forEach>
@@ -204,16 +283,22 @@ button:hover,.form button:active,.form button:focus {
 	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
 	<c:if test="${fn:substring(vo.gcode,0,3) == 'A13' }">
 	<div class="view_item">
-		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
 		<div class="item_img">
+		<div class="sale_con">
+		20%
+		</div>
+		<div class="scale">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
 		<img alt="" src="./img/${vo.gimage }">
+		</a>
+		</div>
 		</div>
 		<div class="item_txt">
 		<h2>${vo.gname }</h2>
-		<p>${vo.gdetail }</p>
-		<p>가격 : <fmt:formatNumber value="${vo.gprice}" pattern="#,###"/>원</p>
+		<span class="txt_detail">${vo.gdetail }</span><br>
+		<span class="txt_price1"> <fmt:formatNumber value="${vo.gprice / 0.8 }" pattern="#,###" />원</span><br>
+		<span class="txt_price2"><fmt:formatNumber value="${vo.gprice }" pattern="#,###"/>원</span>
 		</div>
-		</a>
 	</div>
 	</c:if>
 	</c:forEach>
@@ -234,16 +319,22 @@ button:hover,.form button:active,.form button:focus {
 	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
 	<c:if test="${fn:substring(vo.gcode,0,3) == 'A14' }">
 	<div class="view_item">
-		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
 		<div class="item_img">
+		<div class="sale_con">
+		20%
+		</div>
+		<div class="scale">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
 		<img alt="" src="./img/${vo.gimage }">
+		</a>
+		</div>
 		</div>
 		<div class="item_txt">
 		<h2>${vo.gname }</h2>
-		<p>${vo.gdetail }</p>
-		<p>가격 : <fmt:formatNumber value="${vo.gprice}" pattern="#,###"/>원</p>
+		<span class="txt_detail">${vo.gdetail }</span><br>
+		<span class="txt_price1"> <fmt:formatNumber value="${vo.gprice / 0.8 }" pattern="#,###" />원</span><br>
+		<span class="txt_price2"><fmt:formatNumber value="${vo.gprice }" pattern="#,###"/>원</span>
 		</div>
-		</a>
 	</div>
 	</c:if>
 	</c:forEach>
