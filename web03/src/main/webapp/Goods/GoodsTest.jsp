@@ -305,6 +305,7 @@ button:hover,.form button:active,.form button:focus {
 </div>
 </section>
 
+<!-- 시작 -->
 <section id="A14"> 
 <div class="subct">
 	<div class="menubtn_wrap">
@@ -340,6 +341,465 @@ button:hover,.form button:active,.form button:focus {
 	</c:forEach>
 </div>
 </section>
+<!-- 끝 -->
+<!-- ---------------A끝---------------- -->
+
+<!-- 시작 -->
+<section id="B11"> 
+<div class="subct">
+	<div class="menubtn_wrap">
+	<div class="menubtn_box">
+	<c:forEach items="${Volist2 }" var="Vo" varStatus="status">
+	<c:if test="${fn:substring(Vo.dcode,0,1) == 'B' }">
+	<a href="#${Vo.dcode }"><button>${Vo.dcode_res }</button></a>
+	</c:if>
+	</c:forEach>
+	</div>
+	</div>
+	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
+	<c:if test="${fn:substring(vo.gcode,0,3) == 'B11' }">
+	<div class="view_item">
+		<div class="item_img">
+		<div class="sale_con">
+		20%
+		</div>
+		<div class="scale">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
+		<img alt="" src="./img/${vo.gimage }">
+		</a>
+		</div>
+		</div>
+		<div class="item_txt">
+		<h2>${vo.gname }</h2>
+		<span class="txt_detail">${vo.gdetail }</span><br>
+		<span class="txt_price1"> <fmt:formatNumber value="${vo.gprice / 0.8 }" pattern="#,###" />원</span><br>
+		<span class="txt_price2"><fmt:formatNumber value="${vo.gprice }" pattern="#,###"/>원</span>
+		</div>
+	</div>
+	</c:if>
+	</c:forEach>
+</div>
+</section>
+<!-- 끝 -->
+
+<!-- 시작 -->
+<section id="B12"> 
+<div class="subct">
+	<div class="menubtn_wrap">
+	<div class="menubtn_box">
+	<c:forEach items="${Volist2 }" var="Vo" varStatus="status">
+	<c:if test="${fn:substring(Vo.dcode,0,1) == 'B' }">
+	<a href="#${Vo.dcode }"><button>${Vo.dcode_res }</button></a>
+	</c:if>
+	</c:forEach>
+	</div>
+	</div>
+	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
+	<c:if test="${fn:substring(vo.gcode,0,3) == 'B12' }">
+	<div class="view_item">
+		<div class="item_img">
+		<div class="sale_con">
+		20%
+		</div>
+		<div class="scale">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
+		<img alt="" src="./img/${vo.gimage }">
+		</a>
+		</div>
+		</div>
+		<div class="item_txt">
+		<h2>${vo.gname }</h2>
+		<span class="txt_detail">${vo.gdetail }</span><br>
+		<span class="txt_price1"> <fmt:formatNumber value="${vo.gprice / 0.8 }" pattern="#,###" />원</span><br>
+		<span class="txt_price2"><fmt:formatNumber value="${vo.gprice }" pattern="#,###"/>원</span>
+		</div>
+	</div>
+	</c:if>
+	</c:forEach>
+</div>
+</section>
+<!-- 끝 -->
+
+<!-- 시작 -->
+<section id="B13"> 
+<div class="subct">
+	<div class="menubtn_wrap">
+	<div class="menubtn_box">
+	<c:forEach items="${Volist2 }" var="Vo" varStatus="status">
+	<c:if test="${fn:substring(Vo.dcode,0,1) == 'B' }">
+	<a href="#${Vo.dcode }"><button>${Vo.dcode_res }</button></a>
+	</c:if>
+	</c:forEach>
+	</div>
+	</div>
+	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
+	<c:if test="${fn:substring(vo.gcode,0,3) == 'B13' }">
+	<div class="view_item">
+		<div class="item_img">
+		<div class="sale_con">
+		20%
+		</div>
+		<div class="scale">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
+		<img alt="" src="./img/${vo.gimage }">
+		</a>
+		</div>
+		</div>
+		<div class="item_txt">
+		<h2>${vo.gname }</h2>
+		<span class="txt_detail">${vo.gdetail }</span><br>
+		<span class="txt_price1"> <fmt:formatNumber value="${vo.gprice / 0.8 }" pattern="#,###" />원</span><br>
+		<span class="txt_price2"><fmt:formatNumber value="${vo.gprice }" pattern="#,###"/>원</span>
+		</div>
+	</div>
+	</c:if>
+	</c:forEach>
+</div>
+</section>
+<!-- BBBBBBBBBBBBBBBBBBBB끝 -->
+
+
+<!-- 시작 -->
+<section id="C11"> 
+<div class="subct">
+	<div class="menubtn_wrap">
+	<div class="menubtn_box">
+	<c:forEach items="${Volist2 }" var="Vo" varStatus="status">
+	<c:if test="${fn:substring(Vo.dcode,0,1) == 'C' }">
+	<a href="#${Vo.dcode }"><button>${Vo.dcode_res }</button></a>
+	</c:if>
+	</c:forEach>
+	</div>
+	</div>
+	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
+	<c:if test="${fn:substring(vo.gcode,0,3) == 'C11' }">
+	<div class="view_item">
+		<div class="item_img">
+		<div class="sale_con">
+		20%
+		</div>
+		<div class="scale">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
+		<img alt="" src="./img/${vo.gimage }">
+		</a>
+		</div>
+		</div>
+		<div class="item_txt">
+		<h2>${vo.gname }</h2>
+		<span class="txt_detail">${vo.gdetail }</span><br>
+		<span class="txt_price1"> <fmt:formatNumber value="${vo.gprice / 0.8 }" pattern="#,###" />원</span><br>
+		<span class="txt_price2"><fmt:formatNumber value="${vo.gprice }" pattern="#,###"/>원</span>
+		</div>
+	</div>
+	</c:if>
+	</c:forEach>
+</div>
+</section>
+<!-- 끝 -->
+
+<!-- 시작 -->
+<section id="C12"> 
+<div class="subct">
+	<div class="menubtn_wrap">
+	<div class="menubtn_box">
+	<c:forEach items="${Volist2 }" var="Vo" varStatus="status">
+	<c:if test="${fn:substring(Vo.dcode,0,1) == 'C' }">
+	<a href="#${Vo.dcode }"><button>${Vo.dcode_res }</button></a>
+	</c:if>
+	</c:forEach>
+	</div>
+	</div>
+	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
+	<c:if test="${fn:substring(vo.gcode,0,3) == 'C12' }">
+	<div class="view_item">
+		<div class="item_img">
+		<div class="sale_con">
+		20%
+		</div>
+		<div class="scale">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
+		<img alt="" src="./img/${vo.gimage }">
+		</a>
+		</div>
+		</div>
+		<div class="item_txt">
+		<h2>${vo.gname }</h2>
+		<span class="txt_detail">${vo.gdetail }</span><br>
+		<span class="txt_price1"> <fmt:formatNumber value="${vo.gprice / 0.8 }" pattern="#,###" />원</span><br>
+		<span class="txt_price2"><fmt:formatNumber value="${vo.gprice }" pattern="#,###"/>원</span>
+		</div>
+	</div>
+	</c:if>
+	</c:forEach>
+</div>
+</section>
+<!-- 끝 -->
+
+<!-- 시작 -->
+<section id="C13"> 
+<div class="subct">
+	<div class="menubtn_wrap">
+	<div class="menubtn_box">
+	<c:forEach items="${Volist2 }" var="Vo" varStatus="status">
+	<c:if test="${fn:substring(Vo.dcode,0,1) == 'C' }">
+	<a href="#${Vo.dcode }"><button>${Vo.dcode_res }</button></a>
+	</c:if>
+	</c:forEach>
+	</div>
+	</div>
+	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
+	<c:if test="${fn:substring(vo.gcode,0,3) == 'C13' }">
+	<div class="view_item">
+		<div class="item_img">
+		<div class="sale_con">
+		20%
+		</div>
+		<div class="scale">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
+		<img alt="" src="./img/${vo.gimage }">
+		</a>
+		</div>
+		</div>
+		<div class="item_txt">
+		<h2>${vo.gname }</h2>
+		<span class="txt_detail">${vo.gdetail }</span><br>
+		<span class="txt_price1"> <fmt:formatNumber value="${vo.gprice / 0.8 }" pattern="#,###" />원</span><br>
+		<span class="txt_price2"><fmt:formatNumber value="${vo.gprice }" pattern="#,###"/>원</span>
+		</div>
+	</div>
+	</c:if>
+	</c:forEach>
+</div>
+</section>
+<!-- CCCCCCCCCCCCC끝 -->
+
+<!-- 시작 -->
+<section id="D11"> 
+<div class="subct">
+	<div class="menubtn_wrap">
+	<div class="menubtn_box">
+	<c:forEach items="${Volist2 }" var="Vo" varStatus="status">
+	<c:if test="${fn:substring(Vo.dcode,0,1) == 'D' }">
+	<a href="#${Vo.dcode }"><button>${Vo.dcode_res }</button></a>
+	</c:if>
+	</c:forEach>
+	</div>
+	</div>
+	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
+	<c:if test="${fn:substring(vo.gcode,0,3) == 'D11' }">
+	<div class="view_item">
+		<div class="item_img">
+		<div class="sale_con">
+		20%
+		</div>
+		<div class="scale">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
+		<img alt="" src="./img/${vo.gimage }">
+		</a>
+		</div>
+		</div>
+		<div class="item_txt">
+		<h2>${vo.gname }</h2>
+		<span class="txt_detail">${vo.gdetail }</span><br>
+		<span class="txt_price1"> <fmt:formatNumber value="${vo.gprice / 0.8 }" pattern="#,###" />원</span><br>
+		<span class="txt_price2"><fmt:formatNumber value="${vo.gprice }" pattern="#,###"/>원</span>
+		</div>
+	</div>
+	</c:if>
+	</c:forEach>
+</div>
+</section>
+<!-- 끝 -->
+
+<section id="D12"> 
+<div class="subct">
+	<div class="menubtn_wrap">
+	<div class="menubtn_box">
+	<c:forEach items="${Volist2 }" var="Vo" varStatus="status">
+	<c:if test="${fn:substring(Vo.dcode,0,1) == 'D' }">
+	<a href="#${Vo.dcode }"><button>${Vo.dcode_res }</button></a>
+	</c:if>
+	</c:forEach>
+	</div>
+	</div>
+	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
+	<c:if test="${fn:substring(vo.gcode,0,3) == 'D12' }">
+	<div class="view_item">
+		<div class="item_img">
+		<div class="sale_con">
+		20%
+		</div>
+		<div class="scale">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
+		<img alt="" src="./img/${vo.gimage }">
+		</a>
+		</div>
+		</div>
+		<div class="item_txt">
+		<h2>${vo.gname }</h2>
+		<span class="txt_detail">${vo.gdetail }</span><br>
+		<span class="txt_price1"> <fmt:formatNumber value="${vo.gprice / 0.8 }" pattern="#,###" />원</span><br>
+		<span class="txt_price2"><fmt:formatNumber value="${vo.gprice }" pattern="#,###"/>원</span>
+		</div>
+	</div>
+	
+	</c:if>
+	</c:forEach>
+</div>
+</section>
+<!-- DDDDDDDDD끝 -->
+
+<!-- 시작 -->
+<section id="E11"> 
+<div class="subct">
+	<div class="menubtn_wrap">
+	<div class="menubtn_box">
+	<c:forEach items="${Volist2 }" var="Vo" varStatus="status">
+	<c:if test="${fn:substring(Vo.dcode,0,1) == 'E' }">
+	<a href="#${Vo.dcode }"><button>${Vo.dcode_res }</button></a>
+	</c:if>
+	</c:forEach>
+	</div>
+	</div>
+	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
+	<c:if test="${fn:substring(vo.gcode,0,3) == 'E11' }">
+	<div class="view_item">
+		<div class="item_img">
+		<div class="sale_con">
+		20%
+		</div>
+		<div class="scale">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
+		<img alt="" src="./img/${vo.gimage }">
+		</a>
+		</div>
+		</div>
+		<div class="item_txt">
+		<h2>${vo.gname }</h2>
+		<span class="txt_detail">${vo.gdetail }</span><br>
+		<span class="txt_price1"> <fmt:formatNumber value="${vo.gprice / 0.8 }" pattern="#,###" />원</span><br>
+		<span class="txt_price2"><fmt:formatNumber value="${vo.gprice }" pattern="#,###"/>원</span>
+		</div>
+	</div>
+	</c:if>
+	</c:forEach>
+</div>
+</section>
+<!-- 끝 -->
+
+<!-- 시작 -->
+<section id="E12"> 
+<div class="subct">
+	<div class="menubtn_wrap">
+	<div class="menubtn_box">
+	<c:forEach items="${Volist2 }" var="Vo" varStatus="status">
+	<c:if test="${fn:substring(Vo.dcode,0,1) == 'E' }">
+	<a href="#${Vo.dcode }"><button>${Vo.dcode_res }</button></a>
+	</c:if>
+	</c:forEach>
+	</div>
+	</div>
+	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
+	<c:if test="${fn:substring(vo.gcode,0,3) == 'E12' }">
+	<div class="view_item">
+		<div class="item_img">
+		<div class="sale_con">
+		20%
+		</div>
+		<div class="scale">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
+		<img alt="" src="./img/${vo.gimage }">
+		</a>
+		</div>
+		</div>
+		<div class="item_txt">
+		<h2>${vo.gname }</h2>
+		<span class="txt_detail">${vo.gdetail }</span><br>
+		<span class="txt_price1"> <fmt:formatNumber value="${vo.gprice / 0.8 }" pattern="#,###" />원</span><br>
+		<span class="txt_price2"><fmt:formatNumber value="${vo.gprice }" pattern="#,###"/>원</span>
+		</div>
+	</div>
+	</c:if>
+	</c:forEach>
+</div>
+</section>
+<!-- 끝 -->
+
+<!-- 시작 -->
+<section id="E13"> 
+<div class="subct">
+	<div class="menubtn_wrap">
+	<div class="menubtn_box">
+	<c:forEach items="${Volist2 }" var="Vo" varStatus="status">
+	<c:if test="${fn:substring(Vo.dcode,0,1) == 'E' }">
+	<a href="#${Vo.dcode }"><button>${Vo.dcode_res }</button></a>
+	</c:if>
+	</c:forEach>
+	</div>
+	</div>
+	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
+	<c:if test="${fn:substring(vo.gcode,0,3) == 'E13' }">
+	<div class="view_item">
+		<div class="item_img">
+		<div class="sale_con">
+		20%
+		</div>
+		<div class="scale">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
+		<img alt="" src="./img/${vo.gimage }">
+		</a>
+		</div>
+		</div>
+		<div class="item_txt">
+		<h2>${vo.gname }</h2>
+		<span class="txt_detail">${vo.gdetail }</span><br>
+		<span class="txt_price1"> <fmt:formatNumber value="${vo.gprice / 0.8 }" pattern="#,###" />원</span><br>
+		<span class="txt_price2"><fmt:formatNumber value="${vo.gprice }" pattern="#,###"/>원</span>
+		</div>
+	</div>
+	</c:if>
+	</c:forEach>
+</div>
+</section>
+<!-- 끝 -->
+
+<!-- 시작 -->
+<section id="E14"> 
+<div class="subct">
+	<div class="menubtn_wrap">
+	<div class="menubtn_box">
+	<c:forEach items="${Volist2 }" var="Vo" varStatus="status">
+	<c:if test="${fn:substring(Vo.dcode,0,1) == 'E' }">
+	<a href="#${Vo.dcode }"><button>${Vo.dcode_res }</button></a>
+	</c:if>
+	</c:forEach>
+	</div>
+	</div>
+	<c:forEach items="${GoodsList }" var="vo" varStatus="status">
+	<c:if test="${fn:substring(vo.gcode,0,3) == 'E14' }">
+	<div class="view_item">
+		<div class="item_img">
+		<div class="sale_con">
+		20%
+		</div>
+		<div class="scale">
+		<a href="./GetGoodsCtrl?gcode=${vo.gcode }">
+		<img alt="" src="./img/${vo.gimage }">
+		</a>
+		</div>
+		</div>
+		<div class="item_txt">
+		<h2>${vo.gname }</h2>
+		<span class="txt_detail">${vo.gdetail }</span><br>
+		<span class="txt_price1"> <fmt:formatNumber value="${vo.gprice / 0.8 }" pattern="#,###" />원</span><br>
+		<span class="txt_price2"><fmt:formatNumber value="${vo.gprice }" pattern="#,###"/>원</span>
+		</div>
+	</div>
+	</c:if>
+	</c:forEach>
+</div>
+</section>
+<!-- 끝 -->
 
 </div> <!-- //ct -->
 <footer id="ft">
