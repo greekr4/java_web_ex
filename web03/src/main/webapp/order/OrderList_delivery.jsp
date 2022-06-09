@@ -293,6 +293,8 @@ text-align: center;
 <table class="table table-hover">
 	<thead>
 		<tr class="table-primary">
+		<th>주문상세-제품명</th>
+		<th>주문상세-주문수량</th>
 		<th>고유번호</th>
 		<th>주문번호</th>
 		<th>STATE</th>
@@ -305,7 +307,6 @@ text-align: center;
 		<th>이메일</th>
 		<th>아이디</th>
 		<th>주문일</th>
-		<th></th>
 		</tr>
 		<!--/GetMyPageCtrl?uid=${sid } -->
 	</thead>
@@ -313,6 +314,8 @@ text-align: center;
 	<c:forEach items="${OrderList }" var="vo" varStatus="status">
 	<c:set var="listindex" value="${status.index }" />
 	<tr class="table-active">
+		<td>-----------</td>
+		<td>-----------</td>
 		<td>${vo.order_seq }</td>
 		<td>${vo.order_no }</td>
 		<td>
@@ -336,16 +339,23 @@ text-align: center;
 		<td>${vo.order_email }</td>
 		<td>${vo.user_id }</td>
 		<td>${vo.regdate }</td>
-		<td><a href="#" onclick="more(${vo.order_no })">상세보기</a></td>
+<%-- 		<td><a href="#" onclick="more(${vo.order_no })">상세보기</a></td> --%>
 	</tr>
 	<tr class="table-active test3">
 		<c:forEach items="${OrderList3 }" var="vo2" varStatus="status">
 			<c:forEach items="${vo2 }" var="vo3" varStatus="status">
 				
 				<c:if test="${vo3.order_line_no eq vo.order_no }">
+				<tr class="table-active">
 				<td class="auto_col">
 				${vo3.gname }
 				</td>
+				<td class="auto_col" style="text-align: left;">
+				(${vo3.gcode }) | ${vo3.gqty }EA
+				</td>
+				<td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
+				<td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
+				</tr>
 				</c:if>
 				
 				
