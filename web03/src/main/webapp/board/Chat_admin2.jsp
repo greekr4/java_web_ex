@@ -3,6 +3,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%
+String reqid = request.getParameter("reqid");
+request.setAttribute("reqid", reqid);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,6 +95,7 @@
     <form class="login-form" action="../SendChatCtrl" method="post">
       <table style="width: 100%; margin: 0 auto;">
       <thead>
+      <tr><th colspan="3">${reqid }와의 채팅(admin)</th></tr>
       <tr style="border-bottom: 1px solid #000;">
       <th>발신자</th>
 <!--       <th>수신자</th> -->
@@ -112,8 +117,8 @@
 
       </tbody>
       </table>
-      <input type="hidden" value="admin" name = "reqid">
-      <input type="text" placeholder="내용" name="cdetail" id="cdetail" />
+      <input type="hidden" value="${reqid }" name = "reqid">
+      <input type="text" placeholder="내용" name="cdetail" id="cdetail" autofocus required"/>
       <button type="submit">전송</button>
     </form>
     <script type="text/javascript">
@@ -126,8 +131,10 @@
 		});
 	
 	function reload() {
+
+		var reqid = "${reqid }";
 		$.ajax({				
-			url : "../GetChatListCtrl_aljax", // MemberJSONCtrl의 JSONObject 값을 가져옴
+			url : "../GetChatListCtrl_aljax?reqid="+reqid, // MemberJSONCtrl의 JSONObject 값을 가져옴
 			dataType : "json", // 데이터 타입을 json
 			contentType: 'application/x-www-form-urlencoded; charset=euc-kr', // UTF-8처리
 			cache : false, // true : 새로 고침 동작을 하지 않고, 저장된 캐시에서 불러오게됨, false:새로 불러옴 

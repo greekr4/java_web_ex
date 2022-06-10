@@ -51,7 +51,7 @@
 
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="${path }"><img alt="logo" src="./img/index/logo_1.png" style="width: 200px;height: 40px;"></a>
+    <a class="navbar-brand" href="${path }"><img alt="logo" src="${path }/img/index/logo_1.png" style="width: 200px;height: 40px;"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -68,7 +68,7 @@
           <a class="nav-link" >게시판</a>
           <ul class="menu_sub">
           	<li><a href="${path }/GetBoardListCtrl">공지사항</a></li>
-          	<li><a href="${path }/GetChatListCtrl_m">채팅</a></li>         
+          	<li><a href="${path }/board/Chat_member.jsp">채팅</a></li>         
        
           </ul>
  		</li>
@@ -230,10 +230,10 @@ $('.menu_goods').eq(4).click(function(){
 
 $('.menu_goods').eq(5).click(function(){
 	
-	var v1 = $('.menu_sub').eq(4).css('display');
+	var v1 = $('.menu_sub').eq(5).css('display');
 	if (v1 == 'none'){
 		menuac()
-		$('.menu_sub').eq(4).css('display','block');	
+		$('.menu_sub').eq(5).css('display','block');	
 	} else{
 		menuac()
 

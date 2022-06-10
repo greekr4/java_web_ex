@@ -38,17 +38,20 @@ public class GetChatListCtrl_aljax extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");	
 		response.setContentType("text/html; UTF-8");
     	HttpSession session = request.getSession();
-    	String sid = (String) session.getAttribute("sid");
-    	sid = "admin";
 		PrintWriter out = response.getWriter();
 		ChatDAO DAO = new ChatDAO();
 		ArrayList<ChatVO> Chatlist = new ArrayList<ChatVO>();
-		Chatlist = DAO.getChatlist_m1_json(sid);
+    	String reqid = request.getParameter("reqid");
+    	String sid = (String) session.getAttribute("sid");
+    	if (reqid==null) {
+    		Chatlist = DAO.getChatlist_m1_json(sid);
+    	}else {
+    		Chatlist = DAO.getChatlist_m1_json(reqid);
+    	}
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("Chatlist", Chatlist);
 		JSONObject json = new JSONObject();
 		json.putAll(map);
-		System.out.println(json);
 		out.println(json);
 	}
 

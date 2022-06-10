@@ -9,13 +9,13 @@
 <meta charset="UTF-8">
 <title>태균낚시마트</title>
 <!--  -->
-<script src="./js/jquery-latest.js"></script>
-<script src="./js/bootstrap.js"></script>
-<script src="./js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="./css/bootstrap.css">
-<link rel="stylesheet" href="./css/bootstrap.min.css">
-<link rel="stylesheet" href="./css/common.css">
-<link rel="stylesheet" href="./css/ft.css">
+<script src="../js/jquery-latest.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/ft.css">
 <!--  -->
 
 
@@ -299,53 +299,60 @@ width: 10%;
       </tr>
       </thead>
       <tbody>
-      		  <c:forEach items="${sendedlist }" var="Vo" varStatus="status" begin="0" end="9" >
-		      <c:set var="min" value="${status.index }"/>
-		      </c:forEach>
-      
-      
-      		  <c:if test="${min < 9 }">
-		      	<c:forEach begin="1" end="${9 - min }">
-		     	<tr>
-		      		<td>-</td>
- 		      		<td>-</td>
-		      		<td>-</td>
-		      		<td>-</td>
-		      		<td>-</td>
-		      		<td>-</td>
-		      </tr>
-		      	</c:forEach>
 
-		      </c:if>
       
-		      <c:forEach items="${sendedlist }" var="Vo" varStatus="status" begin="0" end="9" >
-		      <tr>
-		       
-		      	<td>${Vo.sendid }</td>
- 		      	<td>${Vo.reqid }</td>
-		      	<td>${Vo.cdetail }</td>
-		      	<td>${Vo.cdate }</td>
-		      	<td>${Vo.answer_val }</td>
-		      	<td>
-		      	<form class="login-form" action="SendChatCtrl" method="post">
-		      	<c:if test="${Vo.sendid eq 'admin' }">
-		      	<input type="text" value="${Vo.reqid }" name = "reqid">
-		      	</c:if>
-		      	<c:if test="${Vo.sendid ne 'admin' }">
-		      	<input type="text" value="${Vo.sendid }" name = "reqid">
-		      	</c:if>
-		      	
-     			<input type="text" placeholder="내용" name="cdetail" id="cdetail" />
-      			<button type="submit">전송</button>
-      			 </form>
-     		 </td>
-		      </tr>
-		      </c:forEach>
 
       </tbody>
       </table>
     <script type="text/javascript">
-
+    reload();
+	$(document).ready(function() {		
+		setInterval(() => {
+			reload();
+		}, 1000);
+												
+		});
+	
+	function reload() {
+		$.ajax({				
+			url : "../GetChatListCtrl_aljax", // MemberJSONCtrl의 JSONObject 값을 가져옴
+			dataType : "json", // 데이터 타입을 json
+			contentType: 'application/x-www-form-urlencoded; charset=euc-kr', // UTF-8처리
+			cache : false, // true : 새로 고침 동작을 하지 않고, 저장된 캐시에서 불러오게됨, false:새로 불러옴 
+			success : function(data) {
+/* 					$("#con").empty(); //id가 con을 초기화					
+				$("<table>").css({						
+					backgroundColor : "#ececec",						
+					border : "solid 3px gold",
+					margin : "20px auto",
+					}).appendTo("#con"); // 테이블을 생성하고 그 테이블을 div에 추가함		 */						
+/* 						$("<tr>" , {												
+						html : "<th>"+key[1]+"</th>"+  // 컬럼명들														
+						"<th>" + key[4] + "</th>"+								
+						"<th>" + key[0] + "</th>"
+	
+						}).appendTo("table") // 이것을 테이블에붙임		 */	
+						var key = Object.keys(data["Chatlist"][0]); // 키값(항목명)을 가져옴		
+						$("tbody").empty();
+						$.each(data.Chatlist, function(index, Chatlist) { // 이치를 써서 모든 데이터들을 배열에 넣음												
+							var items = [];						
+							items.push("<td>" + Chatlist.sendid + "</td>"); // 여기에 id pw addr tel의 값을 배열에 넣은뒤	
+							items.push("<td>" + Chatlist.reqid + "</td>");
+							items.push("<td>" + Chatlist.cdetail + "</td>");
+							items.push("<td>" + Chatlist.cdate + "</td>");
+							items.push("<td>" + Chatlist.answer_val + "</td>");
+							items.push("<td><button onclick='send(\"" + Chatlist.sendid + "\");'>답장2</button></td>")
+							$("<tr/>", {							
+								html : items // 티알에 붙임,						
+							}).appendTo("table"); // 그리고 그 tr을 테이블에 붙임					
+						});//each끝				
+					}			
+			});	
+	}
+	function send(reqid) {
+		
+	location.href='./Chat_admin2.jsp?reqid='+reqid;
+	}
     </script>
    
   </div>

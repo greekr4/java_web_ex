@@ -50,11 +50,11 @@ public class SendChatCtrl extends HttpServlet {
     	int cnt = DAO.sendChat(Vo);
     	
     	if(sid.equals("admin")) {
-    		out.println("<script>location.href = './GetChatListCtrl_a'</script>");
+    		out.println("<script>location.href = './board/Chat_admin2.jsp?reqid="+ reqid +"'</script>");
     	}else if (cnt > 0) {
-    		out.println("<script>location.href = './GetChatListCtrl_m'</script>");
+    		out.println("<script>location.href = './board/Chat_member.jsp'</script>");
     	}else {
-    		out.println("<script>location.href = './GetChatListCtrl_m'</script>");
+    		out.println("<script>location.href = './board/Chat_member.jsp'</script>");
     	}
 
 	}
