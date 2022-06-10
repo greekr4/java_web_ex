@@ -9,4 +9,5 @@
 						<li><a href="./GetOrderListCtrl?val=0">Order 종합</a></li>
 						<li><a href="./GetOrderListCtrl?val=1">입금 승인 요청</a></li>
 						<li><a href="./GetOrderListCtrl?val=2">배송 관리</a></li>
+						<li><a href="./GetChatListCtrl_a">채팅 관리</a></li>
 					</ul>

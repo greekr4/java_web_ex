@@ -16,7 +16,6 @@ import com.shop.model.MemberDAO;
 
 import net.sf.json.JSONObject;
 
-import net.sf.json.JSONObject;
 
 /**
  * Servlet implementation class MemberJSONCtrl

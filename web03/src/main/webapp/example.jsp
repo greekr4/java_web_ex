@@ -54,6 +54,8 @@ namelist.add("b");
 namelist.add("c");
 namelist.add("d");
 %>
+
+
 <c:forEach items="<%=name %>" var="for1" varStatus="status">
 ${for1 }
 </c:forEach>
@@ -61,7 +63,48 @@ ${for1 }
 <c:forEach items="<%=namelist %>" var="for2" varStatus="status">
 ${for2 }
 </c:forEach>
+<hr>
+<%!
+public class human{
+	private String name;
+	private int age;
+}
+%>
+<%
+human h1 = new human();
+ArrayList<human> humanlist = new ArrayList<human>();
+h1.name = "사람1";
+h1.age = 10;
+humanlist.add(h1);
+h1.name = "사람2";
+h1.age = 20;
+humanlist.add(h1);
+h1.name = "사람3";
+h1.age = 30;
+humanlist.add(h1);
+%>
+<c:forEach items="${humanlist }" var="human">
+<c:set var="result" value="${result + i }"/>
+</c:forEach>
 
+<hr>
 
+<c:forEach  var="i" begin="1" end="100" step="2">
+<c:set var="result" value="${result + i }"/>
+</c:forEach>
+${result }
+<hr>
+<c:forTokens items="김/태/균" delims="/" var="zz">
+<p>${zz }</p>
+</c:forTokens>
+<hr>
+<c:forTokens items="김/태*균-임,니.다" delims="/*-,." var="zz">
+<p>${zz }</p>
+</c:forTokens>
+<hr>
+<c:redirect url="example2.jsp">
+ <c:param name="x" value="10"/>
+ <c:param name="y" value="20"/>
+</c:redirect>
 </body>
 </html>

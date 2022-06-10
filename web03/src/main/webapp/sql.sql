@@ -11,10 +11,10 @@ select count(*) from goods
 select mno,mid,mpw,mname,mtel,maddress,memail,mnick,mcash,mpoint,mgrade,to_char(mjday,'yyyy-MM-dd HH24:mi:ss') as jday, to_char(mlatest,'yyyy-MM-dd HH24:mi:ss') as latest from shop_member order by mno desc;
 select * from payment;
 select * from shop_comment;
-
+select * from shop_member;
 insert into shop_comment values(1,'A110001','admin','너무 좋아요',5);
-
-
+select * from (select cno,sendid,reqid,cdetail,cdate,answer_val from shop_chat where sendid = ? or reqid = ? order by cno desc) where rownum <= 10 order by cno
+select cno,cdetail,sendid,reqid,to_char(cdate,'yy-mm-dd hh24:mi') as cdate,answer_val from (select * from shop_chat where sendid = 'admin' or reqid = 'admin' order by cno desc) where rownum <= 10 order by cno
 CREATE TABLE db_access (
   no number primary key,
   request_uri varchar(100),
@@ -393,3 +393,39 @@ thumb number not null
 
 select * from shop_order_line
 update shop_member set mpoint=mpoint+ latest=sysdate where mid=?
+
+
+
+drop table shop_chat;
+create table shop_chat(
+cno number primary key,
+cdetail varchar(100),
+sendid varchar(100),
+reqid varchar(100),
+cdate date,
+answer_val number default 0
+);
+
+insert into shop_chat values(
+(select nvl(max(cno),0)+1 from shop_chat),
+'내용',
+'admin',
+'test',
+'0'
+sysdate
+)
+
+insert into shop_chat values(
+(select nvl(max(cno),0)+1 from shop_chat),
+'지웠어요',
+'admin',
+'1',
+sysdate
+)
+
+select * from (select * from shop_chat where sendid = 'admin' or reqid = 'admin' order by cno desc) where rownum <= 10 order by cno desc;
+select * from (select * from shop_chat where sendid = 'admin' or reqid = 'admin' order by cno desc) where rownum <= 10 order by cno;
+
+select * from shop_chat where sendid=? or reqid=? and rownum <= 10 order by cno
+
+select * from shop_chat where rownum <= 10;

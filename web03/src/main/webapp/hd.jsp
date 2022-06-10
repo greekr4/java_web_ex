@@ -63,9 +63,16 @@
             <span class="visually-hidden"></span>
           </a> --%>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="${path }/GetBoardListCtrl">공지사항</a>
-        </li>
+       
+        <li class="nav-item menu_goods">
+          <a class="nav-link" >게시판</a>
+          <ul class="menu_sub">
+          	<li><a href="${path }/GetBoardListCtrl">공지사항</a></li>
+          	<li><a href="${path }/GetChatListCtrl_m">채팅</a></li>         
+       
+          </ul>
+ 		</li>
+        
 <%--         <li class="nav-item">
           <a class="nav-link" href="${path }/GetGoodsList_mCtrl">상품게시판</a>
         </li> --%>
@@ -210,6 +217,18 @@ $('.menu_goods').eq(3).click(function(){
 });
 
 $('.menu_goods').eq(4).click(function(){
+	
+	var v1 = $('.menu_sub').eq(4).css('display');
+	if (v1 == 'none'){
+		menuac()
+		$('.menu_sub').eq(4).css('display','block');	
+	} else{
+		menuac()
+
+	}
+});
+
+$('.menu_goods').eq(5).click(function(){
 	
 	var v1 = $('.menu_sub').eq(4).css('display');
 	if (v1 == 'none'){
