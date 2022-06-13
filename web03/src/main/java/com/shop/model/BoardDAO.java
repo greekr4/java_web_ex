@@ -43,6 +43,33 @@ public class BoardDAO {
 		finally 							{ JDBCConnection.close(rs, pstmt, conn); }
 		return list;
 	}
+	//JSon전용) + 상위 10개 역순정렬
+	public ArrayList<Shop_BoardVO> getBoardList_Json(){
+		ArrayList<Shop_BoardVO> list = null;
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "select * from (select * from shop_board) where rownum <= 10 order by no desc";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			list = new ArrayList<Shop_BoardVO>();
+			while(rs.next()) {
+				Shop_BoardVO vo = new Shop_BoardVO();
+				vo.setNo(rs.getInt("no"));
+				vo.setTit(rs.getString("tit"));
+				vo.setCon(rs.getString("con"));
+				vo.setWriter(rs.getString("writer"));
+				vo.setViewed(rs.getInt("viewed"));
+				vo.setThumb(rs.getInt("thumb"));
+				vo.setLock_post(rs.getInt("lock_post"));
+				list.add(vo);
+			}
+		}
+		catch(ClassNotFoundException e) 	{ System.out.println("드라이버 로딩이 실패되었습니다."); e.printStackTrace(); }
+		catch(SQLException e) 				{ System.out.println("SQL구문이 처리되지 못했습니다."); e.printStackTrace(); }
+		catch(Exception e) 					{ System.out.println("잘못된 요청으로 업무를 처리하지 못했습니다."); e.printStackTrace();	}
+		finally 							{ JDBCConnection.close(rs, pstmt, conn); }
+		return list;
+	}
 	//게시판 상세
 	public Shop_BoardVO getBoard(int no) {
 		Shop_BoardVO vo = new Shop_BoardVO();

@@ -181,7 +181,26 @@ margin-top:50px;}
 		}, 4000);
 		
 		
-		
+		$.ajax({				
+			url : "./GetBoardListCtrl_Json", // MemberJSONCtrl의 JSONObject 값을 가져옴
+			dataType : "json", // 데이터 타입을 json
+			contentType: 'application/x-www-form-urlencoded; charset=euc-kr', // UTF-8처리
+			cache : false, // true : 새로 고침 동작을 하지 않고, 저장된 캐시에서 불러오게됨, false:새로 불러옴 
+			success : function(data) {
+						//key[0] 키값 
+
+	
+						var key = Object.keys(data["list"][0]); // 키값(항목명)을 가져옴		
+						$.each(data.list, function(index, list) { // 이치를 써서 모든 데이터들을 배열에 넣음				
+						var items = [];	
+						
+						$(".list").append("<li><a href='#'>" + list.tit + "<a/></li>"); 
+						}); //each 끝
+						
+							
+					}			
+			});	
+	
 		</script>
 <footer id="ft">
 <jsp:include page="ft.jsp"></jsp:include>
