@@ -160,11 +160,6 @@ margin-top:50px;}
 	</div>
 </div>
 	<script type="text/javascript">
-
-
-	 
-	 
-
 		setInterval(() => {
 			var item1 = $('.main_item1').css('display')
 			var item2 = $('.main_item2').css('display')
@@ -184,6 +179,9 @@ margin-top:50px;}
 				$('.main_item1').delay(100).fadeIn(500);
 			}
 		}, 4000);
+		
+		
+		
 		</script>
 <footer id="ft">
 <jsp:include page="ft.jsp"></jsp:include>
